@@ -9,6 +9,7 @@ exports.logVal = function(stream, val) {
 
 exports.clearVals = function(stream) {
     m2x.devices.deleteStream("15df8a57671bb58f633afa646f348dbc", stream);
+    m2x.devices.updateStream("15df8a57671bb58f633afa646f348dbc", stream, {unit: {label: stream, symbol: "u"}, type: "numberic"});
 }
 
-exports.clearVals("accel-y");
+exports.clearVals("batt");
