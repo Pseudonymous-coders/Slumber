@@ -9,7 +9,6 @@ exports.logVal = function(stream, val) {
 
 exports.clearVals = function(stream) {
     m2x.devices.deleteStream("15df8a57671bb58f633afa646f348dbc", stream);
-    m2x.devices.updateStream("15df8a57671bb58f633afa646f348dbc", stream, {display_name: stream});
 }
 
 exports.clearVals("accel-y");
