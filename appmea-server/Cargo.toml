@@ -1,0 +1,10 @@
+[package]
+name = "server"
+version = "0.1.0"
+authors = ["oliver <oliverswarne@gmail.com>"]
+
+[dependencies.nickel]
+version="*"
+
+[dependencies]
+rustc-serialize="*"
