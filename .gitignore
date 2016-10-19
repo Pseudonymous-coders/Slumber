@@ -1,3 +1,4 @@
 *.un~
 *.swp
 appmea-server/target
+hub/node_modules
