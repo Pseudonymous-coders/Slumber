@@ -1,27 +1,16 @@
 #[macro_use] extern crate nickel;
 extern crate rustc_serialize;
+extern crate uuid;
+
+mod sql;
 
 use std::collections::BTreeMap;
 use nickel::{Nickel, JsonBody, HttpRouter, MediaType};
 use nickel::status::StatusCode;
 use rustc_serialize::json::{Json, ToJson};
-
-#[derive(RustcDecodable,RustcEncodable)]
-struct Values {
-    vbatt: f64,
-    hr: usize,
-    temp: usize,
-    x: usize,
-    y: usize,
-    z: usize,
-}
-
-#[derive(RustcDecodable,RustcEncodable)]
-struct Data {
-    uuid: usize,
-    timestamp: usize,
-    values: Values,
-}
+use rustc_serialize::json;
+use uuid::Uuid;
+use sql::{Values,Data};
 
 impl ToJson for Values {
     fn to_json(&self) -> Json {
@@ -39,22 +28,49 @@ impl ToJson for Values {
 impl ToJson for Data {
     fn to_json(&self) -> Json {
         let mut map = BTreeMap::new();
-        map.insert("uuid".to_string(), self.uuid.to_json());
+        // Future Oliver, I hope you can figure out how to get to_Json to work
+        // for Uuid to work. Cause I can't.
+        //
+        // <3
+        map.insert("uuid".to_string(), self.uuid.to_string().to_json());
         map.insert("timestamp".to_string(), self.timestamp.to_json());
         map.insert("values".to_string(), self.values.to_json());
         return Json::Object(map);
     }
 }
 
+fn main2() {
+    let uuid = "43a59d21-6bb5-4fe4-bdb1-81963d7a24a8";
+    let real_uuid = Uuid::parse_str(uuid).unwrap();
+    println!("{}",real_uuid.to_string());
+    sql::select(&real_uuid);
+    println!("{}",32.to_json());
+
+}
+
 fn main() {
     let mut server = Nickel::new();
-    
     server.post("/", middleware! { |request, response|
             let data = try_with!(response, {
                 request.json_as::<Data>().map_err(|e| (StatusCode::BadRequest, e))
             });
             format!("Hello {} at {}", data.uuid, data.timestamp)
     });
+
+    server.get("/", middleware! { |req|
+        666.to_json()
+    });
+
+    server.get("/:uuid/", middleware! { |req|
+
+        let uuid = req.param("uuid").unwrap();
+        let real_uuid = Uuid::parse_str(uuid).unwrap();
+        let data = sql::select(&real_uuid);
+
+        println!("{}",data.to_json().to_string());
+
+        data.to_json()
+    });      
 
     server.get("/:uuid/:timestamp", middleware! { |req|
 
@@ -71,11 +87,11 @@ fn main() {
         };
 
         let data = Data {
-            uuid: uuid.parse::<usize>().unwrap(),
-            timestamp: timestamp.parse::<usize>().unwrap(),
+            uuid: uuid.parse::<Uuid>().unwrap(),
+            timestamp: timestamp.parse::<i32>().unwrap(),
             values: vals,
         };
-        data.to_json();
+        data.to_json()
     });
 
     server.listen("127.0.0.1:6767");

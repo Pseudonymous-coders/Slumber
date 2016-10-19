@@ -4,7 +4,15 @@ version = "0.1.0"
 authors = ["oliver <oliverswarne@gmail.com>"]
 
 [dependencies.nickel]
-version="*"
+version="0.9.0"
+
+[dependencies.postgres]
+version  = "0.12"
+features = ["with-uuid"]
+
+[dependencies.uuid]
+version = "0.3.1"
+features=["rustc-serialize"]
 
 [dependencies]
-rustc-serialize="*"
+rustc-serialize="0.3.19"
