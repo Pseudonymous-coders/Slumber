@@ -21,8 +21,20 @@ pub struct Data {
     pub values: Values,
 }
 
-pub fn select(uuid: &Uuid) {
-    let conn = Connection::connect("postgres://pc:r@localhost/pc", TlsMode::None).unwrap(); 
+pub fn insert(data: &Data) {
+    let conn = Connection::connect("postgres://pc:r@localhost/pc", 
+                                   TlsMode::None).unwrap();
+    conn.execute("INSERT INTO test VALUES ($1, $2, $3, $4, $5, $6, $7, $8)",
+                  &[&data.uuid, &data.timestamp, &data.values.vbatt, 
+                  &data.values.hr, &data.values.temp, &data.values.x, 
+                  &data.values.y, &data.values.z]).unwrap();
+}
+
+
+pub fn select(uuid: &Uuid) -> Vec<Data> {
+    let conn = Connection::connect("postgres://pc:r@localhost/pc",
+                                   TlsMode::None).unwrap(); 
+    let mut list: Vec<Data> = Vec::new();
     for row in &conn.query("SELECT * FROM test WHERE id = $1", &[uuid]).unwrap() {
         let val = Values {
             vbatt: row.get(2),
@@ -37,11 +49,14 @@ pub fn select(uuid: &Uuid) {
             timestamp: row.get(1),
             values: val,
         };
+        list.push(data);
     }
+    list
 }
 
 pub fn conn() {
-    let conn = Connection::connect("postgres://pc:r@localhost/pc", TlsMode::None).unwrap();
+    let conn = Connection::connect("postgres://pc:r@localhost/pc",
+                                   TlsMode::None).unwrap();
     for row in &conn.query("SELECT * FROM test", &[]).unwrap() {
         let val = Values {
             vbatt: row.get(2),
