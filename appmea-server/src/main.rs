@@ -57,10 +57,10 @@ fn main() {
             sql::insert(&data);
             format!("Hello {} at {}", data.uuid, data.timestamp)
     });
-/*
+
     server.get("/", middleware! { |req|
         666.to_json()
-    });*/
+    });
     
     // This works!
     server.get("/:uuid/", middleware! { |req|
