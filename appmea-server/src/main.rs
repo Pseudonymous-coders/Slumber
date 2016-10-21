@@ -18,9 +18,7 @@ impl ToJson for Values {
         map.insert("vbatt".to_string(), self.vbatt.to_json());
         map.insert("hr".to_string(), self.hr.to_json());
         map.insert("temp".to_string(), self.temp.to_json());
-        map.insert("x".to_string(), self.x.to_json());
-        map.insert("y".to_string(), self.y.to_json());
-        map.insert("z".to_string(), self.z.to_json());
+        map.insert("accel".to_string(), self.accel.to_json());
         return Json::Object(map);
     }
 }
