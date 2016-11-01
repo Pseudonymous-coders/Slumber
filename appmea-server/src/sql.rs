@@ -20,9 +20,20 @@ pub struct Data {
 }
 
 pub fn connect() -> Connection {
-    Connection::connect("postgres://pc:r@localhost/pc", TlsMode::None).unwrap()
+    Connection::connect("postgres://db:db@localhost/db", TlsMode::None).unwrap()
 }
 
+pub fn create_table() {
+    let conn = connect();
+    conn.execute("CREATE TABLE test2 (
+                  uuid UUID,
+                  tsmp INT,
+                  vbatt DOUBLE PRECISION,
+                  hr INT,
+                  temp INT,
+                  accel INT
+                  )",&[]).unwrap();
+}
 
 pub fn insert(data: &Data) {
     let conn = connect();
@@ -36,7 +47,7 @@ pub fn insert(data: &Data) {
 pub fn select(uuid: &Uuid) -> Vec<Data> {
     let conn = connect();
     let mut list: Vec<Data> = Vec::new();
-    for row in &conn.query("SELECT * FROM test2 WHERE id = $1", &[uuid]).unwrap() {
+    for row in &conn.query("SELECT * FROM test2 WHERE uuid = $1", &[uuid]).unwrap() {
         let val = Values {
             vbatt: row.get(2),
             hr: row.get(3),

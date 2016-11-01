@@ -5,7 +5,7 @@ extern crate uuid;
 mod sql;
 
 use std::collections::BTreeMap;
-use nickel::{Nickel, JsonBody, HttpRouter, MediaType, FormBody};
+use nickel::{Nickel, JsonBody, HttpRouter, MediaType, FormBody, QueryString};
 use nickel::status::StatusCode;
 use rustc_serialize::json::{Json, ToJson};
 use rustc_serialize::json;
@@ -60,7 +60,7 @@ fn main() {
         666.to_json()
     });
     
-    // This works!
+// This works!
     server.get("/:uuid/", middleware! { |req|
 
         let uuid = req.param("uuid").unwrap();
@@ -73,21 +73,28 @@ fn main() {
     server.get("/:uuid/:timestamp", middleware! { |req|
 
         let uuid = req.param("uuid").unwrap();
-        let real_uuid = Uuid::parse_str(uuid).unwrap();
         let timestamp = req.param("timestamp").unwrap();
+       // "000000000000000000000000000000000000"
+        let real_uuid = Uuid::parse_str(uuid).unwrap_or(Uuid::nil());
+        let real_tsmp = timestamp.parse::<i32>().unwrap_or(0);
 
         let data: Vec<Data> = sql::select(&real_uuid);
         let mut return_data: Vec<Data> = Vec::new();
 
         for item in data {
-            if item.timestamp == timestamp.parse::<i32>().unwrap() {
+            if item.timestamp == real_tsmp {
                 return_data.push(item);
             }
         }
         return_data.to_json()
     });
+    
+    server.get("/:uuid", middleware! { |request| 
+            format!("No foo vals")
+    });
 
-    server.listen("127.0.0.1:6767");
+    println!("uhhhh????");
+    server.listen("0.0.0.0:6767").unwrap();
 }
 /*
 {
