@@ -5,7 +5,7 @@ extern crate uuid;
 mod sql;
 
 use std::collections::BTreeMap;
-use nickel::{Nickel, JsonBody, HttpRouter, MediaType, FormBody};
+use nickel::{Nickel, JsonBody, HttpRouter, MediaType, FormBody, QueryString};
 use nickel::status::StatusCode;
 use rustc_serialize::json::{Json, ToJson};
 use rustc_serialize::json;
@@ -40,10 +40,10 @@ impl ToJson for Data {
 fn main2() {
     let uuid = "43a59d21-6bb5-4fe4-bdb1-81963d7a24a8";
     let real_uuid = Uuid::parse_str(uuid).unwrap();
-    println!("{}",real_uuid.to_string());
-    sql::select(&real_uuid);
-    println!("{}",32.to_json());
-
+    let x = sql::select_between(&real_uuid,&3,&9);
+    for i in x {
+        println!("{}",i.timestamp);
+    };
 }
 
 fn main() {
@@ -60,34 +60,55 @@ fn main() {
         666.to_json()
     });
     
-    // This works!
-    server.get("/:uuid/", middleware! { |req|
+// This works!
+/*
+    server.get("/:uuid", middleware! { |req|
+
 
         let uuid = req.param("uuid").unwrap();
-        let real_uuid = Uuid::parse_str(uuid).unwrap();
+        let real_uuid = Uuid::parse_str(uuid).unwrap_or(Uuid::nil());
         let data: Vec<Data> = sql::select(&real_uuid);
 
         data.to_json()
-    });      
+    });      */
 
-    server.get("/:uuid/:timestamp", middleware! { |req|
+    server.get("/user_data", middleware! { |req, res|
+        
+        let foo  = &req.query();
 
-        let uuid = req.param("uuid").unwrap();
-        let real_uuid = Uuid::parse_str(uuid).unwrap();
-        let timestamp = req.param("timestamp").unwrap();
+        let uuid:Uuid = match foo.get("uuid") {
+            Some(s) => match Uuid::parse_str(s) {
+                Ok(u)  => u,
+                Err(e) => Uuid::nil(),
+            },
+            None => Uuid::nil()
+        };
 
-        let data: Vec<Data> = sql::select(&real_uuid);
-        let mut return_data: Vec<Data> = Vec::new();
+        let start:i32 = match foo.get("start") {
+            Some(s) => match s.parse::<i32>() {
+                Ok(n)  => n,
+                Err(e) => i32::min_value(),
+            },
+            None => i32::min_value()
+        };
 
-        for item in data {
-            if item.timestamp == timestamp.parse::<i32>().unwrap() {
-                return_data.push(item);
-            }
+        let end:i32 = match foo.get("end")  {
+            Some(s) => match s.parse::<i32>() {
+                Ok(n)  => n,
+                Err(e) => i32::max_value(),
+            },
+            None => i32::max_value()
+        };
+
+        if uuid.is_nil() {
+            (StatusCode::BadRequest, "Uuid paramter was not valid".to_string())
+        } else { 
+            let data: Vec<Data> = sql::select_between(&uuid, &start, &end);
+            (StatusCode::Ok, data.to_json().to_string())
         }
-        return_data.to_json()
     });
-
-    server.listen("127.0.0.1:6767");
+    
+    server.listen("0.0.0.0:6767").unwrap();
 }
 /*
 {
