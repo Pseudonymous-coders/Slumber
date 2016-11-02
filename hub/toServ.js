@@ -6,9 +6,9 @@ var total = url+":"+port;
 
 var uuid = "43a59d21-6bb5-4fe4-bdb1-81963d7a24a8"
 
-function getAllSleep(uuid){
+function getAllSleep(user){
     var options = {
-        url: total+"/"+uuid,
+        url: total+"/"+user,
         method: 'GET',
         headers: {
             'Accept': 'application/json',
@@ -16,9 +16,12 @@ function getAllSleep(uuid){
         }
     };
     request(options, function(err, res, body){
-        var json = JSON.parse(body);
+        //var json = JSON.parse(body);
+        json = body;
+        console.log(options.url)
         return json;
     });
 }
 
-var sleep = getAllSleep();
+var sleep = getAllSleep(uuid);
+console.log(sleep);
