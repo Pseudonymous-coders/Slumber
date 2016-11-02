@@ -1,16 +1,12 @@
 var request = require('request');
 var basics = require('./basics');
+var exports = module.exports = {};
 
-var protocol = "http";
-var url = protocol+"://"+"pseudonymous.ddns.net";
-url = protocol+"://"+"72.180.45.88";
-var port = 6767;
-var total = url+":"+port;
+var tempUrl = "http://72.180.45.88:6767";
+var user = "43a59d21-6bb5-4fe4-bdb1-81963d7a24a8"
 
-var uuid = "43a59d21-6bb5-4fe4-bdb1-81963d7a24a8"
-
-function userData(user, start, end){
-    var fullUrl = url+":"+port+"/"+"user_data?uuid="+user;
+function userData(url, uuid, start, end){
+    var fullUrl = url+"user_data?";
     if (start) {
         fullUrl = fullUrl+"&start="+start;
     }
@@ -21,6 +17,7 @@ function userData(user, start, end){
         url: fullUrl,
         method: 'GET',
         headers: {
+            'uuid': uuid,
             'Accept': 'application/json',
             'Accept-Charset': 'utf-8'
         }
@@ -31,4 +28,17 @@ function userData(user, start, end){
             console.log(data);
         })
 }
-userData(uuid);
+
+
+function sendData(url, data, uuid) {
+    toSend = {
+        uuid: uuid,
+        data: data
+    }
+    request.post(url+"/postData", toSend);
+}
+
+exports
+    .userData = userData()
+    .config = config()
+    .sendData = sendData()
