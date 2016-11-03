@@ -1,5 +1,6 @@
 var nrf = require('nrfuart');
-var toServ = require('./toServ.js');
+var toServ = require('./toServ');
+var serialCom = require('./serialCom')
 
 var xmax = ymax = zmax = tempmax = VBatt = 0;
 console.log("Started BLE server...");

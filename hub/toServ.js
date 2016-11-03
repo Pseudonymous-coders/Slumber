@@ -5,7 +5,7 @@ var exports = module.exports = {};
 var tempUrl = "http://72.180.45.88:6767";
 var user = "43a59d21-6bb5-4fe4-bdb1-81963d7a24a8"
 
-function userData(url, uuid, start, end){
+exports.userData = function(url, uuid, start, end){
     var fullUrl = url+"user_data?";
     if (start) {
         fullUrl = fullUrl+"&start="+start;
@@ -30,15 +30,10 @@ function userData(url, uuid, start, end){
 }
 
 
-function sendData(url, data, uuid) {
+exports.sendData = function(url, data, uuid) {
     toSend = {
         uuid: uuid,
         data: data
     }
     request.post(url+"/postData", toSend);
 }
-
-exports
-    .userData = userData()
-    .config = config()
-    .sendData = sendData()

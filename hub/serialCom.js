@@ -1,5 +1,6 @@
 var net = require('net');
 var basics = require('./basics')
+var exports = module.exports = {};
 
 var PORT = 3005;
 var host = "127.0.0.1";
@@ -45,10 +46,20 @@ client.on('data', function(data){
     // Connect to wifi
     } else if (data.exec == "connectWifi") {
         var connected = 0;
-        wifi.connect({ssid: data.ssid, password: data.password}, function(err) {
-            console.log(err)
+        if (data.password.length > 0 && data.ssid.length  >0) {
+            wifi.connect({ssid: data.ssid, password: data.password}, function(err) {
+                console.log(err);
+                connected = 2;
+            });
+        } else if (data.password.length == 0 && data.ssid.length > 0) {
+            wifi.connect({ssid: data.ssid}, function(err) {
+                console.log(err);
+                connected = 2;
+            });
+        } else {
             connected = 2;
-        });
+        }
+
         if (connected != 2) {
             connected = 1;
         }
@@ -62,7 +73,7 @@ client.on('data', function(data){
         response = {
             response: data.exec,
             data: {
-                error: "Unknown error/command";
+                error: "Unknown error/command"
             }
         }
     }
@@ -70,4 +81,8 @@ client.on('data', function(data){
 
 client.on('close', function() {
     console.log("Closed Connection")
+});
+
+exports.sendData = function(data) {
+    client.write(data);
 }
