@@ -266,8 +266,8 @@ def writer(ep_out: usb.util, conn: socket.socket):
         # Double check json before sending to the phone
         try:
             json_data = json.loads(str(data_recv))
-        except json.JSONDecodeError:
-            print("Error decoding json")
+        except json.JSONDecodeError as error:
+            print("Error decoding json %s" % str(error))
             try:
                 send_error(conn, code=4, message="Failed parsing json", close=False)
             except ValueError:
