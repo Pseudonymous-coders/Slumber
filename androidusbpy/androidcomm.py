@@ -211,7 +211,6 @@ def accessory_task(vid):
                     last_print = False
                     got_data = str(readbuffer(ep_in.read(size_sent, timeout=TIMEOUT)))
                     print("Got data:\nSIZE: %d\nDATA: %s" % (size_sent, got_data))
-                    '''
                     try:
                         conn.send(got_data.encode('utf-8'))
                         print("Wrote: %s" % got_data)
@@ -221,7 +220,6 @@ def accessory_task(vid):
                             send_error(conn, code=5, message="Failed receiving data from the phone", close=False)
                         except ValueError:
                             break
-                    '''
                 except (KeyboardInterrupt, InterruptedError):
                     break
                 except usb.core.USBError as err:
