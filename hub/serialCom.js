@@ -1,5 +1,6 @@
 var net = require('net');
 var basics = require('./basics')
+var wifi = require('node-wifi');
 var exports = module.exports = {};
 
 var PORT = 3005;
@@ -7,23 +8,33 @@ var host = "127.0.0.1";
 
 var client = new net.Socket();
 
+wifi.init({
+    debug: false,
+    iface: null
+});
+
+
 client.connect(PORT, host, function() {
     console.log('Connected to {}:{}'.format(host, PORT));
 })
 
 client.on('data', function(data){
-    data = JSON.parse(data.toSting());
+    try{
+        data = JSON.parse(data.toString());
+    } catch(err) {
+        console.log(err);
+        console.log(data);
+        client.write(JSON.stringify({
+            response: "JSONPARSE", 
+            data: {
+                error: "JSON parse error"
+            }
+        }));
+    }
     var response = {};
-
     // Get wifi list
     if (data.exec == "getWifi") {
-        var wifi = require('node-wifi');
-        
-        wifi.init({
-            debug: false,
-            iface: null
-        });
-
+        console.log("Getting wifi");
         wifi.scan(function(err, networks) {
             if (err) {
                 response = {
@@ -40,11 +51,12 @@ client.on('data', function(data){
                     }
                 }
             }
+            client.write(JSON.stringify(response));
         });
 
-        client.write(response);
     // Connect to wifi
     } else if (data.exec == "connectWifi") {
+        console.log("Connecting to wifi");
         var connected = 0;
         if (data.password.length > 0 && data.ssid.length  >0) {
             wifi.connect({ssid: data.ssid, password: data.password}, function(err) {
@@ -69,7 +81,10 @@ client.on('data', function(data){
                 connected: connected
             }
         }
+    } else if (data.exec == "test") {
+        console.log("Error packet");
     } else {
+        console.log("Unknown command");
         response = {
             response: data.exec,
             data: {
