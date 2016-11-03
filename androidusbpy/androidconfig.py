@@ -15,7 +15,7 @@ VERSION = "1.0.0-alpha"
 VERSION_CONTROLLER = 2
 URL = "http://pseudonymous.tk"
 SERIAL = "1865"
-ERROR_JSON = {"error": "", "code": 0}
+ERROR_JSON = {"exec": "test"}
 READY_JSON = {"state": True}
 
 # Advanced Settings
