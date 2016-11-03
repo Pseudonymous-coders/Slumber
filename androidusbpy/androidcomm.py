@@ -203,10 +203,10 @@ def accessory_task(vid):
             while reading:
                 try:
                     try:
-                        size_sent = int(str(readbuffer(ep_in.read(SIZEBUFFER, timeout=1))))
-                    except Exception:
+                        size_sent = int(str(readbuffer(ep_in.read(SIZEBUFFER, timeout=TIMEOUT))))
+                    except Exception as err:
                         if not last_print:
-                            print("Failed getting size of packet")
+                            print("Failed getting size of packet: %s" % str(err))
                             last_print = True
                         continue
 
@@ -214,7 +214,8 @@ def accessory_task(vid):
                     got_data = str(readbuffer(ep_in.read(size_sent, timeout=TIMEOUT)))
                     print("Got data:\nSIZE: %d\nDATA: %s" % (size_sent, got_data))
                     try:
-                        conn.send(got_data)
+                        conn.send(got_data.encode('utf-8'))
+                        print("Wrote: %s" % got_data)
                     except socket.error:
                         print("Failed getting data")
                         try:
@@ -252,9 +253,9 @@ def writer(ep_out: usb.util, conn: socket.socket):
     while reading:
         try:
             data_recv = conn.recv(TCP_BUFF).decode('utf-8')
-            check_resp = {"check": data_recv}
-            conn.send(json.dumps(check_resp).encode('utf-8'))
-            print("RAW DATA: %s" % data_recv)
+            #check_resp = {"check": data_recv}
+            #conn.send(json.dumps(check_resp).encode('utf-8'))
+            #print("RAW DATA: %s" % data_recv)
         except Exception:
             print("Failed reading from socket")
             try:

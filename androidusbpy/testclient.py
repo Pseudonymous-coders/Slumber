@@ -19,7 +19,9 @@ def reader(client: socket.socket):
     global ready_write, continue_text, continuer
     while True:
         recv = client.recv(BUFFER_SIZE).decode('utf-8')
+        print(recv)
         json_data = json.loads(recv)
+
         print("Got data: %s" % str(json_data))
 
         try:
@@ -43,14 +45,14 @@ while True:
     if not ready_write:
         continue
 
-    if not continuer:
-        time.sleep(0.1)
-        continuer = True
-        continue
+    #if not continuer:
+        #time.sleep(0.1)
+        #continuer = True
+        #continue
     to_send = {"count": count}
     count += 1
     continue_text = json.dumps(to_send)
     s.send(continue_text.encode('utf-8'))
     print("Sending %s" % str(to_send))
-    time.sleep(0.05)
+    time.sleep(1)
 s.close()
