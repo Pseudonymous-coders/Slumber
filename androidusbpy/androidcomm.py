@@ -253,7 +253,7 @@ def writer(ep_out: usb.util, conn: socket.socket):
             data_recv = conn.recv(TCP_BUFF).decode('utf-8')
             #check_resp = {"check": data_recv}
             #conn.send(json.dumps(check_resp).encode('utf-8'))
-            #print("RAW DATA: %s" % data_recv)
+            print("RAW DATA FROM NODE: %s" % data_recv)
         except Exception:
             print("Failed reading from socket")
             try:
