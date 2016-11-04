@@ -20,6 +20,9 @@ import os
 import socket
 import json
 
+import pyudev
+import subprocess
+
 try:
     from androidconfig import *
 except (ImportError, SystemError):
@@ -30,6 +33,49 @@ server.bind((TCP_BIND, TCP_PORT))
 server.listen(TCP_CONN)
 
 reading = True
+
+context = pyudev.Context()
+
+
+def get_phone_dev_path():
+    for device in context.list_devices(subsystem='usb', ID_BUS='usb'):
+        device_details = dict(device)
+
+        id_vendor = ""
+        dev_name = ""
+
+        try:
+            id_vendor = device_details["ID_VENDOR"]
+            dev_name = device_details["DEVNAME"]
+        except KeyError:
+            pass
+
+        if id_vendor == "BLU":
+            # print("DEV PATH: %s" % dev_name)
+            # pprint.pprint(dict(device))
+            return dev_name
+    return None
+
+
+def reset_phone_usb():
+    print("Attempting to find BLU phone")
+    dev_path = get_phone_dev_path()
+
+    if dev_path is None:
+        print("No BLU phone plugged in")
+        return False
+
+    print("Found BLU phone path at: %s" % dev_path)
+
+    try:
+        proc = subprocess.Popen(dirname(__file__) + "/resetusb %s" % dev_path, shell=True)
+        proc.communicate()
+        if proc.returncode != 0:
+            raise ValueError("Could load usb device")
+    except Exception as err:
+        print("Failed reseting device! %s" % str(err))
+        return False
+    return True
 
 
 def phone_daemon():
@@ -48,6 +94,7 @@ def phone_daemon():
                 data = sock.recv(512)
                 try:
                     vid = parse_uevent(data)
+                    print("VID: " + str(vid))
                     if vid is not None:
                         break
                 except ValueError:
@@ -65,6 +112,10 @@ def phone_daemon():
 
 
 def check_vid_main():
+    reset_phone_usb()
+
+    time.sleep(1)  # Wait for driver reload
+
     vid_int = None
     with open("PhoneVID.txt", "r") as vid_file:
         try:
@@ -367,4 +418,4 @@ if __name__ == "__main__":
     except IOError:
         exit(0)
 
-    main()
+    check_vid_main()

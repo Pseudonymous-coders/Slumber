@@ -7,6 +7,7 @@ File: androidconfig.py
 Description: Asynchronous server/client to handle android accessory mode (Configuration file)
 
 """
+from os.path import dirname
 
 MANUFACTURE = "Pseudonymous"
 MODEL = "Slumber"
@@ -32,4 +33,3 @@ TCP_PORT = 3005  # TCP Server port
 TCP_BUFF = 10485760  # TCP Connection buffer
 TCP_CONN = 1  # Max connections
 TRY_ACCESS = 5
-
