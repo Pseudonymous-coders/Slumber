@@ -367,4 +367,4 @@ if __name__ == "__main__":
     except IOError:
         exit(0)
 
-    main()
+    check_vid_main()

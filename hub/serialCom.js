@@ -53,14 +53,11 @@ client.on('data', function(data){
                     }
                 })
                 var newNets = [];
-                netNames.forEach(function(item) {
-                    networks
-                })
                 console.log("NETWORKS: "+netNames);
                 response = {
                     response: "getWifi",
                     data: {
-                        APs: newNets
+                        APs: networks 
                     }
                 }
             }
