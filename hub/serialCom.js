@@ -6,6 +6,8 @@ var exports = module.exports = {};
 var PORT = 3005;
 var host = "127.0.0.1";
 
+var currentWifi = "";
+
 var client = new net.Socket();
 
 wifi.init({
@@ -23,7 +25,7 @@ client.on('data', function(data){
         data = JSON.parse(data.toString());
     } catch(err) {
         console.log(err);
-        console.log(data);
+        console.log(data.toString());
         client.write(JSON.stringify({
             response: "JSONPARSE", 
             data: {
@@ -44,10 +46,21 @@ client.on('data', function(data){
                     }
                 }
             } else {
+                var netNames = [];
+                networks.forEach(function(item) {
+                    if (netNames.indexOf(item.ssid) == -1) {
+                        netNames.push(item.ssid);
+                    }
+                })
+                var newNets = [];
+                netNames.forEach(function(item) {
+                    networks
+                })
+                console.log("NETWORKS: "+netNames);
                 response = {
                     response: "getWifi",
                     data: {
-                        APs: networks
+                        APs: newNets
                     }
                 }
             }
@@ -58,30 +71,25 @@ client.on('data', function(data){
     } else if (data.exec == "connectWifi") {
         console.log("Connecting to wifi");
         var connected = 0;
-        if (data.password.length > 0 && data.ssid.length  >0) {
-            wifi.connect({ssid: data.ssid, password: data.password}, function(err) {
-                console.log(err);
-                connected = 2;
-            });
-        } else if (data.password.length == 0 && data.ssid.length > 0) {
-            wifi.connect({ssid: data.ssid}, function(err) {
-                console.log(err);
-                connected = 2;
-            });
-        } else {
-            connected = 2;
-        }
+        if (data.data.ssid.length > 0) {
+            wifi.connect({ssid: data.data.ssid, password: data.data.password}, function(err) {
+                if (!err) {
+                    connected = 1;
+                } else {
+                    console.log("ERROR "+err)
+                    connected = 2;
+                }
+                response = {
+                    response: "connectWifi",
+                    data: {
+                        connected: connected
+                    }
+                }
+                client.write(JSON.stringify(response));
 
-        if (connected != 2) {
-            connected = 1;
+            });
         }
-        response = {
-            reponse: "connectWifi",
-            data: {
-                connected: connected
-            }
-        }
-    } else if (data.exec == "test") {
+            } else if (data.exec == "test") {
         console.log("Error packet");
     } else {
         console.log("Unknown command");
