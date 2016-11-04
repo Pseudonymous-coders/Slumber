@@ -32,10 +32,10 @@ server.listen(TCP_CONN)
 reading = True
 
 
-def main():
+def phone_daemon():
     task_num = 0
     while True:
-        print("Starting daemon")
+        print("Starting phone search... daemon")
         try:
             sock = socket.socket(socket.AF_NETLINK,
                                  socket.SOCK_RAW,
@@ -54,12 +54,31 @@ def main():
                     print("Failed parsing uevent")
 
             sock.close()
+            with open("PhoneVID.txt", "w") as vid_file:
+                vid_file.write("%04X" % vid)
             accessory_task(vid)
         except ValueError as err:
             print("Error starting daemon: %s" % str(err))
 
         task_num += 1
         print("Task %d Completed" % task_num)
+
+
+def check_vid_main():
+    vid_int = None
+    with open("PhoneVID.txt", "r") as vid_file:
+        try:
+            vid_temp = vid_file.readline().replace("\n", "")
+            vid_int = int(vid_temp, 16)
+        except Exception as err:
+            print("Failed loading VID: %s" % str(err))
+
+    access_test = accessory_task(vid_int) if vid_int is not None else "FAIL"
+
+    if isinstance(access_test, str) or isinstance(access_test, bytes):
+        if str(access_test) == "FAIL":
+            print("Failed finding phone via pre-configured VID %04X" % (vid_int if vid_int is not None else int("0")))
+            phone_daemon()
 
 
 def parse_uevent(data: bytes):
@@ -126,11 +145,14 @@ def accessory_task(vid):
     try:
         dev = None
         tries_count = 0
-        while dev is None and tries_count < 20:
+        while dev is None and tries_count < 5:
             print("No Phone found... Tries: %d" % tries_count)
             dev = usb.core.find(idVendor=vid)
             time.sleep(0.5)
             tries_count += 1
+
+        if dev is None:
+            return "FAIL"
 
         print("Phone found! Continuing...")
 
@@ -251,8 +273,8 @@ def writer(ep_out: usb.util, conn: socket.socket):
     while reading:
         try:
             data_recv = conn.recv(TCP_BUFF).decode('utf-8')
-            #check_resp = {"check": data_recv}
-            #conn.send(json.dumps(check_resp).encode('utf-8'))
+            # check_resp = {"check": data_recv}
+            # conn.send(json.dumps(check_resp).encode('utf-8'))
             print("RAW DATA FROM NODE: %s" % data_recv)
         except Exception:
             print("Failed reading from socket")
