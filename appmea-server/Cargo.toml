@@ -16,3 +16,5 @@ features=["rustc-serialize"]
 
 [dependencies]
 rustc-serialize="0.3.19"
+hyper = "0.9.10"
+bcrypt = "0.1"
