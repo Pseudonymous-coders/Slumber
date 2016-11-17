@@ -2,6 +2,8 @@ var net = require('net');
 var basics = require('./basics')
 var wifi = require('node-wifi');
 var exports = module.exports = {};
+var sys = require('sys')
+var exec = require('child_process').exec;
 
 var PORT = 3005;
 var host = "127.0.0.1";
@@ -36,34 +38,39 @@ client.on('data', function(data){
     var response = {};
     // Get wifi list
     if (data.exec == "getWifi") {
+        var curWifi = "";
         console.log("Getting wifi");
-        wifi.scan(function(err, networks) {
-            if (err) {
-                response = {
-                    response: "getWifi",
-                    data: {
-                        error: err
+        exec("nmcli d wifi list | awk '{if($10==\'yes\')$1}'", function(err, stdout, stderr) {
+            console.log(stdout);
+            curWifi = stdout;
+            wifi.scan(function(err, networks) {
+                if (err) {
+                    response = {
+                        response: "getWifi",
+                        data: {
+                            error: err
+                        }
+                    }
+                } else {
+                    var netNames = [];
+                    networks.forEach(function(item) {
+                        if (netNames.indexOf(item.ssid) == -1) {
+                            netNames.push(item.ssid);
+                        }
+                    })
+                    var newNets = [];
+                    console.log("NETWORKS: "+netNames);
+                    response = {
+                        response: "getWifi",
+                        data: {
+                            APs: networks,
+                            connected: curWifi
+                        }
                     }
                 }
-            } else {
-                var netNames = [];
-                networks.forEach(function(item) {
-                    if (netNames.indexOf(item.ssid) == -1) {
-                        netNames.push(item.ssid);
-                    }
-                })
-                var newNets = [];
-                console.log("NETWORKS: "+netNames);
-                response = {
-                    response: "getWifi",
-                    data: {
-                        APs: networks 
-                    }
-                }
-            }
-            client.write(JSON.stringify(response));
+                client.write(JSON.stringify(response));
+            });
         });
-
     // Connect to wifi
     } else if (data.exec == "connectWifi") {
         console.log("Connecting to wifi");
@@ -72,8 +79,9 @@ client.on('data', function(data){
             wifi.connect({ssid: data.data.ssid, password: data.data.password}, function(err) {
                 if (!err) {
                     connected = 1;
+                    console.log("Connected to wifi");
                 } else {
-                    console.log("ERROR "+err)
+                    console.log("ERROR "+err);
                     connected = 2;
                 }
                 response = {
