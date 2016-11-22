@@ -2,6 +2,8 @@ require('./basics');
 var nrf = require('nrfuart');
 //var toServ = require('./toServ');
 //var serialCom = require('./serialCom')
+var chart = require('ascii-chart');
+var clear = require('clear');
 
 var counter = 0;
 
@@ -27,6 +29,8 @@ var x = [],
     z = [];
 var totAccel = 0;
 
+var testData = [];
+
 console.log("Started BLE server...");
 nrf.discoverAll(function(ble_uart){
     console.log("Scanning for devices...");
@@ -40,8 +44,9 @@ nrf.discoverAll(function(ble_uart){
             console.log("Connected to "+ devName);
         });
 
-                ble_uart.on("data", function(data) {
+        ble_uart.on("data", function(data) {
             data = data.toString();
+            console.log(data);
             if (data.split(";").length == 4){
                 if (data[0] == "A") {
                     var mainSense = data.split(";").slice(1);
@@ -53,6 +58,7 @@ nrf.discoverAll(function(ble_uart){
                     x.push(curX);
                     y.push(curY);
                     z.push(curZ);
+                    counter += 1;
                     if (counter == countCap) {
                         console.log("Finished Calibration...");
                         xmin = Math.min.apply(null,x);
@@ -61,9 +67,15 @@ nrf.discoverAll(function(ble_uart){
                         xrange = Math.max.apply(null,x) - Math.min.apply(null, x);
                         yrange = Math.max.apply(null,y) - Math.min.apply(null, y);
                         zrange = Math.max.apply(null,z) - Math.min.apply(null, z);
-                        counter += 1;
-                    } else if (counter < countCap) {
-                        counter += 1;
+                    } else if (counter == 60) {
+                        clear();
+                        console.log(chart(testData, {
+                            width: 150,
+                            height: 50,
+                            pointChar: "+",
+                            negativePointChar: "-"
+                        }));
+                        process.exit();
                     } else {
                         curX = Math.round((1/50)*Math.abs(curX - xmin));
                         curY = Math.round((1/50)*Math.abs(curY - ymin));
@@ -84,6 +96,7 @@ nrf.discoverAll(function(ble_uart){
                         oldY = tmpY;
                         oldZ = tmpZ;
                         totAccel = Math.max(curX, curY, curZ);
+                        testData.push(totAccel);
                     }
                 }
             }
