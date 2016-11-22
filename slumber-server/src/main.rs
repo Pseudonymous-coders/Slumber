@@ -60,7 +60,7 @@ fn main() {
  
 // This works!
 
-    server.post("/user_data", middleware! { |request, response|
+    server.post("/user_data/", middleware! { |request, response|
             let data = try_with!(response, {
                 request.json_as::<Data>().map_err(|e| (StatusCode::BadRequest, e))
             });
