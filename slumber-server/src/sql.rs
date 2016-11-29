@@ -1,9 +1,11 @@
 extern crate postgres;
 extern crate uuid;
+extern crate std;
 
 use self::postgres::{Connection, TlsMode};
 use self::postgres::rows::Row;
 use self::uuid::Uuid;
+use self::std::collections::HashMap;
 
 #[derive(RustcDecodable,RustcEncodable)]
 pub struct Values {
@@ -55,6 +57,8 @@ pub fn insert(data: &Data) {
                   ]).unwrap();
 }
 
+
+
 fn data_from_row(row: Row) -> Data {
     let val = Values {
         vbatt: row.get(2),
@@ -67,6 +71,39 @@ fn data_from_row(row: Row) -> Data {
         values: val,
     };
     data
+}
+
+pub fn update(uuid: &Uuid, tsmp: &i32, data: &HashMap<String,String>) -> bool {
+    let conn = connect();
+    let mut ret = false;
+
+    ret = match &conn.query("SELECT 1 FROM test3 WHERE uuid = $1 AND tsmp = $2;",
+                       &[uuid, tsmp]).unwrap().len() {
+        &1usize => { &conn.execute("INSERT INTO test3 (uuid, tsmp)
+                                    VALUES ($1, $2)", &[uuid, tsmp]).unwrap();
+                     true  },
+        &0usize => { false },
+        _       => { false },
+    };/*
+            &conn.execute("INSERT INTO test3 (uuid, tsmp)
+                           VALUES ($1, $2)", &[uuid, tsmp]).unwrap();
+        */           
+    
+    let valid_keys = ["uuid",   "tsmp", "accelx",   "accely", 
+                      "accelz", "temp", "humidity", "vbatt"];
+    for &key in valid_keys.iter() {
+
+        println!("hit!");
+        match data.get(key) {
+            Some(value) => {&conn.execute("UPDATE test3 SET $1 = $2 
+                                           WHERE uuid = $3 AND tsmp = $4;",
+                                           &[&key, &value, uuid, tsmp]);
+                            println!("{}, {}", key, value);},
+            None => {},
+        }
+    }
+    ret = true;
+    return ret;
 }
 
 pub fn select(uuid: &Uuid) -> Vec<Data> {
@@ -111,6 +148,15 @@ pub fn select_user_login(uuid: Uuid) -> String {
     string
 }
 
+pub fn delete_between(uuid: &Uuid, start: &i32, end: &i32) -> u64 {
+    let conn = connect();
+    let mut return_data: Vec<Data> = Vec::new();
+    let result: u64 = conn.execute("DELETE FROM test3    
+                                     WHERE uuid = $1
+                                     AND tsmp BETWEEN $2 AND $3",
+                                     &[uuid,start,end]).unwrap();
+    return result;
+}
 pub fn insert_register_user(uuid: Uuid, pass:String) {
     let conn = connect();
     let mut return_bool:bool = false;
