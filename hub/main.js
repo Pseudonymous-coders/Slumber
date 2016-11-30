@@ -56,7 +56,7 @@ nrf.discoverAll(function(ble_uart){
                     VBatt = mainSense[2];
 
                     toServ.test("TnH", user, {temp: temp, hum: hum});
-                    toServ.test("VBatt", user, VBatt);
+                    toServ.test("VBatt", user, {vbatt: VBatt});
                 } else if (data[0] == "B") {
                     var accels = data.split(";").slice(1);
                     var curX = parseInt(accels[0]),
@@ -104,7 +104,9 @@ nrf.discoverAll(function(ble_uart){
                         oldZ = tmpZ;
                         totAccel = Math.max(curX, curY, curZ);
                         testData.push(totAccel);
-                        toServ.test("accels", user, {x: curX, y: curY, z: curZ});
+                        if (counter > countCap){
+                            toServ.test("accels", user, {x: curX, y: curY, z: curZ});
+                        }
                     }
                 }
             }
