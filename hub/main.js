@@ -55,8 +55,8 @@ nrf.discoverAll(function(ble_uart){
                     hum = mainSense[1];
                     VBatt = mainSense[2];
 
-                    toServ.test("TnH", user, {temp: temp, hum: hum});
-                    toServ.test("VBatt", user, {vbatt: VBatt});
+                    toServ.postData("TnH", user, {temp: temp, hum: hum});
+                    toServ.postData("VBatt", user, {vbatt: VBatt});
                 } else if (data[0] == "B") {
                     var accels = data.split(";").slice(1);
                     var curX = parseInt(accels[0]),
@@ -74,15 +74,6 @@ nrf.discoverAll(function(ble_uart){
                         xrange = Math.max.apply(null,x) - Math.min.apply(null, x);
                         yrange = Math.max.apply(null,y) - Math.min.apply(null, y);
                         zrange = Math.max.apply(null,z) - Math.min.apply(null, z);
-                    } else if (counter == 60) {
-                        clear();
-                        console.log(chart(testData, {
-                            width: 150,
-                            height: 50,
-                            pointChar: "+",
-                            negativePointChar: "-"
-                        }));
-                        process.exit();
                     } else {
                         curX = Math.round((1/50)*Math.abs(curX - xmin));
                         curY = Math.round((1/50)*Math.abs(curY - ymin));
@@ -103,9 +94,9 @@ nrf.discoverAll(function(ble_uart){
                         oldY = tmpY;
                         oldZ = tmpZ;
                         totAccel = Math.max(curX, curY, curZ);
-                        testData.push(totAccel);
                         if (counter > countCap){
-                            toServ.test("accels", user, {x: curX, y: curY, z: curZ});
+                            toServ.postData("accels", user, {x: curX, y: curY, z: curZ});
+                            serialComm.sendData({"response": "liveUpdate", data: {sleepScore: Math.abs(100-Math.max(curX, curY, curZ))}})
                         }
                     }
                 }
