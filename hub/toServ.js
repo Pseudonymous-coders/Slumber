@@ -47,3 +47,16 @@ exports.postData = function(url, uuid, data){
     };
     request(options)
 }
+
+exports.test = function(name, uuid, data) {
+    if (name == "accels") {
+        // Accels logging
+        console.log("Logged accels", data);
+    } else if (name == "TnH") {
+        // Temp and Humidity logging
+        console.log("Logged temp/humidity", data);
+    } else if (name == "VBatt") {
+        // Batt voltage logging
+        console.log("Logged Batt voltage", data);
+    }
+}

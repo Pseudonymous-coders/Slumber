@@ -1,19 +1,21 @@
 require('./basics');
 var nrf = require('nrfuart');
-//var toServ = require('./toServ');
+var toServ = require('./toServ');
 //var serialCom = require('./serialCom')
 var chart = require('ascii-chart');
 var clear = require('clear');
 
+// Common variables
+var user = "43a59d21-6bb5-4fe4-bdb1-81963d7a24a8";
+
+// Accel/temp/voltage variables
+// Counter
 var counter = 0;
-
-//sets calibration cap
+// Sets calibration cap
 var countCap = 10;
-
 var temp = 0,
     hum = 0,
     VBatt = 0.0;
-
 // Accel variables
 var xmin = 0,
     ymin = 0,
@@ -46,10 +48,15 @@ nrf.discoverAll(function(ble_uart){
 
         ble_uart.on("data", function(data) {
             data = data.toString();
-            console.log(data);
             if (data.split(";").length == 4){
                 if (data[0] == "A") {
                     var mainSense = data.split(";").slice(1);
+                    temp = mainSense[0];
+                    hum = mainSense[1];
+                    VBatt = mainSense[2];
+
+                    toServ.test("TnH", user, {temp: temp, hum: hum});
+                    toServ.test("VBatt", user, VBatt);
                 } else if (data[0] == "B") {
                     var accels = data.split(";").slice(1);
                     var curX = parseInt(accels[0]),
@@ -97,6 +104,7 @@ nrf.discoverAll(function(ble_uart){
                         oldZ = tmpZ;
                         totAccel = Math.max(curX, curY, curZ);
                         testData.push(totAccel);
+                        toServ.test("accels", user, {x: curX, y: curY, z: curZ});
                     }
                 }
             }
