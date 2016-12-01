@@ -112,5 +112,7 @@ client.on('close', function() {
 });
 
 exports.sendData = function(data) {
+    data = JSON.stringify(data);
+    console.log("Sending:",data);
     client.write(data);
 }

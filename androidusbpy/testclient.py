@@ -49,7 +49,7 @@ while True:
         #time.sleep(0.1)
         #continuer = True
         #continue
-    to_send = {"count": count}
+    to_send = {"response": "liveUpdate", "data": {"sleepScore": count}}
     count += 1
     continue_text = json.dumps(to_send)
     s.send(continue_text.encode('utf-8'))

@@ -2,15 +2,19 @@ require('./basics');
 var nrf = require('nrfuart');
 var toServ = require('./toServ');
 //var serialCom = require('./serialCom')
+
 var chart = require('ascii-chart');
 var clear = require('clear');
 
 // Common variables
 var user = "43a59d21-6bb5-4fe4-bdb1-81963d7a24a8";
+var tempUrl = "http://eli-server.ddns.net:6767"
 
 // Accel/temp/voltage variables
 // Counter
 var counter = 0;
+var fourCount = 0;
+var fourAccels= [];
 // Sets calibration cap
 var countCap = 10;
 var temp = 0,
@@ -54,14 +58,14 @@ nrf.discoverAll(function(ble_uart){
                     temp = mainSense[0];
                     hum = mainSense[1];
                     VBatt = mainSense[2];
-
-                    toServ.postData("TnH", user, {temp: temp, hum: hum});
-                    toServ.postData("VBatt", user, {vbatt: VBatt});
+                    console.log("logging tnh and vbatt");
+                    toServ.postData(tempUrl, user, "TnH", {temp: temp, hum: hum});
+                    toServ.postData(tempUrl, user, "VBatt", {vbatt: VBatt} );
                 } else if (data[0] == "B") {
-                    var accels = data.split(";").slice(1);
-                    var curX = parseInt(accels[0]),
-                        curY = parseInt(accels[1]),
-                        curZ = parseInt(accels[2]);
+                    var accel = data.split(";").slice(1);
+                    var curX = parseInt(accel[0]),
+                        curY = parseInt(accel[1]),
+                        curZ = parseInt(accel[2]);
                     x.push(curX);
                     y.push(curY);
                     z.push(curZ);
@@ -94,9 +98,18 @@ nrf.discoverAll(function(ble_uart){
                         oldY = tmpY;
                         oldZ = tmpZ;
                         totAccel = Math.max(curX, curY, curZ);
+                        fourAccels.push(totAccel);
                         if (counter > countCap){
-                            toServ.postData("accels", user, {x: curX, y: curY, z: curZ});
-                            serialComm.sendData({"response": "liveUpdate", data: {sleepScore: Math.abs(100-Math.max(curX, curY, curZ))}})
+                            fourCount += 1;
+                            if (fourCount == 4){
+                                console.log(fourAccels);
+                                totAccel = Math.max.apply(null, fourAccels);
+                                console.log("posting accel");
+                                toServ.postData(tempUrl, user, "accel", {accel: totAccel});
+                                //serialCom.sendData({"response": "liveUpdate", data: {sleepScore: Math.abs(100-Math.max(curX, curY, curZ))}})
+                                fourCount = 0;
+                                fourAccels = [];
+                            }
                         }
                     }
                 }

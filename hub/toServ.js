@@ -29,13 +29,17 @@ exports.userData = function(url, uuid, type, start, end){
     return RetData;
 }
 
-exports.postData = function(url, uuid, data){
+exports.postData = function(url, uuid, type, data){
     var fullUrl = url+"/user_data";
     var options = {
         url: fullUrl,
         method: 'POST',
-        body: data
+        body: JSON.stringify({type: type, data: data})
     };
-    request(options)
+    request(options, function(err, res, body) {
+        if (err) {
+            console.log("ERR: ",err);
+        }
+    })
 }
 
