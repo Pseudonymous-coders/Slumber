@@ -360,7 +360,7 @@ def writer(ep_out: usb.util, conn: socket.socket):
 
         try:
             length = ep_out.write(buffer_send, timeout=TIMEOUT)
-            print("Sending %s to phone, length %d" % (str(json_data), length))
+            #print("Sending %s to phone, length %d" % (str(json_data), length))
         except usb.core.USBError:
             print("Error sending to phone")
             try:

@@ -33,3 +33,38 @@ TCP_PORT = 3005  # TCP Server port
 TCP_BUFF = 10485760  # TCP Connection buffer
 TCP_CONN = 1  # Max connections
 TRY_ACCESS = 5
+
+'''
+import serial
+from tkinter import *
+import threading
+'''
+
+# root = Tk()  # Create a background window
+
+
+# Create a list
+"""
+def looper():
+    global root
+    ser = serial.Serial("/dev/ttyACM0", 115200)
+
+    while 1:
+        red = str(ser.readline())
+        if "R" in red and "G" in red and "B" in red and "b" in red and "a" in red:
+            try:
+                R = int(red[red.index("<R>") + 3: red.index("<G>")])
+                G = int(red[red.index("<G>") + 3: red.index("<B>")])
+                B = int(red[red.index("<B>") + 3: red.index("<b>")])
+
+                print("GOT: R: %d G: %d B: %d" % (R, G, B))
+                mycolor = '#%02x%02x%02x' % (R, G, B)
+                root.configure(bg=mycolor)
+
+            except Exception as err:
+                print("ERR %s" % str(err))
+
+
+threading.Thread(target=looper).start()
+root.mainloop()
+"""

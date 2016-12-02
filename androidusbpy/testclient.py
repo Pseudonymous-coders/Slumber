@@ -2,6 +2,7 @@ import socket
 import json
 import threading
 import time
+import random
 
 TCP_IP = "127.0.0.1"
 TCP_PORT = 3005
@@ -40,6 +41,9 @@ thread = threading.Thread(target=reader, args=(s,))
 thread.setDaemon(True)
 thread.start()
 
+def rand():
+    return round(random.uniform(0, 100))
+
 count = 0
 while True:
     if not ready_write:
@@ -49,10 +53,9 @@ while True:
         #time.sleep(0.1)
         #continuer = True
         #continue
-    to_send = {"response": "liveUpdate", "data": {"sleepScore": count}}
-    count += 1
+    to_send = {"response": "liveUpdate", "data": {"sleepScore": rand(), "accelX": rand(), "accelY": rand(), "accelZ": rand(), "temp": rand(), "hum": rand()}}
     continue_text = json.dumps(to_send)
     s.send(continue_text.encode('utf-8'))
     print("Sending %s" % str(to_send))
-    time.sleep(1)
+    time.sleep(5)
 s.close()
