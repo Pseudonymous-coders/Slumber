@@ -53,7 +53,12 @@ while True:
         #time.sleep(0.1)
         #continuer = True
         #continue
+<<<<<<< HEAD
     to_send = {"response": "liveUpdate", "data": {"sleepScore": rand(), "accelX": rand(), "accelY": rand(), "accelZ": rand(), "temp": rand(), "hum": rand()}}
+=======
+    to_send = {"response": "liveUpdate", "data": {"sleepScore": count}}
+    count += 1
+>>>>>>> 31856258acb894949b4da9d45d9ba13204fd40f4
     continue_text = json.dumps(to_send)
     s.send(continue_text.encode('utf-8'))
     print("Sending %s" % str(to_send))

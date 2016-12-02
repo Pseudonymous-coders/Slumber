@@ -1,22 +1,27 @@
 #[macro_use] extern crate nickel;
 extern crate rustc_serialize;
 extern crate uuid;
+extern crate hyper;
 
 mod sql;
+mod user;
 
 use std::collections::BTreeMap;
+use std::collections::HashMap;
 use nickel::{Nickel, JsonBody, HttpRouter, MediaType, FormBody, QueryString};
 use nickel::status::StatusCode;
 use rustc_serialize::json::{Json, ToJson};
 use rustc_serialize::json;
 use uuid::Uuid;
-use sql::{Values,Data};
+use hyper::net::Openssl;
+
+use sql::{Values,Data, UserLogin};
+use user::{login,register};
 
 impl ToJson for Values {
     fn to_json(&self) -> Json {
         let mut map = BTreeMap::new();
         map.insert("vbatt".to_string(), self.vbatt.to_json());
-        map.insert("hr".to_string(), self.hr.to_json());
         map.insert("temp".to_string(), self.temp.to_json());
         map.insert("accel".to_string(), self.accel.to_json());
         return Json::Object(map);
@@ -47,8 +52,16 @@ fn main2() {
 }
 
 fn main() {
+    let ssl = Openssl::with_cert_and_key("ssl/self_sign.crt", "ssl/key.pem").unwrap();
     let mut server = Nickel::new();
-    server.post("/", middleware! { |request, response|
+   
+    server.get("/", middleware! { |req|
+        "43a59d21-6bb5-4fe4-bdb1-81963d7a24a8".to_json()
+    });
+ 
+// This works!
+
+    server.post("/user_data/", middleware! { |request, response|
             let data = try_with!(response, {
                 request.json_as::<Data>().map_err(|e| (StatusCode::BadRequest, e))
             });
@@ -56,25 +69,29 @@ fn main() {
             format!("Hello {} at {}", data.uuid, data.timestamp)
     });
 
-    server.get("/", middleware! { |req|
-        666.to_json()
+    server.post("/user_data/indv", middleware! { |req, res|
+        let form_data = try_with!(res, req.form_body());
+        //println!("{:?}", form_data);
+        let valid_keys = ["uuid", "tsmp", "accelx", "accely", "accelz", 
+                          "temp", "humidity","vbatt"];
+        let mut data: HashMap<String, String> = HashMap::new();
+        for key in valid_keys.iter() {
+             data.insert(key.to_string(), form_data.get(key).unwrap_or("").to_string());
+        }
+        //let uuid: Uuid = try_with!(res, Uuid::parse_str(data.get("uuid").unwrap()).unwrap());
+       // let tsmp: i32  = try_with!(res, data.get("tsmp").unwrap().parse::<i32>().unwrap());
+        let uuid: Uuid = Uuid::parse_str(data.get("uuid").unwrap()).unwrap();
+        let tsmp: i32  = data.get("tsmp").unwrap().parse::<i32>().unwrap();
+        sql::update(&uuid, &tsmp, &data);
+
+        //println!("{:?}", data);
+        let x = format!("{:?}", form_data.get("hello").unwrap_or(""));
+        x
     });
-    
-// This works!
-/*
-    server.get("/:uuid", middleware! { |req|
-
-
-        let uuid = req.param("uuid").unwrap();
-        let real_uuid = Uuid::parse_str(uuid).unwrap_or(Uuid::nil());
-        let data: Vec<Data> = sql::select(&real_uuid);
-
-        data.to_json()
-    });      */
-
+ 
     server.get("/user_data", middleware! { |req, res|
-        
-        let foo  = &req.query();
+
+        let foo = &req.query();
 
         let uuid:Uuid = match foo.get("uuid") {
             Some(s) => match Uuid::parse_str(s) {
@@ -83,7 +100,6 @@ fn main() {
             },
             None => Uuid::nil()
         };
-
         let start:i32 = match foo.get("start") {
             Some(s) => match s.parse::<i32>() {
                 Ok(n)  => n,
@@ -91,7 +107,6 @@ fn main() {
             },
             None => i32::min_value()
         };
-
         let end:i32 = match foo.get("end")  {
             Some(s) => match s.parse::<i32>() {
                 Ok(n)  => n,
@@ -107,8 +122,63 @@ fn main() {
             (StatusCode::Ok, data.to_json().to_string())
         }
     });
+
+    server.delete("/user_data", middleware! { |req, res|
+
+        let foo = &req.query();
+
+        let uuid:Uuid = match foo.get("uuid") {
+            Some(s) => match Uuid::parse_str(s) {
+                Ok(u)  => u,
+                Err(e) => Uuid::nil(),
+            },
+            None => Uuid::nil()
+        };
+        let start:i32 = match foo.get("start") {
+            Some(s) => match s.parse::<i32>() {
+                Ok(n)  => n,
+                Err(e) => i32::min_value(),
+            },
+            None => i32::min_value()
+        };
+        let end:i32 = match foo.get("end")  {
+            Some(s) => match s.parse::<i32>() {
+                Ok(n)  => n,
+                Err(e) => i32::max_value(),
+            },
+            None => i32::max_value()
+        };
+
+        if uuid.is_nil() {
+            (StatusCode::BadRequest, "Uuid paramter was not valid".to_string())
+        } else { 
+            let data: u64 = sql::delete_between(&uuid, &start, &end);
+            (StatusCode::Ok, data.to_json().to_string())
+        }
+    });
+
+
+    server.get("/users/", middleware! { |req, res|
+        sql::select_all_uuid().to_json()
+    });
+
+    server.post("/login/", middleware! { |req, res|
+        let data = try_with!(res, {
+            req.json_as::<UserLogin>().map_err(|e| (StatusCode::BadRequest,e))
+        });
+        login(data.uuid, data.password).to_string()
+    });
+
+    server.post("/login/register", middleware! { |req, res|
+        let data = try_with!(res, {
+            req.json_as::<UserLogin>().map_err(|e| (StatusCode::BadRequest,e))
+        });
+        let registered = register(data.uuid, data.password).to_string();
+        registered
+    });
+
     
-    server.listen("0.0.0.0:6767").unwrap();
+    server.listen_https("0.0.0.0:443", ssl).unwrap();
 }
 /*
 {

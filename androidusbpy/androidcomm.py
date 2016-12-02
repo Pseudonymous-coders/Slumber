@@ -17,11 +17,16 @@ import struct
 import time
 import threading
 import os
+import sys
 import socket
 import json
 
+sys.path.append("/usr/local/lib/python3.5/dist-packages")
+
 import pyudev
 import subprocess
+
+
 
 try:
     from androidconfig import *
@@ -68,7 +73,7 @@ def reset_phone_usb():
     print("Found BLU phone path at: %s" % dev_path)
 
     try:
-        proc = subprocess.Popen(dirname(__file__) + "/resetusb %s" % dev_path, shell=True)
+        proc = subprocess.Popen("./resetusb %s" % dev_path, shell=True)
         proc.communicate()
         if proc.returncode != 0:
             raise ValueError("Could load usb device")
