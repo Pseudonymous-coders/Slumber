@@ -113,6 +113,6 @@ client.on('close', function() {
 
 exports.sendData = function(data) {
     data = JSON.stringify(data);
-    console.log("Sending:",data);
+    console.log("Sending packet that is {}bytes long".format(data.length));
     client.write(data);
 }

@@ -1,7 +1,7 @@
 require('./basics');
 var nrf = require('nrfuart');
 var toServ = require('./toServ');
-//var serialCom = require('./serialCom')
+var serialCom = require('./serialCom')
 
 var chart = require('ascii-chart');
 var clear = require('clear');
@@ -106,9 +106,16 @@ nrf.discoverAll(function(ble_uart){
                                 totAccel = Math.max.apply(null, fourAccels);
                                 console.log("posting accel");
                                 toServ.postData(tempUrl, user, "accel", {accel: totAccel});
-                                //serialCom.sendData({"response": "liveUpdate", data: {sleepScore: Math.abs(100-Math.max(curX, curY, curZ))}})
+                                serialCom.sendData({"response": "liveUpdate", data: {sleepScore: Math.abs(100-Math.max(curX, curY, curZ))}})
                                 fourCount = 0;
                                 fourAccels = [];
+                            } 
+                            if (counter == countCap + 5) {
+                                var nightArr = [];
+                                for (i = 0; i < 14500; i++) {
+                                    nightArr.push({type:"accel", time:i*2,data:{accel:100/14500 * i}});
+                                } 
+                                serialCom.sendData({response:"nightUpdate",data:{night:nightArr}});
                             }
                         }
                     }
