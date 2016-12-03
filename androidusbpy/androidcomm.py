@@ -73,7 +73,7 @@ def reset_phone_usb():
     print("Found BLU phone path at: %s" % dev_path)
 
     try:
-        proc = subprocess.Popen("./resetusb %s" % dev_path, shell=True)
+        proc = subprocess.Popen("resetusb %s" % dev_path, shell=True)
         proc.communicate()
         if proc.returncode != 0:
             raise ValueError("Could load usb device")
@@ -106,7 +106,7 @@ def phone_daemon():
                     print("Failed parsing uevent")
 
             sock.close()
-            with open("PhoneVID.txt", "w") as vid_file:
+            with open("/home/udooer/Slumber/androidusbpy/PhoneVID.txt", "w") as vid_file:
                 vid_file.write("%04X" % vid)
             accessory_task(vid)
         except ValueError as err:
@@ -122,7 +122,7 @@ def check_vid_main():
     time.sleep(1)  # Wait for driver reload
 
     vid_int = None
-    with open("PhoneVID.txt", "r") as vid_file:
+    with open("/home/udooer/Slumber/androidusbpy/PhoneVID.txt", "r") as vid_file:
         try:
             vid_temp = vid_file.readline().replace("\n", "")
             vid_int = int(vid_temp, 16)
@@ -329,21 +329,29 @@ def writer(ep_out: usb.util, conn: socket.socket):
     while reading:
         try:
             data_recv = conn.recv(TCP_BUFF).decode('utf-8')
-            packets = 0
+            #all_packs = []
+            #all_packs.append(data_recv)
+            #packets = 0
+            '''
+            is_large = False
 
             if "response" in data_recv and "nightUpdate" in data_recv: 
+                is_large = True
                 while not "]}}" in data_recv: 
-                    data_recv += conn.recv(TCP_BUFF).decode('utf-8')
+                    data_recv_temp = conn.recv(TCP_BUFF).decode('utf-8')
+                    data_recv += data_recv_temp
                     if data_recv is None or len(str(data_recv)) == 0:
                         break
                     packets += 1
+                    all_packs.append(data_recv_temp)
                     print("Got the packet number: %d" % packets)
 
             print("GOT THE TOTAL PACKET")
+            '''
 
             # check_resp = {"check": data_recv}
             # conn.send(json.dumps(check_resp).encode('utf-8'))
-            # print("RAW DATA FROM NODE: %s" % data_recv)
+            #print("RAW DATA FROM NODE: %s" % data_recv)
         except Exception:
             print("Failed reading from socket")
             try:
@@ -352,6 +360,19 @@ def writer(ep_out: usb.util, conn: socket.socket):
                 break
             continue
 
+        try:
+            if str(data_recv)[-1] is not "}" and str(data_recv).count("response") > 1:
+                try:
+                    send_error(conn, code=4, message="Failed malformed json", close=False)
+                except ValueError:
+                    break
+        except Exception:
+            try:
+                send_error(conn, code=4, message="Failed nothing send", close=False)
+            except ValueError:
+                break
+
+        '''
         # Double check json before sending to the phone
         try:
             json_data = json.loads(str(data_recv))
@@ -362,22 +383,46 @@ def writer(ep_out: usb.util, conn: socket.socket):
             except ValueError:
                 break
             continue
+        '''
 
-        buffer_send = list(sendbuffer(json.dumps(json_data)))
+        #if not is_large:
+        buffer_send = list(sendbuffer(data_recv))
 
         try:
             ep_out.write(list(sendbuffer(str(len(buffer_send)))), timeout=TIMEOUT)
-            print("Wrote expected size of %d" % len(buffer_send))
+            #print("Wrote size %d" % len(buffer_send))
         except usb.core.USBError:
             print("Failed sending package size to phone")
             continue
+    
+        '''else:
+            cur_packet = 0
+            for pack in all_packs:
+                buffer_send = list(sendbuffer(str(pack)))
+                
+                print("Writing packet %s" % pack)
 
-        # Expect the worst when processing is slow
-        time.sleep(0.01)
 
+                try:
+                    ep_out.write(list(sendbuffer(str(len(buffer_send)))), timeout=TIMEOUT)
+                    print("Wrote expected, size, size of %d on packet %d" % (len(buffer_send), cur_packet))
+                except usb.core.USBError:
+                    print("Failed sending size packet %d" % cur_packet)
+                    continue
+
+                try:
+                    length = ep_out.write(buffer_send, timeout=TIMEOUT)
+                    print("Sent to phone packet %d" % cur_packet)
+                except usb.core.USBError:
+                    print("Error sending full packet (%d) to phone" % cur_packet)
+
+                cur_packet += 1
+        '''
+
+        #if not is_large:
         try:
             length = ep_out.write(buffer_send, timeout=TIMEOUT)
-            print("Sent to phone LEN: %d" % length)
+            print("Sent %d" % length)
             #print("Sending %s to phone, length %d" % (str(json_data), length))
         except usb.core.USBError:
             print("Error sending to phone")

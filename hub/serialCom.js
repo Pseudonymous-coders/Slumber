@@ -97,6 +97,13 @@ client.on('data', function(data){
         }
             } else if (data.exec == "test") {
         console.log("Error packet");
+    } else if (data.exec == "reboot") {
+        var exec = require('child_process').exec;
+        function execute(command, callback) {
+            exec(command, function(err, stdout, stderr) { callback(stdout); });
+        }
+        execute("reboot");
+
     } else {
         console.log("Unknown command");
         response = {
@@ -115,6 +122,5 @@ client.on('close', function() {
 
 exports.sendData = function(data) {
     data = JSON.stringify(data);
-    console.log("Sending packet that is {}bytes long".format(data.length));
     client.write(data);
 }

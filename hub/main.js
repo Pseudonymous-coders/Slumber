@@ -19,7 +19,7 @@ var fourAccels= [];
 var countCap = 10;
 var temp = 0,
     hum = 0,
-    VBatt = 0.0;
+    vbatt = 0.0;
 // Accel variables
 var xmin = 0,
     ymin = 0,
@@ -42,6 +42,7 @@ nrf.discoverAll(function(ble_uart){
     console.log("Scanning for devices...");
     ble_uart.on('disconnect', function() {
         console.log("Disconnected!!");
+        process.end();
     });
     ble_uart.connectAndSetup(function() {
         counter = 0;
@@ -57,9 +58,9 @@ nrf.discoverAll(function(ble_uart){
                     var mainSense = data.split(";").slice(1);
                     temp = mainSense[0];
                     hum = mainSense[1];
-                    VBatt = mainSense[2];
+                    vbatt = mainSense[2];
                     toServ.postData(tempUrl, user, "TnH", {temp: temp, hum: hum});
-                    toServ.postData(tempUrl, user, "VBatt", {vbatt: VBatt} );
+                    toServ.postData(tempUrl, user, "VBatt", {vbatt: vbatt} );
                 } else if (data[0] == "B") {
                     var accel = data.split(";").slice(1);
                     var curX = parseInt(accel[0]),
@@ -102,19 +103,32 @@ nrf.discoverAll(function(ble_uart){
                         if (counter > countCap){
                             fourCount += 1;
                             if (fourCount == 4){
-                                console.log(fourAccels);
                                 totAccel = Math.max.apply(null, fourAccels);
                                 toServ.postData(tempUrl, user, "accel", {accel: totAccel});
-                                //serialCom.sendData({"response": "liveUpdate", data: {sleepScore: Math.abs(100-Math.max(curX, curY, curZ))}})
+                                serialCom.sendData({"response": "liveUpdate", data: {sleepScore: Math.abs(100-Math.max(curX, curY, curZ)), temp: temp, hum: hum, vbatt: vbatt}})
                                 fourCount = 0;
                                 fourAccels = [];
                             } 
                             if (counter == countCap + 5) {
-                                var nightArr = [];
-                                for (i = 0; i < 14500; i++) {
-                                    nightArr.push({type:"accel", time: i * 2 , data: {"accel": Math.round(100/14500 * i)}});
-                                } 
-                                serialCom.sendData({"response":"nightUpdate","data":{night:nightArr}});
+                                var lastNightTime = Date.now();
+                                var toSendLen = 14500;
+                                var toSendTime = 3;
+                                serialCom.sendData({"response": "nightLen", "data":{"len": toSendLen}});
+                                serialCom.sendData({"response": "nightLen", "data":{"len": toSendLen}});
+                                serialCom.sendData({"response": "nightLen", "data":{"len": toSendLen}});
+                                var count = 0;
+                                console.log("Sending last night data");
+                                var theStuff = setInterval(() => {
+                                    count ++;
+                                    serialCom.sendData({"response":"nightQuery", "data":{"time": count*2, "accel":Math.round(100/toSendLen * count)}})
+                                    if (count == toSendLen) {
+                                        serialCom.sendData({"response":"nightEnd", "data": {"end": true}});
+                                        serialCom.sendData({"response":"nightEnd", "data": {"end": true}});
+                                        serialCom.sendData({"response":"nightEnd", "data": {"end": true}});
+                                        console.log("Finished sending last night data, took {} seconds".format(Math.round((Date.now() - lastNightTime)/1000)));
+                                        clearInterval(theStuff);
+                                    }
+                                }, toSendTime);
                             }
                         }
                     }
