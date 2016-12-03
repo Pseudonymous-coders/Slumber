@@ -34,7 +34,13 @@ except (ImportError, SystemError):
     from .androidconfig import *
 
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-server.bind((TCP_BIND, TCP_PORT))
+for i in range(0, 6):
+    try:
+        server.bind((TCP_BIND, TCP_PORT))
+        break
+    except OSError:
+        print("Failed binding to port")
+        time.sleep(0.5)
 server.listen(TCP_CONN)
 
 reading = True
