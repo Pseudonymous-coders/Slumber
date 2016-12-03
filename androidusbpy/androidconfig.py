@@ -30,7 +30,7 @@ TIMEOUT = 0
 SIZEBUFFER = 28  # Size buffer to initially send to the app
 TCP_BIND = "127.0.0.1"  # TCP bind address (Only localhost)
 TCP_PORT = 3005  # TCP Server port
-TCP_BUFF = 10485760  # TCP Connection buffer
+TCP_BUFF = 50000001  # TCP Connection buffer
 TCP_CONN = 1  # Max connections
 TRY_ACCESS = 5
 

@@ -291,7 +291,7 @@ def accessory_task(vid):
                     print("Got data:\nSIZE: %d\nDATA: %s" % (size_sent, got_data))
                     try:
                         conn.send(got_data.encode('utf-8'))
-                        print("Wrote: %s" % got_data)
+                        #print("Wrote: %s" % got_data)
                     except socket.error:
                         print("Failed getting data")
                         try:
@@ -329,9 +329,21 @@ def writer(ep_out: usb.util, conn: socket.socket):
     while reading:
         try:
             data_recv = conn.recv(TCP_BUFF).decode('utf-8')
+            packets = 0
+
+            if "response" in data_recv and "nightUpdate" in data_recv: 
+                while not "]}}" in data_recv: 
+                    data_recv += conn.recv(TCP_BUFF).decode('utf-8')
+                    if data_recv is None or len(str(data_recv)) == 0:
+                        break
+                    packets += 1
+                    print("Got the packet number: %d" % packets)
+
+            print("GOT THE TOTAL PACKET")
+
             # check_resp = {"check": data_recv}
             # conn.send(json.dumps(check_resp).encode('utf-8'))
-            print("RAW DATA FROM NODE: %s" % data_recv)
+            # print("RAW DATA FROM NODE: %s" % data_recv)
         except Exception:
             print("Failed reading from socket")
             try:
@@ -365,6 +377,7 @@ def writer(ep_out: usb.util, conn: socket.socket):
 
         try:
             length = ep_out.write(buffer_send, timeout=TIMEOUT)
+            print("Sent to phone LEN: %d" % length)
             #print("Sending %s to phone, length %d" % (str(json_data), length))
         except usb.core.USBError:
             print("Error sending to phone")

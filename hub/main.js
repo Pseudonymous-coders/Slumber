@@ -58,7 +58,6 @@ nrf.discoverAll(function(ble_uart){
                     temp = mainSense[0];
                     hum = mainSense[1];
                     VBatt = mainSense[2];
-                    console.log("logging tnh and vbatt");
                     toServ.postData(tempUrl, user, "TnH", {temp: temp, hum: hum});
                     toServ.postData(tempUrl, user, "VBatt", {vbatt: VBatt} );
                 } else if (data[0] == "B") {
@@ -98,24 +97,24 @@ nrf.discoverAll(function(ble_uart){
                         oldY = tmpY;
                         oldZ = tmpZ;
                         totAccel = Math.max(curX, curY, curZ);
+                        totAccel = (0 <= totAccel && totAccel <= 100) ? totAccel : 0;
                         fourAccels.push(totAccel);
                         if (counter > countCap){
                             fourCount += 1;
                             if (fourCount == 4){
                                 console.log(fourAccels);
                                 totAccel = Math.max.apply(null, fourAccels);
-                                console.log("posting accel");
                                 toServ.postData(tempUrl, user, "accel", {accel: totAccel});
-                                serialCom.sendData({"response": "liveUpdate", data: {sleepScore: Math.abs(100-Math.max(curX, curY, curZ))}})
+                                //serialCom.sendData({"response": "liveUpdate", data: {sleepScore: Math.abs(100-Math.max(curX, curY, curZ))}})
                                 fourCount = 0;
                                 fourAccels = [];
                             } 
                             if (counter == countCap + 5) {
                                 var nightArr = [];
                                 for (i = 0; i < 14500; i++) {
-                                    nightArr.push({type:"accel", time:i*2,data:{accel:100/14500 * i}});
+                                    nightArr.push({type:"accel", time: i * 2 , data: {"accel": Math.round(100/14500 * i)}});
                                 } 
-                                serialCom.sendData({response:"nightUpdate",data:{night:nightArr}});
+                                serialCom.sendData({"response":"nightUpdate","data":{night:nightArr}});
                             }
                         }
                     }
