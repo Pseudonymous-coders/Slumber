@@ -1,16 +1,20 @@
 require('./basics');
 var nrf = require('nrfuart');
 var toServ = require('./toServ');
-//var serialCom = require('./serialCom')
+var serialCom = require('./serialCom')
+
 var chart = require('ascii-chart');
 var clear = require('clear');
 
 // Common variables
 var user = "43a59d21-6bb5-4fe4-bdb1-81963d7a24a8";
+var tempUrl = "http://eli-server.ddns.net:6767"
 
 // Accel/temp/voltage variables
 // Counter
 var counter = 0;
+var fourCount = 0;
+var fourAccels= [];
 // Sets calibration cap
 var countCap = 10;
 var temp = 0,
@@ -54,14 +58,13 @@ nrf.discoverAll(function(ble_uart){
                     temp = mainSense[0];
                     hum = mainSense[1];
                     VBatt = mainSense[2];
-
-                    toServ.test("TnH", user, {temp: temp, hum: hum});
-                    toServ.test("VBatt", user, VBatt);
+                    toServ.postData(tempUrl, user, "TnH", {temp: temp, hum: hum});
+                    toServ.postData(tempUrl, user, "VBatt", {vbatt: VBatt} );
                 } else if (data[0] == "B") {
-                    var accels = data.split(";").slice(1);
-                    var curX = parseInt(accels[0]),
-                        curY = parseInt(accels[1]),
-                        curZ = parseInt(accels[2]);
+                    var accel = data.split(";").slice(1);
+                    var curX = parseInt(accel[0]),
+                        curY = parseInt(accel[1]),
+                        curZ = parseInt(accel[2]);
                     x.push(curX);
                     y.push(curY);
                     z.push(curZ);
@@ -74,15 +77,6 @@ nrf.discoverAll(function(ble_uart){
                         xrange = Math.max.apply(null,x) - Math.min.apply(null, x);
                         yrange = Math.max.apply(null,y) - Math.min.apply(null, y);
                         zrange = Math.max.apply(null,z) - Math.min.apply(null, z);
-                    } else if (counter == 60) {
-                        clear();
-                        console.log(chart(testData, {
-                            width: 150,
-                            height: 50,
-                            pointChar: "+",
-                            negativePointChar: "-"
-                        }));
-                        process.exit();
                     } else {
                         curX = Math.round((1/50)*Math.abs(curX - xmin));
                         curY = Math.round((1/50)*Math.abs(curY - ymin));
@@ -103,8 +97,26 @@ nrf.discoverAll(function(ble_uart){
                         oldY = tmpY;
                         oldZ = tmpZ;
                         totAccel = Math.max(curX, curY, curZ);
-                        testData.push(totAccel);
-                        toServ.test("accels", user, {x: curX, y: curY, z: curZ});
+                        totAccel = (0 <= totAccel && totAccel <= 100) ? totAccel : 0;
+                        fourAccels.push(totAccel);
+                        if (counter > countCap){
+                            fourCount += 1;
+                            if (fourCount == 4){
+                                console.log(fourAccels);
+                                totAccel = Math.max.apply(null, fourAccels);
+                                toServ.postData(tempUrl, user, "accel", {accel: totAccel});
+                                //serialCom.sendData({"response": "liveUpdate", data: {sleepScore: Math.abs(100-Math.max(curX, curY, curZ))}})
+                                fourCount = 0;
+                                fourAccels = [];
+                            } 
+                            if (counter == countCap + 5) {
+                                var nightArr = [];
+                                for (i = 0; i < 14500; i++) {
+                                    nightArr.push({type:"accel", time: i * 2 , data: {"accel": Math.round(100/14500 * i)}});
+                                } 
+                                serialCom.sendData({"response":"nightUpdate","data":{night:nightArr}});
+                            }
+                        }
                     }
                 }
             }

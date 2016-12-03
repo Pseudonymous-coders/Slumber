@@ -25,6 +25,7 @@ client.connect(PORT, host, function() {
 client.on('data', function(data){
     try{
         data = JSON.parse(data.toString());
+        console.log(data);
     } catch(err) {
         console.log(err);
         console.log(data.toString());
@@ -109,8 +110,11 @@ client.on('data', function(data){
 
 client.on('close', function() {
     console.log("Closed Connection")
+    process.exit();
 });
 
 exports.sendData = function(data) {
+    data = JSON.stringify(data);
+    console.log("Sending packet that is {}bytes long".format(data.length));
     client.write(data);
 }
