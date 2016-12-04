@@ -42,7 +42,7 @@ nrf.discoverAll(function(ble_uart){
     console.log("Scanning for devices...");
     ble_uart.on('disconnect', function() {
         console.log("Disconnected!!");
-        process.end();
+        process.exit();
     });
     ble_uart.connectAndSetup(function() {
         counter = 0;

@@ -294,7 +294,7 @@ def accessory_task(vid):
 
                     last_print = False
                     got_data = str(readbuffer(ep_in.read(size_sent, timeout=TIMEOUT)))
-                    print("Got data:\nSIZE: %d\nDATA: %s" % (size_sent, got_data))
+                    #print("Got data:\nSIZE: %d\nDATA: %s" % (size_sent, got_data))
                     try:
                         conn.send(got_data.encode('utf-8'))
                         #print("Wrote: %s" % got_data)
@@ -428,7 +428,7 @@ def writer(ep_out: usb.util, conn: socket.socket):
         #if not is_large:
         try:
             length = ep_out.write(buffer_send, timeout=TIMEOUT)
-            print("Sent %d" % length)
+            #print("Sent %d" % length)
             #print("Sending %s to phone, length %d" % (str(json_data), length))
         except usb.core.USBError:
             print("Error sending to phone")
