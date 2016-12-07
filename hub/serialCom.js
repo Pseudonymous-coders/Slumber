@@ -1,9 +1,9 @@
 var net = require('net');
-var basics = require('./basics')
 var wifi = require('node-wifi');
 var exports = module.exports = {};
-var sys = require('sys')
+var sys = require('sys');
 var exec = require('child_process').exec;
+var toServ = require('./toServ.js');
 
 var PORT = 3005;
 var host = "127.0.0.1";
@@ -12,6 +12,9 @@ var currentWifi = "";
 
 var client = new net.Socket();
 
+exports.isSleeping = true;
+
+require('./basics');
 wifi.init({
     debug: false,
     iface: null
@@ -103,6 +106,28 @@ client.on('data', function(data){
         }
         execute("reboot");
 
+    } else if (data.exec == "updateNight") {
+        lastNight = toServ.userData(tempUrl, user, "accel", 0, Date.now());
+        var i = 0;
+        var runner = setInterval(() => {
+            response = {
+                response: data.exec,
+                data: {
+                    sensors: lastNight[i]
+                }
+            }
+            client.write(JSON.stringify(response));
+            if (i < lastNight.length) {
+                i++;
+            } else {
+                clearInterval(runner);
+            }
+
+        },3);
+    } else if (data.exec == "sleep") {
+        exports.isSleeping = true;
+    } else if (data.exec == "awake") {
+        exports.isSleeping = false;
     } else {
         console.log("Unknown command");
         response = {

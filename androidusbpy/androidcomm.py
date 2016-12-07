@@ -68,7 +68,7 @@ def get_phone_dev_path():
     return None
 
 
-def reset_phone_usb():
+def reset_phone_usb_back():
     print("Attempting to find BLU phone")
     dev_path = get_phone_dev_path()
 
@@ -80,6 +80,7 @@ def reset_phone_usb():
 
     try:
         proc = subprocess.Popen("resetusb %s" % dev_path, shell=True)
+
         proc.communicate()
         if proc.returncode != 0:
             raise ValueError("Could load usb device")
@@ -88,6 +89,13 @@ def reset_phone_usb():
         return False
     return True
 
+
+def reset_phone_usb():
+    phone_thread = threading.Thread(target=reset_phone_usb_back)
+    phone_thread.setDaemon(True)
+    phone_thread.start() 
+    time.sleep(2)
+    return True
 
 def phone_daemon():
     task_num = 0
@@ -294,10 +302,10 @@ def accessory_task(vid):
 
                     last_print = False
                     got_data = str(readbuffer(ep_in.read(size_sent, timeout=TIMEOUT)))
-                    #print("Got data:\nSIZE: %d\nDATA: %s" % (size_sent, got_data))
+                    print("Got data:\nSIZE: %d\nDATA: %s" % (size_sent, got_data))
                     try:
                         conn.send(got_data.encode('utf-8'))
-                        #print("Wrote: %s" % got_data)
+                        print("Wrote: %s" % got_data)
                     except socket.error:
                         print("Failed getting data")
                         try:
@@ -357,7 +365,7 @@ def writer(ep_out: usb.util, conn: socket.socket):
 
             # check_resp = {"check": data_recv}
             # conn.send(json.dumps(check_resp).encode('utf-8'))
-            #print("RAW DATA FROM NODE: %s" % data_recv)
+            print("RAW DATA FROM NODE: %s" % data_recv)
         except Exception:
             print("Failed reading from socket")
             try:
@@ -396,7 +404,7 @@ def writer(ep_out: usb.util, conn: socket.socket):
 
         try:
             ep_out.write(list(sendbuffer(str(len(buffer_send)))), timeout=TIMEOUT)
-            #print("Wrote size %d" % len(buffer_send))
+            print("Wrote size %d" % len(buffer_send))
         except usb.core.USBError:
             print("Failed sending package size to phone")
             continue
