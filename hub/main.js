@@ -1,11 +1,17 @@
 var nrf = require('nrfuart');
 var toServ = require('./toServ');
 var serialCom = require('./serialCom')
-
 var chart = require('ascii-chart');
 var clear = require('clear');
+var fs = require('fs');
+
 
 require('./basics');
+
+fs.writeFile('/gpio/pin16/direction', 'out');
+fs.writeFile('/gpio/pin18/direction', 'out');
+fs.writeFile('/gpio/pin16/value', '1');
+fs.writeFile('/gpio/pin18/value', '0');
 
 try {
     serialCom.sendData({"response": "init", data: {init: true}});
@@ -51,14 +57,16 @@ nrf.discoverAll(function(ble_uart){
         });
 
         ble_uart.on("data", function(data) {
-            data = data.toString();
+            data = data.toString()
             if (data.split(";").length == 4){
                 if (data[0] == "A") {
                     var mainSense = data.split(";").slice(1);
                     temp = mainSense[0];
                     hum = mainSense[1];
                     vbatt = mainSense[2];
-                    if (serialCom.isAwake == true) {
+
+
+                    if (serialCom.isSleeping == true) {
                         toServ.postData(tempUrl, user, "TnH", {temp: temp, hum: hum});
                         toServ.postData(tempUrl, user, "VBatt", {vbatt: vbatt} );
                     }
@@ -87,10 +95,15 @@ nrf.discoverAll(function(ble_uart){
                             if (fourCount == 4){
                                 totAccel = Math.max.apply(null, fourAccels);
                                 toSend = {"response": "liveUpdate", data: {sleepScore: Math.abs(100-totAccel), temp: temp, hum: hum, vbatt: vbatt}}
-                                serialCom.sendData(toSend);
-                                if (serialCom.isSleeping == true) {
-                                    toServ.postData(tempUrl, user, "accel", {accel: totAccel});
+                                console.log(toSend);
+                                good = (temp && hum && vbatt && totAccel) ? true : false;
+                                if (good){
+                                    serialCom.sendData(toSend);
+                                    if (serialCom.isSleeping == true) {
+                                        toServ.postData(tempUrl, user, "accel", {accel: totAccel});
+                                    }
                                 }
+                                
                                 fourCount = 0;
                                 fourAccels = [];
                             } 

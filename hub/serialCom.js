@@ -4,6 +4,7 @@ var exports = module.exports = {};
 var sys = require('sys');
 var exec = require('child_process').exec;
 var toServ = require('./toServ.js');
+var fs = require('fs');
 
 var PORT = 3005;
 var host = "127.0.0.1";
@@ -128,6 +129,14 @@ client.on('data', function(data){
         exports.isSleeping = true;
     } else if (data.exec == "awake") {
         exports.isSleeping = false;
+    } else if (data.exec == 'lightOn') {
+        console.log("turning lights on")
+        fs.writeFile('/gpio/pin16/value', '1', (err) => {if(err){console.log(err)}});
+        fs.writeFile('/gpio/pin18/value', '0', (err) => {if(err){console.log(err)}});
+    } else if (data.exec == 'lightOff') {
+        console.log("turning lights off");
+        fs.writeFile('/gpio/pin16/value', '0', (err) => {if(err){console.log(err)}});
+        fs.writeFile('/gpio/pin18/value', '1', (err) => {if(err){console.log(err)}});
     } else {
         console.log("Unknown command");
         response = {

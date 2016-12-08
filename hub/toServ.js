@@ -4,6 +4,7 @@ var exports = module.exports = {};
 
 require('./basics');
 var tempUrl = "http://eli-server.ddns.net:6767";
+tempUrl = "http://72.180.45.88:6767";
 var user = "43a59d21-6bb5-4fe4-bdb1-81963d7a24a8";
 
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
