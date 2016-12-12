@@ -1,9 +1,10 @@
 var net = require('net');
-var basics = require('./basics')
 var wifi = require('node-wifi');
 var exports = module.exports = {};
-var sys = require('sys')
+var sys = require('sys');
 var exec = require('child_process').exec;
+var toServ = require('./toServ.js');
+var fs = require('fs');
 
 var PORT = 3005;
 var host = "127.0.0.1";
@@ -12,6 +13,9 @@ var currentWifi = "";
 
 var client = new net.Socket();
 
+exports.isSleeping = true;
+
+require('./basics');
 wifi.init({
     debug: false,
     iface: null
@@ -97,6 +101,42 @@ client.on('data', function(data){
         }
             } else if (data.exec == "test") {
         console.log("Error packet");
+    } else if (data.exec == "reboot") {
+        function execute(command, callback) {
+            exec(command, function(err, stdout, stderr) { callback(stdout); });
+        }
+        execute("reboot");
+
+    } else if (data.exec == "updateNight") {
+        lastNight = toServ.userData(tempUrl, user, "accel", 0, Date.now());
+        var i = 0;
+        var runner = setInterval(() => {
+            response = {
+                response: data.exec,
+                data: {
+                    sensors: lastNight[i]
+                }
+            }
+            client.write(JSON.stringify(response));
+            if (i < lastNight.length) {
+                i++;
+            } else {
+                clearInterval(runner);
+            }
+
+        },3);
+    } else if (data.exec == "sleep") {
+        exports.isSleeping = true;
+    } else if (data.exec == "awake") {
+        exports.isSleeping = false;
+    } else if (data.exec == 'lightOn') {
+        console.log("turning lights on")
+        fs.writeFile('/gpio/pin16/value', '1', (err) => {if(err){console.log(err)}});
+        fs.writeFile('/gpio/pin18/value', '0', (err) => {if(err){console.log(err)}});
+    } else if (data.exec == 'lightOff') {
+        console.log("turning lights off");
+        fs.writeFile('/gpio/pin16/value', '0', (err) => {if(err){console.log(err)}});
+        fs.writeFile('/gpio/pin18/value', '1', (err) => {if(err){console.log(err)}});
     } else {
         console.log("Unknown command");
         response = {
@@ -115,6 +155,5 @@ client.on('close', function() {
 
 exports.sendData = function(data) {
     data = JSON.stringify(data);
-    console.log("Sending packet that is {}bytes long".format(data.length));
     client.write(data);
 }
