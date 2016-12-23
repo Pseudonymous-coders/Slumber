@@ -2,3 +2,4 @@
 *.swp
 *.swo
 appmea-server/target
+*node_modules*
