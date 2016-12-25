@@ -1,17 +1,12 @@
 # Use the builtin bash for file io
 SHELL = /bin/sh
 
-# Setup for cross compilation
-ARCH=arm
+# Setup for local compiling
+ARCH=amd64
 
-# Use the provided cross compiler
-CXX = cross_compiler/bin/arm-linux-gnueabihf-g++
-CC = cross_compiler/bin/arm-linux-gnueabihf-gcc
-
-# To Use the standard compiler
-# Comment out the above line and uncomment below
-#CC = g++
-# Above for standard system g++
+# Use the standard system compiler (not cross compiling)
+CXX = g++
+CC = gcc
 
 # g++ flags to be placed after each src file
 CXXFLAGS = -Iinclude
@@ -22,8 +17,8 @@ LDFLAGS = -lpthread
 # Remove files
 RM = rm -f
 
-# Final target library
-TARGET = slumberhub
+# The name of the host file compiled
+TARGET = slumberhost
 
 SRCS = $(shell echo src/*.cpp)
 HEADS = $(shell echo include/*.h)
