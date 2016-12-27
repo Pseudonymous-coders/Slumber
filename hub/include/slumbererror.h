@@ -1,0 +1,9 @@
+
+
+#ifndef SLUMBERERROR_H
+#define SLUMBERERROR_H
+
+#define SLUMBER_OK
+
+
+#endif //SLUMBERERROR_H

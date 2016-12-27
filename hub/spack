@@ -1,0 +1,342 @@
+#!/bin/bash
+
+
+# Preset flags
+HELP=0 # default don't show help menu
+PRODUCT=2 # set to unkown product
+AUTORUN=0 # default don't autorun
+PASS=0 # default don't use a password
+
+# Available arguments
+HOSTING=--host
+PRODUCTS=--product
+HELPING=--help
+RUNNING=--run
+JRUNNING=--justrun
+PASSWORDS=--pass
+INSTALLING=--deps
+
+SHOWMESSAGE="the host"
+
+# Host device checking
+HOSTFILE=bin/slumberhost # compiled host file
+CHECKHOST=1 # flag to see if we should connect to the slumber hub
+LOOPC=0 # current argument number
+HITLOOP=-1 # the next hit argument number to detect
+PASSLOOP=-1 # the next hit argument for password
+
+# Colors
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+PURPLE='\033[0;35m'
+ORANGE='\033[0;33m'
+GREY='\033[0;37m'
+NC='\033[0m'
+
+
+# Slumber hub options
+PRODUCTFILE=bin/slumberhub # compiled code of the slumber hub
+PRODUCTUSER=udooer # the default username for the hub
+PUSHPRODUCTPATH="/home/$PRODUCTUSER/slumberhub" # the compiled path to place the hub executable
+
+# Print an error message in red when a failure occured
+error_print() {
+	printf "${RED}Command: $1:\n   Arg: failure '$2'${NC}\n\n"
+}
+
+# Print header with color
+header_print() {
+	printf "${ORANGE}$1${NC}\n"
+}
+
+# Just quick install all dependencies
+install_deps() {
+echo "
+################
+#              #
+# Dependencies #
+#  Installer   #
+#              #
+################
+
+Created by Pseudonymous for Slumber,
+Made to be quick and dirty
+
+Getting essentials
+"
+
+sudo apt-get install build-essential sshpass ssh openssh-client 
+
+echo "Done installing dependencies! Exiting..."
+exit 0 # exit script
+}
+
+# Other options
+FARG="$1" # default stringed first argument
+
+ADDEDHELP=0 # check to see if the ip is valid then don't throw an error
+
+FOUNDDEVICE=0 # set flag if the ip turned out to be valid
+DEVICEADDR="slumber.local" # set the argument flag into global statement
+
+# result options
+CLEANRESULT=0
+COMPILERESULT=0
+UPLOADRESULT=
+
+####################
+#                  #
+# Argument Parsing #
+#                  #
+####################
+
+ARGPARSE=0
+
+
+# Parse through all arguments
+for curarg in "$@"
+do
+	CONTINUELOOP=0
+	# default flagging based on any location
+	case "$curarg"
+	in
+		$HOSTING) PRODUCT=0;;
+		$PRODUCTS) PRODUCT=1; ARGPARSE=1; HITLOOP=$(($LOOPC + 2));; 
+		$HELPING) HELP=1; ADDEDHELP=$(($ADDEDHELP + 2));;
+		$RUNNING) AUTORUN=1;;
+		$JRUNNING) AUTORUN=2;;
+		$PASSWORDS) PASS=1; ARGPARSE=1; PASSLOOP=$(($LOOPC + 2));;
+		$INSTALLING) install_deps;;
+		*) HELP=2; ADDEDHELP=$(($ADDEDHELP + 2));; #CONTINUELOOP=1;;
+	esac
+
+	#if [ $CONTINUELOOP -eq 0 ]; then
+	#	continue # No need to parse for anything else, just continue
+	#fi 
+
+	# increment the arg locking loop	
+	LOOPC=$(($LOOPC + 1))
+
+	# custom ip configuration if the product argument was brought
+	if [ ! -z "$curarg" ] && [ $PRODUCT -eq 1 ] && [ $CHECKHOST -eq 1 ] && [ $HITLOOP -eq $LOOPC ]; then
+		if [[ "$curarg" == *"--"* ]]; then
+			continue # This isn't an ip just continue
+		fi
+		ISDEVICE=$(ping -c 1 $curarg -W 1 > /dev/null && echo 1 || echo 0) # ping the device to make sure it exists
+
+		DEVICEADDR="$curarg" # set the ip of the device found
+
+		# check to see if the ping was succesful 
+		if [ $ISDEVICE -eq 1 ]; then
+			FOUNDDEVICE=1 # set flag to device was found
+		else
+			FOUNDDEVICE=0 # set flag to no device found
+		fi
+		CHECKHOST=0 # set the flag to not check for the device again
+		
+		HELP=0 # if the help error has only been thrown once, reset it to 0
+		ARGPARSE=0 # set to don't parse next argument
+		HITLOOP=-1 # don't anchor argument again
+	fi
+
+	# if the argument exists and a password is provided, use it for ssh
+	if [ ! -z "$curarg" ] && [ $PASS -eq 1 ] && [ $PASSLOOP -eq $LOOPC ]; then
+		PASSWORD="$curarg"
+		HELP=0	# read message above
+		ARGPARSE=0 # set to not parse the nest argument
+		PASSLOOP=-1 # don't anchor argument again
+	fi
+
+	if [ $HELP -eq 2 ] && [ $ARGPARSE -eq 0 ]; then
+		if [[ -z "$FARG" ]];then
+			curarg="none"
+		fi
+		
+		error_print $0 $curarg
+		HELP=1
+		break
+	fi
+
+done
+
+if [ $PRODUCT -gt 1 ];then
+	error_print $0 "required argument host or product not provided"
+	HELP=1
+fi 
+
+
+if [ $HELP -eq 1 ]; then
+echo "Slumber Usage: $0 [($HOSTING|$PRODUCTS[ ip(ex: 192.168.7.2)]|$HELPING)|$RUNNING]
+
+Argument list:
+    --------------------------------------------------
+        Arg    |  Description                         
+    -----------|--------------------------------------
+     $HOSTING    | Compile the Slumber code for the computer
+     $PRODUCTS | Compile the code for the SlumberHub (Arg: Ip address of slumber) if none then just compile
+     $HELPING    | Show this help menu
+     $RUNNING     | Flag to automatically run the compiled code after it's done (Both host and product, must be last flag)
+     $JRUNNING | Flag to just run the already compiled code
+     $PASSWORDS    | Set the ssh password to automatically push and run code on Slumber
+     $INSTALLING    | A quick and dirty dependency installer for Slumber and its libraries
+
+Slumber compiler, developed by Pseudonymous
+"
+exit 0
+fi
+
+if [ $PRODUCT -eq 0 ]; then
+	SHOWMESSAGE="the host"
+else
+	SHOWMESSAGE="the Slumber"
+fi
+
+# visual seps
+SEPLINE="#####################################################"
+CENTERSEP="                 "
+
+header_print "INTRO"
+echo "$SEPLINE
+Welcome to the Slumber packagin v0.1        
+
+You've selected to compile on $SHOWMESSAGE
+
+Getting started...
+$SEPLINE
+
+
+"
+
+if [ $PRODUCT -eq 0 ]; then
+	# skip the compiling and just run
+	if [ $AUTORUN -ne 2 ];then
+		header_print "\nCOMPILING"
+		printf "$SEPLINE\n\n${PURPLE}Cleaning previous product version...${NC}\n\n"
+		make -f Makehost clean
+		CLEANRESULT=$?
+		printf "\n\n${PURPLE}Done Cleaning!\nAttempting to compile for the product...${NC}\n"
+		make -f Makehost
+		COMPILERESULT=$?
+		printf "\n${PURPLE}Done Compiling!${NC}\n\n$SEPLINE\n\n"
+	fi
+else
+	# check to see if we are uploading to slumber
+	if [ $CHECKHOST -eq 0 ]; then
+		header_print "\nCONNECTION"
+		printf "$SEPLINE\n\nTesting the connectiong to the Slumber Hub...\n"
+		if [ $FOUNDDEVICE -eq 0 ]; then
+			# failed to connect to the device
+			printf "${RED}DISCONNECTED: $DEVICEADDR Did not respond, are you sure it is valid?${NC}\n\n$SEPLINE\n\n" # print error response
+			exit 1
+		fi
+
+		printf "${GREEN}CONNECTED: To the device, at: $DEVICEADDR${NC}\n\n$SEPLINE\n\n"
+	fi
+	
+	# skip compiling and just run
+	if [ $AUTORUN -ne 2 ]; then
+		header_print "\nCOMPILING"
+		printf "$SEPLINE\n\n${PURPLE}Cleaning previous product version...${NC}\n\n"
+		make -f Makefile clean
+		CLEANRESULT=$?
+		printf "\n\n${PURPLE}Done Cleaning!\nAttempting to compile for the product...${NC}\n"
+		make -f Makefile
+		COMPILERESULT=$?
+		printf "\n${PURPLE}Done Compiling!${NC}\n\n$SEPLINE\n\n"
+
+		# upload the compiled binarys
+		if [ $CHECKHOST -eq 0 ] && [ $FOUNDDEVICE -eq 1 ]; then
+			header_print "\nUPLOADING"
+			printf "$SEPLINE\n\n${PURPLE}Uploading binary files to the Slumber Hub...${NC}\n"
+			
+			if [ ! -z "$PASSWORD" ]; then
+				printf "${PURPLE}Password already provided!\n\n${NC}"
+				sshpass -p "$PASSWORD" scp $PRODUCTFILE $PRODUCTUSER@$DEVICEADDR:$PUSHPRODUCTPATH
+				UPLOADRESULT=$?
+				printf "${PURPLE}Uploaded file!\n${NC}"
+			else	
+				printf "${PURPLE}Password not provided! One may need to be entered\n\n${NC}"
+				scp $PRODUCTFILE $PRODUCTUSER@$DEVICEADDR:$PUSHPRODUCTPATH
+				UPLOADRESULT=$?
+				printf "${PURPLE}Uploaded file!\n${NC}"
+			fi
+			printf "\n${PURPLE}Attempt completed!${NC}\n\n$SEPLINE\n\n"
+		fi
+	fi
+fi
+
+if [ $AUTORUN -ne 2 ]; then
+	header_print "\nRESULTS"
+	printf "$SEPLINE\n\n"
+
+	printf "Cleaning: "
+	if [ $CLEANRESULT -eq 0 ]; then
+		printf "${GREEN} Success!${NC}\n"
+	else
+		printf "${RED} Failure!${NC}\n"
+	fi
+
+
+	printf "\nCompiling: "
+	if [ $COMPILERESULT -eq 0 ]; then
+		printf "${GREEN} Success!${NC}\n"
+	else
+		printf "${RED} Failure!${NC}\n"
+	fi
+
+
+	# if upload result was established
+	if [ ! -z $UPLOADRESULT ]; then
+		printf "\nUploading: "
+		if [ $UPLOADRESULT -eq 0 ]; then
+			printf "${GREEN} Success!${NC}\n"
+		else 
+			printf "${RED} Failure!${NC}\n"
+		fi
+	fi
+
+echo "
+
+Thanks for using the Slumber packaging tool!  
+
+$SEPLINE
+"
+
+fi
+
+if [ $AUTORUN -gt 0 ];then
+	header_print "\nRUNNING"
+	printf "$SEPLINE\n"
+	if [ $PRODUCT -eq 1 ];then
+		printf "${PURPLE}Please wait... Running binary file on Slumber${NC}\n"
+	fi
+
+	printf "$SEPLINE\n$CENTERSEP PROGRAM OUTPUT:\n$SEPLINE\n"
+
+	if [ $PRODUCT -eq 0 ];then
+		sudo $HOSTFILE # run the host file as root
+		RUNRESULT=$?
+	else
+		RUNSCRIPTONE=$PRODUCTUSER@$DEVICEADDR
+		RUNSCRIPTTWO="$PUSHPRODUCTPATH" # run the remote script as root
+		if [ ! -z "$PASSWORD" ]; then
+			sshpass -p "$PASSWORD" ssh -t $RUNSCRIPTONE "echo $PASSWORD | sudo -kS $RUNSCRIPTTWO" 
+			RUNRESULT=$?
+		else	
+			printf "${PURPLE}DEBUG HOST: Password not provided! One may need to be entered\n\n${NC}"
+			ssh -t $RUNSCRIPTONE "sudo $RUNSCRIPTTWO"
+			RUNRESULT=$?
+		fi
+		printf "${PURPLE}\n\nFINISHED RUNNING ON SLUMBER\n${NC}"
+	fi
+
+	printf "$SEPLINE\n\nRun: "
+	if [ $RUNRESULT -ne 0 ]; then
+		printf "${RED} Failure!${NC}"
+	else 
+		printf "${GREEN} Success!${NC}"
+	fi
+	printf "\n\n$SEPLINE\n\n"
+fi
+
+# end of script
