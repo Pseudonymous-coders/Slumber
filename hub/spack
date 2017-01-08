@@ -6,6 +6,7 @@ HELP=0 # default don't show help menu
 PRODUCT=2 # set to unkown product
 AUTORUN=0 # default don't autorun
 PASS=0 # default don't use a password
+SUPLOADER=0 # upload shared libraries
 
 # Available arguments
 HOSTING=--host
@@ -15,9 +16,11 @@ RUNNING=--run
 JRUNNING=--justrun
 PASSWORDS=--pass
 INSTALLING=--deps
+UPLOADING=--upload-deps
 
 SHOWMESSAGE="the host"
 
+HOSTARCH=$(arch)-linux-gnu
 # Host device checking
 HOSTFILE=bin/slumberhost # compiled host file
 CHECKHOST=1 # flag to see if we should connect to the slumber hub
@@ -33,11 +36,133 @@ ORANGE='\033[0;33m'
 GREY='\033[0;37m'
 NC='\033[0m'
 
+#Custom dep items
+TOOLSLOCATION=extras/tools
+
+########
+#      #
+# DEPS #
+#      #
+########
+
+##########
+#Compiler#
+##########
+
+BJAMLOCATION=extras/boost-jam-3.1.18
+BJAMBUILD=build.sh
+BJAMBIN=$BJAMLOCATION/bin.linux*
+BOOSTVERSION=1.63.0
+BOOSTLOCATION=extras/boost_1_63_0_src
+#CROSSLOCATION=$(pwd)/cross_compiler
+#ARMFLOCATION=$CROSSLOCATION/$SLUMBERBASE
+#GXXCOMPILER=$CROSSLOCATION/bin/
+#GXXINCLUDE=$ARMFLOCATION/include/c++/4.8.3
+#GXXLIB=$ARMFLOCATION/lib
+#GXXARMINCLUDE=$GXXINCLUDE/$SLUMBERBASE
+
+#CCLOCATION=$ARMFLOCATION/libc
+#CCLIB=$CCLOCATION/lib/$SLUMBERBASE
+#CCUSRLOCATION=$CCLOCATION/usr
+#CCINCLUDE=$CCUSRLOCATION/include
+#CCLIBTWO=$CCUSRLOCATION/lib/$SLUMBERBASE
+
+
+SLUMBERBASE=arm-linux-gnueabihf
+SLUMBERGCC=$SLUMBERBASE-gcc
+SLUMBERGXX=$SLUMBERBASE-g++
+SLUMBERAPTPACKAGE=g++-$SLUMBERBASE
+SLUMBERPATH=extras/slumber
+FULLSLUMBERPATH=$(pwd)/$SLUMBERPATH
+
+FBSLOCATION=/usr/$SLUMBERBASE/lib
+
+# ZLIB TARGZ VERSION
+ZLIBVERSION=1.2.8
+ZLIBLOCATION=$FULLSLUMBERPATH/zlib-$ZLIBVERSION
+
+LIBFFIVERSION=3.0.13
+LIBFFILOCATION=$FULLSLUMBERPATH/libffi-$LIBFFIVERSION
+
+GLIBVERSION=2.40.0
+GLIBLOCATION=$FULLSLUMBERPATH/glib-$GLIBVERSION
+
+EXPATVERSION=2.1.0
+EXPATLOCATION=$FULLSLUMBERPATH/expat-$EXPATVERSION
+
+DBUSVERSION=1.8.0
+DBUSLOCATION=$FULLSLUMBERPATH/dbus-$DBUSVERSION
+
+LIBICALVERSION=1.0
+LIBICALLOCATION=$FULLSLUMBERPATH/libical-$LIBICALVERSION
+
+NCURSESVERSION=5.9
+NCURSESLOCATION=$FULLSLUMBERPATH/ncurses-$NCURSESVERSION
+
+READLINEVERSION=6.3
+READLINELOCATION=$FULLSLUMBERPATH/readline-$READLINEVERSION
+
+BLUEZVERSION=5.43
+BLUEZLOCATION=$FULLSLUMBERPATH/bluez-$BLUEZVERSION
+
+OPENSSLVERSION=1.0.2j
+OPENSSLLOCATION=$FULLSLUMBERPATH/openssl-$OPENSSLVERSION
+
+WEBSOCKETPPLOCATION=$(pwd)/extras/websocketpp
+
+CPPRESTLOCATION=$(pwd)/extras/cpprest/Release
+export ICU_SOURCES=$(pwd)/extras/icu/source
+
+$GATTLIBLOCATION=$(pwd)/extras/gattlib
+
+OPENSSL_SSL=/usr/$SLUMBERBASE/lib/libssl.so
+OPENSSL_CRYPTO=/usr/$SLUMBERBASE/lib/libcrypto.so
+
+
+##########
+#        #
+# UPLOAD #
+#        #
+##########
+
+RELEASETYPE=debug
+HOSTPATH=extras/host
 
 # Slumber hub options
 PRODUCTFILE=bin/slumberhub # compiled code of the slumber hub
 PRODUCTUSER=udooer # the default username for the hub
 PUSHPRODUCTPATH="/home/$PRODUCTUSER/slumberhub" # the compiled path to place the hub executable
+
+# Shared path settings
+SLPATH=/usr/$SLUMBERBASE/lib # Load the shared libraries
+SSPATH=/usr/local/lib # Copy place for shared libraries
+STPATH=/home/$PRODUCTUSER/sharedtmp # The temporary switch for the libraries
+
+OPENSSLPULL=/usr/$SLUMBERBASE/ssl
+OPENSSLPUSH=/usr/local/ssl
+
+FOLDERUPDATES="$SLPATH/gio \
+$SLPATH/glib-2.0 $SLPATH/dbus-1.0 $SLPATH/icu \
+$SLPATH/engines $SLPATH/libffi-$LIBFFIVERSION"
+
+PLAINUPDATES="$STPATH/gio $STPATH/glib-2.0 \
+$STPATH/dbus-1.0 $STPATH/icu $STPATH/engines \
+$STPATH/engines-1.1 $SLPATH/pkgconfig"
+
+ALLSHAREDUPDATE="$SLPATH/*bluetooth* \
+$SLPATH/*boost* $SLPATH/*libicu* $SLPATH/*glib* \
+$SLPATH/*gobject* $SLPATH/*gthread* $SLPATH/*libical* \
+$SLPATH/*readline* $SLPATH/*ssl* $SLPATH/*crypt* \
+$SLPATH/*gio-* $SLPATH/*ffi.* $SLPATH/*gmodule* \
+$SLPATH/*thread* $SLPATH/*libz.* $OPENSSLPULL \
+$SLPATH/*cpprest* $SLPATH/*libstdc* \
+$FOLDERUPDATES"
+
+# end of shared path settings
+
+#for i in $ALLSHAREDUPDATE; do
+#	echo "`basename $i`"
+#done
 
 # Print an error message in red when a failure occured
 error_print() {
@@ -47,6 +172,70 @@ error_print() {
 # Print header with color
 header_print() {
 	printf "${ORANGE}$1${NC}\n"
+}
+
+update_deps() {
+echo "
+################
+#              #
+# Dependencies #
+#   Uploader   #
+#              #
+################
+
+Created by Pseudonymous for Slumber,
+Made to be upload all dependency shared files
+to the SlumberHub
+
+Uploading the dependencies (Password required, since this is dangerous)
+"
+
+echo "Starting!"
+
+if [ $CHECKHOST -eq 0 ] && [ $FOUNDDEVICE -eq 1 ]; then
+	echo "......"
+	
+	printf "\nFixing the slumber shared list\n\n"
+	
+	RUNSCRIPTONE=$PRODUCTUSER@$DEVICEADDR
+	RUNSCRIPTTWO="bash -c 'mkdir -p $PLAINUPDATES && \
+chown $PRODUCTUSER:$PRODUCTUSER -R * && echo DONE'"
+	
+	if [ ! -z "$PASSWORD" ]; then
+		sshpass -p "$PASSWORD" ssh -t $RUNSCRIPTONE "echo $PASSWORD | sudo -kS $RUNSCRIPTTWO"
+	else
+		echo "No password provided, one may be needed!"
+		ssh -t $RUNSCRIPTONE "sudo $RUNSCRIPTTWO"
+	fi
+	
+	printf "\n\nUploading the new shared libraries to a temporary folder!\n\n"
+	
+	echo "Password is needed!"
+	rsync --progress --links -ru $ALLSHAREDUPDATE $PRODUCTUSER@$DEVICEADDR:$STPATH/
+	
+	printf "\n\nMoving the temporary libraries into the global folder\n\n"
+	
+	echo "Files uploaded... moving them to lib folder"
+	
+	RUNSCRIPTONE=$PRODUCTUSER@$DEVICEADDR
+	RUNSCRIPTTWO="bash -c 'echo STARTING && mkdir -p $OPENSSLPUSH/ \
+&& mv $STPATH/ssl/* $OPENSSLPUSH/ && cp -R $STPATH/* $SSPATH/ && chown \
+$PRODUCTUSER:$PRODUCTUSER * -R && cp $OPENSSLPUSH -R \
+$STPATH/ && ldconfig && echo DONE'"
+	
+	if [ ! -z "$PASSWORD" ]; then
+		sshpass -p "$PASSWORD" ssh -t $RUNSCRIPTONE "echo $PASSWORD | sudo -kS $RUNSCRIPTTWO"
+	else
+		echo "No password provided, one may be needed!"
+		ssh -t $RUNSCRIPTONE "sudo $RUNSCRIPTTWO"
+	fi
+	
+	printf "\n\nComplete!\nDone with the shared library uploader you may now run the new code!\n"
+	
+else
+	echo "NO SLUMBER DEVICE WAS FOUND"
+fi
+exit 0
 }
 
 # Just quick install all dependencies
@@ -65,7 +254,570 @@ Made to be quick and dirty
 Getting essentials
 "
 
-sudo apt-get install build-essential sshpass ssh openssh-client 
+sudo apt-get install build-essential automake cmake sshpass ssh openssh-client rsync $SLUMBERAPTPACKAGE 
+
+echo "Exporting tools to PATH"
+ADDPATH=$(pwd)/$TOOLSLOCATION
+echo "Adding $ADDPATH to PATH"
+
+export PATH=$PATH:$ADDPATH
+
+echo "Building bjam for boost"
+CURDIR=$(pwd) # save current directory
+cd $BJAMLOCATION # cd bjam home
+./$BJAMBUILD --$RELEASETYPE --show-locate-target # build bjam
+cd $CURDIR # go back to base
+yes | cp -R $BJAMBIN/* $TOOLSLOCATION # copy files over without confirmation
+
+echo "Done building bjam! Installing zlib"
+
+# return to previous directory
+cd $CURDIR
+
+echo "Installing zlib for host machine"
+# HOST MACHINE INSTALL
+sudo apt-get install "zlib*"
+
+# configure: ./configure --host=$SLUMBERBASE --prefix=/usr/$SLUMBERBASE  
+
+echo "Installing zlib for slumber machine"
+cd $ZLIBLOCATION
+make clean
+make
+
+if [ $? -ne 0 ];then
+	make clean
+	make
+fi
+
+sudo make install
+
+echo "Done! Installing libffi for host machine"
+
+sudo apt-get install "libffi*"
+
+# configure: ./configure --host=$SLUMBERBASE --prefix=/usr/$SLUMBERBASE
+echo "Done! Installing expat for the slumber machine"
+cd $EXPATLOCATION
+make clean
+make
+
+if [ $? -ne 0 ];then
+	make clean
+	make
+fi
+
+sudo make install
+
+# configure: ./configure --host=$SLUMBERBASE --prefix=/usr/$SLUMBERBASE  
+
+echo "Installing libffi for slumber machine"
+cd $LIBFFILOCATION
+make clean
+make
+
+if [ $? -ne 0 ]; then
+	make clean
+	make
+fi
+
+sudo make install # Install to system
+
+echo "Done! Installing glib for host machine"
+
+sudo apt-get install libxml2-dev libxslt1-dev python-dev \
+libglib2.0-0 libglib2.0-dev glib-networking libdbus-1-3 xsltproc \
+lib32z1-dev libgtk2.0-dev
+
+echo "Installing glib for the slumber machine"
+cd $GLIBLOCATION
+make clean
+./configure --host=$SLUMBERBASE --prefix=/usr/$SLUMBERBASE PKG_CONFIG_PATH=/usr/$SLUMBERBASE/lib/pkgconfig  glib_cv_stack_grows=no glib_cv_uscore=yes ac_cv_func_posix_getpwuid_r=yes ac_cv_func_posix_getgrgid_r=yes
+make
+
+if [ $? -ne 0 ]; then
+	make clean
+	make
+fi
+
+sudo make install # Install to system
+
+echo "Done! Installing expat for the host machine"
+
+sudo apt-get install expat
+
+#configure: ./configure --host=$SLUMBERBASE --prefix=/usr/$SLUMBERBASE
+
+
+#echo "Installing expat for slumber machine"
+#cd $EXPATLOCATION
+#make clean
+#make
+
+#sudo make install
+
+echo "Done! Installing dbus for host machine"
+
+sudo apt-get install dbus
+
+echo "Installing dbus for slumber machine"
+cd $DBUSLOCATION
+make clean
+./configure --host=$SLUMBERBASE --prefix=/usr/$SLUMBERBASE \
+--enable-dependency-tracking PKG_CONFIG_PATH=/usr/$SLUMBERBASE/lib/pkgconfig \
+CXX=$SLUMBERGXX CC=$SLUMBERGCC
+make
+
+sudo make install
+sudo make install DESTDIR=/home/export/rootfs
+
+echo "Done! Installing ical for slumber machine"
+cd $LIBICALLOCATION
+export CC=$SLUMBERGCC
+export CXX=$SLUMBERGXX
+cmake -DCMAKE_INSTALL_PREFIX=/usr/$SLUMBERBASE
+
+make -B
+
+if [ $? -ne 0 ];then
+	make clean
+	make
+fi
+
+sudo make install
+
+# Reset the variables for the host machine
+export CC=gcc
+export GXX=g++
+
+#./configure --host=arm-linux-gnueabihf --prefix=/usr/arm-linux-gnueabihf CXX="arm-linux-gnueabihf-g++" CC="arm-linux-gnueabihf-gcc" --with-shared --enable-pc-files --without-normal
+echo "Done! Installing ncurses and readline for host machine"
+
+sudo apt-get install ncurses-dev libncurses5-dev libreadline6-dev libreadline-dev
+
+echo "Done! Installing ncurses for slumber machine"
+export CPPFLAGS="-P" # Fix for lib_gen failure
+export CC=$SLUMBERGCC
+export CXX=$SLUMBERGXX
+export LD=$SLUMBERBASE-ld
+export AS=$SLUMBERBASE-as
+export AR=$SLUMBERBASE-ar
+export RANLIB=$SLUMBERBASE-ranlib
+export TARGETMACH=$SLUMBERBASE
+export INSTALLDIR=/usr/$SLUMBERBASE
+cd $NCURSESLOCATION
+make clean
+./configure --host=$SLUMBERBASE --prefix=/usr/$SLUMBERBASE CXX="$SLUMBERGXX" \
+--with-shared --enable-pc-files --without-normal #\
+#CC="$SLUMBERGCC" #PKG_CONFIG_PATH=/usr/$SLUMBERBASE/lib/pkgconfig
+make CC="$CC" AR="$AR r" RANLIB="$RANLIB" LD="$LD"
+
+if [ $? -ne 0 ];then
+	make clean
+	make
+fi
+
+sudo make install
+unset CPPFLAGS
+
+#configure: ./configure --host=arm-linux-gnueabihf --prefix=/usr/arm-linux-gnueabihf bash_cv_wcwidth_broken=yes
+
+
+echo "Done! Installing readline for slumber machine"
+cd $READLINELOCATION
+make clean
+make -B SHLIB_LIBS=-lncurses
+
+if [ $? -ne 0 ];then
+	make clean
+	make SHLIB_LIBS=-lncurses
+fi
+
+sudo make install
+
+echo "Done! configuring ld"
+
+sudo ldconfig # Check linker libraries and configuration
+
+echo "Done! Installing bluez for host machine"
+
+sudo apt-get install gawk bluetooth bluez libbluetooth-dev libbluetooth3 libbluetooth3-dev
+
+#configure: ./configure --host=arm-linux-gnueabihf --prefix=/usr/arm-linux-gnueabihf PKG_CONFIG_PATH=/usr/arm-linux-gnueabihf/lib/pkgconfig --disable-systemd --disable-udev --disable-cups --disable-obex --enable-library 
+
+echo "Done! Installing bluez for slumber machine"
+cd $BLUEZLOCATION
+make clean
+make -B
+
+if [ $? -ne 0 ];then
+	make clean
+	make
+fi
+
+sudo make install
+sudo make install DESTDIR=/usr/arm-linux-gnueabihf
+sudo make install DESTDIR=/home/export/rootfs
+
+export CC=gcc
+export CXX=g++
+export LD=ld
+export AS=as
+export AR=ar
+export RANLIB=ranlib
+
+#configure: ./Configure dist --prefix=/usr/arm-linux-gnueabihf/
+
+echo "Done! Installing oppenssl for host machine"
+
+sudo apt-get install g++ libssl-dev
+
+echo "Done! Installing icu for host machine"
+cd $ICU_SOURCES
+./configure --prefix=/usr/local --enable-static
+make clean
+make
+
+sudo make install
+
+#echo "Done! Installing openssl for host machine"
+#cd $OPENSSLLOCATION
+# configure the base
+
+#make clean
+
+#./config shared --prefix=/usr/local zlib threads shared
+
+# compile for the arm base
+#make
+
+#sudo make install
+#sudo ldconfig
+
+echo "Done! Installing icu for the host machine"
+cd $ICU_SOURCES
+make clean
+./configure --enable-static --prefix=/usr/local --disable-samples
+make
+
+if [ $? -ne 0 ];then
+	make clean
+	make
+fi
+
+sudo make install
+
+echo "Done! Installing openssl for slumber machine"
+
+sudo apt-get install perl # required dependency (for host platform)
+
+cd $OPENSSLLOCATION
+export CC=$SLUMBERGCC
+export CXX=$SLUMBERGXX
+export LD=$SLUMBERBASE-ld
+export AS=$SLUMBERBASE-as
+export AR=$SLUMBERBASE-ar
+export RANLIB=$SLUMBERBASE-ranlib
+export TARGETMACH=$SLUMBERBASE
+export INSTALLDIR=/usr/$SLUMBERBASE
+# configure the base
+./Configure linux-generic32 shared -DL_ENDIAN \
+--prefix=/usr/$SLUMBERBASE zlib threads shared
+
+
+# compile for the arm base
+make CC="$CC" AR="$AR r" RANLIB="$RANLIB"
+
+if [ $? -ne 0 ];then
+	make clean
+	make CC="$CC" AR="$AR r" RANLIB="$RANLIB"
+fi
+
+sudo make install
+
+#RESET VARS
+export CC=gcc
+export CXX=g++
+export LD=ld
+export AS=as
+export AR=ar
+export RANLIB=ranlib
+
+# ./configure --host=arm-linux-gnueabihf --prefix=/usr/arm-linux-gnueabihf
+
+echo "Done! Installing ICU (regex) for slumber and host machine"
+
+sudo apt-get install libicu-dev
+
+cd $ICU_SOURCES
+./configure --host=arm-linux-gnueabihf --prefix=$INSTALLDIR\
+  --disable-samples --disable-tests\
+  --with-cross-build=$(pwd)\
+  --with-data-packaging=files\
+  --enable-static
+make # CC="$CC" AR="$AR r" RANLIB="$RANLIB"
+
+if [ $? -ne 0 ];then
+	make clean
+	make
+fi
+
+sudo make install
+
+
+echo "Done! Installing boost for the host machine"
+
+cd $CURDIR/$BOOSTLOCATION
+echo $(pwd)
+rm -rf project-config.j* # remove all existing configurations
+./bootstrap.sh # bootsrap boost
+echo "making build backup"
+mv backup.jj project-config.jam
+
+echo "Compiling boost for host machine!"
+
+# COMPILE FOR HOST DEVICE
+sudo ./b2 install toolset=gcc -a -j5 \
+--build-dir=$CURDIR/$HOSTPATH/boost/build \
+--prefix=/usr/local threading=multi variant=$RELEASETYPE
+
+
+sudo rm -rf $CURDIR/$HOSTPATH/boost/build # Remove build location
+
+echo "Done! Installing websocketpp for host machine"
+cd $WEBSOCKETPPLOCATION
+
+rm -rf CMakeFiles
+
+mv bkp.txt CMakeLists.txt
+
+cmake . -DENABLE_CPP11=ON \
+-DCMAKE_INSTALL_PREFIX=/usr/local \
+-DCMAKE_C_COMPILER=$CC \
+-DCMAKE_CXX_COMPILER=$CXX \
+-DCMAKE_RANLIB=$RANLIB \
+-DCMAKE_AR=$AR \
+-DCMAKE_AS=$AS \
+-DOPENSSL_VERSION=1.0.2j \
+-DCMAKE_INSTALL_ALWAYS=true \
+-DWEBSOCKETPP_PLATFORM_LIBS="pthread;rt" \
+-DWEBSOCKETPP_PLATFORM_TLS_LIBS="ssl;crypto" \
+-DWEBSCOKETPP_BOOST_LIBS="system;thread" \
+-DBUILD_TESTS=ON
+
+make 
+
+if [ $? -ne 0 ];then
+	make clean
+	make
+fi
+
+sudo make install
+
+# REASSIGN DEVS TO SLUMBER MACHINE
+export CC=$SLUMBERGCC
+export CXX=$SLUMBERGXX
+export LD=$SLUMBERBASE-ld
+export AS=$SLUMBERBASE-as
+export AR=$SLUMBERBASE-ar
+export RANLIB=$SLUMBERBASE-ranlib
+export TARGETMACH=$SLUMBERBASE
+export INSTALLDIR=/usr/$SLUMBERBASE
+echo "Done! Compiling boost for slumber machine"
+
+cd $CURDIR/$BOOSTLOCATION
+echo $(pwd)
+rm -rf project-config.j* # remove all existing configurations
+./bootstrap.sh # bootsrap boost
+echo "making build backup"
+yes | cp project-config.jam backup.jj
+
+sed "s/.*using\ gcc.*/\ \ \ \ using gcc : arm : $SLUMBERGXX ;/" \
+project-config.jam > temp.jam
+
+sudo apt-get install python-dev $SLUMBERAPTPACKAGE cmake # Compilers and headers
+#export CPLUS_INCLUDE_PATH=$GXXINCLUDE:$GXXARMINCLUDE\
+#:$GXXINCLUDE/parallel:$GXXLIB:$CCINCLUDE:$CCLIB:$CCLIB2:$CCINCLUDE/linux
+#export C_INCLUDE_PATH=$CCINCLUDE:$CCLIB:$CCLIB2
+
+# CROSS COMPILE FOR SLUMBER
+mv temp.jam project-config.jam # move to readable format for bjam
+sudo ./b2 install toolset=gcc-arm -a -j5 \
+--build-dir=$CURDIR/$SLUMBERPATH/boost/build \
+--prefix=/usr/$SLUMBERBASE architecture=arm \
+threading=multi variant=$RELEASETYPE
+
+sudo rm -rf $CURDIR/$SLUMBERPATH/boost/build # Remove build location
+#cxxflags="-L$GXXINCLUDE -L$GXXARMINCLUDE -L$GXXLIB" \
+#cflags="-L$CCINCLUDE -L$CCLIB -L$CCLIB2" \
+
+echo "Done! Compiling websocketpp for slumber machine"
+cd $WEBSOCKETPPLOCATION
+
+rm -rf CMakeFiles
+
+cp CMakeLists.txt bkp.txt
+cp CMakeLists.txt mv.txt
+
+sed "s/.*set\ (Boost_ADDITIONAL_VERSIONS.*/\ \ \ \ set\ (Boost_ADDITIONAL_VERSIONS\ \"$BOOSTVERSION\"\ \"106300\")/" mv.txt > CMakeLists.txt
+
+cp CMakeLists.txt mv.txt
+
+sed "s/.*find_package\ .*Boost.*/\ /" mv.txt > CMakeLists.txt
+
+cp CMakeLists.txt mv.txt
+
+sed "s/.*find_package.*ZLIB.*/\ /" mv.txt > CMakeLists.txt
+
+make clean
+
+cmake . -DENABLE_CPP11=ON \
+-DCMAKE_INSTALL_PREFIX=/usr/$SLUMBERBASE \
+-DCMAKE_C_COMPILER=$CC \
+-DCMAKE_CXX_COMPILER=$CXX \
+-DCMAKE_RANLIB=$RANLIB \
+-DCMAKE_AR=$AR \
+-DCMAKE_AS=$AS \
+-DBUILD_TESTS=ON \
+-DOPENSSL_FOUND=1 \
+-DOPENSSL_INCLUDE_DIR=/usr/$SLUMBERBASE/include/openssl \
+-DOPENSSL_SSL_LIBRARY="$OPENSSL_SSL" \
+-DOPENSSL_CRYPTO_LIBRARY="$OPENSSL_CRYPTO" \
+-DOPENSSL_LIBRARIES="$OPENSSL_SSL;$OPENSSL_CRYPTO" \
+-DCMAKE_INSTALL_ALWAYS=true \
+-DWEBSOCKETPP_PLATFORM_LIBS="pthread;rt" \
+-DWEBSOCKETPP_PLATFORM_TLS_LIBS="ssl;crypto" \
+-DZLIB_FOUND=TRUE \
+-DZLIB_LIBRARIES="$FBSLOCATION/libz.so" \
+-DBoost_FOUND=TRUE \
+-DBoost_INCLUDE_DIRS=/usr/$SLUMBERBASE/include/boost \
+-DBoost_LIBRARY_DIRS=/usr/$SLUMBERBASE/lib \
+-DBoost_LIBRARIES="$FBSLOCATION/libboost_system.so;$FBSLOCATION/libboost_thread.so;\
+$FBSLOCATION/libboost_unit_test_framework.so" \
+-DBoost_FIND_REQUIRED=FALSE
+
+mv bkp.txt CMakeLists.txt # Replace old for usability
+
+make
+
+if [ $? -ne 0 ];then
+	make clean
+	make
+fi
+
+sudo make install
+
+echo "Done! Installing Microsofts cpprest for slumber machine"
+cd $CPPRESTLOCATION/
+
+cp CMakeLists.txt bkp.txt
+cp CMakeLists.txt mv.txt
+
+sed "s/.*set\ (Boost_ADDITIONAL_VERSIONS.*/\ \ \ \ set\ (Boost_ADDITIONAL_VERSIONS\ \"$BOOSTVERSION\"\ \"106300\")/" mv.txt > CMakeLists.txt
+
+cp CMakeLists.txt mv.txt
+
+sed "s/.*find_package\ (Boost.*/\find_package\ (Boost 1.65.0\ COMPONENTS \"\${WEBSOCKETPP_BOOST_LIBS}\")/" mv.txt > CMakeLists.txt
+
+mkdir build
+cd build
+
+rm -rf * # Clean build
+
+BOOST_SYSTEM=$FBSLOCATION/libboost_system.so
+BOOST_THREAD=$FBSLOCATION/libboost_thread.so
+BOOST_ATOMIC=$FBSLOCATION/libboost_atomic.so
+BOOST_CHRONO=$FBSLOCATION/libboost_chrono.so
+BOOST_RANDOM=$FBSLOCATION/libboost_random.so
+BOOST_REGEX=$FBSLOCATION/libboost_regex.so
+BOOST_DATE_TIME=$FBSLOCATION/libboost_date_time.so
+BOOST_FILESYSTEM=$FBSLOCATION/libboost_filesystem.so
+BOOST_FRAMEWORK=$FBSLOCATION/libboost_unit_test_framework.so
+
+cmake .. -DCMAKE_BUILD_TYPE=$RELEASETYPE \
+-DCMAKE_INSTALL_PREFIX=/usr/$SLUMBERBASE \
+-DCMAKE_C_COMPILER=$CC \
+-DCMAKE_CXX_COMPILER=$CXX \
+-DBoost_FOUND=TRUE \
+-DBoost_INCLUDE_DIRS=/usr/$SLUMBERBASE/include/boost \
+-DBoost_LIBRARY_DIRS=/usr/$SLUMBERBASE/lib \
+-DBoost_FIND_REQUIRED=FALSE \
+-DBoost_SYSTEM_LIBRARY=$BOOST_SYSTEM \
+-DBoost_THREAD_LIBRARY=$BOOST_THREAD \
+-DBoost_ATOMIC_LIBRARY=$BOOST_ATOMIC \
+-DBoost_CHRONO_LIBRARY=$BOOST_CHRONO \
+-DBoost_RANDOM_LIBRARY=$BOOST_RANDOM \
+-DBoost_REGEX_LIBRARY=$BOOST_REGEX \
+-DBoost_DATE_TIME_LIBRARY=$BOOST_DATE_TIME \
+-DBoost_FILESYSTEM_LIBRARY=$BOOST_FILESYSTEM \
+-DBoost_FRAMEWORK_LIBRARY=$BOOST_FRAMEWORK \
+-DBoost_LIBRARIES="$BOOST_SYSTEM;$BOOST_THREAD;\
+$BOOST_ATOMIC;$BOOST_CHRONO;$BOOST_RANDOM;$BOOST_REGEX;\
+$BOOST_DATE_TIME;$BOOST_FILESYSTEM;$BOOST_FRAMEWORK" \
+-DCMAKE_RANLIB=$RANLIB \
+-DCMAKE_AR=$AR \
+-DCMAKE_AS=$AS \
+-DOPENSSL_FOUND=TRUE \
+-DOPENSSL_INCLUDE_DIR=/usr/$SLUMBERBASE/include/openssl \
+-DOPENSSL_LIBRARIES="/usr/$SLUMBERBASE/lib/libssl.so;\
+/usr/$SLUMBERBASE/lib/libcrypto.so" \
+-DCMAKE_INSTALL_ALWAYS=true
+
+make CC="$CC" CXX="$CXX" AR="$AR r" RANLIB="$RANLIB"
+
+if [ $? -ne 0 ];then
+	make clean
+	make CC="$CC" CXX="$CXX" AR="$AR r" RANLIB="$RANLIB"
+fi
+
+sudo make install
+
+mv ../bkp.txt ../CMakeLists.txt # Replace old for usability
+
+export CC=gcc
+export CXX=g++
+export LD=ld
+export AS=as
+export AR=ar
+export RANLIB=ranlib
+
+echo "Done! Installing Microsofts cpprest for host machine"
+cd $CPPRESTLOCATION/
+mkdir build
+cd build
+
+rm -rf * # Clean build
+
+mv ../bkp.txt ../CMakeLists.txt # Replace old makefile for host machine
+cmake .. -DCMAKE_BUILD_TYPE=$RELEASETYPE
+
+make
+
+if [ $? -ne 0 ];then
+	make clean
+	make
+fi
+
+sudo make install
+
+echo "Done! Installing libblepp for host machine"
+cd $GATTLIBLOCATION
+mkdir build
+cd build
+rm -rf $GATTLIBLOCATION/build/*
+sudo cp ../bluez/lib/uuid* /usr/include/bluetooth/
+
+make clean
+
+cmake ..
+
+make
+
+sudo make install
+
+# configure: ./configure --host=$SLUMBERBASE --prefix=/usr/$SLUMBERBASE PKG_CONFIG_PATH=/usr/$SLUMBERBASE/lib/pkgconfig  glib_cv_stack_grows=no glib_cv_uscore=yes ac_cv_func_posix_getpwuid_r=yes ac_cv_func_posix_getgrgid_r=yes
+
+
 
 echo "Done installing dependencies! Exiting..."
 exit 0 # exit script
@@ -107,6 +859,7 @@ do
 		$JRUNNING) AUTORUN=2;;
 		$PASSWORDS) PASS=1; ARGPARSE=1; PASSLOOP=$(($LOOPC + 2));;
 		$INSTALLING) install_deps;;
+		$UPLOADING) SUPLOADER=1;;
 		*) HELP=2; ADDEDHELP=$(($ADDEDHELP + 2));; #CONTINUELOOP=1;;
 	esac
 
@@ -159,6 +912,10 @@ do
 
 done
 
+if [ $SUPLOADER -eq 1 ]; then
+	update_deps
+fi
+
 if [ $PRODUCT -gt 1 ];then
 	error_print $0 "required argument host or product not provided"
 	HELP=1
@@ -169,16 +926,17 @@ if [ $HELP -eq 1 ]; then
 echo "Slumber Usage: $0 [($HOSTING|$PRODUCTS[ ip(ex: 192.168.7.2)]|$HELPING)|$RUNNING]
 
 Argument list:
-    --------------------------------------------------
-        Arg    |  Description                         
-    -----------|--------------------------------------
-     $HOSTING    | Compile the Slumber code for the computer
-     $PRODUCTS | Compile the code for the SlumberHub (Arg: Ip address of slumber) if none then just compile
-     $HELPING    | Show this help menu
-     $RUNNING     | Flag to automatically run the compiled code after it's done (Both host and product, must be last flag)
-     $JRUNNING | Flag to just run the already compiled code
-     $PASSWORDS    | Set the ssh password to automatically push and run code on Slumber
-     $INSTALLING    | A quick and dirty dependency installer for Slumber and its libraries
+    ------------------------------------------------------
+        Arg        |  Description                         
+    ---------------|--------------------------------------
+     $HOSTING        | Compile the Slumber code for the computer
+     $PRODUCTS     | Compile the code for the SlumberHub (Arg: Ip address of slumber) if none then just compile
+     $HELPING        | Show this help menu
+     $RUNNING         | Flag to automatically run the compiled code after it's done (Both host and product, must be last flag)
+     $JRUNNING     | Flag to just run the already compiled code
+     $PASSWORDS        | Set the ssh password to automatically push and run code on Slumber
+     $INSTALLING        | A quick and dirty dependency installer for Slumber and its libraries
+     $UPLOADING | Flag to upload all the host (crossed compiled) shared libraries to Slumber
 
 Slumber compiler, developed by Pseudonymous
 "
@@ -212,10 +970,10 @@ if [ $PRODUCT -eq 0 ]; then
 	if [ $AUTORUN -ne 2 ];then
 		header_print "\nCOMPILING"
 		printf "$SEPLINE\n\n${PURPLE}Cleaning previous product version...${NC}\n\n"
-		make -f Makehost clean
+		make clean
 		CLEANRESULT=$?
 		printf "\n\n${PURPLE}Done Cleaning!\nAttempting to compile for the product...${NC}\n"
-		make -f Makehost
+		make
 		COMPILERESULT=$?
 		printf "\n${PURPLE}Done Compiling!${NC}\n\n$SEPLINE\n\n"
 	fi
@@ -237,10 +995,10 @@ else
 	if [ $AUTORUN -ne 2 ]; then
 		header_print "\nCOMPILING"
 		printf "$SEPLINE\n\n${PURPLE}Cleaning previous product version...${NC}\n\n"
-		make -f Makefile clean
+		make clean SLUMBER=true
 		CLEANRESULT=$?
 		printf "\n\n${PURPLE}Done Cleaning!\nAttempting to compile for the product...${NC}\n"
-		make -f Makefile
+		make SLUMBER=true
 		COMPILERESULT=$?
 		printf "\n${PURPLE}Done Compiling!${NC}\n\n$SEPLINE\n\n"
 
