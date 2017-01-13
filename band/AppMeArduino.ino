@@ -74,6 +74,7 @@ VectorFloat gravity;
 
 //ACCEL MAGNITUDE
 float magnitude = 0.0;
+float tempMagnitude = 0.0;
 
 //VIBRATE
 unsigned char fadeState = 0,
@@ -102,6 +103,7 @@ long lastFade = 0;
 Adafruit_BluefruitLE_SPI ble(BLUEFRUIT_SPI_CS, BLUEFRUIT_SPI_IRQ, BLUEFRUIT_SPI_RST);
 unsigned long currentTime = 0;
 unsigned long currentAccelTime = 0;
+unsigned long currentBattTime = 0;
 volatile bool accelInterrupt = false;
 void accelDataReady() {
     accelInterrupt = true;
@@ -251,6 +253,7 @@ void setup()
     }
     currentTime = millis();
     currentAccelTime = millis();
+    currentBattTime = millis();
     // Set module to DATA mode
     debugPrint(F("Switching to DATA mode!"));
     ble.setMode(BLUEFRUIT_MODE_DATA);
@@ -270,14 +273,15 @@ void loop()
     }
 
   //Updating the battery. This is here because we don't want to update on send because then hub wouldn't be updated with the voltage if the band sits there
-  if(millis() >= currentAccelTime + 30000){
+  if(millis() >= currentBattTime + 30000){
+    int voltage = (int) (getVoltage()*100.0f);
     //Adding a threshold because this changes frequently
-    if(((getVoltage()*100.0f) >= (lastBattery + .1)) || ((getVoltage()*100.0f) <= (lastBattery - .1))){
-      lastBattery = (getVoltage()*100.0f);
+    if((voltage >= (lastBattery + 1)) || (voltage <= (lastBattery - 1))){
+      lastBattery = voltage;
       debugPrint(F("Battery changed-send"));
       shouldSend = true;
     }
-    currentAccelTime = millis();
+    currentBattTime = millis();
   }
     
   //Updating temperature/humidity every two seconds because DHT updates at that rate
@@ -326,13 +330,16 @@ void loop()
             //The below equation gets the diagonal of a rectangular prism with the x, y, and z values representing the side lengths
             //Making this variable so I don't have to get sqrt twice
             //float tempMagnitude = sqrt((accelVals.x * accelVals.x) + (accelVals.y * accelVals.y) + (accelVals.z * accelVals.z));
-            float tempMagnitude = max(abs(accelVals.x),max(abs(accelVals.y),abs(accelVals.z)));
+            tempMagnitude = max(tempMagnitude, max(abs(accelVals.x),max(abs(accelVals.y),abs(accelVals.z))));
             //Only send if the magnitude changed. Reason why we didn't do if it is not zero is because Eli says there will always be change.
+            //Sending the max of the last second and comparing it to the previous max to prevent spamming the hub
             //NOTE: THE BELOW THRESHOLD SOMEHOW MAKES IT OVERFLOW/WAIT (BUT ONLY WHEN STILL - NOT AN ISSUE?)
-            if((magnitude >= tempMagnitude + 50) || (magnitude <= tempMagnitude - 50)){//Giving a 50-50 range to prevent sends when still
+            if(((magnitude >= tempMagnitude + 50) || (magnitude <= tempMagnitude - 50)) && millis() >= currentAccelTime + 1000){//Giving a 50-50 range to prevent sends when still
               debugPrint(F("Passed threshold"));
               magnitude = tempMagnitude;
               shouldSend = true;
+              tempMagnitude = 0;
+              currentAccelTime = millis();
             }
         }
     }
