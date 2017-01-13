@@ -4,7 +4,6 @@
 #https://github.com/glfw/glfw/archive/glfw-3.0.4.tar.gz
 #https://kent.dl.sourceforge.net/project/glew/glew/2.0.0/glew-2.0.0.tgz
 #http://download.savannah.gnu.org/releases/freetype/freetype-2.5.2.tar.gz
-#also you have to link OpenGL library
 
 # Preset flags
 HELP=0 # default don't show help menu
