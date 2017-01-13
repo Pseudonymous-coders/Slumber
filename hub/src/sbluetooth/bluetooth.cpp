@@ -3,6 +3,7 @@
 #include <functional>
 #include <cstdlib>
 #include <fstream>
+#include <pstream.h>
 
 //BOOST INCLUDES
 #include <boost/lexical_cast.hpp>
@@ -15,8 +16,7 @@
 #include <util/log.hpp> //Slumber logging utilities
 #include <util/config.hpp> //Slumber common defintions and configurations
 #include <sbluetooth/sbluetooth.hpp> //Slumber bluetooth class connections
-
-#include <sbluetooth/sbluetooth.h>
+#include <sbluetooth/sbluetooth.h> //Include C library
 
 extern "C" {
 #include <pthread.h>
@@ -30,6 +30,27 @@ extern "C" {
 #include <bluetooth/hci_lib.h>
 }
 
+//BLUETOOTH DEFINTIONS
+#define SLUMBER_BLE_LOGTAG				"BLERFC" //Bluetooth log tag
+#define SLUMBER_BLE_SCAN_PASSIVE		0x00 //Passive discovery flag (timed)
+#define SLUMBER_BLE_SCAN_ACTIVE			0x01 //Active discovery flag (constant)
+#define SLUMBER_BLE_SCAN_WIN			0x12 //Discovery flag
+#define SLUMBER_BLE_SCAN_INT			0x12 //Discovery flag
+#define SLUMBER_BLE_NAME_SHORT			0x08 //Short local name
+#define SLUMBER_BLE_NAME_COMPLETE		0x09 //Full local name
+#define SLUMBER_BLE_EVENT_TYPE			0x05 //BLE response type
+#define SLUMBER_BLE_SCAN_RESPONSE		0x04 //Response hex for scan completion
+#define SLUMBER_BLE_SCAN_TIMEOUT		4 //Seconds for the scan to timeout
+#define SLUMBER_BLE_FOUND_TAG			"Adafruit" //Name of device to find
+#define SLUMBER_BLE_DRIVER_DELAY		300 //Millis to wait for driver reload
+#define SLUMBER_BLE_SCAN_REFRESH		2000 //Millis to wait for scan event
+#define SLUMBER_BLE_SERVICE_UUID		"6e400001-b5a3-f393-e0a9-e50e24dcca9e" //The default Adafruit UART service id
+#define SLUMBER_BLE_SERVICE_STR_UUID	"6e400001" //BLE UART short service uuid
+#define SLUMBER_BLE_SERVICE_TX_ID		"6e400002" //BLE UART transmit characteristic
+#define SLUMBER_BLE_SERVICE_RX_ID		"6e400003" //BLE UART recieve characteristic
+#define SLUMBER_BLE_BUFFER_SIZE			100 //Max recieve buffer size
+#define SLUMBER_BLE_MTU_SIZE			32 //Max ble send/recv limit
+#define SLUMBER_BLE_RETRY_AMOUNT		3 //Max reconnect retries
 
 SBluetooth::SBluetooth(int adapter_id) {
 	_reloadDrivers(SW("hci0"));
@@ -70,6 +91,7 @@ void SBluetooth::_init(int adapter_id) {
 	ble_set(adapter_id, STATE_DISCONNECTED);
 	this->_dev_desc = hci_open_dev(this->_dev_id);
 	this->_adapter_id = adapter_id;
+	this->_auto_scanning = false;
 	
 	if(this->_dev_desc < 0) {
 		_Logger(SW("Couldn't open the Bluetooth adapter!"), true);
@@ -121,14 +143,20 @@ void SBluetooth::_init(int adapter_id) {
 		Logger::Log(SLUMBER_BLE_LOGTAG, 
 			code + ": " + SW(errormessage), true); //Bind the C bluetooth program to the logger and error base
 	});
+	
+	ble_attach_disconnected(_adapter_id, SBluetooth::_disconnectHandle);
+}
+
+void SBluetooth::_disconnectHandle(int adapter_id) {
+	Logger::Log(SLUMBER_BLE_LOGTAG, SW("The Device disconnected!"));
+	ble_set(adapter_id, STATE_DISCONNECTED); //Set the diconnected flag
 }
 
 void SBluetooth::_reloadDrivers(const std::string device) {
 	ble_reset_drivers(device.c_str());
 }
 
-template<typename T>
-void SBluetooth::onRecieve(T func) {
+void SBluetooth::onRecieve(callback_ptr_t func) {
 	ble_attach_callback(this->_adapter_id, func);
 }
 
@@ -235,8 +263,11 @@ void SBluetooth::_scanner(int timeout) {
 		return;
 	}
 	
-	//Timeouts
-	wait.tv_sec = timeout;
+	if(timeout > 0) {
+		//Timeouts
+		wait.tv_sec = timeout;
+	}
+	
 	int ts = time(NULL);
 
 	//Loop connection tests
@@ -265,18 +296,24 @@ void SBluetooth::_scanner(int timeout) {
 			std::string("") : SW(name_raw);
 		
 		//Run discovered function
-		SBluetooth::_discovered(SW(addr), name);
+		if(this->_discovered(SW(addr), name)) {
+			boost::this_thread::sleep_for(
+				boost::chrono::milliseconds(SLUMBER_BLE_SCAN_REFRESH + 500));
+			break;
+		}
 
 		//Remove all dynamic allocations
 		if (name_raw) free(name_raw);
 
 		//If the current time passed the timeout quit then
-		int elapsed = time(NULL) - ts;
-		if (elapsed >= timeout)
-			break;
-		
-		//Update the timeout elapsed method
-		wait.tv_sec = timeout - elapsed;
+		if(timeout > 0) {
+			int elapsed = time(NULL) - ts;
+			if (elapsed >= timeout)
+				break;
+			
+			//Update the timeout elapsed method
+			wait.tv_sec = timeout - elapsed;
+		}
 	}
 
 	//Set the new socket options
@@ -295,10 +332,15 @@ void SBluetooth::_connect_device(const std::string addr_s) {
 }
 
 void SBluetooth::connect(const std::string addr) {
+	if(addr.length() == 0) {
+		_Logger(SW("Address cannot be NULL or 0"));
+		return;
+	}
 	
+	_connect_device(addr);
 }
 
-void SBluetooth::_discovered(const std::string addr, const std::string name) {
+bool SBluetooth::_discovered(const std::string addr, const std::string name) {
 	_Logger(SW("Bluetooth device discovered, NAME: ") 
 		+ name + SW(" ADDR: ") + addr);
 
@@ -306,14 +348,25 @@ void SBluetooth::_discovered(const std::string addr, const std::string name) {
 		_Logger(SW("Testing a possible band device!"));
 		
 		this->_connect_device(addr);
+		return true;
 	}
+	return false;
 }
 
 void SBluetooth::scan(const bool over_ride_scan) {
-	if(this->isConnected() && !over_ride_scan) 
+	if(this->isConnecting()) {
+		_Logger(SW("Not scanning, already connecting to device"));
+		return;
+	}
+	
+	if(this->isConnected() && !over_ride_scan && !this->_auto_scanning) {
+		_Logger(SW("Already connected!"));
 		return; //No need to scan if already connected to device
+	}
 	_enableScan();
-	_scanner(SLUMBER_BLE_SCAN_TIMEOUT);
+	
+	int timeout = (this->_auto_scanning) ? 0 : SLUMBER_BLE_SCAN_TIMEOUT;
+	_scanner(timeout);
 }
 
 void SBluetooth::stopScan(const bool over_ride_scan) {
@@ -322,7 +375,11 @@ void SBluetooth::stopScan(const bool over_ride_scan) {
 }
 
 bool SBluetooth::isConnected() {
-	return ble_connected(_adapter_id) == 1;
+	return ((char) ble_connected(_adapter_id) == (char) 1);
+}
+
+bool SBluetooth::isConnecting() {
+	return ((char) ble_connecting(_adapter_id) == (char) 1);
 }
 
 void SBluetooth::_scanLoop() {
@@ -337,8 +394,19 @@ void SBluetooth::_scanLoop() {
 }
 
 void SBluetooth::autoScan() {
-	this->_scanLoopThread = new boost::thread(
-		boost::bind(&SBluetooth::_scanLoop, this));
+	this->_auto_scanning = true;
+	//this->_scanLoopThread = new boost::thread(
+	//	boost::bind(&SBluetooth::_scanLoop, this));
+	this->_scanLoop();
+}
+
+adapters_t SBluetooth:getLocalAdapters() {
+	adapters_t adapters;
+	redi::ipstream in("ls -l");
+	std::stringstream ss;
+	ss << in.rdbuf();
+	std::string s = ss.str();
+	return adapters;	
 }
 
 
@@ -348,16 +416,25 @@ void SBluetooth::_Logger(const T &toLog, const bool err) const {
 	Logger::Log<T>(SLUMBER_BLE_LOGTAG, toLog, err);
 }
 
+BluetoothBand::BluetoothBand(int adapter) {
+	this->_ble_interface = new SBluetooth(adapter);
+}
 
-int main() {
+BluetoothBand::~BluetoothBand() {
+	delete this->_ble_interface;
+}
+
+
+
+/*int main() {
 	Logger::Init();
 
 	SBluetooth bluetooth(0);
-	bluetooth.onRecieve([](const char *recv) {
+	bluetooth.onRecieve([](int adapter, const char *recv) {
 		Logger::Log("PACKET", "BLE response: " + SW(recv));
 	});
 	bluetooth.autoScan();
 	
 	boost::this_thread::sleep_for(boost::chrono::seconds(300));
-}
+}*/
 

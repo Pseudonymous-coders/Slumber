@@ -58,27 +58,9 @@
 #define SLUMBER_TOKEN_RETRY_AMOUNT		3 //If the token failed try a couple of times more
 #define SLUMBER_TOKEN_RETRY_SLEEP		3 //Seconds to sleep between each retry
 
-//BLUETOOTH DEFINTIONS
-#define SLUMBER_BLE_LOGTAG				"BLERFC" //Bluetooth log tag
-#define SLUMBER_BLE_SCAN_PASSIVE		0x00 //Passive discovery flag (timed)
-#define SLUMBER_BLE_SCAN_ACTIVE			0x01 //Active discovery flag (constant)
-#define SLUMBER_BLE_SCAN_WIN			0x12 //Discovery flag
-#define SLUMBER_BLE_SCAN_INT			0x12 //Discovery flag
-#define SLUMBER_BLE_NAME_SHORT			0x08 //Short local name
-#define SLUMBER_BLE_NAME_COMPLETE		0x09 //Full local name
-#define SLUMBER_BLE_EVENT_TYPE			0x05 //BLE response type
-#define SLUMBER_BLE_SCAN_RESPONSE		0x04 //Response hex for scan completion
-#define SLUMBER_BLE_SCAN_TIMEOUT		4 //Seconds for the scan to timeout
-#define SLUMBER_BLE_FOUND_TAG			"Adafruit" //Name of device to find
-#define SLUMBER_BLE_DRIVER_DELAY		300 //Millis to wait for driver reload
-#define SLUMBER_BLE_SCAN_REFRESH		2000 //Millis to wait for scan event
-#define SLUMBER_BLE_SERVICE_UUID		"6e400001-b5a3-f393-e0a9-e50e24dcca9e" //The default Adafruit UART service id
-#define SLUMBER_BLE_SERVICE_STR_UUID	"6e400001" //BLE UART short service uuid
-#define SLUMBER_BLE_SERVICE_TX_ID		"6e400002" //BLE UART transmit characteristic
-#define SLUMBER_BLE_SERVICE_RX_ID		"6e400003" //BLE UART recieve characteristic
-#define SLUMBER_BLE_BUFFER_SIZE			100 //Max recieve buffer size
-#define SLUMBER_BLE_MTU_SIZE			32 //Max ble send/recv limit
-#define SLUMBER_BLE_RETRY_AMOUNT		3 //Max reconnect retries
+//BLUETOOTH DEFINITIONS
+#define SLUMBER_BLE_START_TAG			"A"
+#define SLUMBER_BLE_END_TAG				";E"
 
 
 #endif //SLUMBER_CONFIG_H

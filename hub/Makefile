@@ -58,7 +58,7 @@ $(BLOC)boost_filesystem.so $(BLOC)cpprest.so $(BLOC)gatt.so
 
 CFLAGS = -I/usr/include/glib-2.0 \
 -I/usr/lib/$(HOSTBASE)/glib-2.0/include \
--D $(HOSTFLAG) -I$(INCLUDELOCATION) -Iinclude
+-D $(HOSTFLAG) -I$(INCLUDELOCATION) -Iinclude -lpthread -lglib-2.0 -lgatt
 
 # g++ flags to be placed after each src file
 CXXFLAGS = -std=c++11 $(CFLAGS)
@@ -69,8 +69,8 @@ LDFLAGS = -lpthread $(LLIBS) -fpermissive
 # Remove files
 RM = rm -f
 
-SRCS = $(shell echo src/sbluetooth/*.cpp) $(shell echo src/util/*.cpp) #$(shell echo src/security/*.cpp) 
-#$(shell echo src/sbluetooth/*.cpp) $(shell echo src/*.cpp)
+SRCS = $(shell echo src/sbluetooth/*.cpp) $(shell echo src/util/*.cpp) \
+$(shell echo src/security/*.cpp) $(shell echo src/sbluetooth/*.cpp) $(shell echo src/*.cpp)
 CSRCS = $(shell echo csrc/*.c)
 HEADS = $(shell echo include/*.h)
 OBJS = $(CSRCS:.c=.o) $(SRCS:.cpp=.o)
@@ -83,10 +83,9 @@ BINF = bin/
 all: ${TARGET}
 
 $(TARGET): $(OBJS)
-	@echo Creating single static lib $(TARGET)
+	@echo Creating single static lib $(TARGET) $(MVOBJS)
 	$(CXX) -o $(BINF)$@ $^ $(PREARGS) $(CXXFLAGS) $(LDFLAGS)
-	mv $(OBJS) $(OBJF)
-	@echo Finished building! Find the compiled version at $(BINF)$(TARGET)
+	@echo Finished compiling! Find the executable at $(BINF)$(TARGET)
 
 $(OBJF)%.o: %.cpp $(HEADS)
 	@echo Compiling (C++)... $<

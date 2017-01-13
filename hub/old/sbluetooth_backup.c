@@ -18,40 +18,42 @@
 #define SLUMBER_BLE_SERVICE_FLAGS		"2902" //Flag to get all service handlers
 #define SLUMBER_BLE_THREAD_TIMEOUT		4 //Seconds to timeout on a function call
 
-#define ERRORBACK(X, Y, Z) if(X->_errorback_func != NULL) X->_errorback_func(Y, Z)
-#define LOGBACK(X, Y) if(X->_logback_func != NULL) X->_logback_func(Y)
-#define PROPS _t_props
+#define ERRORBACK(X, Y, Z) if(_errorback_func[X] != NULL) _errorback_func[X](Y, Z)
+#define LOGBACK(X, Y) if(_logback_func[X] != NULL) printf("LOG: %s\n", Y)//_logback_func[X](Y)
 
-#define MUTEXLOCK(X) pthread_mutex_lock(&X->mutex) //printf("locking LINE: %d\n", __LINE__);
-#define MUTEXUNLOCK(X) pthread_mutex_unlock(&X->mutex) //printf("unlocking LINE: %d\n", __LINE__);
-
-//DEFAULT STRUCT SETTINGS
+//Connection definition settings
 int _start_t = 0x0001;
 int _end_t = 0xffff;
 int _handle_t = -1;
 int _mtu = 0;
 int _psm = 0;
 const char *_address_type = "random"; //Connect to the device with a random address
-char *_src = NULL; //The local adapter to use
-char *_dst = NULL; //The BLE device to connect to (MAC address) 
-char *_sec_level = NULL; //The security level to use with the device
-bt_uuid_t *_uuid_t = NULL; //The uuid to look for
-GIOChannel *chan = NULL; //Channels to attach BLE devices to
-GAttrib *attrib = NULL; //Attributes for the devices
-GError *gerr = NULL; //Error reporting
-char char_passed = 0; //Characteristic passing flag
-char rx_handler[50]; //The RX characteristic handler flag
 
-pthread_mutex_t mutex_locks[A_MAX] = {PTHREAD_MUTEX_INITIALIZER};
+//Device and adapter definitions
+char *_src[A_MAX] = {NULL}; //The local adapter to use
+char *_dst[A_MAX] = {NULL}; //The BLE device to connect to (MAC address) 
+char *_sec_level[A_MAX] = {NULL}; //The security level to use with the device
+bt_uuid_t *_uuid_t = {NULL}; //The uuid to look for
+bt_uuid_t _uuid_temp; //Temporary uuid holder
+GMainLoop *event_loop[A_MAX]; //Mainloops per BLE device
+GIOChannel *chan[A_MAX] = {NULL}; //Channels to attach BLE devices to
+GAttrib *attrib[A_MAX] = {NULL}; //Attributes for the devices
+GError *gerr[A_MAX] = {NULL}; //Error reporting
+
+int start[A_MAX]; //Temporary adapter beginnning address
+int end[A_MAX]; //Same as above except the final address
+char char_passed[A_MAX] = {0}; //Characteristic passing flag
+char rx_handler[A_MAX][50]; //The RX characteristic handler flag
+
+callback_ptr_t _callback_func[A_MAX]; //Callback functions to call when a notification happens
+errorback_ptr_t _errorback_func[A_MAX]; //Callback functions when a error occurs
+logback_ptr_t _logback_func[A_MAX]; //Callback functions to log data on main logger
+disconnected_ptr_t _disconnected_func[A_MAX]; //Callback function when the BLE device disconnects
 
 struct params {
-	pthread_t thread;
 	pthread_mutex_t mutex;
 	pthread_cond_t done;
 	
-	enum state conn_state;
-	
-	int _a_num;
 	int _start_t;
 	int _end_t;
 	int _handle_t;
@@ -80,6 +82,9 @@ struct params {
 	logback_ptr_t _logback_func; //Callback functions to log data on main logger
 	disconnected_ptr_t _disconnected_func; //Callback function when the BLE device disconnects
 };
+
+//Create the new params struct to not confuse locals
+typedef struct params params_t;
 
 //Creeate the same structured list to easily access the managers (The index
 //Doesn't matter)
@@ -204,38 +209,20 @@ char ble_string_to_handle(const char *src)
 }
 
 char ble_connected(int a_num) {
-	if(a_num > A_MAX) return 0;
-	params_t *_param = &PROPS[a_num];
-	MUTEXLOCK(_param);
-	char ret = (char) (_param->conn_state == STATE_CONNECTED) ? 1 : 0;
-	MUTEXUNLOCK(_param);
-	return ret;
+	return (char) (conn_state[a_num] == STATE_CONNECTED) ? 1 : 0;
 }
 
 char ble_connecting(int a_num) {
-	if(a_num > A_MAX) return 0;
-	params_t *_param = &PROPS[a_num];
-	MUTEXLOCK(_param);
-	char ret = (char) (_param->conn_state == STATE_CONNECTING) ? 1 : 0;
-	MUTEXUNLOCK(_param);
-	return ret;
+	return (char) (conn_state[a_num] == STATE_CONNECTING) ? 1 : 0;
 }
 
 char ble_disconnected(int a_num) {
-	if(a_num > A_MAX) return 0;
-	params_t *_param = &PROPS[a_num];
-	MUTEXLOCK(_param);
-	char ret = (char) (_param->conn_state == STATE_DISCONNECTED) ? 1 : 0;
-	MUTEXUNLOCK(_param);
-	return ret;
+	return (char) (conn_state[a_num] == STATE_DISCONNECTED) ? 1 : 0;
 }
 
 void ble_set(int a_num, enum state st) {
 	if(a_num > A_MAX) return;
-	params_t *_param = &PROPS[a_num];
-	MUTEXLOCK(_param);
-	_param->conn_state = st;
-	MUTEXUNLOCK(_param);
+	conn_state[a_num] = st;
 }
 
 //Reset the device drivers
@@ -244,66 +231,57 @@ char ble_reset_drivers(const char *adapter) {
 	char adapter_buff[150];
 	int ret;
 	
-	params_t *_param = &PROPS[0];
-	
-	MUTEXLOCK(_param);
-	
 	if(adapter == NULL) {
 		sprintf(adapter_buff, "%s%s reset", execute_buff, "hci0");
 	} else {
 		sprintf(adapter_buff, "%s%s reset", execute_buff, adapter);
 	}
-
-	LOGBACK(_param, "Unblocking all rfkill options");
+	
+	LOGBACK(0, "Unblocking all rfkill options");
 	ret = system("rfkill unblock all");
 	if(ret != 0) {
-		ERRORBACK(_param, SLUMBER_BLE_DRIVER_ERROR, "Failed to unblock bluetooth from rfkill");
+		ERRORBACK(0, SLUMBER_BLE_DRIVER_ERROR, "Failed to unblock bluetooth from rfkill");
 	} else {
-		LOGBACK(_param, "Unblocked everything from rfkill");
+		LOGBACK(0, "Unblocked everything from rfkill");
 	}
 
-	LOGBACK(_param, "Resetting the bluetooth drivers");
+	LOGBACK(0, "Resetting the bluetooth drivers");
 	ret = system(adapter_buff);
 	sleep(1); //Wait one second to finish
 	
 	if(ret != 0) {
-		ERRORBACK(_param, SLUMBER_BLE_DRIVER_ERROR, "Failed to reset bluetooth drivers!");
-		MUTEXUNLOCK(_param);
+		ERRORBACK(0, SLUMBER_BLE_DRIVER_ERROR, "Failed to reset bluetooth drivers!");
 		return SLUMBER_BLE_DRIVER_ERROR;
 	} else {
-		LOGBACK(_param, "Bluetooth driver reset. Complete.");
+		LOGBACK(0, "Bluetooth driver reset. Complete.");
 	}
-	
-	MUTEXUNLOCK(_param);
 	return SLUMBER_BLE_OK;
 }
 
 char ble_attach_callback(int a_num, callback_ptr_t func) {
 	if(a_num > A_MAX) return SLUMBER_BLE_ADAPTER_ERROR;
-	PROPS[a_num]._callback_func = func;
+	_callback_func[a_num] = func;
 	
 	return SLUMBER_BLE_OK;
 }
 
 char ble_attach_errorback(int a_num, errorback_ptr_t func) {
 	if(a_num > A_MAX) return SLUMBER_BLE_ADAPTER_ERROR;
-	PROPS[a_num]._errorback_func = func;
+	_errorback_func[a_num] = func;
 	
 	return SLUMBER_BLE_OK;
 }
 
 char ble_attach_logback(int a_num, logback_ptr_t func) {
 	if(a_num > A_MAX) return SLUMBER_BLE_ADAPTER_ERROR;
-	PROPS[a_num]._logback_func = func;
+	_logback_func[a_num] = func;
 	
 	return SLUMBER_BLE_OK;
 }
 
 char ble_attach_disconnected(int a_num, disconnected_ptr_t func) {
 	if(a_num > A_MAX) return SLUMBER_BLE_ADAPTER_ERROR;
-	PROPS[a_num]._disconnected_func = func;
-	
-	return SLUMBER_BLE_OK;
+	_disconnected_func[A_MAX] = func;
 }
 
 //Handle glib events such as when the library does get a response
@@ -313,11 +291,7 @@ void __ble_events_handler(const uint8_t *pdu, uint16_t len, gpointer user_data) 
 	//	if(chan
 	//}
 	
-	//int a_num = *((int*)user_data); //The adapter number
-	
-	params_t *_param = (params_t*) user_data;
-	
-	int a_num = _param->_a_num;
+	int a_num = *((int*)user_data); //The adapter number
 	
 	uint8_t *opdu;
 	uint16_t handle, i, olen;
@@ -340,7 +314,7 @@ void __ble_events_handler(const uint8_t *pdu, uint16_t len, gpointer user_data) 
 									handle);
 		break;*/
 	default:
-		ERRORBACK(_param, SLUMBER_BLE_VALUE_ERROR, "Invalid opcode");
+		ERRORBACK(a_num, SLUMBER_BLE_VALUE_ERROR, "Invalid opcode");
 		return;
 	}
 
@@ -349,11 +323,11 @@ void __ble_events_handler(const uint8_t *pdu, uint16_t len, gpointer user_data) 
 		g_string_append_printf(s, "%c", (char) pdu[i]);
 	}
 	
-	if(_param->_callback_func == NULL) {
-		LOGBACK(_param, "No callback function provided response: ");
-		LOGBACK(_param, s->str);
+	if(_callback_func[a_num] == NULL) {
+		LOGBACK(a_num, "No callback function provided response: ");
+		LOGBACK(a_num, s->str);
 	} else {
-		_param->_callback_func(a_num, s->str); //Call the callback function
+		_callback_func[a_num](a_num, s->str); //Call the callback function
 	}
 	
 	g_string_free(s, TRUE); //Free the gstring
@@ -362,37 +336,34 @@ void __ble_events_handler(const uint8_t *pdu, uint16_t len, gpointer user_data) 
 	if (pdu[0] == ATT_OP_HANDLE_NOTIFY)
 		return;
 
-	opdu = g_attrib_get_buffer(_param->attrib, &plen);
+	opdu = g_attrib_get_buffer(attrib[a_num], &plen);
 	olen = enc_confirmation(opdu, plen);
 
 	if (olen > 0) {
-		g_attrib_send(_param->attrib, 0, opdu, olen, NULL, NULL, NULL);
+		g_attrib_send(attrib[a_num], 0, opdu, olen, NULL, NULL, NULL);
 	}
 }
 
 //Disconnect the specified channel adapter
-void __ble_disconnect_channel(params_t *_param) {
-	if (_param->conn_state == STATE_DISCONNECTED)
+void __ble_disconnect_channel(int a_num) {
+	if (conn_state[a_num] == STATE_DISCONNECTED)
 		return;
 
-	int a_num = _param->_a_num;
+	g_attrib_unref(attrib[a_num]);
+	attrib[a_num] = NULL;
 
-	g_attrib_unref(_param->attrib);
-	_param->attrib = NULL;
+	g_io_channel_shutdown(chan[a_num], FALSE, NULL);
+	g_io_channel_unref(chan[a_num]);
+	chan[a_num] = NULL;
 
-	g_io_channel_shutdown(_param->chan, FALSE, NULL);
-	g_io_channel_unref(_param->chan);
-	_param->chan = NULL;
+	ble_set(a_num, STATE_DISCONNECTED);
 
-	//ble_set(a_num, STATE_DISCONNECTED);
+	g_main_loop_quit(event_loop[a_num]); //Destroy the loop that hangs the program
 
-	g_main_loop_quit(_param->event_loop); //Destroy the loop that hangs the program
-	g_main_loop_unref(_param->event_loop); //Cleanup the mainloop
-
-	if(_param->_disconnected_func != NULL) {
-		_param->_disconnected_func(a_num); //Call the callback function
+	if(_disconnected_func[a_num] != NULL) {
+		_disconnected_func[a_num](a_num); //Call the callback function
 	} else {
-		LOGBACK(_param, "The BLE disconnected!");
+		LOGBACK(a_num, "The BLE disconnected!");
 	}
 }
 
@@ -407,23 +378,20 @@ void __ble_disconnect_channel(params_t *_param) {
  *
  */
 
-
 //STEP ONE DISCOVER THE PRIMARY SERVICES
 void __ble_discover_primary_callback(GSList *services, 
 		guint8 status, gpointer user_data) {
-
-	params_t *_param = (params_t *) user_data; 
-
+	int a_num = *((int*)user_data); //The adapter number
 	GSList *l;
 
 	if (status) {
-		ERRORBACK(_param, SLUMBER_BLE_DISCOVERY_ERROR, "Discover all primary services failed!:");
-		ERRORBACK(_param, SLUMBER_BLE_DISCOVERY_ERROR, att_ecode2str(status));
+		ERRORBACK(a_num, SLUMBER_BLE_DISCOVERY_ERROR, "Discover all primary services failed!:");
+		ERRORBACK(a_num, SLUMBER_BLE_DISCOVERY_ERROR, att_ecode2str(status));
 		return;
 	}
 
 	if (services == NULL) {
-		ERRORBACK(_param, SLUMBER_BLE_DISCOVERY_ERROR, "No primary service found!");
+		ERRORBACK(a_num, SLUMBER_BLE_DISCOVERY_ERROR, "No primary service found!");
 		return;
 	}
 	
@@ -432,30 +400,29 @@ void __ble_discover_primary_callback(GSList *services,
 	for (l = services; l; l = l->next) {
 		struct gatt_primary *prim = l->data;
 		if(strstr(prim->uuid, SLUMBER_BLE_SERVICE_STR_UUID) != NULL) {
-			LOGBACK(_param, "Found a slumber band: ");
+			LOGBACK(a_num, "Found a slumber band: ");
 			
 			char buff_line[100];
 			
 			sprintf(buff_line, "Handler: 0x%04x <-> End Handler: 0x%04x UUID: %s",
 				prim->range.start, prim->range.end, prim->uuid);
 		
-			LOGBACK(_param, buff_line);
+			LOGBACK(a_num, buff_line);
 			
 			passed = 1; //Set the passed flag to true
 		}
 	}
 	
 	if(!passed) {
-		ERRORBACK(_param, SLUMBER_BLE_DISCOVERY_ERROR, "The selected bluetooth device is not a Slumber band!");
+		ERRORBACK(a_num, SLUMBER_BLE_DISCOVERY_ERROR, "The selected bluetooth device is not a Slumber band!");
 	} else {
-		ble_discover_characteristics(_param); //Discover and check the characteristics
+		ble_discover_characteristics(a_num); //Discover and check the characteristics
 	}
 }
 
 void __ble_discover_char_callback(guint8 status, const guint8 *pdu, 
 		guint16 plen, gpointer user_data) {
-	
-	params_t *_param = (params_t *) user_data;
+	int a_num = *((int*)user_data); //The adapter number
 	
 	struct att_data_list *list;
 	guint8 format;
@@ -464,17 +431,21 @@ void __ble_discover_char_callback(guint8 status, const guint8 *pdu,
 	char skipper = 1;
 
 	if (status != 0) {
-		LOGBACK(_param, "Finished with finding characteristics:");
-		LOGBACK(_param, att_ecode2str(status));
+		LOGBACK(a_num, "Finished with finding characteristics:");
+		LOGBACK(a_num, att_ecode2str(status));
 
 		skipper = 0;
 	}
+	
+	printf("part one\n");
 
 	if(skipper) {
 		list = dec_find_info_resp(pdu, plen, &format);
 		
+		printf("part two\n");
+		
 		if (list == NULL) {
-			ERRORBACK(_param, SLUMBER_BLE_CHAR_ERROR, "No characteristics found on the device!");
+			ERRORBACK(a_num, SLUMBER_BLE_CHAR_ERROR, "No characteristics found on the device!");
 			return;
 		}
 		
@@ -486,89 +457,109 @@ void __ble_discover_char_callback(guint8 status, const guint8 *pdu,
 			uint8_t *value;
 			bt_uuid_t uuid;
 
+			printf("part three\n");
+
 			value = list->data[i];
 			handle = att_get_u16(value);
+
+			printf("part four\n");
 	
 			if (format == 0x01)
 				uuid = att_get_uuid16(&value[2]);
 			else
 				uuid = att_get_uuid128(&value[2]);
 
+			printf("part five\n");
+
 			bt_uuid_to_string(&uuid, uuidstr, MAX_LEN_UUID_STR);
-			
+		
+		
+			printf("part six\n");
+		
 			if(strstr(uuidstr, SLUMBER_BLE_SERVICE_TX_ID) != NULL) {
-				snprintf(buff_line, 200, "Found TX Handle: 0x%04x, UUID: %s", handle, uuidstr);
-				LOGBACK(_param, buff_line);
-				_param->char_passed++;
+				snprintf(buff_line, 200, "Found TX Handle: 0x%04x, UUID: %s\n", handle, uuidstr);
+				LOGBACK(a_num, buff_line);
+				char_passed[a_num]++;
 			} else if(strstr(uuidstr, SLUMBER_BLE_SERVICE_RX_ID) != NULL) {
-				snprintf(buff_line, 200, "Found RX Handle: 0x%04x, UUID: %s", handle, uuidstr);
-				LOGBACK(_param, buff_line);
-				_param->char_passed++;
+				snprintf(buff_line, 200, "Found RX Handle: 0x%04x, UUID: %s\n", handle, uuidstr);
+				LOGBACK(a_num, buff_line);
+				char_passed[a_num]++;
 			}
+			
+			printf("part seven\n");
 			
 			usleep(3); //Wait 3 nanoseconds
 		}
 	
+		printf("part eight\n");
+	
 		att_data_list_free(list); //Clear the characteristics service list
 	}
 	
-	MUTEXLOCK(_param);
+	printf("part nine\n");
 	
-	if (handle != 0xffff && handle < _param->_end_t) {
-		gatt_discover_char_desc(_param->attrib, handle + 1, 
-			_param->_end_t, __ble_discover_char_callback, _param);
-	} else {
-		//The characteristic loop pull has finished check if the characteristics are correct
-		if(_param->char_passed < 2) {
-			ERRORBACK(_param, SLUMBER_BLE_CHAR_ERROR, "Failed to get the right characteristics from the band");
-		} else {
-			//Both TX and RX were found continue to set the RX flag
-			LOGBACK(_param, "Found the band characteristics for the UART service");
-
-			ble_read_characteristic(_param, SLUMBER_BLE_SERVICE_FLAGS);
-		}
+	if(end == NULL) {
+		printf("NOT VALID\n");
 	}
 	
-	MUTEXUNLOCK(_param);
+	printf("LAST: %d\n", _end_t);
+	printf("part nine and a half\n");
+	
+	if (handle != 0xffff && handle < _end_t) {
+		printf("part ten\n");
+	
+		gatt_discover_char_desc(attrib[a_num], handle + 1, 
+			_end_t, __ble_discover_char_callback, &a_num);
+			
+		printf("part eleven\n");
+	} else {
+		//The characteristic loop pull has finished check if the characteristics are correct
+		if(char_passed[a_num] < 2) {
+			ERRORBACK(a_num, SLUMBER_BLE_CHAR_ERROR, "Failed to get the right characteristics from the band");
+		} else {
+			//Both TX and RX were found continue to set the RX flag
+			LOGBACK(a_num, "Found the band characteristics for the UART service");
+
+			ble_read_characteristic(a_num, SLUMBER_BLE_SERVICE_FLAGS);
+		}
+	}
 }
 
 
 //Write a characteristic value
 void __ble_write_char_callback(guint8 status, const guint8 *pdu, guint16 plen,
 							gpointer user_data) {
-	params_t *_param = (params_t *) user_data;
+	int a_num = *((int*)user_data); //The adapter number
 				
 	if (status != 0) {
-		ERRORBACK(_param, SLUMBER_BLE_DISCOVERY_ERROR, "Characteristics write failed:");
-		ERRORBACK(_param, SLUMBER_BLE_DISCOVERY_ERROR, att_ecode2str(status));
+		ERRORBACK(a_num, SLUMBER_BLE_DISCOVERY_ERROR, "Characteristics write failed:");
+		ERRORBACK(a_num, SLUMBER_BLE_DISCOVERY_ERROR, att_ecode2str(status));
 		return;
 	}
 
 	if (!dec_write_resp(pdu, plen) && !dec_exec_write_resp(pdu, plen)) {
-		ERRORBACK(_param, SLUMBER_BLE_WRITE_ERROR, "Protocol error");
+		ERRORBACK(a_num, SLUMBER_BLE_WRITE_ERROR, "Protocol error");
 		return;
 	}
 
-	LOGBACK(_param, "The new characteristic was written successfully");
-	LOGBACK(_param, "Waiting for a response from the Slumber band");
+	LOGBACK(a_num, "The new characteristic was written successfully");
+	LOGBACK(a_num, "Waiting for a response from the Slumber band");
 	
-	MUTEXLOCK(_param);
-	_param->conn_state = STATE_CONNECTED;
-	MUTEXUNLOCK(_param);
+	ble_set(a_num, STATE_CONNECTED); //Set the flag that the device is connected
 }
 
 //Write a characteristic value
 void __ble_read_char_uuid_callback(guint8 status, const guint8 *pdu, guint16 plen,
 							gpointer user_data) {
-	params_t *_param = (params_t *) user_data;
+	int a_num = *((int*)user_data); //The adapter number
 	
 	struct att_data_list *list;
 	int i;
 	GString *s;
 
 	if (status != 0) {
-		ERRORBACK(_param, SLUMBER_BLE_DISCOVERY_ERROR, "Failed to read characteristic from the band:");
-		ERRORBACK(_param, SLUMBER_BLE_DISCOVERY_ERROR, att_ecode2str(status));
+		ERRORBACK(a_num, SLUMBER_BLE_DISCOVERY_ERROR, "Failed to read characteristic from the band:");
+		ERRORBACK(a_num, SLUMBER_BLE_DISCOVERY_ERROR, att_ecode2str(status));
 		return;
 	}
 
@@ -589,21 +580,20 @@ void __ble_read_char_uuid_callback(guint8 status, const guint8 *pdu, guint16 ple
 		value += 2;
 		for (j = 0; j < list->len - 2; j++, value++)
 			g_string_append_printf(s, "%c ", ((char) *value));
-		LOGBACK(_param, s->str);
+		LOGBACK(a_num, s->str);
 	}
 	
-	sprintf(_param->rx_handler, "0x%04x", last_handler); //Update rx_handler flag for requests
+	sprintf(rx_handler[a_num], "0x%04x", last_handler); //Update rx_handler flag for requests
 	
 	char buff_line[100];
-	sprintf(buff_line, "Selected %s ad the RX handler", _param->rx_handler);
+	sprintf(buff_line, "Selected %s ad the RX handler", rx_handler[a_num]);
 
 	att_data_list_free(list);
 	g_string_free(s, TRUE);
 	
 	//Update RX characteristic with selected handler
-	ble_write_characteristic(_param, _param->rx_handler, SLUMBER_BLE_SERVICE_RX_FLAG);
+	ble_write_characteristic(a_num, rx_handler[a_num], SLUMBER_BLE_SERVICE_RX_FLAG);
 }
-
 
 
 
@@ -618,17 +608,20 @@ void __ble_read_char_uuid_callback(guint8 status, const guint8 *pdu, guint16 ple
  *
  *
  */
- 
- 
-char ble_discover_services(params_t *_param) {
-	if(_param->conn_state == STATE_DISCONNECTED) {
-		ERRORBACK(_param, SLUMBER_BLE_CONNECTION_ERROR, "Not connected to a device!");
+char ble_discover_services(int a_num) {
+	if(a_num > A_MAX) {
+		ERRORBACK(a_num, SLUMBER_BLE_ADAPTER_ERROR, "Input invalid adapter number!");
+		return SLUMBER_BLE_ADAPTER_ERROR;
+	}
+
+	if(ble_disconnected(a_num)) {
+		ERRORBACK(a_num, SLUMBER_BLE_CONNECTION_ERROR, "Not connected to a device!");
 		return SLUMBER_BLE_CONNECTION_ERROR;
 	}
 	
-	LOGBACK(_param, "Attempting to find services on the BLE device");
+	LOGBACK(a_num, "Attempting to find services on the BLE device");
 
-	if(gatt_discover_primary(_param->attrib, NULL, __ble_discover_primary_callback, _param) != 0)
+	if(gatt_discover_primary(attrib[a_num], NULL, __ble_discover_primary_callback, &a_num) != 0)
 		return SLUMBER_BLE_DISCOVERY_ERROR;
 	return SLUMBER_BLE_OK;
 }
@@ -660,21 +653,28 @@ char ble_discover_services(params_t *_param) {
 }*/
 
 
-char ble_discover_characteristics(params_t *_param) {
-	if(_param->conn_state == STATE_DISCONNECTED) {
-		ERRORBACK(_param, SLUMBER_BLE_CONNECTION_ERROR, "Not connected to a device!");
+char ble_discover_characteristics(int a_num) {
+	if(a_num > A_MAX) {
+		ERRORBACK(a_num, SLUMBER_BLE_ADAPTER_ERROR, "Input invalid adapter number!");
+		return SLUMBER_BLE_ADAPTER_ERROR;
+	}
+
+	if(ble_disconnected(a_num)) {
+		ERRORBACK(a_num, SLUMBER_BLE_CONNECTION_ERROR, "Not connected to a device!");
 		return SLUMBER_BLE_CONNECTION_ERROR;
 	}
 
-	LOGBACK(_param, "Attempting to find characteristics on the BLE device");
+	LOGBACK(a_num, "Attempting to find characteristics on the BLE device");
 	
-	_param->start = 0x0001; //Set start flag back to 0
-	_param->end = 0xffff; //Set the end flag to end
+	start[a_num] = 0x0001; //Set start flag back to 0
+	end[a_num] = 0xffff; //Set the end flag to end
 	
-	_param->char_passed = 0; //Set the flag checker back to zero
+	printf("END: %d", end[a_num]);
+	
+	char_passed[a_num] = 0; //Set the flag checker back to zero
 	
 	//Start the BLE char discovery
-	if(gatt_discover_char_desc(_param->attrib, _param->_start_t, _param->_end_t, __ble_discover_char_callback, _param) != 0) {
+	if(gatt_discover_char_desc(attrib[a_num], _start_t, _end_t, __ble_discover_char_callback, &a_num) != 0) {
 		return SLUMBER_BLE_CHAR_ERROR;
 	}
 	
@@ -738,21 +738,26 @@ char ble_discover_characteristics(params_t *_param) {
 	return SLUMBER_BLE_OK;
 }
 
-char ble_write_characteristic(params_t *_param, const char *uuid, const char *value_w) {
-	if(_param->conn_state == STATE_DISCONNECTED) {
-		ERRORBACK(_param, SLUMBER_BLE_CONNECTION_ERROR, "Not connected to a device!");
+char ble_write_characteristic(int a_num, const char *uuid, const char *value_w) {
+	if(a_num > A_MAX) {
+		ERRORBACK(a_num, SLUMBER_BLE_ADAPTER_ERROR, "Input invalid adapter number!");
+		return SLUMBER_BLE_ADAPTER_ERROR;
+	}
+
+	if(ble_disconnected(a_num)) {
+		ERRORBACK(a_num, SLUMBER_BLE_CONNECTION_ERROR, "Not connected to a device!");
 		return SLUMBER_BLE_CONNECTION_ERROR;
 	}
 	
-	LOGBACK(_param, "Attempting to write a characteristic on the BLE device");
+	LOGBACK(a_num, "Attempting to write a characteristic on the BLE device");
 	
 	if(uuid == NULL) {
-		ERRORBACK(_param, SLUMBER_BLE_UUID_ERROR, "Placed invalid UUID cannot be NULL");
+		ERRORBACK(a_num, SLUMBER_BLE_UUID_ERROR, "Placed invalid UUID cannot be NULL");
 		return SLUMBER_BLE_UUID_ERROR;
 	}
 	
 	if(value_w == NULL) {
-		ERRORBACK(_param, SLUMBER_BLE_VALUE_ERROR, "The characteristic value cannot be NULL");
+		ERRORBACK(a_num, SLUMBER_BLE_VALUE_ERROR, "The characteristic value cannot be NULL");
 		return SLUMBER_BLE_VALUE_ERROR;
 	}
 	
@@ -762,23 +767,23 @@ char ble_write_characteristic(params_t *_param, const char *uuid, const char *va
 	
 	handle = ble_string_to_handle(uuid);
 	if (handle <= 0) {
-		ERRORBACK(_param, SLUMBER_BLE_UUID_ERROR, "Placed invalid UUID bad parsing");
+		ERRORBACK(a_num, SLUMBER_BLE_UUID_ERROR, "Placed invalid UUID bad parsing");
 		return SLUMBER_BLE_UUID_ERROR;
 	}
 
 	plen = ble_string_to_attr(value_w, &value);
 	if (plen == 0) {
-		ERRORBACK(_param, SLUMBER_BLE_VALUE_ERROR, "The characteristic value is invalid");
+		ERRORBACK(a_num, SLUMBER_BLE_VALUE_ERROR, "The characteristic value is invalid");
 		return SLUMBER_BLE_VALUE_ERROR;
 	}
 	
 	char buff_line[50];
 	sprintf(buff_line, "Writing %s to 0x%04x", value_w, handle);
 
-	LOGBACK(_param, buff_line);
+	LOGBACK(a_num, buff_line);
 
 	//Write the new characteristic value and call the callback on finish
-	if(gatt_write_char(_param->attrib, handle, value, plen, __ble_write_char_callback, _param) != 0)
+	if(gatt_write_char(attrib[a_num], handle, value, plen, __ble_write_char_callback, &a_num) != 0)
 		return SLUMBER_BLE_WRITE_ERROR;
 		
 	g_free(value);
@@ -786,82 +791,82 @@ char ble_write_characteristic(params_t *_param, const char *uuid, const char *va
 	return SLUMBER_BLE_OK;
 }
 
-char ble_read_characteristic(params_t *_param, const char *uuid) {
-	if(_param->conn_state == STATE_DISCONNECTED) {
-		ERRORBACK(_param, SLUMBER_BLE_CONNECTION_ERROR, "Not connected to a device!");
+char ble_read_characteristic(int a_num, const char *uuid) {
+	if(a_num > A_MAX) {
+		ERRORBACK(a_num, SLUMBER_BLE_ADAPTER_ERROR, "Input invalid adapter number!");
+		return SLUMBER_BLE_ADAPTER_ERROR;
+	}
+	
+	if(ble_disconnected(a_num)) {
+		ERRORBACK(a_num, SLUMBER_BLE_CONNECTION_ERROR, "Not connected to a device!");
 		return SLUMBER_BLE_CONNECTION_ERROR;
 	}
 	
-	LOGBACK(_param, "Attempting to read a characteristic on the BLE device");
+	LOGBACK(a_num, "Attempting to read a characteristic on the BLE device");
 	
 	if(uuid == NULL) {
-		ERRORBACK(_param, SLUMBER_BLE_UUID_ERROR, "Placed invalid UUID cannot be NULL");
+		ERRORBACK(a_num, SLUMBER_BLE_UUID_ERROR, "Placed invalid UUID cannot be NULL");
 		return SLUMBER_BLE_UUID_ERROR;
 	}
 	
 	int ret;
 	
-	ret = __ble_parse_uuid(_param, uuid);
+	ret = __ble_parse_uuid(uuid);
 	if (ret != 0) {
-		ERRORBACK(_param, SLUMBER_BLE_UUID_ERROR, "Placed invalid UUID bad parsing");
+		ERRORBACK(a_num, SLUMBER_BLE_UUID_ERROR, "Placed invalid UUID bad parsing");
 		return SLUMBER_BLE_UUID_ERROR;
 	}
 	
 	char buff_line[100];
 	sprintf(buff_line, "Reading from uuid %s", uuid);
-	LOGBACK(_param, buff_line);
+	LOGBACK(a_num, buff_line);
 
-	gatt_read_char_by_uuid(_param->attrib, _param->_start_t, _param->_end_t, 
-			_param->_uuid_t, __ble_read_char_uuid_callback, _param);
+	gatt_read_char_by_uuid(attrib[a_num], _start_t, _end_t, _uuid_t,
+		 __ble_read_char_uuid_callback, &a_num);
 	return SLUMBER_BLE_OK;
 }
 
 //Custom channel watch when wrong events happen
 gboolean __ble_channel_watcher(GIOChannel *chan, GIOCondition cond,
 				gpointer user_data) {
-	//int a_num = *((int*)user_data); //The adapter number
-	__ble_disconnect_channel((params_t *) user_data); //Discontinue the channel
+	int a_num = *((int*)user_data); //The adapter number
+	__ble_disconnect_channel(a_num); //Discontinue the channel
 	return FALSE;
 }
 
 void __ble_connect_main(GIOChannel *io, GError *err, gpointer user_data) {
-	//int a_num = *((int*)user_data); //The adapter number
-	
-	params_t *_param = (params_t*) user_data;
-	int a_num = _param->_a_num;
-	
+	int a_num = *((int*)user_data); //The adapter number
 	
 	//if there was an error detected print details
 	if (err) {
-		_param->conn_state = STATE_DISCONNECTED; //Set enum flag to disconnected
+		ble_set(a_num, STATE_DISCONNECTED); //Set enum flag to disconnected
 		printf("%s\n", err->message);
 		return;
 	}
 
-	_param->attrib = g_attrib_new(_param->chan); //Create the attribute on the channel
-	g_attrib_register(_param->attrib, ATT_OP_HANDLE_NOTIFY, GATTRIB_ALL_HANDLES,
-		__ble_events_handler, _param, NULL); //Handle notification events on channel
+	attrib[a_num] = g_attrib_new(chan[a_num]); //Create the attribute on the channel
+	g_attrib_register(attrib[a_num], ATT_OP_HANDLE_NOTIFY, GATTRIB_ALL_HANDLES,
+		__ble_events_handler, &a_num, NULL); //Handle notification events on channel
 	//g_attrib_register(attrib[a_num], ATT_OP_HANDLE_IND, GATTRIB_ALL_HANDLES,
 	//					events_handler, attrib, NULL);
-	LOGBACK(_param, "Connection successful. Configuring...");
+	LOGBACK(a_num, "Connection successful. Configuring...");
 	
-	MUTEXLOCK(_param);
-	_param->conn_state = STATE_CONNECTING; //Set enum flag to connecting
-	MUTEXUNLOCK(_param);
-	ble_discover_services(_param);
+	ble_set(a_num, STATE_CONNECTING); //Set enum flag to connecting
+	
+	ble_discover_services(a_num);
 }
 
-char __ble_parse_uuid(params_t *_param, const char *value) {
+char __ble_parse_uuid(const char *value) {
 	if (!value)
 		return SLUMBER_BLE_ERROR;
 
 	//We first must allocate memory for the UUID struct or we will get a seg fault
-	_param->_uuid_t = g_try_malloc(sizeof(_param->_uuid_t));
-	if (_param->_uuid_t == NULL)
+	_uuid_t = g_try_malloc(sizeof(_uuid_t));
+	if (_uuid_t == NULL)
 		return SLUMBER_BLE_ERROR;
 
 	//Turn the string into the ble struct
-	if (bt_string_to_uuid(_param->_uuid_t, value) < 0)
+	if (bt_string_to_uuid(_uuid_t, value) < 0)
 		return SLUMBER_BLE_ERROR;
 
 	return SLUMBER_BLE_OK;
@@ -869,24 +874,15 @@ char __ble_parse_uuid(params_t *_param, const char *value) {
 
 char ble_stop(int a_num) {ble_set(a_num, STATE_CONNECTING);
 	if(a_num > A_MAX) return SLUMBER_BLE_ADAPTER_ERROR;
+	__ble_disconnect_channel(a_num);
 	
-	params_t *_param = &PROPS[a_num];
-	
-	MUTEXLOCK(_param);
-	
-	__ble_disconnect_channel(_param);
-	
-	g_main_loop_quit(_param->event_loop);
-	g_main_loop_unref(_param->event_loop); //Cleanup the mainloop
-	
-	MUTEXUNLOCK(_param);
-	
+	g_main_loop_quit(event_loop[a_num]);
+	g_main_loop_unref(event_loop[a_num]); //Cleanup the mainloop
 	return SLUMBER_BLE_OK;
 }
 
-//Start the glib mainloop in a separate thread
-void *__ble_start(void *data) {
-	g_main_loop_run(((params_t *) data)->event_loop); //Run the mainloop
+void *__ble_start(void *arg) {
+
 	return NULL;
 }
 
@@ -894,71 +890,61 @@ char ble_start(int a_num, const char *adapter,
 		const char *device, const char *sec_level) {
 	if(a_num > A_MAX) return SLUMBER_BLE_ADAPTER_ERROR; //Return error not that many adapters available
 	
-	params_t *_init_param = &PROPS[a_num];
-	
-	MUTEXLOCK(_init_param);
-	
-	if(_init_param->conn_state == STATE_CONNECTED) {
-		ERRORBACK(_init_param, SLUMBER_BLE_ALREADY_CONNECTED, "Already connected");
-		MUTEXUNLOCK(_init_param);
+	if(ble_connected(a_num)) {
+		ERRORBACK(a_num, SLUMBER_BLE_ALREADY_CONNECTED, "Already connected");
 		return SLUMBER_BLE_CONNECTION_ERROR;
 	}
 	
 	//Setup the struct defaults
-	_init_param->mutex = mutex_locks[a_num];
-	_init_param->_a_num = a_num;
-	_init_param->_start_t = _start_t;
-	_init_param->_end_t = _end_t;
-	_init_param->_handle_t = _handle_t;
-	_init_param->_mtu = _mtu;
-	_init_param->_psm = _psm;
-	_init_param->_address_type = _address_type;
-	_init_param->_src = _src;
-	_init_param->_dst = _dst;
-	_init_param->_sec_level = _sec_level;
-	_init_param->_uuid_t = _uuid_t;
-	_init_param->chan = chan;
-	_init_param->attrib = attrib;
-	_init_param->gerr = gerr;
-	_init_param->char_passed = char_passed;
+	_t_props[a_num]._start_t = _start_t;
+	_t_props[a_num]._end_t = _end_t;
+	_t_props[a_num]._handle_t = _handle_t;
+	_t_props[a_num]._mtu = _mtu;
+	_t_props[a_num]._psm = _psm;
+	_t_props[a_num]._address_type = _address_type;
+	
+	_t_props[a_num]._src = _src;
+	_t_props[a_num]._dst = _dst;
+	_t_props[a_num]._sec_level = _sec_level;
+	_t_props[a_num]._uuid_t = _uuid_t;
+	_t_props[a_num].chan = chan;
+	_t_props[a_num].attrib = attrib;
+	_t_props[a_num].gerr = gerr;
+
+	_t_props[a_num].char_passed = char_passed;
 	
 	//Set dynamic settings for each adapter
-	_init_param->_src = g_strdup(adapter);
-	_init_param->_dst = g_strdup(device);
-	_init_param->_sec_level = g_strdup(sec_level);
+	_src[a_num] = g_strdup(adapter);
+	_dst[a_num] = g_strdup(device);
+	_sec_level[a_num] = g_strdup(sec_level);
 	
 	//Set the BLE io channel using the above custom function
-	_init_param->chan = ble_gatt_connect(_init_param->_src, _init_param->_dst,
-		_init_param->_address_type, _init_param->_sec_level, _init_param->_psm,
-		_init_param->_mtu, __ble_connect_main, &_t_props);
+	chan[a_num] = ble_gatt_connect(_src[a_num], _dst[a_num], _address_type, 
+		_sec_level[a_num], _psm, _mtu, __ble_connect_main, &a_num);
 	
-	_init_param->conn_state = STATE_CONNECTING;
+	ble_set(a_num, STATE_CONNECTING);
 	
-	if(_init_param->chan == NULL) {
-		_init_param->conn_state = STATE_DISCONNECTED;
+	if(chan[a_num] == NULL) {
+		ble_set(a_num, STATE_DISCONNECTED);
 		char buff_print[200];
 		sprintf(buff_print, "Failed connecting to the device: %s", device);
 		
-		ERRORBACK(_init_param, SLUMBER_BLE_CONNECTION_ERROR, buff_print);
-		MUTEXUNLOCK(_init_param);
+		ERRORBACK(a_num, SLUMBER_BLE_CONNECTION_ERROR, buff_print);
+		printf("%s\n", buff_print);
 		return SLUMBER_BLE_CONNECTION_ERROR;
 	}
 	
 	//Add channel watch to adapter
-	g_io_add_watch(_init_param->chan, G_IO_HUP, __ble_channel_watcher, &_t_props);
+	g_io_add_watch(chan[a_num], G_IO_HUP, __ble_channel_watcher, &a_num);
 	
 	//Create a new mainloop to run the channel
-	_init_param->event_loop = g_main_loop_new(NULL, FALSE);
+	event_loop[a_num] = g_main_loop_new(NULL, FALSE);
 	
-	//Create the new starting thread
-	pthread_create(&_init_param->thread, NULL, __ble_start, _init_param);
-	
-	MUTEXUNLOCK(_init_param);
+	g_main_loop_run(event_loop[a_num]); //Run the mainloop
 	
 	return SLUMBER_BLE_OK;
 }
 
-/*
 void callback(int a, const char *response) {
 	printf("Response recieved: %s\n", response);
 }
@@ -971,19 +957,11 @@ void logger(const char *tolog) {
 	printf("LOGGER: %s\n", tolog);
 }
 
-void detach() {
-	printf("Disconnected!\n");
-	//ble_stop(0);
-}
-
 int main() {
 	printf("A: %d\n", ble_attach_errorback(0, why));
 	printf("B: %d\n", ble_attach_logback(0, logger));
 	printf("C: %d\n", ble_reset_drivers(NULL));
 	printf("D: %d\n", ble_attach_callback(0, callback));
-	ble_attach_disconnected(0, detach);
 	printf("E: %d\n", ble_start(0, NULL, "D0:41:31:31:40:BB", "low"));
-	
-	while(1);
-}*/
+}
 

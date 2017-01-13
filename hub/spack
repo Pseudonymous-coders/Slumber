@@ -113,7 +113,7 @@ WEBSOCKETPPLOCATION=$(pwd)/extras/websocketpp
 CPPRESTLOCATION=$(pwd)/extras/cpprest/Release
 export ICU_SOURCES=$(pwd)/extras/icu/source
 
-$GATTLIBLOCATION=$(pwd)/extras/gattlib
+#$GATTLIBLOCATION=$(pwd)/extras/gattlib
 
 OPENSSL_SSL=/usr/$SLUMBERBASE/lib/libssl.so
 OPENSSL_CRYPTO=/usr/$SLUMBERBASE/lib/libcrypto.so
@@ -970,7 +970,8 @@ if [ $PRODUCT -eq 0 ]; then
 	if [ $AUTORUN -ne 2 ];then
 		header_print "\nCOMPILING"
 		printf "$SEPLINE\n\n${PURPLE}Cleaning previous product version...${NC}\n\n"
-		make clean
+		#make clean
+		echo "Currently not cleaning use 'make clean'"
 		CLEANRESULT=$?
 		printf "\n\n${PURPLE}Done Cleaning!\nAttempting to compile for the product...${NC}\n"
 		make
@@ -995,7 +996,8 @@ else
 	if [ $AUTORUN -ne 2 ]; then
 		header_print "\nCOMPILING"
 		printf "$SEPLINE\n\n${PURPLE}Cleaning previous product version...${NC}\n\n"
-		make clean SLUMBER=true
+		#make clean SLUMBER=true
+		echo "Currently not cleaning use 'make clean SLUMBER=true'"
 		CLEANRESULT=$?
 		printf "\n\n${PURPLE}Done Cleaning!\nAttempting to compile for the product...${NC}\n"
 		make SLUMBER=true

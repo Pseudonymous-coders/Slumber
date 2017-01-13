@@ -31,16 +31,20 @@ extern "C" {
 #define SLUMBER_BLE_CHAR_ERROR -11
 
 //Function pointer for on recieve callback, on error and general logging
-typedef void (*callback_ptr_t)(const char *);
+typedef void (*callback_ptr_t)(int, const char *);
 typedef void (*errorback_ptr_t)(int, const char *);
 typedef void (*logback_ptr_t)(const char *);
+typedef void (*disconnected_ptr_t)(int);
+
+//Create the new params struct to not confuse locals
+typedef struct params params_t;
 
 //Current connection state
 enum state {
 	STATE_DISCONNECTED,
 	STATE_CONNECTING,
 	STATE_CONNECTED
-} conn_state[A_MAX];
+};
 
 //PUBLIC FUNCTIONS
 char ble_start(int, const char *, const char *, const char *);
@@ -49,21 +53,24 @@ char ble_string_to_handle(const char *);
 char ble_reset_drivers(const char *);
 char ble_stop(int a_num);
 char ble_connected(int);
+char ble_connecting(int);
+char ble_disconnecting(int);
 void ble_set(int, enum state);
 
 //PUBLIC INITIALIZERS
-char ble_discover_services(int);
-char ble_discover_characteristics(int);
-char ble_write_characteristic(int, const char *, const char *);
-char ble_read_characteristic(int, const char *);
+char ble_discover_services(params_t *);
+char ble_discover_characteristics(params_t *);
+char ble_write_characteristic(params_t *, const char *, const char *);
+char ble_read_characteristic(params_t *, const char *);
 char ble_attach_callback(int, callback_ptr_t);
 char ble_attach_errorback(int, errorback_ptr_t);
 char ble_attach_logback(int, logback_ptr_t);
+char ble_attach_disconnected(int, disconnected_ptr_t);
 
 //PRIVATE FUNCTIONS
 void __ble_events_handler(const uint8_t *, uint16_t, gpointer);
-char __ble_parse_uuid(const char *value);
-void __ble_disconnect_channel(int);
+char __ble_parse_uuid(params_t *, const char *value);
+//void __ble_disconnect_channel(int);
 gboolean __ble_channel_watcher(GIOChannel *, GIOCondition, gpointer);
 void __ble_connect_main(GIOChannel *, GError *, gpointer);
 
