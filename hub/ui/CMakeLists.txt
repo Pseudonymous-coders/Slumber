@@ -8,7 +8,7 @@ add_executable(slumber-ui ${SOURCE_FILES})
 
 add_subdirectory(MACE)
 
-target_include_directories(slumber-ui PUBLIC "include/")
+target_include_directories(slumber-ui PUBLIC "${PROJECT_SOURCE_DIR}/include/")
 
 target_include_directories(slumber-ui PUBLIC ${MACE_INCLUDES})
 target_link_libraries(slumber-ui LINK_PUBLIC MACE)

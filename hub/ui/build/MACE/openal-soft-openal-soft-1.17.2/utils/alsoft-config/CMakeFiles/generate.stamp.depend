@@ -1,0 +1,10 @@
+# CMake generation dependency list for this directory.
+D:/Workspace/Slumber/hub/ui/MACE/openal-soft-openal-soft-1.17.2/utils/alsoft-config/CMakeLists.txt
+D:/Programs/CMake/share/cmake-3.6/Modules/FindQt4.cmake
+D:/Programs/CMake/share/cmake-3.6/Modules/CheckCXXSymbolExists.cmake
+D:/Programs/CMake/share/cmake-3.6/Modules/CheckSymbolExists.cmake
+D:/Programs/CMake/share/cmake-3.6/Modules/MacroAddFileDependencies.cmake
+D:/Programs/CMake/share/cmake-3.6/Modules/FindPackageHandleStandardArgs.cmake
+D:/Programs/CMake/share/cmake-3.6/Modules/FindPackageMessage.cmake
+D:/Programs/CMake/share/cmake-3.6/Modules/CMakeParseArguments.cmake
+D:/Programs/CMake/share/cmake-3.6/Modules/CMakePushCheckState.cmake

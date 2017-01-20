@@ -1,0 +1,4 @@
+﻿  Building Custom Rule D:/Workspace/Slumber/hub/ui/MACE/glew-2.0.0/build/cmake/CMakeLists.txt
+  CMake does not need to re-run because D:\Workspace\Slumber\hub\ui\build\MACE\glew-2.0.0\build\cmake\CMakeFiles\generate.stamp is up-to-date.
+  glew.c
+  glew_s.vcxproj -> D:\Workspace\Slumber\hub\ui\build\lib\Debug\libglew32d.lib

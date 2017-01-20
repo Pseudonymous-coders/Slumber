@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="D:\Workspace\Slumber\hub\ui\MACE\openal-soft-openal-soft-1.17.2\OpenAL32\alAuxEffectSlot.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Workspace\Slumber\hub\ui\MACE\openal-soft-openal-soft-1.17.2\OpenAL32\alBuffer.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Workspace\Slumber\hub\ui\MACE\openal-soft-openal-soft-1.17.2\OpenAL32\alEffect.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Workspace\Slumber\hub\ui\MACE\openal-soft-openal-soft-1.17.2\OpenAL32\alError.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Workspace\Slumber\hub\ui\MACE\openal-soft-openal-soft-1.17.2\OpenAL32\alExtension.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Workspace\Slumber\hub\ui\MACE\openal-soft-openal-soft-1.17.2\OpenAL32\alFilter.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Workspace\Slumber\hub\ui\MACE\openal-soft-openal-soft-1.17.2\OpenAL32\alListener.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Workspace\Slumber\hub\ui\MACE\openal-soft-openal-soft-1.17.2\OpenAL32\alSource.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Workspace\Slumber\hub\ui\MACE\openal-soft-openal-soft-1.17.2\OpenAL32\alState.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Workspace\Slumber\hub\ui\MACE\openal-soft-openal-soft-1.17.2\OpenAL32\alThunk.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Workspace\Slumber\hub\ui\MACE\openal-soft-openal-soft-1.17.2\OpenAL32\sample_cvt.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Workspace\Slumber\hub\ui\MACE\openal-soft-openal-soft-1.17.2\Alc\ALc.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Workspace\Slumber\hub\ui\MACE\openal-soft-openal-soft-1.17.2\Alc\ALu.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Workspace\Slumber\hub\ui\MACE\openal-soft-openal-soft-1.17.2\Alc\alcConfig.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Workspace\Slumber\hub\ui\MACE\openal-soft-openal-soft-1.17.2\Alc\alcRing.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Workspace\Slumber\hub\ui\MACE\openal-soft-openal-soft-1.17.2\Alc\bs2b.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Workspace\Slumber\hub\ui\MACE\openal-soft-openal-soft-1.17.2\Alc\effects\autowah.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Workspace\Slumber\hub\ui\MACE\openal-soft-openal-soft-1.17.2\Alc\effects\chorus.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Workspace\Slumber\hub\ui\MACE\openal-soft-openal-soft-1.17.2\Alc\effects\compressor.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Workspace\Slumber\hub\ui\MACE\openal-soft-openal-soft-1.17.2\Alc\effects\dedicated.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Workspace\Slumber\hub\ui\MACE\openal-soft-openal-soft-1.17.2\Alc\effects\distortion.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Workspace\Slumber\hub\ui\MACE\openal-soft-openal-soft-1.17.2\Alc\effects\echo.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Workspace\Slumber\hub\ui\MACE\openal-soft-openal-soft-1.17.2\Alc\effects\equalizer.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Workspace\Slumber\hub\ui\MACE\openal-soft-openal-soft-1.17.2\Alc\effects\flanger.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Workspace\Slumber\hub\ui\MACE\openal-soft-openal-soft-1.17.2\Alc\effects\modulator.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Workspace\Slumber\hub\ui\MACE\openal-soft-openal-soft-1.17.2\Alc\effects\null.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Workspace\Slumber\hub\ui\MACE\openal-soft-openal-soft-1.17.2\Alc\effects\reverb.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Workspace\Slumber\hub\ui\MACE\openal-soft-openal-soft-1.17.2\Alc\helpers.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Workspace\Slumber\hub\ui\MACE\openal-soft-openal-soft-1.17.2\Alc\bsinc.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Workspace\Slumber\hub\ui\MACE\openal-soft-openal-soft-1.17.2\Alc\hrtf.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Workspace\Slumber\hub\ui\MACE\openal-soft-openal-soft-1.17.2\Alc\panning.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Workspace\Slumber\hub\ui\MACE\openal-soft-openal-soft-1.17.2\Alc\mixer.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Workspace\Slumber\hub\ui\MACE\openal-soft-openal-soft-1.17.2\Alc\mixer_c.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Workspace\Slumber\hub\ui\MACE\openal-soft-openal-soft-1.17.2\Alc\mixer_sse.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Workspace\Slumber\hub\ui\MACE\openal-soft-openal-soft-1.17.2\Alc\mixer_sse2.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Workspace\Slumber\hub\ui\MACE\openal-soft-openal-soft-1.17.2\Alc\mixer_sse3.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Workspace\Slumber\hub\ui\MACE\openal-soft-openal-soft-1.17.2\Alc\mixer_sse41.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Workspace\Slumber\hub\ui\MACE\openal-soft-openal-soft-1.17.2\Alc\backends\base.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Workspace\Slumber\hub\ui\MACE\openal-soft-openal-soft-1.17.2\Alc\backends\loopback.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Workspace\Slumber\hub\ui\MACE\openal-soft-openal-soft-1.17.2\Alc\backends\null.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Workspace\Slumber\hub\ui\MACE\openal-soft-openal-soft-1.17.2\Alc\backends\winmm.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Workspace\Slumber\hub\ui\MACE\openal-soft-openal-soft-1.17.2\Alc\backends\mmdevapi.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Workspace\Slumber\hub\ui\MACE\openal-soft-openal-soft-1.17.2\Alc\backends\wave.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\Workspace\Slumber\hub\ui\MACE\openal-soft-openal-soft-1.17.2\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{3BCB7DC9-9D30-337D-9222-482FFB4BC710}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

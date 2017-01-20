@@ -1,0 +1,88 @@
+﻿  Building Custom Rule D:/Workspace/Slumber/hub/ui/MACE/freetype-2.5.2/CMakeLists.txt
+  CMake does not need to re-run because D:\Workspace\Slumber\hub\ui\build\MACE\freetype-2.5.2\CMakeFiles\generate.stamp is up-to-date.
+  autofit.c
+  ftadvanc.c
+  ftbbox.c
+  ftbitmap.c
+  ftcalc.c
+  ftcid.c
+  ftdbgmem.c
+  ftdebug.c
+  ftfstype.c
+  ftgasp.c
+  ftgloadr.c
+  ftglyph.c
+  ftgxval.c
+  ftinit.c
+  ftlcdfil.c
+  ftmm.c
+  ftobjs.c
+  ftotval.c
+  ftoutln.c
+  ftpatent.c
+  Generating Code...
+  Compiling...
+  ftpfr.c
+  ftrfork.c
+D:\Workspace\Slumber\hub\ui\MACE\freetype-2.5.2\src\base\ftrfork.c(798): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\string.h(346): note: see declaration of 'strncpy'
+D:\Workspace\Slumber\hub\ui\MACE\freetype-2.5.2\src\base\ftrfork.c(808): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\string.h(90): note: see declaration of 'strcat'
+D:\Workspace\Slumber\hub\ui\MACE\freetype-2.5.2\src\base\ftrfork.c(809): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\string.h(90): note: see declaration of 'strcat'
+  ftsnames.c
+  ftstream.c
+  ftstroke.c
+  ftsynth.c
+  ftsystem.c
+D:\Workspace\Slumber\hub\ui\MACE\freetype-2.5.2\src\base\ftsystem.c(240): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(205): note: see declaration of 'fopen'
+  fttrigon.c
+  fttype1.c
+  ftutil.c
+  ftwinfnt.c
+  ftxf86.c
+  bdf.c
+d:\workspace\slumber\hub\ui\mace\freetype-2.5.2\src\bdf\bdflib.c(1993): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
+d:\workspace\slumber\hub\ui\mace\freetype-2.5.2\src\bdf\bdflib.c(2006): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
+d:\workspace\slumber\hub\ui\mace\freetype-2.5.2\src\bdf\bdflib.c(2331): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
+d:\workspace\slumber\hub\ui\mace\freetype-2.5.2\src\bdf\bdflib.c(2339): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
+  ftbzip2.c
+  ftcache.c
+  cff.c
+  type1cid.c
+  ftgzip.c
+  ftlzw.c
+  pcf.c
+  Generating Code...
+  Compiling...
+  pfr.c
+  psaux.c
+  pshinter.c
+  psmodule.c
+  raster.c
+  sfnt.c
+d:\workspace\slumber\hub\ui\mace\freetype-2.5.2\src\sfnt\sfobjs.c(504): warning C4244: '=': conversion from 'FT_ULong' to 'FT_Byte', possible loss of data
+d:\workspace\slumber\hub\ui\mace\freetype-2.5.2\src\sfnt\sfobjs.c(645): warning C4244: '=': conversion from 'FT_ULong' to 'FT_Byte', possible loss of data
+d:\workspace\slumber\hub\ui\mace\freetype-2.5.2\src\sfnt\sfobjs.c(646): warning C4244: '=': conversion from 'FT_ULong' to 'FT_Byte', possible loss of data
+d:\workspace\slumber\hub\ui\mace\freetype-2.5.2\src\sfnt\sfobjs.c(647): warning C4244: '=': conversion from 'FT_ULong' to 'FT_Byte', possible loss of data
+d:\workspace\slumber\hub\ui\mace\freetype-2.5.2\src\sfnt\sfobjs.c(648): warning C4244: '=': conversion from 'FT_ULong' to 'FT_Byte', possible loss of data
+d:\workspace\slumber\hub\ui\mace\freetype-2.5.2\src\sfnt\ttsbit.c(803): warning C4244: 'initializing': conversion from 'FT_Short' to 'FT_Char', possible loss of data
+d:\workspace\slumber\hub\ui\mace\freetype-2.5.2\src\sfnt\ttsbit.c(804): warning C4244: 'initializing': conversion from 'FT_Short' to 'FT_Char', possible loss of data
+d:\workspace\slumber\hub\ui\mace\freetype-2.5.2\src\sfnt\ttsbit.c(805): warning C4244: 'initializing': conversion from 'FT_UShort' to 'FT_Byte', possible loss of data
+d:\workspace\slumber\hub\ui\mace\freetype-2.5.2\src\sfnt\ttsbit.c(806): warning C4244: 'initializing': conversion from 'FT_Short' to 'FT_Char', possible loss of data
+d:\workspace\slumber\hub\ui\mace\freetype-2.5.2\src\sfnt\ttsbit.c(807): warning C4244: 'initializing': conversion from 'FT_Short' to 'FT_Char', possible loss of data
+d:\workspace\slumber\hub\ui\mace\freetype-2.5.2\src\sfnt\ttsbit.c(808): warning C4244: 'initializing': conversion from 'FT_UShort' to 'FT_Byte', possible loss of data
+  smooth.c
+  truetype.c
+d:\workspace\slumber\hub\ui\mace\freetype-2.5.2\src\truetype\ttgload.c(102): warning C4244: '=': conversion from 'FT_Pos' to 'FT_Short', possible loss of data
+d:\workspace\slumber\hub\ui\mace\freetype-2.5.2\src\truetype\ttgload.c(108): warning C4244: '=': conversion from 'FT_Pos' to 'FT_Short', possible loss of data
+  type1.c
+  type42.c
+  winfnt.c
+  Generating Code...
+  freetype.vcxproj -> D:\Workspace\Slumber\hub\ui\build\MACE\freetype-2.5.2\Debug\freetype.lib

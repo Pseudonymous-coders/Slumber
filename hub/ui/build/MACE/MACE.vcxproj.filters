@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="D:\Workspace\Slumber\hub\ui\MACE\src\Core\Constants.cpp">
+      <Filter>Source Files\src\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Workspace\Slumber\hub\ui\MACE\src\Core\Module.cpp">
+      <Filter>Source Files\src\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Workspace\Slumber\hub\ui\MACE\src\Core\System.cpp">
+      <Filter>Source Files\src\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Workspace\Slumber\hub\ui\MACE\src\Graphics\Components.cpp">
+      <Filter>Source Files\src\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Workspace\Slumber\hub\ui\MACE\src\Graphics\Entity.cpp">
+      <Filter>Source Files\src\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Workspace\Slumber\hub\ui\MACE\src\Graphics\Entity2D.cpp">
+      <Filter>Source Files\src\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Workspace\Slumber\hub\ui\MACE\src\Graphics\OGL.cpp">
+      <Filter>Source Files\src\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Workspace\Slumber\hub\ui\MACE\src\Graphics\Renderer.cpp">
+      <Filter>Source Files\src\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Workspace\Slumber\hub\ui\MACE\src\Graphics\Window.cpp">
+      <Filter>Source Files\src\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Workspace\Slumber\hub\ui\MACE\src\Utility\Audio.cpp">
+      <Filter>Source Files\src\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Workspace\Slumber\hub\ui\MACE\src\Utility\BitField.cpp">
+      <Filter>Source Files\src\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Workspace\Slumber\hub\ui\MACE\src\Utility\Color.cpp">
+      <Filter>Source Files\src\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Workspace\Slumber\hub\ui\MACE\src\Utility\Math.cpp">
+      <Filter>Source Files\src\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Workspace\Slumber\hub\ui\MACE\src\Utility\Preprocessor.cpp">
+      <Filter>Source Files\src\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Workspace\Slumber\hub\ui\MACE\src\Utility\Transform.cpp">
+      <Filter>Source Files\src\Utility</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="D:\Workspace\Slumber\hub\ui\MACE\include\MACE\Core\Constants.h">
+      <Filter>Header Files\include\MACE\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Workspace\Slumber\hub\ui\MACE\include\MACE\Core\Core.h">
+      <Filter>Header Files\include\MACE\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Workspace\Slumber\hub\ui\MACE\include\MACE\Core\Module.h">
+      <Filter>Header Files\include\MACE\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Workspace\Slumber\hub\ui\MACE\include\MACE\Core\System.h">
+      <Filter>Header Files\include\MACE\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Workspace\Slumber\hub\ui\MACE\include\MACE\Graphics\Components.h">
+      <Filter>Header Files\include\MACE\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Workspace\Slumber\hub\ui\MACE\include\MACE\Graphics\Entity.h">
+      <Filter>Header Files\include\MACE\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Workspace\Slumber\hub\ui\MACE\include\MACE\Graphics\Entity2D.h">
+      <Filter>Header Files\include\MACE\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Workspace\Slumber\hub\ui\MACE\include\MACE\Graphics\Graphics.h">
+      <Filter>Header Files\include\MACE\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Workspace\Slumber\hub\ui\MACE\include\MACE\Graphics\OGL.h">
+      <Filter>Header Files\include\MACE\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Workspace\Slumber\hub\ui\MACE\include\MACE\Graphics\Renderer.h">
+      <Filter>Header Files\include\MACE\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Workspace\Slumber\hub\ui\MACE\include\MACE\Graphics\Window.h">
+      <Filter>Header Files\include\MACE\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Workspace\Slumber\hub\ui\MACE\include\MACE\MACE.h">
+      <Filter>Header Files\include\MACE</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Workspace\Slumber\hub\ui\MACE\include\MACE\Utility\Audio.h">
+      <Filter>Header Files\include\MACE\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Workspace\Slumber\hub\ui\MACE\include\MACE\Utility\BitField.h">
+      <Filter>Header Files\include\MACE\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Workspace\Slumber\hub\ui\MACE\include\MACE\Utility\Color.h">
+      <Filter>Header Files\include\MACE\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Workspace\Slumber\hub\ui\MACE\include\MACE\Utility\Math.h">
+      <Filter>Header Files\include\MACE\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Workspace\Slumber\hub\ui\MACE\include\MACE\Utility\Matrix.h">
+      <Filter>Header Files\include\MACE\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Workspace\Slumber\hub\ui\MACE\include\MACE\Utility\MatrixAliases.h">
+      <Filter>Header Files\include\MACE\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Workspace\Slumber\hub\ui\MACE\include\MACE\Utility\Preprocessor.h">
+      <Filter>Header Files\include\MACE\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Workspace\Slumber\hub\ui\MACE\include\MACE\Utility\Transform.h">
+      <Filter>Header Files\include\MACE\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Workspace\Slumber\hub\ui\MACE\include\MACE\Utility\Utility.h">
+      <Filter>Header Files\include\MACE\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Workspace\Slumber\hub\ui\MACE\include\MACE\Utility\Vector.h">
+      <Filter>Header Files\include\MACE\Utility</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\Workspace\Slumber\hub\ui\MACE\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files\src\Core">
+      <UniqueIdentifier>{CE03750E-00F1-3832-95D5-E700D18E0A21}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\src\Graphics">
+      <UniqueIdentifier>{DA278770-A9FE-3792-B1DB-6F11704A9BF8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\src\Utility">
+      <UniqueIdentifier>{B4EF2800-0C8C-372E-B990-2F2D6FEAF177}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\include\MACE\Core">
+      <UniqueIdentifier>{19E2902F-20F2-3B30-8E78-E9FCCE2CDE33}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\include\MACE\Graphics">
+      <UniqueIdentifier>{84B3ACDA-60B6-3D5A-AC50-C6D3A74B6C71}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\include\MACE\Utility">
+      <UniqueIdentifier>{76072674-9669-364E-B02A-82267CA1FC0F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{3BCB7DC9-9D30-337D-9222-482FFB4BC710}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{FC1896C1-0022-3337-8F0B-D8DBAD4E8B65}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\include">
+      <UniqueIdentifier>{8296F8D3-1DC6-3E56-9FA3-560590A62B43}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\src">
+      <UniqueIdentifier>{66F6AD55-6164-3309-8583-7AC6651026C4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\include\MACE">
+      <UniqueIdentifier>{322F741D-6437-3E96-B759-B0CDCF471B99}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

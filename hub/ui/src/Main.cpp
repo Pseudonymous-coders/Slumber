@@ -1,46 +1,34 @@
 #include <MACE/MACE.h>
-#define ASSETS_FOLDER "/home/liavt/Desktop/Slumber/hub/ui/assets/"
+#include <SlumberUI.h>
+#define ASSETS_FOLDER "D:/Workspace/Slumber/hub/ui/assets/"
 
 using namespace mc;
 
 gfx::ProgressBar bar;
+gfx::Text barProgress, statusMessage;
 gfx::Group group;
 
 gfx::ogl::Texture selection;
 gfx::ogl::Texture background;
 gfx::ogl::Texture foreground;
 
+void setProgress(const unsigned int prog) {
+	bar.easeTo(static_cast<float>(prog), 60.0f);
+	barProgress.setText(std::to_wstring(prog));
+}
+
+void setStatus(const std::wstring& message) {
+	statusMessage.setText(message);
+}
+
 void create(){
     gfx::Renderer::setRefreshColor(Colors::DARK_GRAY);
 
     selection = gfx::ogl::Texture(ASSETS_FOLDER+std::string("progressBar.png"));
-    background = gfx::ogl::Texture();
-    foreground = gfx::ogl::Texture();
+    background = gfx::ogl::Texture(ASSETS_FOLDER + std::string("background.png"));
+    foreground = gfx::ogl::Texture(ASSETS_FOLDER + std::string("foreground.png"));
 
-    gfx::ogl::checkGLError(__LINE__, __FILE__);
-
-    selection.setParameter(GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-    selection.setParameter(GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-
-    background.init();
-    float backgroundData[] = { 0,0,0,0 };
-
-    background.setData(backgroundData, 1, 1, GL_FLOAT, GL_RGBA);
-
-    background.setParameter(GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-    background.setParameter(GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-
-
-    foreground.init();
-    float foregroundData[] = { 0,1,0,1 };
-
-    foreground.setData(foregroundData, 1, 1, GL_FLOAT, GL_RGBA);
-
-    foreground.setParameter(GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-    foreground.setParameter(GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-
-
-    bar = gfx::ProgressBar(0, 100, 50);
+    bar = gfx::ProgressBar(0, 100, 0);
     bar.setHeight(0.25f);
     bar.setWidth(0.5f);
     bar.setSelectionTexture(selection);
@@ -48,6 +36,23 @@ void create(){
     bar.setForegroundTexture(foreground);
 
     group.addChild(bar);
+
+	gfx::Font f = gfx::Font::loadFont(ASSETS_FOLDER + std::string("consola.ttf"));
+	f.setSize(86);
+
+	barProgress = gfx::Text("0", f);
+	barProgress.setY(0.3f);
+
+	f.setSize(48);
+	statusMessage = gfx::Text("", f);
+	statusMessage.setY(0.75f);
+
+	group.addChild(statusMessage);
+
+	group.addChild(barProgress);
+
+	setProgress(70);
+	setStatus(L"Hi");
 }
 
 int main(int argc, char** argv){
@@ -60,6 +65,7 @@ int main(int argc, char** argv){
     window.addChild(group);
 
     MACE::init();
+
     while(MACE::isRunning()){
         MACE::update();
 

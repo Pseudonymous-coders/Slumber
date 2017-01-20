@@ -1,415 +1,1952 @@
-The system is: Linux - 3.10.18 - x86_64
+The system is: Windows - 10.0.10586 - AMD64
 Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
-Compiler: /usr/bin/cc 
+Compiler:  
 Build flags: 
 Id flags: 
 
 The output was:
 0
+Microsoft (R) Build Engine version 14.0.24723.2
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Build started 1/19/2017 9:27:06 PM.
+The target "BeforeGenerateProjectPriFile" listed in a BeforeTargets attribute at "C:\Program Files (x86)\MSBuild\Microsoft\NuGet\Microsoft.NuGet.targets (186,61)" does not exist in the project, and will be ignored.
+Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\3.6.0\CompilerIdC\CompilerIdC.vcxproj" on node 1 (default targets).
+PrepareForBuild:
+  Creating directory "Debug\".
+  Creating directory "Debug\CompilerIdC.tlog\".
+InitializeBuildStatus:
+  Creating "Debug\CompilerIdC.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+ClCompile:
+  D:\Programs\Visual Studio\VC\bin\CL.exe /c /nologo /W0 /WX- /Od /Oy- /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue CMakeCCompilerId.c
+  CMakeCCompilerId.c
+Link:
+  D:\Programs\Visual Studio\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:".\CompilerIdC.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\CompilerIdC.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\CompilerIdC.lib" /MACHINE:X86 /SAFESEH Debug\CMakeCCompilerId.obj
+  CompilerIdC.vcxproj -> D:\Workspace\Slumber\hub\ui\build\CMakeFiles\3.6.0\CompilerIdC\.\CompilerIdC.exe
+PostBuildEvent:
+  for %%i in (cl.exe) do @echo CMAKE_C_COMPILER=%%~$PATH:i
+  :VCEnd
+  CMAKE_C_COMPILER=D:\Programs\Visual Studio\VC\bin\cl.exe
+FinalizeBuildStatus:
+  Deleting file "Debug\CompilerIdC.tlog\unsuccessfulbuild".
+  Touching "Debug\CompilerIdC.tlog\CompilerIdC.lastbuildstate".
+Done Building Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\3.6.0\CompilerIdC\CompilerIdC.vcxproj" (default targets).
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:02.57
 
 
-Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.exe"
 
-The C compiler identification is GNU, found in "/home/liavt/Desktop/Slumber/hub/ui/build/CMakeFiles/2.8.12.2/CompilerIdC/a.out"
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.vcxproj"
+
+The C compiler identification is MSVC, found in "D:/Workspace/Slumber/hub/ui/build/CMakeFiles/3.6.0/CompilerIdC/CompilerIdC.exe"
 
 Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
-Compiler: /usr/bin/c++ 
+Compiler:  
 Build flags: 
 Id flags: 
 
 The output was:
 0
+Microsoft (R) Build Engine version 14.0.24723.2
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Build started 1/19/2017 9:27:09 PM.
+The target "BeforeGenerateProjectPriFile" listed in a BeforeTargets attribute at "C:\Program Files (x86)\MSBuild\Microsoft\NuGet\Microsoft.NuGet.targets (186,61)" does not exist in the project, and will be ignored.
+Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\3.6.0\CompilerIdCXX\CompilerIdCXX.vcxproj" on node 1 (default targets).
+PrepareForBuild:
+  Creating directory "Debug\".
+  Creating directory "Debug\CompilerIdCXX.tlog\".
+InitializeBuildStatus:
+  Creating "Debug\CompilerIdCXX.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+ClCompile:
+  D:\Programs\Visual Studio\VC\bin\CL.exe /c /nologo /W0 /WX- /Od /Oy- /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:queue CMakeCXXCompilerId.cpp
+  CMakeCXXCompilerId.cpp
+Link:
+  D:\Programs\Visual Studio\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:".\CompilerIdCXX.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\CompilerIdCXX.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\CompilerIdCXX.lib" /MACHINE:X86 /SAFESEH Debug\CMakeCXXCompilerId.obj
+  CompilerIdCXX.vcxproj -> D:\Workspace\Slumber\hub\ui\build\CMakeFiles\3.6.0\CompilerIdCXX\.\CompilerIdCXX.exe
+PostBuildEvent:
+  for %%i in (cl.exe) do @echo CMAKE_CXX_COMPILER=%%~$PATH:i
+  :VCEnd
+  CMAKE_CXX_COMPILER=D:\Programs\Visual Studio\VC\bin\cl.exe
+FinalizeBuildStatus:
+  Deleting file "Debug\CompilerIdCXX.tlog\unsuccessfulbuild".
+  Touching "Debug\CompilerIdCXX.tlog\CompilerIdCXX.lastbuildstate".
+Done Building Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\3.6.0\CompilerIdCXX\CompilerIdCXX.vcxproj" (default targets).
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:00.81
 
 
-Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.exe"
 
-The CXX compiler identification is GNU, found in "/home/liavt/Desktop/Slumber/hub/ui/build/CMakeFiles/2.8.12.2/CompilerIdCXX/a.out"
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.vcxproj"
+
+The CXX compiler identification is MSVC, found in "D:/Workspace/Slumber/hub/ui/build/CMakeFiles/3.6.0/CompilerIdCXX/CompilerIdCXX.exe"
 
 Determining if the C compiler works passed with the following output:
-Change Dir: /home/liavt/Desktop/Slumber/hub/ui/build/CMakeFiles/CMakeTmp
+Change Dir: D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp
 
-Run Build Command:/usr/bin/make "cmTryCompileExec193794829/fast"
-/usr/bin/make -f CMakeFiles/cmTryCompileExec193794829.dir/build.make CMakeFiles/cmTryCompileExec193794829.dir/build
-make[1]: Entering directory `/home/liavt/Desktop/Slumber/hub/ui/build/CMakeFiles/CMakeTmp'
-/usr/bin/cmake -E cmake_progress_report /home/liavt/Desktop/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/CMakeFiles 1
-Building C object CMakeFiles/cmTryCompileExec193794829.dir/testCCompiler.c.o
-/usr/bin/cc    -o CMakeFiles/cmTryCompileExec193794829.dir/testCCompiler.c.o   -c /home/liavt/Desktop/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/testCCompiler.c
-Linking C executable cmTryCompileExec193794829
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec193794829.dir/link.txt --verbose=1
-/usr/bin/cc       CMakeFiles/cmTryCompileExec193794829.dir/testCCompiler.c.o  -o cmTryCompileExec193794829 -rdynamic 
-make[1]: Leaving directory `/home/liavt/Desktop/Slumber/hub/ui/build/CMakeFiles/CMakeTmp'
+Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_7c725.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
+Microsoft (R) Build Engine version 14.0.24723.2
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Build started 1/19/2017 9:27:10 PM.
+The target "BeforeGenerateProjectPriFile" listed in a BeforeTargets attribute at "C:\Program Files (x86)\MSBuild\Microsoft\NuGet\Microsoft.NuGet.targets (186,61)" does not exist in the project, and will be ignored.
+Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_7c725.vcxproj" on node 1 (default targets).
+PrepareForBuild:
+  Creating directory "cmTC_7c725.dir\Debug\".
+  Creating directory "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\".
+  Creating directory "cmTC_7c725.dir\Debug\cmTC_7c725.tlog\".
+InitializeBuildStatus:
+  Creating "cmTC_7c725.dir\Debug\cmTC_7c725.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+ClCompile:
+  D:\Programs\Visual Studio\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_7c725.dir\Debug\\" /Fd"cmTC_7c725.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\testCCompiler.c
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.00.23506 for x86
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_7c725.dir\Debug\\" /Fd"cmTC_7c725.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\testCCompiler.c
+  
+  testCCompiler.c
+Link:
+  D:\Programs\Visual Studio\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\cmTC_7c725.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_7c725.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_7c725.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_7c725.dir\Debug\testCCompiler.obj
+  cmTC_7c725.vcxproj -> D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\cmTC_7c725.exe
+  cmTC_7c725.vcxproj -> D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_7c725.pdb (Full PDB)
+FinalizeBuildStatus:
+  Deleting file "cmTC_7c725.dir\Debug\cmTC_7c725.tlog\unsuccessfulbuild".
+  Touching "cmTC_7c725.dir\Debug\cmTC_7c725.tlog\cmTC_7c725.lastbuildstate".
+Done Building Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_7c725.vcxproj" (default targets).
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:02.07
 
 
 Detecting C compiler ABI info compiled with the following output:
-Change Dir: /home/liavt/Desktop/Slumber/hub/ui/build/CMakeFiles/CMakeTmp
+Change Dir: D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp
 
-Run Build Command:/usr/bin/make "cmTryCompileExec3530406321/fast"
-/usr/bin/make -f CMakeFiles/cmTryCompileExec3530406321.dir/build.make CMakeFiles/cmTryCompileExec3530406321.dir/build
-make[1]: Entering directory `/home/liavt/Desktop/Slumber/hub/ui/build/CMakeFiles/CMakeTmp'
-/usr/bin/cmake -E cmake_progress_report /home/liavt/Desktop/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/CMakeFiles 1
-Building C object CMakeFiles/cmTryCompileExec3530406321.dir/CMakeCCompilerABI.c.o
-/usr/bin/cc    -o CMakeFiles/cmTryCompileExec3530406321.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-2.8/Modules/CMakeCCompilerABI.c
-Linking C executable cmTryCompileExec3530406321
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3530406321.dir/link.txt --verbose=1
-/usr/bin/cc     -v CMakeFiles/cmTryCompileExec3530406321.dir/CMakeCCompilerABI.c.o  -o cmTryCompileExec3530406321 -rdynamic  
-Using built-in specs.
-COLLECT_GCC=/usr/bin/cc
-COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/4.8/lto-wrapper
-Target: x86_64-linux-gnu
-Configured with: ../src/configure -v --with-pkgversion='Ubuntu 4.8.4-2ubuntu1~14.04.3' --with-bugurl=file:///usr/share/doc/gcc-4.8/README.Bugs --enable-languages=c,c++,java,go,d,fortran,objc,obj-c++ --prefix=/usr --program-suffix=-4.8 --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --with-gxx-include-dir=/usr/include/c++/4.8 --libdir=/usr/lib --enable-nls --with-sysroot=/ --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --enable-gnu-unique-object --disable-libmudflap --enable-plugin --with-system-zlib --disable-browser-plugin --enable-java-awt=gtk --enable-gtk-cairo --with-java-home=/usr/lib/jvm/java-1.5.0-gcj-4.8-amd64/jre --enable-java-home --with-jvm-root-dir=/usr/lib/jvm/java-1.5.0-gcj-4.8-amd64 --with-jvm-jar-dir=/usr/lib/jvm-exports/java-1.5.0-gcj-4.8-amd64 --with-arch-directory=amd64 --with-ecj-jar=/usr/share/java/eclipse-ecj.jar --enable-objc-gc --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --with-tune=generic --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu
-Thread model: posix
-gcc version 4.8.4 (Ubuntu 4.8.4-2ubuntu1~14.04.3) 
-COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/
-LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTryCompileExec3530406321' '-rdynamic' '-mtune=generic' '-march=x86-64'
- /usr/lib/gcc/x86_64-linux-gnu/4.8/collect2 --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTryCompileExec3530406321 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/4.8 -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../.. CMakeFiles/cmTryCompileExec3530406321.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-linux-gnu/4.8/crtend.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o
-make[1]: Leaving directory `/home/liavt/Desktop/Slumber/hub/ui/build/CMakeFiles/CMakeTmp'
-
-
-Parsed C implicit link information from above output:
-  link line regex: [^( *|.*[/\])(ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
-  ignore line: [Change Dir: /home/liavt/Desktop/Slumber/hub/ui/build/CMakeFiles/CMakeTmp]
-  ignore line: []
-  ignore line: [Run Build Command:/usr/bin/make "cmTryCompileExec3530406321/fast"]
-  ignore line: [/usr/bin/make -f CMakeFiles/cmTryCompileExec3530406321.dir/build.make CMakeFiles/cmTryCompileExec3530406321.dir/build]
-  ignore line: [make[1]: Entering directory `/home/liavt/Desktop/Slumber/hub/ui/build/CMakeFiles/CMakeTmp']
-  ignore line: [/usr/bin/cmake -E cmake_progress_report /home/liavt/Desktop/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/CMakeFiles 1]
-  ignore line: [Building C object CMakeFiles/cmTryCompileExec3530406321.dir/CMakeCCompilerABI.c.o]
-  ignore line: [/usr/bin/cc    -o CMakeFiles/cmTryCompileExec3530406321.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-2.8/Modules/CMakeCCompilerABI.c]
-  ignore line: [Linking C executable cmTryCompileExec3530406321]
-  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3530406321.dir/link.txt --verbose=1]
-  ignore line: [/usr/bin/cc     -v CMakeFiles/cmTryCompileExec3530406321.dir/CMakeCCompilerABI.c.o  -o cmTryCompileExec3530406321 -rdynamic  ]
-  ignore line: [Using built-in specs.]
-  ignore line: [COLLECT_GCC=/usr/bin/cc]
-  ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/4.8/lto-wrapper]
-  ignore line: [Target: x86_64-linux-gnu]
-  ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 4.8.4-2ubuntu1~14.04.3' --with-bugurl=file:///usr/share/doc/gcc-4.8/README.Bugs --enable-languages=c,c++,java,go,d,fortran,objc,obj-c++ --prefix=/usr --program-suffix=-4.8 --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --with-gxx-include-dir=/usr/include/c++/4.8 --libdir=/usr/lib --enable-nls --with-sysroot=/ --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --enable-gnu-unique-object --disable-libmudflap --enable-plugin --with-system-zlib --disable-browser-plugin --enable-java-awt=gtk --enable-gtk-cairo --with-java-home=/usr/lib/jvm/java-1.5.0-gcj-4.8-amd64/jre --enable-java-home --with-jvm-root-dir=/usr/lib/jvm/java-1.5.0-gcj-4.8-amd64 --with-jvm-jar-dir=/usr/lib/jvm-exports/java-1.5.0-gcj-4.8-amd64 --with-arch-directory=amd64 --with-ecj-jar=/usr/share/java/eclipse-ecj.jar --enable-objc-gc --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --with-tune=generic --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu]
-  ignore line: [Thread model: posix]
-  ignore line: [gcc version 4.8.4 (Ubuntu 4.8.4-2ubuntu1~14.04.3) ]
-  ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/]
-  ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTryCompileExec3530406321' '-rdynamic' '-mtune=generic' '-march=x86-64']
-  link line: [ /usr/lib/gcc/x86_64-linux-gnu/4.8/collect2 --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTryCompileExec3530406321 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/4.8 -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../.. CMakeFiles/cmTryCompileExec3530406321.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-linux-gnu/4.8/crtend.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o]
-    arg [/usr/lib/gcc/x86_64-linux-gnu/4.8/collect2] ==> ignore
-    arg [--sysroot=/] ==> ignore
-    arg [--build-id] ==> ignore
-    arg [--eh-frame-hdr] ==> ignore
-    arg [-m] ==> ignore
-    arg [elf_x86_64] ==> ignore
-    arg [--hash-style=gnu] ==> ignore
-    arg [--as-needed] ==> ignore
-    arg [-export-dynamic] ==> ignore
-    arg [-dynamic-linker] ==> ignore
-    arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
-    arg [-zrelro] ==> ignore
-    arg [-o] ==> ignore
-    arg [cmTryCompileExec3530406321] ==> ignore
-    arg [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o] ==> ignore
-    arg [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o] ==> ignore
-    arg [/usr/lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o] ==> ignore
-    arg [-L/usr/lib/gcc/x86_64-linux-gnu/4.8] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/4.8]
-    arg [-L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu]
-    arg [-L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib]
-    arg [-L/lib/x86_64-linux-gnu] ==> dir [/lib/x86_64-linux-gnu]
-    arg [-L/lib/../lib] ==> dir [/lib/../lib]
-    arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
-    arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
-    arg [-L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../..]
-    arg [CMakeFiles/cmTryCompileExec3530406321.dir/CMakeCCompilerABI.c.o] ==> ignore
-    arg [-lgcc] ==> lib [gcc]
-    arg [--as-needed] ==> ignore
-    arg [-lgcc_s] ==> lib [gcc_s]
-    arg [--no-as-needed] ==> ignore
-    arg [-lc] ==> lib [c]
-    arg [-lgcc] ==> lib [gcc]
-    arg [--as-needed] ==> ignore
-    arg [-lgcc_s] ==> lib [gcc_s]
-    arg [--no-as-needed] ==> ignore
-    arg [/usr/lib/gcc/x86_64-linux-gnu/4.8/crtend.o] ==> ignore
-    arg [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o] ==> ignore
-  remove lib [gcc]
-  remove lib [gcc_s]
-  remove lib [gcc]
-  remove lib [gcc_s]
-  collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/4.8] ==> [/usr/lib/gcc/x86_64-linux-gnu/4.8]
-  collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
-  collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib] ==> [/usr/lib]
-  collapse library dir [/lib/x86_64-linux-gnu] ==> [/lib/x86_64-linux-gnu]
-  collapse library dir [/lib/../lib] ==> [/lib]
-  collapse library dir [/usr/lib/x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
-  collapse library dir [/usr/lib/../lib] ==> [/usr/lib]
-  collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../..] ==> [/usr/lib]
-  implicit libs: [c]
-  implicit dirs: [/usr/lib/gcc/x86_64-linux-gnu/4.8;/usr/lib/x86_64-linux-gnu;/usr/lib;/lib/x86_64-linux-gnu;/lib]
-  implicit fwks: []
+Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_7fc09.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
+Microsoft (R) Build Engine version 14.0.24723.2
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Build started 1/19/2017 9:27:13 PM.
+The target "BeforeGenerateProjectPriFile" listed in a BeforeTargets attribute at "C:\Program Files (x86)\MSBuild\Microsoft\NuGet\Microsoft.NuGet.targets (186,61)" does not exist in the project, and will be ignored.
+Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_7fc09.vcxproj" on node 1 (default targets).
+PrepareForBuild:
+  Creating directory "cmTC_7fc09.dir\Debug\".
+  Creating directory "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\".
+  Creating directory "cmTC_7fc09.dir\Debug\cmTC_7fc09.tlog\".
+InitializeBuildStatus:
+  Creating "cmTC_7fc09.dir\Debug\cmTC_7fc09.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+ClCompile:
+  D:\Programs\Visual Studio\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_7fc09.dir\Debug\\" /Fd"cmTC_7fc09.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue "D:\Programs\CMake\share\cmake-3.6\Modules\CMakeCCompilerABI.c"
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.00.23506 for x86
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_7fc09.dir\Debug\\" /Fd"cmTC_7fc09.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue "D:\Programs\CMake\share\cmake-3.6\Modules\CMakeCCompilerABI.c"
+  
+  CMakeCCompilerABI.c
+Link:
+  D:\Programs\Visual Studio\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\cmTC_7fc09.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_7fc09.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_7fc09.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_7fc09.dir\Debug\CMakeCCompilerABI.obj
+  cmTC_7fc09.vcxproj -> D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\cmTC_7fc09.exe
+  cmTC_7fc09.vcxproj -> D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_7fc09.pdb (Full PDB)
+FinalizeBuildStatus:
+  Deleting file "cmTC_7fc09.dir\Debug\cmTC_7fc09.tlog\unsuccessfulbuild".
+  Touching "cmTC_7fc09.dir\Debug\cmTC_7fc09.tlog\cmTC_7fc09.lastbuildstate".
+Done Building Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_7fc09.vcxproj" (default targets).
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:00.72
 
 
 Determining if the CXX compiler works passed with the following output:
-Change Dir: /home/liavt/Desktop/Slumber/hub/ui/build/CMakeFiles/CMakeTmp
+Change Dir: D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp
 
-Run Build Command:/usr/bin/make "cmTryCompileExec1385531921/fast"
-/usr/bin/make -f CMakeFiles/cmTryCompileExec1385531921.dir/build.make CMakeFiles/cmTryCompileExec1385531921.dir/build
-make[1]: Entering directory `/home/liavt/Desktop/Slumber/hub/ui/build/CMakeFiles/CMakeTmp'
-/usr/bin/cmake -E cmake_progress_report /home/liavt/Desktop/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/CMakeFiles 1
-Building CXX object CMakeFiles/cmTryCompileExec1385531921.dir/testCXXCompiler.cxx.o
-/usr/bin/c++     -o CMakeFiles/cmTryCompileExec1385531921.dir/testCXXCompiler.cxx.o -c /home/liavt/Desktop/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
-Linking CXX executable cmTryCompileExec1385531921
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1385531921.dir/link.txt --verbose=1
-/usr/bin/c++        CMakeFiles/cmTryCompileExec1385531921.dir/testCXXCompiler.cxx.o  -o cmTryCompileExec1385531921 -rdynamic 
-make[1]: Leaving directory `/home/liavt/Desktop/Slumber/hub/ui/build/CMakeFiles/CMakeTmp'
+Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_fc898.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
+Microsoft (R) Build Engine version 14.0.24723.2
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Build started 1/19/2017 9:27:14 PM.
+The target "BeforeGenerateProjectPriFile" listed in a BeforeTargets attribute at "C:\Program Files (x86)\MSBuild\Microsoft\NuGet\Microsoft.NuGet.targets (186,61)" does not exist in the project, and will be ignored.
+Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_fc898.vcxproj" on node 1 (default targets).
+PrepareForBuild:
+  Creating directory "cmTC_fc898.dir\Debug\".
+  Creating directory "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\".
+  Creating directory "cmTC_fc898.dir\Debug\cmTC_fc898.tlog\".
+InitializeBuildStatus:
+  Creating "cmTC_fc898.dir\Debug\cmTC_fc898.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+ClCompile:
+  D:\Programs\Visual Studio\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_fc898.dir\Debug\\" /Fd"cmTC_fc898.dir\Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:queue D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\testCXXCompiler.cxx
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.00.23506 for x86
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_fc898.dir\Debug\\" /Fd"cmTC_fc898.dir\Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:queue D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\testCXXCompiler.cxx
+  
+  testCXXCompiler.cxx
+Link:
+  D:\Programs\Visual Studio\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\cmTC_fc898.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_fc898.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_fc898.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_fc898.dir\Debug\testCXXCompiler.obj
+  cmTC_fc898.vcxproj -> D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\cmTC_fc898.exe
+  cmTC_fc898.vcxproj -> D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_fc898.pdb (Full PDB)
+FinalizeBuildStatus:
+  Deleting file "cmTC_fc898.dir\Debug\cmTC_fc898.tlog\unsuccessfulbuild".
+  Touching "cmTC_fc898.dir\Debug\cmTC_fc898.tlog\cmTC_fc898.lastbuildstate".
+Done Building Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_fc898.vcxproj" (default targets).
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:00.66
 
 
 Detecting CXX compiler ABI info compiled with the following output:
-Change Dir: /home/liavt/Desktop/Slumber/hub/ui/build/CMakeFiles/CMakeTmp
+Change Dir: D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp
 
-Run Build Command:/usr/bin/make "cmTryCompileExec2856821682/fast"
-/usr/bin/make -f CMakeFiles/cmTryCompileExec2856821682.dir/build.make CMakeFiles/cmTryCompileExec2856821682.dir/build
-make[1]: Entering directory `/home/liavt/Desktop/Slumber/hub/ui/build/CMakeFiles/CMakeTmp'
-/usr/bin/cmake -E cmake_progress_report /home/liavt/Desktop/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/CMakeFiles 1
-Building CXX object CMakeFiles/cmTryCompileExec2856821682.dir/CMakeCXXCompilerABI.cpp.o
-/usr/bin/c++     -o CMakeFiles/cmTryCompileExec2856821682.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-2.8/Modules/CMakeCXXCompilerABI.cpp
-Linking CXX executable cmTryCompileExec2856821682
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2856821682.dir/link.txt --verbose=1
-/usr/bin/c++      -v CMakeFiles/cmTryCompileExec2856821682.dir/CMakeCXXCompilerABI.cpp.o  -o cmTryCompileExec2856821682 -rdynamic  
-Using built-in specs.
-COLLECT_GCC=/usr/bin/c++
-COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/4.8/lto-wrapper
-Target: x86_64-linux-gnu
-Configured with: ../src/configure -v --with-pkgversion='Ubuntu 4.8.4-2ubuntu1~14.04.3' --with-bugurl=file:///usr/share/doc/gcc-4.8/README.Bugs --enable-languages=c,c++,java,go,d,fortran,objc,obj-c++ --prefix=/usr --program-suffix=-4.8 --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --with-gxx-include-dir=/usr/include/c++/4.8 --libdir=/usr/lib --enable-nls --with-sysroot=/ --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --enable-gnu-unique-object --disable-libmudflap --enable-plugin --with-system-zlib --disable-browser-plugin --enable-java-awt=gtk --enable-gtk-cairo --with-java-home=/usr/lib/jvm/java-1.5.0-gcj-4.8-amd64/jre --enable-java-home --with-jvm-root-dir=/usr/lib/jvm/java-1.5.0-gcj-4.8-amd64 --with-jvm-jar-dir=/usr/lib/jvm-exports/java-1.5.0-gcj-4.8-amd64 --with-arch-directory=amd64 --with-ecj-jar=/usr/share/java/eclipse-ecj.jar --enable-objc-gc --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --with-tune=generic --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu
-Thread model: posix
-gcc version 4.8.4 (Ubuntu 4.8.4-2ubuntu1~14.04.3) 
-COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/
-LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTryCompileExec2856821682' '-rdynamic' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
- /usr/lib/gcc/x86_64-linux-gnu/4.8/collect2 --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTryCompileExec2856821682 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/4.8 -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../.. CMakeFiles/cmTryCompileExec2856821682.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/4.8/crtend.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o
-make[1]: Leaving directory `/home/liavt/Desktop/Slumber/hub/ui/build/CMakeFiles/CMakeTmp'
-
-
-Parsed CXX implicit link information from above output:
-  link line regex: [^( *|.*[/\])(ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
-  ignore line: [Change Dir: /home/liavt/Desktop/Slumber/hub/ui/build/CMakeFiles/CMakeTmp]
-  ignore line: []
-  ignore line: [Run Build Command:/usr/bin/make "cmTryCompileExec2856821682/fast"]
-  ignore line: [/usr/bin/make -f CMakeFiles/cmTryCompileExec2856821682.dir/build.make CMakeFiles/cmTryCompileExec2856821682.dir/build]
-  ignore line: [make[1]: Entering directory `/home/liavt/Desktop/Slumber/hub/ui/build/CMakeFiles/CMakeTmp']
-  ignore line: [/usr/bin/cmake -E cmake_progress_report /home/liavt/Desktop/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/CMakeFiles 1]
-  ignore line: [Building CXX object CMakeFiles/cmTryCompileExec2856821682.dir/CMakeCXXCompilerABI.cpp.o]
-  ignore line: [/usr/bin/c++     -o CMakeFiles/cmTryCompileExec2856821682.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-2.8/Modules/CMakeCXXCompilerABI.cpp]
-  ignore line: [Linking CXX executable cmTryCompileExec2856821682]
-  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2856821682.dir/link.txt --verbose=1]
-  ignore line: [/usr/bin/c++      -v CMakeFiles/cmTryCompileExec2856821682.dir/CMakeCXXCompilerABI.cpp.o  -o cmTryCompileExec2856821682 -rdynamic  ]
-  ignore line: [Using built-in specs.]
-  ignore line: [COLLECT_GCC=/usr/bin/c++]
-  ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/4.8/lto-wrapper]
-  ignore line: [Target: x86_64-linux-gnu]
-  ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 4.8.4-2ubuntu1~14.04.3' --with-bugurl=file:///usr/share/doc/gcc-4.8/README.Bugs --enable-languages=c,c++,java,go,d,fortran,objc,obj-c++ --prefix=/usr --program-suffix=-4.8 --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --with-gxx-include-dir=/usr/include/c++/4.8 --libdir=/usr/lib --enable-nls --with-sysroot=/ --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --enable-gnu-unique-object --disable-libmudflap --enable-plugin --with-system-zlib --disable-browser-plugin --enable-java-awt=gtk --enable-gtk-cairo --with-java-home=/usr/lib/jvm/java-1.5.0-gcj-4.8-amd64/jre --enable-java-home --with-jvm-root-dir=/usr/lib/jvm/java-1.5.0-gcj-4.8-amd64 --with-jvm-jar-dir=/usr/lib/jvm-exports/java-1.5.0-gcj-4.8-amd64 --with-arch-directory=amd64 --with-ecj-jar=/usr/share/java/eclipse-ecj.jar --enable-objc-gc --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --with-tune=generic --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu]
-  ignore line: [Thread model: posix]
-  ignore line: [gcc version 4.8.4 (Ubuntu 4.8.4-2ubuntu1~14.04.3) ]
-  ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/]
-  ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTryCompileExec2856821682' '-rdynamic' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
-  link line: [ /usr/lib/gcc/x86_64-linux-gnu/4.8/collect2 --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTryCompileExec2856821682 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/4.8 -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../.. CMakeFiles/cmTryCompileExec2856821682.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/4.8/crtend.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o]
-    arg [/usr/lib/gcc/x86_64-linux-gnu/4.8/collect2] ==> ignore
-    arg [--sysroot=/] ==> ignore
-    arg [--build-id] ==> ignore
-    arg [--eh-frame-hdr] ==> ignore
-    arg [-m] ==> ignore
-    arg [elf_x86_64] ==> ignore
-    arg [--hash-style=gnu] ==> ignore
-    arg [--as-needed] ==> ignore
-    arg [-export-dynamic] ==> ignore
-    arg [-dynamic-linker] ==> ignore
-    arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
-    arg [-zrelro] ==> ignore
-    arg [-o] ==> ignore
-    arg [cmTryCompileExec2856821682] ==> ignore
-    arg [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o] ==> ignore
-    arg [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o] ==> ignore
-    arg [/usr/lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o] ==> ignore
-    arg [-L/usr/lib/gcc/x86_64-linux-gnu/4.8] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/4.8]
-    arg [-L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu]
-    arg [-L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib]
-    arg [-L/lib/x86_64-linux-gnu] ==> dir [/lib/x86_64-linux-gnu]
-    arg [-L/lib/../lib] ==> dir [/lib/../lib]
-    arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
-    arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
-    arg [-L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../..]
-    arg [CMakeFiles/cmTryCompileExec2856821682.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
-    arg [-lstdc++] ==> lib [stdc++]
-    arg [-lm] ==> lib [m]
-    arg [-lgcc_s] ==> lib [gcc_s]
-    arg [-lgcc] ==> lib [gcc]
-    arg [-lc] ==> lib [c]
-    arg [-lgcc_s] ==> lib [gcc_s]
-    arg [-lgcc] ==> lib [gcc]
-    arg [/usr/lib/gcc/x86_64-linux-gnu/4.8/crtend.o] ==> ignore
-    arg [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o] ==> ignore
-  remove lib [gcc_s]
-  remove lib [gcc]
-  remove lib [gcc_s]
-  remove lib [gcc]
-  collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/4.8] ==> [/usr/lib/gcc/x86_64-linux-gnu/4.8]
-  collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
-  collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib] ==> [/usr/lib]
-  collapse library dir [/lib/x86_64-linux-gnu] ==> [/lib/x86_64-linux-gnu]
-  collapse library dir [/lib/../lib] ==> [/lib]
-  collapse library dir [/usr/lib/x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
-  collapse library dir [/usr/lib/../lib] ==> [/usr/lib]
-  collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../..] ==> [/usr/lib]
-  implicit libs: [stdc++;m;c]
-  implicit dirs: [/usr/lib/gcc/x86_64-linux-gnu/4.8;/usr/lib/x86_64-linux-gnu;/usr/lib;/lib/x86_64-linux-gnu;/lib]
-  implicit fwks: []
+Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_4305f.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
+Microsoft (R) Build Engine version 14.0.24723.2
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Build started 1/19/2017 9:27:14 PM.
+The target "BeforeGenerateProjectPriFile" listed in a BeforeTargets attribute at "C:\Program Files (x86)\MSBuild\Microsoft\NuGet\Microsoft.NuGet.targets (186,61)" does not exist in the project, and will be ignored.
+Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_4305f.vcxproj" on node 1 (default targets).
+PrepareForBuild:
+  Creating directory "cmTC_4305f.dir\Debug\".
+  Creating directory "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\".
+  Creating directory "cmTC_4305f.dir\Debug\cmTC_4305f.tlog\".
+InitializeBuildStatus:
+  Creating "cmTC_4305f.dir\Debug\cmTC_4305f.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+ClCompile:
+  D:\Programs\Visual Studio\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_4305f.dir\Debug\\" /Fd"cmTC_4305f.dir\Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:queue "D:\Programs\CMake\share\cmake-3.6\Modules\CMakeCXXCompilerABI.cpp"
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.00.23506 for x86
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_4305f.dir\Debug\\" /Fd"cmTC_4305f.dir\Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:queue "D:\Programs\CMake\share\cmake-3.6\Modules\CMakeCXXCompilerABI.cpp"
+  
+  CMakeCXXCompilerABI.cpp
+Link:
+  D:\Programs\Visual Studio\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\cmTC_4305f.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_4305f.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_4305f.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_4305f.dir\Debug\CMakeCXXCompilerABI.obj
+  cmTC_4305f.vcxproj -> D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\cmTC_4305f.exe
+  cmTC_4305f.vcxproj -> D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_4305f.pdb (Full PDB)
+FinalizeBuildStatus:
+  Deleting file "cmTC_4305f.dir\Debug\cmTC_4305f.tlog\unsuccessfulbuild".
+  Touching "cmTC_4305f.dir\Debug\cmTC_4305f.tlog\cmTC_4305f.lastbuildstate".
+Done Building Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_4305f.vcxproj" (default targets).
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:00.77
 
 
-Determining if the function XOpenDisplay exists in the /usr/lib/x86_64-linux-gnu/libX11.so;/usr/lib/x86_64-linux-gnu/libXext.so passed with the following output:
-Change Dir: /home/liavt/Desktop/Slumber/hub/ui/build/CMakeFiles/CMakeTmp
-
-Run Build Command:/usr/bin/make "cmTryCompileExec158551899/fast"
-/usr/bin/make -f CMakeFiles/cmTryCompileExec158551899.dir/build.make CMakeFiles/cmTryCompileExec158551899.dir/build
-make[1]: Entering directory `/home/liavt/Desktop/Slumber/hub/ui/build/CMakeFiles/CMakeTmp'
-/usr/bin/cmake -E cmake_progress_report /home/liavt/Desktop/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/CMakeFiles 1
-Building C object CMakeFiles/cmTryCompileExec158551899.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=XOpenDisplay   -o CMakeFiles/cmTryCompileExec158551899.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
-Linking C executable cmTryCompileExec158551899
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec158551899.dir/link.txt --verbose=1
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=XOpenDisplay    CMakeFiles/cmTryCompileExec158551899.dir/CheckFunctionExists.c.o  -o cmTryCompileExec158551899 -rdynamic -lX11 -lXext 
-make[1]: Leaving directory `/home/liavt/Desktop/Slumber/hub/ui/build/CMakeFiles/CMakeTmp'
 
 
-Determining if the function gethostbyname exists passed with the following output:
-Change Dir: /home/liavt/Desktop/Slumber/hub/ui/build/CMakeFiles/CMakeTmp
+Detecting CXX [] compiler features compiled with the following output:
+Change Dir: D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp
 
-Run Build Command:/usr/bin/make "cmTryCompileExec3252919183/fast"
-/usr/bin/make -f CMakeFiles/cmTryCompileExec3252919183.dir/build.make CMakeFiles/cmTryCompileExec3252919183.dir/build
-make[1]: Entering directory `/home/liavt/Desktop/Slumber/hub/ui/build/CMakeFiles/CMakeTmp'
-/usr/bin/cmake -E cmake_progress_report /home/liavt/Desktop/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/CMakeFiles 1
-Building C object CMakeFiles/cmTryCompileExec3252919183.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=gethostbyname   -o CMakeFiles/cmTryCompileExec3252919183.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
-Linking C executable cmTryCompileExec3252919183
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3252919183.dir/link.txt --verbose=1
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=gethostbyname    CMakeFiles/cmTryCompileExec3252919183.dir/CheckFunctionExists.c.o  -o cmTryCompileExec3252919183 -rdynamic 
-make[1]: Leaving directory `/home/liavt/Desktop/Slumber/hub/ui/build/CMakeFiles/CMakeTmp'
-
-
-Determining if the function connect exists passed with the following output:
-Change Dir: /home/liavt/Desktop/Slumber/hub/ui/build/CMakeFiles/CMakeTmp
-
-Run Build Command:/usr/bin/make "cmTryCompileExec1152063915/fast"
-/usr/bin/make -f CMakeFiles/cmTryCompileExec1152063915.dir/build.make CMakeFiles/cmTryCompileExec1152063915.dir/build
-make[1]: Entering directory `/home/liavt/Desktop/Slumber/hub/ui/build/CMakeFiles/CMakeTmp'
-/usr/bin/cmake -E cmake_progress_report /home/liavt/Desktop/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/CMakeFiles 1
-Building C object CMakeFiles/cmTryCompileExec1152063915.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=connect   -o CMakeFiles/cmTryCompileExec1152063915.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
-Linking C executable cmTryCompileExec1152063915
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1152063915.dir/link.txt --verbose=1
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=connect    CMakeFiles/cmTryCompileExec1152063915.dir/CheckFunctionExists.c.o  -o cmTryCompileExec1152063915 -rdynamic 
-make[1]: Leaving directory `/home/liavt/Desktop/Slumber/hub/ui/build/CMakeFiles/CMakeTmp'
-
-
-Determining if the function remove exists passed with the following output:
-Change Dir: /home/liavt/Desktop/Slumber/hub/ui/build/CMakeFiles/CMakeTmp
-
-Run Build Command:/usr/bin/make "cmTryCompileExec2351772908/fast"
-/usr/bin/make -f CMakeFiles/cmTryCompileExec2351772908.dir/build.make CMakeFiles/cmTryCompileExec2351772908.dir/build
-make[1]: Entering directory `/home/liavt/Desktop/Slumber/hub/ui/build/CMakeFiles/CMakeTmp'
-/usr/bin/cmake -E cmake_progress_report /home/liavt/Desktop/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/CMakeFiles 1
-Building C object CMakeFiles/cmTryCompileExec2351772908.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=remove   -o CMakeFiles/cmTryCompileExec2351772908.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
-Linking C executable cmTryCompileExec2351772908
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2351772908.dir/link.txt --verbose=1
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=remove    CMakeFiles/cmTryCompileExec2351772908.dir/CheckFunctionExists.c.o  -o cmTryCompileExec2351772908 -rdynamic 
-make[1]: Leaving directory `/home/liavt/Desktop/Slumber/hub/ui/build/CMakeFiles/CMakeTmp'
+Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_a1072.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
+Microsoft (R) Build Engine version 14.0.24723.2
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Build started 1/19/2017 9:27:16 PM.
+The target "BeforeGenerateProjectPriFile" listed in a BeforeTargets attribute at "C:\Program Files (x86)\MSBuild\Microsoft\NuGet\Microsoft.NuGet.targets (186,61)" does not exist in the project, and will be ignored.
+Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_a1072.vcxproj" on node 1 (default targets).
+PrepareForBuild:
+  Creating directory "cmTC_a1072.dir\Debug\".
+  Creating directory "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\".
+  Creating directory "cmTC_a1072.dir\Debug\cmTC_a1072.tlog\".
+InitializeBuildStatus:
+  Creating "cmTC_a1072.dir\Debug\cmTC_a1072.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+ClCompile:
+  D:\Programs\Visual Studio\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_a1072.dir\Debug\\" /Fd"cmTC_a1072.dir\Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:queue D:\Workspace\Slumber\hub\ui\build\CMakeFiles\feature_tests.cxx
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.00.23506 for x86
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_a1072.dir\Debug\\" /Fd"cmTC_a1072.dir\Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:queue D:\Workspace\Slumber\hub\ui\build\CMakeFiles\feature_tests.cxx
+  
+  feature_tests.cxx
+Link:
+  D:\Programs\Visual Studio\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\cmTC_a1072.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_a1072.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_a1072.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_a1072.dir\Debug\feature_tests.obj
+  cmTC_a1072.vcxproj -> D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\cmTC_a1072.exe
+  cmTC_a1072.vcxproj -> D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_a1072.pdb (Full PDB)
+FinalizeBuildStatus:
+  Deleting file "cmTC_a1072.dir\Debug\cmTC_a1072.tlog\unsuccessfulbuild".
+  Touching "cmTC_a1072.dir\Debug\cmTC_a1072.tlog\cmTC_a1072.lastbuildstate".
+Done Building Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_a1072.vcxproj" (default targets).
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:00.66
 
 
-Determining if the function shmat exists passed with the following output:
-Change Dir: /home/liavt/Desktop/Slumber/hub/ui/build/CMakeFiles/CMakeTmp
+    Feature record: CXX_FEATURE:1cxx_alias_templates
+    Feature record: CXX_FEATURE:1cxx_alignas
+    Feature record: CXX_FEATURE:1cxx_alignof
+    Feature record: CXX_FEATURE:1cxx_attributes
+    Feature record: CXX_FEATURE:1cxx_attribute_deprecated
+    Feature record: CXX_FEATURE:1cxx_auto_type
+    Feature record: CXX_FEATURE:1cxx_binary_literals
+    Feature record: CXX_FEATURE:1cxx_constexpr
+    Feature record: CXX_FEATURE:1cxx_contextual_conversions
+    Feature record: CXX_FEATURE:1cxx_decltype
+    Feature record: CXX_FEATURE:1cxx_decltype_auto
+    Feature record: CXX_FEATURE:1cxx_default_function_template_args
+    Feature record: CXX_FEATURE:1cxx_defaulted_functions
+    Feature record: CXX_FEATURE:1cxx_defaulted_move_initializers
+    Feature record: CXX_FEATURE:1cxx_delegating_constructors
+    Feature record: CXX_FEATURE:1cxx_deleted_functions
+    Feature record: CXX_FEATURE:1cxx_digit_separators
+    Feature record: CXX_FEATURE:1cxx_enum_forward_declarations
+    Feature record: CXX_FEATURE:1cxx_explicit_conversions
+    Feature record: CXX_FEATURE:1cxx_extended_friend_declarations
+    Feature record: CXX_FEATURE:1cxx_extern_templates
+    Feature record: CXX_FEATURE:1cxx_final
+    Feature record: CXX_FEATURE:1cxx_func_identifier
+    Feature record: CXX_FEATURE:1cxx_generalized_initializers
+    Feature record: CXX_FEATURE:1cxx_generic_lambdas
+    Feature record: CXX_FEATURE:1cxx_inheriting_constructors
+    Feature record: CXX_FEATURE:1cxx_inline_namespaces
+    Feature record: CXX_FEATURE:1cxx_lambdas
+    Feature record: CXX_FEATURE:1cxx_lambda_init_captures
+    Feature record: CXX_FEATURE:1cxx_local_type_template_args
+    Feature record: CXX_FEATURE:1cxx_long_long_type
+    Feature record: CXX_FEATURE:1cxx_noexcept
+    Feature record: CXX_FEATURE:1cxx_nonstatic_member_init
+    Feature record: CXX_FEATURE:1cxx_nullptr
+    Feature record: CXX_FEATURE:1cxx_override
+    Feature record: CXX_FEATURE:1cxx_range_for
+    Feature record: CXX_FEATURE:1cxx_raw_string_literals
+    Feature record: CXX_FEATURE:1cxx_reference_qualified_functions
+    Feature record: CXX_FEATURE:1cxx_return_type_deduction
+    Feature record: CXX_FEATURE:1cxx_right_angle_brackets
+    Feature record: CXX_FEATURE:1cxx_rvalue_references
+    Feature record: CXX_FEATURE:1cxx_sizeof_member
+    Feature record: CXX_FEATURE:1cxx_static_assert
+    Feature record: CXX_FEATURE:1cxx_strong_enums
+    Feature record: CXX_FEATURE:1cxx_template_template_parameters
+    Feature record: CXX_FEATURE:1cxx_thread_local
+    Feature record: CXX_FEATURE:1cxx_trailing_return_types
+    Feature record: CXX_FEATURE:1cxx_unicode_literals
+    Feature record: CXX_FEATURE:1cxx_uniform_initialization
+    Feature record: CXX_FEATURE:1cxx_unrestricted_unions
+    Feature record: CXX_FEATURE:1cxx_user_literals
+    Feature record: CXX_FEATURE:0cxx_variable_templates
+    Feature record: CXX_FEATURE:1cxx_variadic_macros
+    Feature record: CXX_FEATURE:1cxx_variadic_templates
+Performing C++ SOURCE FILE Test COMPILER_SUPPORTS_CXX11 succeeded with the following output:
+Change Dir: D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp
 
-Run Build Command:/usr/bin/make "cmTryCompileExec1723631829/fast"
-/usr/bin/make -f CMakeFiles/cmTryCompileExec1723631829.dir/build.make CMakeFiles/cmTryCompileExec1723631829.dir/build
-make[1]: Entering directory `/home/liavt/Desktop/Slumber/hub/ui/build/CMakeFiles/CMakeTmp'
-/usr/bin/cmake -E cmake_progress_report /home/liavt/Desktop/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/CMakeFiles 1
-Building C object CMakeFiles/cmTryCompileExec1723631829.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=shmat   -o CMakeFiles/cmTryCompileExec1723631829.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
-Linking C executable cmTryCompileExec1723631829
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1723631829.dir/link.txt --verbose=1
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=shmat    CMakeFiles/cmTryCompileExec1723631829.dir/CheckFunctionExists.c.o  -o cmTryCompileExec1723631829 -rdynamic 
-make[1]: Leaving directory `/home/liavt/Desktop/Slumber/hub/ui/build/CMakeFiles/CMakeTmp'
-
-
-Determining if the function IceConnectionNumber exists in the ICE passed with the following output:
-Change Dir: /home/liavt/Desktop/Slumber/hub/ui/build/CMakeFiles/CMakeTmp
-
-Run Build Command:/usr/bin/make "cmTryCompileExec1215632411/fast"
-/usr/bin/make -f CMakeFiles/cmTryCompileExec1215632411.dir/build.make CMakeFiles/cmTryCompileExec1215632411.dir/build
-make[1]: Entering directory `/home/liavt/Desktop/Slumber/hub/ui/build/CMakeFiles/CMakeTmp'
-/usr/bin/cmake -E cmake_progress_report /home/liavt/Desktop/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/CMakeFiles 1
-Building C object CMakeFiles/cmTryCompileExec1215632411.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=IceConnectionNumber   -o CMakeFiles/cmTryCompileExec1215632411.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
-Linking C executable cmTryCompileExec1215632411
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1215632411.dir/link.txt --verbose=1
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=IceConnectionNumber    CMakeFiles/cmTryCompileExec1215632411.dir/CheckFunctionExists.c.o  -o cmTryCompileExec1215632411 -rdynamic -lICE 
-make[1]: Leaving directory `/home/liavt/Desktop/Slumber/hub/ui/build/CMakeFiles/CMakeTmp'
-
-
-Determining if files pthread.h exist passed with the following output:
-Change Dir: /home/liavt/Desktop/Slumber/hub/ui/build/CMakeFiles/CMakeTmp
-
-Run Build Command:/usr/bin/make "cmTryCompileExec2067019641/fast"
-/usr/bin/make -f CMakeFiles/cmTryCompileExec2067019641.dir/build.make CMakeFiles/cmTryCompileExec2067019641.dir/build
-make[1]: Entering directory `/home/liavt/Desktop/Slumber/hub/ui/build/CMakeFiles/CMakeTmp'
-/usr/bin/cmake -E cmake_progress_report /home/liavt/Desktop/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/CMakeFiles 1
-Building C object CMakeFiles/cmTryCompileExec2067019641.dir/CheckIncludeFiles.c.o
-/usr/bin/cc    -o CMakeFiles/cmTryCompileExec2067019641.dir/CheckIncludeFiles.c.o   -c /home/liavt/Desktop/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
-Linking C executable cmTryCompileExec2067019641
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2067019641.dir/link.txt --verbose=1
-/usr/bin/cc       CMakeFiles/cmTryCompileExec2067019641.dir/CheckIncludeFiles.c.o  -o cmTryCompileExec2067019641 -rdynamic 
-make[1]: Leaving directory `/home/liavt/Desktop/Slumber/hub/ui/build/CMakeFiles/CMakeTmp'
-
-
-Determining if the function pthread_create exists in the pthread passed with the following output:
-Change Dir: /home/liavt/Desktop/Slumber/hub/ui/build/CMakeFiles/CMakeTmp
-
-Run Build Command:/usr/bin/make "cmTryCompileExec1927078173/fast"
-/usr/bin/make -f CMakeFiles/cmTryCompileExec1927078173.dir/build.make CMakeFiles/cmTryCompileExec1927078173.dir/build
-make[1]: Entering directory `/home/liavt/Desktop/Slumber/hub/ui/build/CMakeFiles/CMakeTmp'
-/usr/bin/cmake -E cmake_progress_report /home/liavt/Desktop/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/CMakeFiles 1
-Building C object CMakeFiles/cmTryCompileExec1927078173.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec1927078173.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
-Linking C executable cmTryCompileExec1927078173
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1927078173.dir/link.txt --verbose=1
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec1927078173.dir/CheckFunctionExists.c.o  -o cmTryCompileExec1927078173 -rdynamic -lpthread 
-make[1]: Leaving directory `/home/liavt/Desktop/Slumber/hub/ui/build/CMakeFiles/CMakeTmp'
-
-
-Performing C++ SOURCE FILE Test COMPILER_SUPPORTS_CXX11 succeded with the following output:
-Change Dir: /home/liavt/Desktop/Slumber/hub/ui/build/CMakeFiles/CMakeTmp
-
-Run Build Command:/usr/bin/make "cmTryCompileExec1296867343/fast"
-/usr/bin/make -f CMakeFiles/cmTryCompileExec1296867343.dir/build.make CMakeFiles/cmTryCompileExec1296867343.dir/build
-make[1]: Entering directory `/home/liavt/Desktop/Slumber/hub/ui/build/CMakeFiles/CMakeTmp'
-/usr/bin/cmake -E cmake_progress_report /home/liavt/Desktop/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/CMakeFiles 1
-Building CXX object CMakeFiles/cmTryCompileExec1296867343.dir/src.cxx.o
-/usr/bin/c++    -DCOMPILER_SUPPORTS_CXX11   -std=c++11 -o CMakeFiles/cmTryCompileExec1296867343.dir/src.cxx.o -c /home/liavt/Desktop/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/src.cxx
-Linking CXX executable cmTryCompileExec1296867343
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1296867343.dir/link.txt --verbose=1
-/usr/bin/c++    -DCOMPILER_SUPPORTS_CXX11    CMakeFiles/cmTryCompileExec1296867343.dir/src.cxx.o  -o cmTryCompileExec1296867343 -rdynamic 
-make[1]: Leaving directory `/home/liavt/Desktop/Slumber/hub/ui/build/CMakeFiles/CMakeTmp'
+Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_638f8.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
+Microsoft (R) Build Engine version 14.0.24723.2
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Build started 1/19/2017 9:29:09 PM.
+The target "BeforeGenerateProjectPriFile" listed in a BeforeTargets attribute at "C:\Program Files (x86)\MSBuild\Microsoft\NuGet\Microsoft.NuGet.targets (186,61)" does not exist in the project, and will be ignored.
+Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_638f8.vcxproj" on node 1 (default targets).
+PrepareForBuild:
+  Creating directory "cmTC_638f8.dir\Debug\".
+  Creating directory "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\".
+  Creating directory "cmTC_638f8.dir\Debug\cmTC_638f8.tlog\".
+InitializeBuildStatus:
+  Creating "cmTC_638f8.dir\Debug\cmTC_638f8.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+ClCompile:
+  D:\Programs\Visual Studio\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D COMPILER_SUPPORTS_CXX11 /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_638f8.dir\Debug\\" /Fd"cmTC_638f8.dir\Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:queue D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\src.cxx
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.00.23506 for x86
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D COMPILER_SUPPORTS_CXX11 /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_638f8.dir\Debug\\" /Fd"cmTC_638f8.dir\Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:queue D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\src.cxx
+  
+  src.cxx
+Link:
+  D:\Programs\Visual Studio\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\cmTC_638f8.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_638f8.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_638f8.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_638f8.dir\Debug\src.obj
+  cmTC_638f8.vcxproj -> D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\cmTC_638f8.exe
+  cmTC_638f8.vcxproj -> D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_638f8.pdb (Full PDB)
+FinalizeBuildStatus:
+  Deleting file "cmTC_638f8.dir\Debug\cmTC_638f8.tlog\unsuccessfulbuild".
+  Touching "cmTC_638f8.dir\Debug\cmTC_638f8.tlog\cmTC_638f8.lastbuildstate".
+Done Building Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_638f8.vcxproj" (default targets).
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:00.64
 
 Source file was:
-int main() { return 0;}
-Performing C++ SOURCE FILE Test COMPILER_SUPPORTS_CXX0X succeded with the following output:
-Change Dir: /home/liavt/Desktop/Slumber/hub/ui/build/CMakeFiles/CMakeTmp
+int main() { return 0; }
+Determining if the include file sys/types.h exists passed with the following output:
+Change Dir: D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp
 
-Run Build Command:/usr/bin/make "cmTryCompileExec1931443073/fast"
-/usr/bin/make -f CMakeFiles/cmTryCompileExec1931443073.dir/build.make CMakeFiles/cmTryCompileExec1931443073.dir/build
-make[1]: Entering directory `/home/liavt/Desktop/Slumber/hub/ui/build/CMakeFiles/CMakeTmp'
-/usr/bin/cmake -E cmake_progress_report /home/liavt/Desktop/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/CMakeFiles 1
-Building CXX object CMakeFiles/cmTryCompileExec1931443073.dir/src.cxx.o
-/usr/bin/c++    -DCOMPILER_SUPPORTS_CXX0X   -std=c++0x -o CMakeFiles/cmTryCompileExec1931443073.dir/src.cxx.o -c /home/liavt/Desktop/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/src.cxx
-Linking CXX executable cmTryCompileExec1931443073
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1931443073.dir/link.txt --verbose=1
-/usr/bin/c++    -DCOMPILER_SUPPORTS_CXX0X    CMakeFiles/cmTryCompileExec1931443073.dir/src.cxx.o  -o cmTryCompileExec1931443073 -rdynamic 
-make[1]: Leaving directory `/home/liavt/Desktop/Slumber/hub/ui/build/CMakeFiles/CMakeTmp'
+Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_5d776.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
+Microsoft (R) Build Engine version 14.0.24723.2
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Build started 1/19/2017 9:29:30 PM.
+The target "BeforeGenerateProjectPriFile" listed in a BeforeTargets attribute at "C:\Program Files (x86)\MSBuild\Microsoft\NuGet\Microsoft.NuGet.targets (186,61)" does not exist in the project, and will be ignored.
+Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_5d776.vcxproj" on node 1 (default targets).
+PrepareForBuild:
+  Creating directory "cmTC_5d776.dir\Debug\".
+  Creating directory "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\".
+  Creating directory "cmTC_5d776.dir\Debug\cmTC_5d776.tlog\".
+InitializeBuildStatus:
+  Creating "cmTC_5d776.dir\Debug\cmTC_5d776.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+ClCompile:
+  D:\Programs\Visual Studio\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_5d776.dir\Debug\\" /Fd"cmTC_5d776.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.00.23506 for x86
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_5d776.dir\Debug\\" /Fd"cmTC_5d776.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+  
+  CheckIncludeFile.c
+Link:
+  D:\Programs\Visual Studio\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\cmTC_5d776.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_5d776.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_5d776.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_5d776.dir\Debug\CheckIncludeFile.obj
+  cmTC_5d776.vcxproj -> D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\cmTC_5d776.exe
+  cmTC_5d776.vcxproj -> D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_5d776.pdb (Full PDB)
+FinalizeBuildStatus:
+  Deleting file "cmTC_5d776.dir\Debug\cmTC_5d776.tlog\unsuccessfulbuild".
+  Touching "cmTC_5d776.dir\Debug\cmTC_5d776.tlog\cmTC_5d776.lastbuildstate".
+Done Building Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_5d776.vcxproj" (default targets).
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:00.76
+
+
+Determining if the include file stdint.h exists passed with the following output:
+Change Dir: D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_be4c9.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
+Microsoft (R) Build Engine version 14.0.24723.2
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Build started 1/19/2017 9:29:31 PM.
+The target "BeforeGenerateProjectPriFile" listed in a BeforeTargets attribute at "C:\Program Files (x86)\MSBuild\Microsoft\NuGet\Microsoft.NuGet.targets (186,61)" does not exist in the project, and will be ignored.
+Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_be4c9.vcxproj" on node 1 (default targets).
+PrepareForBuild:
+  Creating directory "cmTC_be4c9.dir\Debug\".
+  Creating directory "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\".
+  Creating directory "cmTC_be4c9.dir\Debug\cmTC_be4c9.tlog\".
+InitializeBuildStatus:
+  Creating "cmTC_be4c9.dir\Debug\cmTC_be4c9.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+ClCompile:
+  D:\Programs\Visual Studio\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_be4c9.dir\Debug\\" /Fd"cmTC_be4c9.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.00.23506 for x86
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_be4c9.dir\Debug\\" /Fd"cmTC_be4c9.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+  
+  CheckIncludeFile.c
+Link:
+  D:\Programs\Visual Studio\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\cmTC_be4c9.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_be4c9.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_be4c9.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_be4c9.dir\Debug\CheckIncludeFile.obj
+  cmTC_be4c9.vcxproj -> D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\cmTC_be4c9.exe
+  cmTC_be4c9.vcxproj -> D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_be4c9.pdb (Full PDB)
+FinalizeBuildStatus:
+  Deleting file "cmTC_be4c9.dir\Debug\cmTC_be4c9.tlog\unsuccessfulbuild".
+  Touching "cmTC_be4c9.dir\Debug\cmTC_be4c9.tlog\cmTC_be4c9.lastbuildstate".
+Done Building Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_be4c9.vcxproj" (default targets).
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:00.65
+
+
+Determining if the include file stddef.h exists passed with the following output:
+Change Dir: D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_2657e.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
+Microsoft (R) Build Engine version 14.0.24723.2
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Build started 1/19/2017 9:29:31 PM.
+The target "BeforeGenerateProjectPriFile" listed in a BeforeTargets attribute at "C:\Program Files (x86)\MSBuild\Microsoft\NuGet\Microsoft.NuGet.targets (186,61)" does not exist in the project, and will be ignored.
+Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_2657e.vcxproj" on node 1 (default targets).
+PrepareForBuild:
+  Creating directory "cmTC_2657e.dir\Debug\".
+  Creating directory "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\".
+  Creating directory "cmTC_2657e.dir\Debug\cmTC_2657e.tlog\".
+InitializeBuildStatus:
+  Creating "cmTC_2657e.dir\Debug\cmTC_2657e.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+ClCompile:
+  D:\Programs\Visual Studio\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_2657e.dir\Debug\\" /Fd"cmTC_2657e.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.00.23506 for x86
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_2657e.dir\Debug\\" /Fd"cmTC_2657e.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+  
+  CheckIncludeFile.c
+Link:
+  D:\Programs\Visual Studio\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\cmTC_2657e.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_2657e.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_2657e.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_2657e.dir\Debug\CheckIncludeFile.obj
+  cmTC_2657e.vcxproj -> D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\cmTC_2657e.exe
+  cmTC_2657e.vcxproj -> D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_2657e.pdb (Full PDB)
+FinalizeBuildStatus:
+  Deleting file "cmTC_2657e.dir\Debug\cmTC_2657e.tlog\unsuccessfulbuild".
+  Touching "cmTC_2657e.dir\Debug\cmTC_2657e.tlog\cmTC_2657e.lastbuildstate".
+Done Building Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_2657e.vcxproj" (default targets).
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:00.58
+
+
+Determining size of long passed with the following output:
+Change Dir: D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_bb12e.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
+Microsoft (R) Build Engine version 14.0.24723.2
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Build started 1/19/2017 9:29:32 PM.
+The target "BeforeGenerateProjectPriFile" listed in a BeforeTargets attribute at "C:\Program Files (x86)\MSBuild\Microsoft\NuGet\Microsoft.NuGet.targets (186,61)" does not exist in the project, and will be ignored.
+Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_bb12e.vcxproj" on node 1 (default targets).
+PrepareForBuild:
+  Creating directory "cmTC_bb12e.dir\Debug\".
+  Creating directory "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\".
+  Creating directory "cmTC_bb12e.dir\Debug\cmTC_bb12e.tlog\".
+InitializeBuildStatus:
+  Creating "cmTC_bb12e.dir\Debug\cmTC_bb12e.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+ClCompile:
+  D:\Programs\Visual Studio\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_bb12e.dir\Debug\\" /Fd"cmTC_bb12e.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CheckTypeSize\SIZEOF_LONG.c
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.00.23506 for x86
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_bb12e.dir\Debug\\" /Fd"cmTC_bb12e.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CheckTypeSize\SIZEOF_LONG.c
+  
+  SIZEOF_LONG.c
+Link:
+  D:\Programs\Visual Studio\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\cmTC_bb12e.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_bb12e.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_bb12e.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_bb12e.dir\Debug\SIZEOF_LONG.obj
+  cmTC_bb12e.vcxproj -> D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\cmTC_bb12e.exe
+  cmTC_bb12e.vcxproj -> D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_bb12e.pdb (Full PDB)
+FinalizeBuildStatus:
+  Deleting file "cmTC_bb12e.dir\Debug\cmTC_bb12e.tlog\unsuccessfulbuild".
+  Touching "cmTC_bb12e.dir\Debug\cmTC_bb12e.tlog\cmTC_bb12e.lastbuildstate".
+Done Building Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_bb12e.vcxproj" (default targets).
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:00.60
+
+
+Determining size of long long passed with the following output:
+Change Dir: D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_4318e.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
+Microsoft (R) Build Engine version 14.0.24723.2
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Build started 1/19/2017 9:29:33 PM.
+The target "BeforeGenerateProjectPriFile" listed in a BeforeTargets attribute at "C:\Program Files (x86)\MSBuild\Microsoft\NuGet\Microsoft.NuGet.targets (186,61)" does not exist in the project, and will be ignored.
+Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_4318e.vcxproj" on node 1 (default targets).
+PrepareForBuild:
+  Creating directory "cmTC_4318e.dir\Debug\".
+  Creating directory "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\".
+  Creating directory "cmTC_4318e.dir\Debug\cmTC_4318e.tlog\".
+InitializeBuildStatus:
+  Creating "cmTC_4318e.dir\Debug\cmTC_4318e.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+ClCompile:
+  D:\Programs\Visual Studio\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_4318e.dir\Debug\\" /Fd"cmTC_4318e.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CheckTypeSize\SIZEOF_LONG_LONG.c
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.00.23506 for x86
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_4318e.dir\Debug\\" /Fd"cmTC_4318e.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CheckTypeSize\SIZEOF_LONG_LONG.c
+  
+  SIZEOF_LONG_LONG.c
+Link:
+  D:\Programs\Visual Studio\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\cmTC_4318e.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_4318e.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_4318e.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_4318e.dir\Debug\SIZEOF_LONG_LONG.obj
+  cmTC_4318e.vcxproj -> D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\cmTC_4318e.exe
+  cmTC_4318e.vcxproj -> D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_4318e.pdb (Full PDB)
+FinalizeBuildStatus:
+  Deleting file "cmTC_4318e.dir\Debug\cmTC_4318e.tlog\unsuccessfulbuild".
+  Touching "cmTC_4318e.dir\Debug\cmTC_4318e.tlog\cmTC_4318e.lastbuildstate".
+Done Building Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_4318e.vcxproj" (default targets).
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:00.59
+
+
+Performing C SOURCE FILE Test HAVE_INLINE succeeded with the following output:
+Change Dir: D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_ddc7a.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
+Microsoft (R) Build Engine version 14.0.24723.2
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Build started 1/19/2017 9:29:36 PM.
+The target "BeforeGenerateProjectPriFile" listed in a BeforeTargets attribute at "C:\Program Files (x86)\MSBuild\Microsoft\NuGet\Microsoft.NuGet.targets (186,61)" does not exist in the project, and will be ignored.
+Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_ddc7a.vcxproj" on node 1 (default targets).
+PrepareForBuild:
+  Creating directory "cmTC_ddc7a.dir\Debug\".
+  Creating directory "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\".
+  Creating directory "cmTC_ddc7a.dir\Debug\cmTC_ddc7a.tlog\".
+InitializeBuildStatus:
+  Creating "cmTC_ddc7a.dir\Debug\cmTC_ddc7a.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+ClCompile:
+  D:\Programs\Visual Studio\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D HAVE_INLINE /D _LARGEFILE_SOURCE /D _LARGE_FILES /D restrict= /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_ddc7a.dir\Debug\\" /Fd"cmTC_ddc7a.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\src.c
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.00.23506 for x86
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D HAVE_INLINE /D _LARGEFILE_SOURCE /D _LARGE_FILES /D restrict= /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_ddc7a.dir\Debug\\" /Fd"cmTC_ddc7a.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\src.c
+  
+  src.c
+Link:
+  D:\Programs\Visual Studio\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\cmTC_ddc7a.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_ddc7a.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_ddc7a.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_ddc7a.dir\Debug\src.obj
+  cmTC_ddc7a.vcxproj -> D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\cmTC_ddc7a.exe
+  cmTC_ddc7a.vcxproj -> D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_ddc7a.pdb (Full PDB)
+FinalizeBuildStatus:
+  Deleting file "cmTC_ddc7a.dir\Debug\cmTC_ddc7a.tlog\unsuccessfulbuild".
+  Touching "cmTC_ddc7a.dir\Debug\cmTC_ddc7a.tlog\cmTC_ddc7a.lastbuildstate".
+Done Building Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_ddc7a.vcxproj" (default targets).
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:00.59
 
 Source file was:
-int main() { return 0;}
+inline void foo(void) { }
+                             int main() {return 0;}
+Performing C SOURCE FILE Test HAVE_C99_BOOL succeeded with the following output:
+Change Dir: D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_c63df.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
+Microsoft (R) Build Engine version 14.0.24723.2
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Build started 1/19/2017 9:29:38 PM.
+The target "BeforeGenerateProjectPriFile" listed in a BeforeTargets attribute at "C:\Program Files (x86)\MSBuild\Microsoft\NuGet\Microsoft.NuGet.targets (186,61)" does not exist in the project, and will be ignored.
+Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_c63df.vcxproj" on node 1 (default targets).
+PrepareForBuild:
+  Creating directory "cmTC_c63df.dir\Debug\".
+  Creating directory "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\".
+  Creating directory "cmTC_c63df.dir\Debug\cmTC_c63df.tlog\".
+InitializeBuildStatus:
+  Creating "cmTC_c63df.dir\Debug\cmTC_c63df.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+ClCompile:
+  D:\Programs\Visual Studio\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D HAVE_C99_BOOL /D _LARGEFILE_SOURCE /D _LARGE_FILES /D restrict= /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_c63df.dir\Debug\\" /Fd"cmTC_c63df.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\src.c
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.00.23506 for x86
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D HAVE_C99_BOOL /D _LARGEFILE_SOURCE /D _LARGE_FILES /D restrict= /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_c63df.dir\Debug\\" /Fd"cmTC_c63df.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\src.c
+  
+  src.c
+Link:
+  D:\Programs\Visual Studio\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\cmTC_c63df.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_c63df.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_c63df.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_c63df.dir\Debug\src.obj
+  cmTC_c63df.vcxproj -> D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\cmTC_c63df.exe
+  cmTC_c63df.vcxproj -> D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_c63df.pdb (Full PDB)
+FinalizeBuildStatus:
+  Deleting file "cmTC_c63df.dir\Debug\cmTC_c63df.tlog\unsuccessfulbuild".
+  Touching "cmTC_c63df.dir\Debug\cmTC_c63df.tlog\cmTC_c63df.lastbuildstate".
+Done Building Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_c63df.vcxproj" (default targets).
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:00.61
+
+Source file was:
+int main(int argc, char *argv[])
+ {
+     volatile _Bool ret;
+     ret = (argc > 1) ? 1 : 0;
+     return ret ? -1 : 0;
+ }
+Determining if the include file stdbool.h exists passed with the following output:
+Change Dir: D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_4e4d6.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
+Microsoft (R) Build Engine version 14.0.24723.2
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Build started 1/19/2017 9:29:41 PM.
+The target "BeforeGenerateProjectPriFile" listed in a BeforeTargets attribute at "C:\Program Files (x86)\MSBuild\Microsoft\NuGet\Microsoft.NuGet.targets (186,61)" does not exist in the project, and will be ignored.
+Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_4e4d6.vcxproj" on node 1 (default targets).
+PrepareForBuild:
+  Creating directory "cmTC_4e4d6.dir\Debug\".
+  Creating directory "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\".
+  Creating directory "cmTC_4e4d6.dir\Debug\cmTC_4e4d6.tlog\".
+InitializeBuildStatus:
+  Creating "cmTC_4e4d6.dir\Debug\cmTC_4e4d6.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+ClCompile:
+  D:\Programs\Visual Studio\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _LARGEFILE_SOURCE /D _LARGE_FILES /D restrict= /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_4e4d6.dir\Debug\\" /Fd"cmTC_4e4d6.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.00.23506 for x86
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _LARGEFILE_SOURCE /D _LARGE_FILES /D restrict= /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_4e4d6.dir\Debug\\" /Fd"cmTC_4e4d6.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+  
+  CheckIncludeFile.c
+Link:
+  D:\Programs\Visual Studio\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\cmTC_4e4d6.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_4e4d6.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_4e4d6.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_4e4d6.dir\Debug\CheckIncludeFile.obj
+  cmTC_4e4d6.vcxproj -> D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\cmTC_4e4d6.exe
+  cmTC_4e4d6.vcxproj -> D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_4e4d6.pdb (Full PDB)
+FinalizeBuildStatus:
+  Deleting file "cmTC_4e4d6.dir\Debug\cmTC_4e4d6.tlog\unsuccessfulbuild".
+  Touching "cmTC_4e4d6.dir\Debug\cmTC_4e4d6.tlog\cmTC_4e4d6.lastbuildstate".
+Done Building Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_4e4d6.vcxproj" (default targets).
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:00.60
+
+
+Determining if the include file malloc.h exists passed with the following output:
+Change Dir: D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_0964d.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
+Microsoft (R) Build Engine version 14.0.24723.2
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Build started 1/19/2017 9:29:42 PM.
+The target "BeforeGenerateProjectPriFile" listed in a BeforeTargets attribute at "C:\Program Files (x86)\MSBuild\Microsoft\NuGet\Microsoft.NuGet.targets (186,61)" does not exist in the project, and will be ignored.
+Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_0964d.vcxproj" on node 1 (default targets).
+PrepareForBuild:
+  Creating directory "cmTC_0964d.dir\Debug\".
+  Creating directory "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\".
+  Creating directory "cmTC_0964d.dir\Debug\cmTC_0964d.tlog\".
+InitializeBuildStatus:
+  Creating "cmTC_0964d.dir\Debug\cmTC_0964d.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+ClCompile:
+  D:\Programs\Visual Studio\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _LARGEFILE_SOURCE /D _LARGE_FILES /D restrict= /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_0964d.dir\Debug\\" /Fd"cmTC_0964d.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.00.23506 for x86
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _LARGEFILE_SOURCE /D _LARGE_FILES /D restrict= /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_0964d.dir\Debug\\" /Fd"cmTC_0964d.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+  
+  CheckIncludeFile.c
+Link:
+  D:\Programs\Visual Studio\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\cmTC_0964d.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_0964d.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_0964d.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_0964d.dir\Debug\CheckIncludeFile.obj
+  cmTC_0964d.vcxproj -> D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\cmTC_0964d.exe
+  cmTC_0964d.vcxproj -> D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_0964d.pdb (Full PDB)
+FinalizeBuildStatus:
+  Deleting file "cmTC_0964d.dir\Debug\cmTC_0964d.tlog\unsuccessfulbuild".
+  Touching "cmTC_0964d.dir\Debug\cmTC_0964d.tlog\cmTC_0964d.lastbuildstate".
+Done Building Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_0964d.vcxproj" (default targets).
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:00.59
+
+
+Determining if the include file intrin.h exists passed with the following output:
+Change Dir: D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_3a4ff.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
+Microsoft (R) Build Engine version 14.0.24723.2
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Build started 1/19/2017 9:29:44 PM.
+The target "BeforeGenerateProjectPriFile" listed in a BeforeTargets attribute at "C:\Program Files (x86)\MSBuild\Microsoft\NuGet\Microsoft.NuGet.targets (186,61)" does not exist in the project, and will be ignored.
+Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_3a4ff.vcxproj" on node 1 (default targets).
+PrepareForBuild:
+  Creating directory "cmTC_3a4ff.dir\Debug\".
+  Creating directory "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\".
+  Creating directory "cmTC_3a4ff.dir\Debug\cmTC_3a4ff.tlog\".
+InitializeBuildStatus:
+  Creating "cmTC_3a4ff.dir\Debug\cmTC_3a4ff.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+ClCompile:
+  D:\Programs\Visual Studio\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _LARGEFILE_SOURCE /D _LARGE_FILES /D restrict= /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_3a4ff.dir\Debug\\" /Fd"cmTC_3a4ff.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.00.23506 for x86
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _LARGEFILE_SOURCE /D _LARGE_FILES /D restrict= /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_3a4ff.dir\Debug\\" /Fd"cmTC_3a4ff.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+  
+  CheckIncludeFile.c
+Link:
+  D:\Programs\Visual Studio\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\cmTC_3a4ff.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_3a4ff.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_3a4ff.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_3a4ff.dir\Debug\CheckIncludeFile.obj
+  cmTC_3a4ff.vcxproj -> D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\cmTC_3a4ff.exe
+  cmTC_3a4ff.vcxproj -> D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_3a4ff.pdb (Full PDB)
+FinalizeBuildStatus:
+  Deleting file "cmTC_3a4ff.dir\Debug\cmTC_3a4ff.tlog\unsuccessfulbuild".
+  Touching "cmTC_3a4ff.dir\Debug\cmTC_3a4ff.tlog\cmTC_3a4ff.lastbuildstate".
+Done Building Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_3a4ff.vcxproj" (default targets).
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:00.78
+
+
+Determining if the include file fenv.h exists passed with the following output:
+Change Dir: D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_39b1e.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
+Microsoft (R) Build Engine version 14.0.24723.2
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Build started 1/19/2017 9:29:46 PM.
+The target "BeforeGenerateProjectPriFile" listed in a BeforeTargets attribute at "C:\Program Files (x86)\MSBuild\Microsoft\NuGet\Microsoft.NuGet.targets (186,61)" does not exist in the project, and will be ignored.
+Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_39b1e.vcxproj" on node 1 (default targets).
+PrepareForBuild:
+  Creating directory "cmTC_39b1e.dir\Debug\".
+  Creating directory "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\".
+  Creating directory "cmTC_39b1e.dir\Debug\cmTC_39b1e.tlog\".
+InitializeBuildStatus:
+  Creating "cmTC_39b1e.dir\Debug\cmTC_39b1e.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+ClCompile:
+  D:\Programs\Visual Studio\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _LARGEFILE_SOURCE /D _LARGE_FILES /D restrict= /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_39b1e.dir\Debug\\" /Fd"cmTC_39b1e.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.00.23506 for x86
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _LARGEFILE_SOURCE /D _LARGE_FILES /D restrict= /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_39b1e.dir\Debug\\" /Fd"cmTC_39b1e.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+  
+  CheckIncludeFile.c
+Link:
+  D:\Programs\Visual Studio\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\cmTC_39b1e.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_39b1e.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_39b1e.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_39b1e.dir\Debug\CheckIncludeFile.obj
+  cmTC_39b1e.vcxproj -> D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\cmTC_39b1e.exe
+  cmTC_39b1e.vcxproj -> D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_39b1e.pdb (Full PDB)
+FinalizeBuildStatus:
+  Deleting file "cmTC_39b1e.dir\Debug\cmTC_39b1e.tlog\unsuccessfulbuild".
+  Touching "cmTC_39b1e.dir\Debug\cmTC_39b1e.tlog\cmTC_39b1e.lastbuildstate".
+Done Building Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_39b1e.vcxproj" (default targets).
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:00.62
+
+
+Determining if the include file float.h exists passed with the following output:
+Change Dir: D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_ebe52.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
+Microsoft (R) Build Engine version 14.0.24723.2
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Build started 1/19/2017 9:29:46 PM.
+The target "BeforeGenerateProjectPriFile" listed in a BeforeTargets attribute at "C:\Program Files (x86)\MSBuild\Microsoft\NuGet\Microsoft.NuGet.targets (186,61)" does not exist in the project, and will be ignored.
+Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_ebe52.vcxproj" on node 1 (default targets).
+PrepareForBuild:
+  Creating directory "cmTC_ebe52.dir\Debug\".
+  Creating directory "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\".
+  Creating directory "cmTC_ebe52.dir\Debug\cmTC_ebe52.tlog\".
+InitializeBuildStatus:
+  Creating "cmTC_ebe52.dir\Debug\cmTC_ebe52.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+ClCompile:
+  D:\Programs\Visual Studio\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _LARGEFILE_SOURCE /D _LARGE_FILES /D restrict= /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_ebe52.dir\Debug\\" /Fd"cmTC_ebe52.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.00.23506 for x86
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _LARGEFILE_SOURCE /D _LARGE_FILES /D restrict= /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_ebe52.dir\Debug\\" /Fd"cmTC_ebe52.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+  
+  CheckIncludeFile.c
+Link:
+  D:\Programs\Visual Studio\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\cmTC_ebe52.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_ebe52.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_ebe52.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_ebe52.dir\Debug\CheckIncludeFile.obj
+  cmTC_ebe52.vcxproj -> D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\cmTC_ebe52.exe
+  cmTC_ebe52.vcxproj -> D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_ebe52.pdb (Full PDB)
+FinalizeBuildStatus:
+  Deleting file "cmTC_ebe52.dir\Debug\cmTC_ebe52.tlog\unsuccessfulbuild".
+  Touching "cmTC_ebe52.dir\Debug\cmTC_ebe52.tlog\cmTC_ebe52.lastbuildstate".
+Done Building Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_ebe52.vcxproj" (default targets).
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:00.58
+
+
+Determining if the include file guiddef.h exists passed with the following output:
+Change Dir: D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_35cc1.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
+Microsoft (R) Build Engine version 14.0.24723.2
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Build started 1/19/2017 9:29:48 PM.
+The target "BeforeGenerateProjectPriFile" listed in a BeforeTargets attribute at "C:\Program Files (x86)\MSBuild\Microsoft\NuGet\Microsoft.NuGet.targets (186,61)" does not exist in the project, and will be ignored.
+Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_35cc1.vcxproj" on node 1 (default targets).
+PrepareForBuild:
+  Creating directory "cmTC_35cc1.dir\Debug\".
+  Creating directory "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\".
+  Creating directory "cmTC_35cc1.dir\Debug\cmTC_35cc1.tlog\".
+InitializeBuildStatus:
+  Creating "cmTC_35cc1.dir\Debug\cmTC_35cc1.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+ClCompile:
+  D:\Programs\Visual Studio\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _LARGEFILE_SOURCE /D _LARGE_FILES /D restrict= /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_35cc1.dir\Debug\\" /Fd"cmTC_35cc1.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.00.23506 for x86
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _LARGEFILE_SOURCE /D _LARGE_FILES /D restrict= /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_35cc1.dir\Debug\\" /Fd"cmTC_35cc1.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+  
+  CheckIncludeFile.c
+Link:
+  D:\Programs\Visual Studio\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\cmTC_35cc1.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_35cc1.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_35cc1.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_35cc1.dir\Debug\CheckIncludeFile.obj
+  cmTC_35cc1.vcxproj -> D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\cmTC_35cc1.exe
+  cmTC_35cc1.vcxproj -> D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_35cc1.pdb (Full PDB)
+FinalizeBuildStatus:
+  Deleting file "cmTC_35cc1.dir\Debug\cmTC_35cc1.tlog\unsuccessfulbuild".
+  Touching "cmTC_35cc1.dir\Debug\cmTC_35cc1.tlog\cmTC_35cc1.lastbuildstate".
+Done Building Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_35cc1.vcxproj" (default targets).
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:00.64
+
+
+Performing C SOURCE FILE Test HAVE_CPUID_INTRINSIC succeeded with the following output:
+Change Dir: D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_f575f.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
+Microsoft (R) Build Engine version 14.0.24723.2
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Build started 1/19/2017 9:29:50 PM.
+The target "BeforeGenerateProjectPriFile" listed in a BeforeTargets attribute at "C:\Program Files (x86)\MSBuild\Microsoft\NuGet\Microsoft.NuGet.targets (186,61)" does not exist in the project, and will be ignored.
+Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_f575f.vcxproj" on node 1 (default targets).
+PrepareForBuild:
+  Creating directory "cmTC_f575f.dir\Debug\".
+  Creating directory "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\".
+  Creating directory "cmTC_f575f.dir\Debug\cmTC_f575f.tlog\".
+InitializeBuildStatus:
+  Creating "cmTC_f575f.dir\Debug\cmTC_f575f.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+ClCompile:
+  D:\Programs\Visual Studio\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D HAVE_CPUID_INTRINSIC /D _LARGEFILE_SOURCE /D _LARGE_FILES /D restrict= /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_f575f.dir\Debug\\" /Fd"cmTC_f575f.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\src.c
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.00.23506 for x86
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D HAVE_CPUID_INTRINSIC /D _LARGEFILE_SOURCE /D _LARGE_FILES /D restrict= /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_f575f.dir\Debug\\" /Fd"cmTC_f575f.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\src.c
+  
+  src.c
+Link:
+  D:\Programs\Visual Studio\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\cmTC_f575f.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_f575f.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_f575f.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_f575f.dir\Debug\src.obj
+  cmTC_f575f.vcxproj -> D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\cmTC_f575f.exe
+  cmTC_f575f.vcxproj -> D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_f575f.pdb (Full PDB)
+FinalizeBuildStatus:
+  Deleting file "cmTC_f575f.dir\Debug\cmTC_f575f.tlog\unsuccessfulbuild".
+  Touching "cmTC_f575f.dir\Debug\cmTC_f575f.tlog\cmTC_f575f.lastbuildstate".
+Done Building Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_f575f.vcxproj" (default targets).
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:00.65
+
+Source file was:
+#include <intrin.h>
+        int main()
+        {
+            int regs[4];
+            __cpuid(regs, 0);
+            return regs[0];
+        }
+Determining if the _aligned_malloc exist passed with the following output:
+Change Dir: D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_b4993.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
+Microsoft (R) Build Engine version 14.0.24723.2
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Build started 1/19/2017 9:29:52 PM.
+The target "BeforeGenerateProjectPriFile" listed in a BeforeTargets attribute at "C:\Program Files (x86)\MSBuild\Microsoft\NuGet\Microsoft.NuGet.targets (186,61)" does not exist in the project, and will be ignored.
+Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_b4993.vcxproj" on node 1 (default targets).
+PrepareForBuild:
+  Creating directory "cmTC_b4993.dir\Debug\".
+  Creating directory "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\".
+  Creating directory "cmTC_b4993.dir\Debug\cmTC_b4993.tlog\".
+InitializeBuildStatus:
+  Creating "cmTC_b4993.dir\Debug\cmTC_b4993.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+ClCompile:
+  D:\Programs\Visual Studio\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _LARGEFILE_SOURCE /D _LARGE_FILES /D restrict= /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_b4993.dir\Debug\\" /Fd"cmTC_b4993.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.00.23506 for x86
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _LARGEFILE_SOURCE /D _LARGE_FILES /D restrict= /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_b4993.dir\Debug\\" /Fd"cmTC_b4993.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+  
+  CheckSymbolExists.c
+Link:
+  D:\Programs\Visual Studio\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\cmTC_b4993.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_b4993.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_b4993.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_b4993.dir\Debug\CheckSymbolExists.obj
+  cmTC_b4993.vcxproj -> D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\cmTC_b4993.exe
+  cmTC_b4993.vcxproj -> D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_b4993.pdb (Full PDB)
+FinalizeBuildStatus:
+  Deleting file "cmTC_b4993.dir\Debug\cmTC_b4993.tlog\unsuccessfulbuild".
+  Touching "cmTC_b4993.dir\Debug\cmTC_b4993.tlog\cmTC_b4993.lastbuildstate".
+Done Building Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_b4993.vcxproj" (default targets).
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:00.60
+
+File D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <malloc.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef _aligned_malloc
+  return ((int*)(&_aligned_malloc))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the lrintf exist passed with the following output:
+Change Dir: D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_52f8f.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
+Microsoft (R) Build Engine version 14.0.24723.2
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Build started 1/19/2017 9:29:52 PM.
+The target "BeforeGenerateProjectPriFile" listed in a BeforeTargets attribute at "C:\Program Files (x86)\MSBuild\Microsoft\NuGet\Microsoft.NuGet.targets (186,61)" does not exist in the project, and will be ignored.
+Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_52f8f.vcxproj" on node 1 (default targets).
+PrepareForBuild:
+  Creating directory "cmTC_52f8f.dir\Debug\".
+  Creating directory "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\".
+  Creating directory "cmTC_52f8f.dir\Debug\cmTC_52f8f.tlog\".
+InitializeBuildStatus:
+  Creating "cmTC_52f8f.dir\Debug\cmTC_52f8f.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+ClCompile:
+  D:\Programs\Visual Studio\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _LARGEFILE_SOURCE /D _LARGE_FILES /D restrict= /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_52f8f.dir\Debug\\" /Fd"cmTC_52f8f.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.00.23506 for x86
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _LARGEFILE_SOURCE /D _LARGE_FILES /D restrict= /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_52f8f.dir\Debug\\" /Fd"cmTC_52f8f.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+  
+  CheckSymbolExists.c
+Link:
+  D:\Programs\Visual Studio\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\cmTC_52f8f.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_52f8f.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_52f8f.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_52f8f.dir\Debug\CheckSymbolExists.obj
+  cmTC_52f8f.vcxproj -> D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\cmTC_52f8f.exe
+  cmTC_52f8f.vcxproj -> D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_52f8f.pdb (Full PDB)
+FinalizeBuildStatus:
+  Deleting file "cmTC_52f8f.dir\Debug\cmTC_52f8f.tlog\unsuccessfulbuild".
+  Touching "cmTC_52f8f.dir\Debug\cmTC_52f8f.tlog\cmTC_52f8f.lastbuildstate".
+Done Building Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_52f8f.vcxproj" (default targets).
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:00.61
+
+File D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef lrintf
+  return ((int*)(&lrintf))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the modff exist passed with the following output:
+Change Dir: D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_de78a.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
+Microsoft (R) Build Engine version 14.0.24723.2
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Build started 1/19/2017 9:29:53 PM.
+The target "BeforeGenerateProjectPriFile" listed in a BeforeTargets attribute at "C:\Program Files (x86)\MSBuild\Microsoft\NuGet\Microsoft.NuGet.targets (186,61)" does not exist in the project, and will be ignored.
+Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_de78a.vcxproj" on node 1 (default targets).
+PrepareForBuild:
+  Creating directory "cmTC_de78a.dir\Debug\".
+  Creating directory "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\".
+  Creating directory "cmTC_de78a.dir\Debug\cmTC_de78a.tlog\".
+InitializeBuildStatus:
+  Creating "cmTC_de78a.dir\Debug\cmTC_de78a.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+ClCompile:
+  D:\Programs\Visual Studio\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _LARGEFILE_SOURCE /D _LARGE_FILES /D restrict= /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_de78a.dir\Debug\\" /Fd"cmTC_de78a.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.00.23506 for x86
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _LARGEFILE_SOURCE /D _LARGE_FILES /D restrict= /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_de78a.dir\Debug\\" /Fd"cmTC_de78a.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+  
+  CheckSymbolExists.c
+Link:
+  D:\Programs\Visual Studio\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\cmTC_de78a.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_de78a.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_de78a.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_de78a.dir\Debug\CheckSymbolExists.obj
+  cmTC_de78a.vcxproj -> D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\cmTC_de78a.exe
+  cmTC_de78a.vcxproj -> D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_de78a.pdb (Full PDB)
+FinalizeBuildStatus:
+  Deleting file "cmTC_de78a.dir\Debug\cmTC_de78a.tlog\unsuccessfulbuild".
+  Touching "cmTC_de78a.dir\Debug\cmTC_de78a.tlog\cmTC_de78a.lastbuildstate".
+Done Building Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_de78a.vcxproj" (default targets).
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:00.63
+
+File D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef modff
+  return ((int*)(&modff))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the alloca exist passed with the following output:
+Change Dir: D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_11e85.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
+Microsoft (R) Build Engine version 14.0.24723.2
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Build started 1/19/2017 9:29:54 PM.
+The target "BeforeGenerateProjectPriFile" listed in a BeforeTargets attribute at "C:\Program Files (x86)\MSBuild\Microsoft\NuGet\Microsoft.NuGet.targets (186,61)" does not exist in the project, and will be ignored.
+Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_11e85.vcxproj" on node 1 (default targets).
+PrepareForBuild:
+  Creating directory "cmTC_11e85.dir\Debug\".
+  Creating directory "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\".
+  Creating directory "cmTC_11e85.dir\Debug\cmTC_11e85.tlog\".
+InitializeBuildStatus:
+  Creating "cmTC_11e85.dir\Debug\cmTC_11e85.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+ClCompile:
+  D:\Programs\Visual Studio\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _LARGEFILE_SOURCE /D _LARGE_FILES /D restrict= /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_11e85.dir\Debug\\" /Fd"cmTC_11e85.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.00.23506 for x86
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _LARGEFILE_SOURCE /D _LARGE_FILES /D restrict= /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_11e85.dir\Debug\\" /Fd"cmTC_11e85.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+  
+  CheckSymbolExists.c
+Link:
+  D:\Programs\Visual Studio\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\cmTC_11e85.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_11e85.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_11e85.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_11e85.dir\Debug\CheckSymbolExists.obj
+  cmTC_11e85.vcxproj -> D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\cmTC_11e85.exe
+  cmTC_11e85.vcxproj -> D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_11e85.pdb (Full PDB)
+FinalizeBuildStatus:
+  Deleting file "cmTC_11e85.dir\Debug\cmTC_11e85.tlog\unsuccessfulbuild".
+  Touching "cmTC_11e85.dir\Debug\cmTC_11e85.tlog\cmTC_11e85.lastbuildstate".
+Done Building Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_11e85.vcxproj" (default targets).
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:00.65
+
+File D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <malloc.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef alloca
+  return ((int*)(&alloca))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the _controlfp exist passed with the following output:
+Change Dir: D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_218d7.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
+Microsoft (R) Build Engine version 14.0.24723.2
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Build started 1/19/2017 9:29:55 PM.
+The target "BeforeGenerateProjectPriFile" listed in a BeforeTargets attribute at "C:\Program Files (x86)\MSBuild\Microsoft\NuGet\Microsoft.NuGet.targets (186,61)" does not exist in the project, and will be ignored.
+Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_218d7.vcxproj" on node 1 (default targets).
+PrepareForBuild:
+  Creating directory "cmTC_218d7.dir\Debug\".
+  Creating directory "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\".
+  Creating directory "cmTC_218d7.dir\Debug\cmTC_218d7.tlog\".
+InitializeBuildStatus:
+  Creating "cmTC_218d7.dir\Debug\cmTC_218d7.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+ClCompile:
+  D:\Programs\Visual Studio\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _LARGEFILE_SOURCE /D _LARGE_FILES /D restrict= /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_218d7.dir\Debug\\" /Fd"cmTC_218d7.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.00.23506 for x86
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _LARGEFILE_SOURCE /D _LARGE_FILES /D restrict= /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_218d7.dir\Debug\\" /Fd"cmTC_218d7.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+  
+  CheckSymbolExists.c
+D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\CheckSymbolExists.c(8): warning C4996: '_controlfp': This function or variable may be unsafe. Consider using _controlfp_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_218d7.vcxproj]
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\float.h(232): note: see declaration of '_controlfp'
+Link:
+  D:\Programs\Visual Studio\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\cmTC_218d7.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_218d7.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_218d7.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_218d7.dir\Debug\CheckSymbolExists.obj
+  cmTC_218d7.vcxproj -> D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\cmTC_218d7.exe
+  cmTC_218d7.vcxproj -> D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_218d7.pdb (Full PDB)
+FinalizeBuildStatus:
+  Deleting file "cmTC_218d7.dir\Debug\cmTC_218d7.tlog\unsuccessfulbuild".
+  Touching "cmTC_218d7.dir\Debug\cmTC_218d7.tlog\cmTC_218d7.lastbuildstate".
+Done Building Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_218d7.vcxproj" (default targets).
+
+Build succeeded.
+
+"D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_218d7.vcxproj" (default target) (1) ->
+(ClCompile target) -> 
+  D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\CheckSymbolExists.c(8): warning C4996: '_controlfp': This function or variable may be unsafe. Consider using _controlfp_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_218d7.vcxproj]
+
+    1 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:00.75
+
+File D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef _controlfp
+  return ((int*)(&_controlfp))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the __control87_2 exist passed with the following output:
+Change Dir: D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_42e52.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
+Microsoft (R) Build Engine version 14.0.24723.2
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Build started 1/19/2017 9:29:56 PM.
+The target "BeforeGenerateProjectPriFile" listed in a BeforeTargets attribute at "C:\Program Files (x86)\MSBuild\Microsoft\NuGet\Microsoft.NuGet.targets (186,61)" does not exist in the project, and will be ignored.
+Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_42e52.vcxproj" on node 1 (default targets).
+PrepareForBuild:
+  Creating directory "cmTC_42e52.dir\Debug\".
+  Creating directory "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\".
+  Creating directory "cmTC_42e52.dir\Debug\cmTC_42e52.tlog\".
+InitializeBuildStatus:
+  Creating "cmTC_42e52.dir\Debug\cmTC_42e52.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+ClCompile:
+  D:\Programs\Visual Studio\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _LARGEFILE_SOURCE /D _LARGE_FILES /D restrict= /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_42e52.dir\Debug\\" /Fd"cmTC_42e52.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.00.23506 for x86
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _LARGEFILE_SOURCE /D _LARGE_FILES /D restrict= /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_42e52.dir\Debug\\" /Fd"cmTC_42e52.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+  
+  CheckSymbolExists.c
+Link:
+  D:\Programs\Visual Studio\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\cmTC_42e52.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_42e52.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_42e52.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_42e52.dir\Debug\CheckSymbolExists.obj
+  cmTC_42e52.vcxproj -> D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\cmTC_42e52.exe
+  cmTC_42e52.vcxproj -> D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_42e52.pdb (Full PDB)
+FinalizeBuildStatus:
+  Deleting file "cmTC_42e52.dir\Debug\cmTC_42e52.tlog\unsuccessfulbuild".
+  Touching "cmTC_42e52.dir\Debug\cmTC_42e52.tlog\cmTC_42e52.lastbuildstate".
+Done Building Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_42e52.vcxproj" (default targets).
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:00.63
+
+File D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef __control87_2
+  return ((int*)(&__control87_2))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function stat exists passed with the following output:
+Change Dir: D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_08ee2.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
+Microsoft (R) Build Engine version 14.0.24723.2
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Build started 1/19/2017 9:29:56 PM.
+The target "BeforeGenerateProjectPriFile" listed in a BeforeTargets attribute at "C:\Program Files (x86)\MSBuild\Microsoft\NuGet\Microsoft.NuGet.targets (186,61)" does not exist in the project, and will be ignored.
+Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_08ee2.vcxproj" on node 1 (default targets).
+PrepareForBuild:
+  Creating directory "cmTC_08ee2.dir\Debug\".
+  Creating directory "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\".
+  Creating directory "cmTC_08ee2.dir\Debug\cmTC_08ee2.tlog\".
+InitializeBuildStatus:
+  Creating "cmTC_08ee2.dir\Debug\cmTC_08ee2.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+ClCompile:
+  D:\Programs\Visual Studio\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=stat /D _LARGEFILE_SOURCE /D _LARGE_FILES /D restrict= /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_08ee2.dir\Debug\\" /Fd"cmTC_08ee2.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue "D:\Programs\CMake\share\cmake-3.6\Modules\CheckFunctionExists.c"
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.00.23506 for x86
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=stat /D _LARGEFILE_SOURCE /D _LARGE_FILES /D restrict= /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_08ee2.dir\Debug\\" /Fd"cmTC_08ee2.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue "D:\Programs\CMake\share\cmake-3.6\Modules\CheckFunctionExists.c"
+  
+  CheckFunctionExists.c
+Link:
+  D:\Programs\Visual Studio\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\cmTC_08ee2.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_08ee2.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_08ee2.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_08ee2.dir\Debug\CheckFunctionExists.obj
+  cmTC_08ee2.vcxproj -> D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\cmTC_08ee2.exe
+  cmTC_08ee2.vcxproj -> D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_08ee2.pdb (Full PDB)
+FinalizeBuildStatus:
+  Deleting file "cmTC_08ee2.dir\Debug\cmTC_08ee2.tlog\unsuccessfulbuild".
+  Touching "cmTC_08ee2.dir\Debug\cmTC_08ee2.tlog\cmTC_08ee2.lastbuildstate".
+Done Building Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_08ee2.vcxproj" (default targets).
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:00.60
+
+
+Determining if the function strtof exists passed with the following output:
+Change Dir: D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_90858.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
+Microsoft (R) Build Engine version 14.0.24723.2
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Build started 1/19/2017 9:29:57 PM.
+The target "BeforeGenerateProjectPriFile" listed in a BeforeTargets attribute at "C:\Program Files (x86)\MSBuild\Microsoft\NuGet\Microsoft.NuGet.targets (186,61)" does not exist in the project, and will be ignored.
+Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_90858.vcxproj" on node 1 (default targets).
+PrepareForBuild:
+  Creating directory "cmTC_90858.dir\Debug\".
+  Creating directory "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\".
+  Creating directory "cmTC_90858.dir\Debug\cmTC_90858.tlog\".
+InitializeBuildStatus:
+  Creating "cmTC_90858.dir\Debug\cmTC_90858.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+ClCompile:
+  D:\Programs\Visual Studio\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=strtof /D _LARGEFILE_SOURCE /D _LARGE_FILES /D restrict= /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_90858.dir\Debug\\" /Fd"cmTC_90858.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue "D:\Programs\CMake\share\cmake-3.6\Modules\CheckFunctionExists.c"
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.00.23506 for x86
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=strtof /D _LARGEFILE_SOURCE /D _LARGE_FILES /D restrict= /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_90858.dir\Debug\\" /Fd"cmTC_90858.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue "D:\Programs\CMake\share\cmake-3.6\Modules\CheckFunctionExists.c"
+  
+  CheckFunctionExists.c
+Link:
+  D:\Programs\Visual Studio\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\cmTC_90858.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_90858.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_90858.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_90858.dir\Debug\CheckFunctionExists.obj
+  cmTC_90858.vcxproj -> D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\cmTC_90858.exe
+  cmTC_90858.vcxproj -> D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_90858.pdb (Full PDB)
+FinalizeBuildStatus:
+  Deleting file "cmTC_90858.dir\Debug\cmTC_90858.tlog\unsuccessfulbuild".
+  Touching "cmTC_90858.dir\Debug\cmTC_90858.tlog\cmTC_90858.lastbuildstate".
+Done Building Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_90858.vcxproj" (default targets).
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:00.70
+
+
+Determining if the function _stricmp exists passed with the following output:
+Change Dir: D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_20f30.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
+Microsoft (R) Build Engine version 14.0.24723.2
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Build started 1/19/2017 9:29:59 PM.
+The target "BeforeGenerateProjectPriFile" listed in a BeforeTargets attribute at "C:\Program Files (x86)\MSBuild\Microsoft\NuGet\Microsoft.NuGet.targets (186,61)" does not exist in the project, and will be ignored.
+Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_20f30.vcxproj" on node 1 (default targets).
+PrepareForBuild:
+  Creating directory "cmTC_20f30.dir\Debug\".
+  Creating directory "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\".
+  Creating directory "cmTC_20f30.dir\Debug\cmTC_20f30.tlog\".
+InitializeBuildStatus:
+  Creating "cmTC_20f30.dir\Debug\cmTC_20f30.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+ClCompile:
+  D:\Programs\Visual Studio\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=_stricmp /D _LARGEFILE_SOURCE /D _LARGE_FILES /D restrict= /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_20f30.dir\Debug\\" /Fd"cmTC_20f30.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue "D:\Programs\CMake\share\cmake-3.6\Modules\CheckFunctionExists.c"
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.00.23506 for x86
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=_stricmp /D _LARGEFILE_SOURCE /D _LARGE_FILES /D restrict= /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_20f30.dir\Debug\\" /Fd"cmTC_20f30.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue "D:\Programs\CMake\share\cmake-3.6\Modules\CheckFunctionExists.c"
+  
+  CheckFunctionExists.c
+Link:
+  D:\Programs\Visual Studio\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\cmTC_20f30.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_20f30.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_20f30.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_20f30.dir\Debug\CheckFunctionExists.obj
+  cmTC_20f30.vcxproj -> D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\cmTC_20f30.exe
+  cmTC_20f30.vcxproj -> D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_20f30.pdb (Full PDB)
+FinalizeBuildStatus:
+  Deleting file "cmTC_20f30.dir\Debug\cmTC_20f30.tlog\unsuccessfulbuild".
+  Touching "cmTC_20f30.dir\Debug\cmTC_20f30.tlog\cmTC_20f30.lastbuildstate".
+Done Building Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_20f30.vcxproj" (default targets).
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:00.61
+
+
+Determining if the function _strnicmp exists passed with the following output:
+Change Dir: D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_08d4f.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
+Microsoft (R) Build Engine version 14.0.24723.2
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Build started 1/19/2017 9:30:00 PM.
+The target "BeforeGenerateProjectPriFile" listed in a BeforeTargets attribute at "C:\Program Files (x86)\MSBuild\Microsoft\NuGet\Microsoft.NuGet.targets (186,61)" does not exist in the project, and will be ignored.
+Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_08d4f.vcxproj" on node 1 (default targets).
+PrepareForBuild:
+  Creating directory "cmTC_08d4f.dir\Debug\".
+  Creating directory "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\".
+  Creating directory "cmTC_08d4f.dir\Debug\cmTC_08d4f.tlog\".
+InitializeBuildStatus:
+  Creating "cmTC_08d4f.dir\Debug\cmTC_08d4f.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+ClCompile:
+  D:\Programs\Visual Studio\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=_strnicmp /D _LARGEFILE_SOURCE /D _LARGE_FILES /D restrict= /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_08d4f.dir\Debug\\" /Fd"cmTC_08d4f.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue "D:\Programs\CMake\share\cmake-3.6\Modules\CheckFunctionExists.c"
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.00.23506 for x86
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=_strnicmp /D _LARGEFILE_SOURCE /D _LARGE_FILES /D restrict= /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_08d4f.dir\Debug\\" /Fd"cmTC_08d4f.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue "D:\Programs\CMake\share\cmake-3.6\Modules\CheckFunctionExists.c"
+  
+  CheckFunctionExists.c
+Link:
+  D:\Programs\Visual Studio\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\cmTC_08d4f.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_08d4f.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_08d4f.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_08d4f.dir\Debug\CheckFunctionExists.obj
+  cmTC_08d4f.vcxproj -> D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\cmTC_08d4f.exe
+  cmTC_08d4f.vcxproj -> D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_08d4f.pdb (Full PDB)
+FinalizeBuildStatus:
+  Deleting file "cmTC_08d4f.dir\Debug\cmTC_08d4f.tlog\unsuccessfulbuild".
+  Touching "cmTC_08d4f.dir\Debug\cmTC_08d4f.tlog\cmTC_08d4f.lastbuildstate".
+Done Building Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_08d4f.vcxproj" (default targets).
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:00.79
+
+
+Determining if the strnlen exist passed with the following output:
+Change Dir: D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_e4bb0.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
+Microsoft (R) Build Engine version 14.0.24723.2
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Build started 1/19/2017 9:30:01 PM.
+The target "BeforeGenerateProjectPriFile" listed in a BeforeTargets attribute at "C:\Program Files (x86)\MSBuild\Microsoft\NuGet\Microsoft.NuGet.targets (186,61)" does not exist in the project, and will be ignored.
+Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_e4bb0.vcxproj" on node 1 (default targets).
+PrepareForBuild:
+  Creating directory "cmTC_e4bb0.dir\Debug\".
+  Creating directory "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\".
+  Creating directory "cmTC_e4bb0.dir\Debug\cmTC_e4bb0.tlog\".
+InitializeBuildStatus:
+  Creating "cmTC_e4bb0.dir\Debug\cmTC_e4bb0.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+ClCompile:
+  D:\Programs\Visual Studio\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _LARGEFILE_SOURCE /D _LARGE_FILES /D restrict= /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_e4bb0.dir\Debug\\" /Fd"cmTC_e4bb0.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.00.23506 for x86
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _LARGEFILE_SOURCE /D _LARGE_FILES /D restrict= /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_e4bb0.dir\Debug\\" /Fd"cmTC_e4bb0.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+  
+  CheckSymbolExists.c
+Link:
+  D:\Programs\Visual Studio\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\cmTC_e4bb0.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_e4bb0.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_e4bb0.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_e4bb0.dir\Debug\CheckSymbolExists.obj
+  cmTC_e4bb0.vcxproj -> D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\cmTC_e4bb0.exe
+  cmTC_e4bb0.vcxproj -> D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_e4bb0.pdb (Full PDB)
+FinalizeBuildStatus:
+  Deleting file "cmTC_e4bb0.dir\Debug\cmTC_e4bb0.tlog\unsuccessfulbuild".
+  Touching "cmTC_e4bb0.dir\Debug\cmTC_e4bb0.tlog\cmTC_e4bb0.lastbuildstate".
+Done Building Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_e4bb0.vcxproj" (default targets).
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:00.62
+
+File D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <string.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strnlen
+  return ((int*)(&strnlen))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the snprintf exist passed with the following output:
+Change Dir: D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_605ca.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
+Microsoft (R) Build Engine version 14.0.24723.2
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Build started 1/19/2017 9:30:02 PM.
+The target "BeforeGenerateProjectPriFile" listed in a BeforeTargets attribute at "C:\Program Files (x86)\MSBuild\Microsoft\NuGet\Microsoft.NuGet.targets (186,61)" does not exist in the project, and will be ignored.
+Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_605ca.vcxproj" on node 1 (default targets).
+PrepareForBuild:
+  Creating directory "cmTC_605ca.dir\Debug\".
+  Creating directory "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\".
+  Creating directory "cmTC_605ca.dir\Debug\cmTC_605ca.tlog\".
+InitializeBuildStatus:
+  Creating "cmTC_605ca.dir\Debug\cmTC_605ca.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+ClCompile:
+  D:\Programs\Visual Studio\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _LARGEFILE_SOURCE /D _LARGE_FILES /D restrict= /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_605ca.dir\Debug\\" /Fd"cmTC_605ca.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.00.23506 for x86
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _LARGEFILE_SOURCE /D _LARGE_FILES /D restrict= /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_605ca.dir\Debug\\" /Fd"cmTC_605ca.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+  
+  CheckSymbolExists.c
+Link:
+  D:\Programs\Visual Studio\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\cmTC_605ca.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_605ca.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_605ca.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_605ca.dir\Debug\CheckSymbolExists.obj
+  cmTC_605ca.vcxproj -> D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\cmTC_605ca.exe
+  cmTC_605ca.vcxproj -> D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_605ca.pdb (Full PDB)
+FinalizeBuildStatus:
+  Deleting file "cmTC_605ca.dir\Debug\cmTC_605ca.tlog\unsuccessfulbuild".
+  Touching "cmTC_605ca.dir\Debug\cmTC_605ca.tlog\cmTC_605ca.lastbuildstate".
+Done Building Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_605ca.vcxproj" (default targets).
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:00.66
+
+File D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdio.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef snprintf
+  return ((int*)(&snprintf))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the isfinite exist passed with the following output:
+Change Dir: D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_effb4.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
+Microsoft (R) Build Engine version 14.0.24723.2
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Build started 1/19/2017 9:30:03 PM.
+The target "BeforeGenerateProjectPriFile" listed in a BeforeTargets attribute at "C:\Program Files (x86)\MSBuild\Microsoft\NuGet\Microsoft.NuGet.targets (186,61)" does not exist in the project, and will be ignored.
+Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_effb4.vcxproj" on node 1 (default targets).
+PrepareForBuild:
+  Creating directory "cmTC_effb4.dir\Debug\".
+  Creating directory "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\".
+  Creating directory "cmTC_effb4.dir\Debug\cmTC_effb4.tlog\".
+InitializeBuildStatus:
+  Creating "cmTC_effb4.dir\Debug\cmTC_effb4.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+ClCompile:
+  D:\Programs\Visual Studio\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _LARGEFILE_SOURCE /D _LARGE_FILES /D restrict= /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_effb4.dir\Debug\\" /Fd"cmTC_effb4.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.00.23506 for x86
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _LARGEFILE_SOURCE /D _LARGE_FILES /D restrict= /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_effb4.dir\Debug\\" /Fd"cmTC_effb4.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+  
+  CheckSymbolExists.c
+Link:
+  D:\Programs\Visual Studio\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\cmTC_effb4.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_effb4.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_effb4.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_effb4.dir\Debug\CheckSymbolExists.obj
+  cmTC_effb4.vcxproj -> D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\cmTC_effb4.exe
+  cmTC_effb4.vcxproj -> D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_effb4.pdb (Full PDB)
+FinalizeBuildStatus:
+  Deleting file "cmTC_effb4.dir\Debug\cmTC_effb4.tlog\unsuccessfulbuild".
+  Touching "cmTC_effb4.dir\Debug\cmTC_effb4.tlog\cmTC_effb4.lastbuildstate".
+Done Building Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_effb4.vcxproj" (default targets).
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:00.55
+
+File D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef isfinite
+  return ((int*)(&isfinite))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the isnan exist passed with the following output:
+Change Dir: D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_5f8da.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
+Microsoft (R) Build Engine version 14.0.24723.2
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Build started 1/19/2017 9:30:03 PM.
+The target "BeforeGenerateProjectPriFile" listed in a BeforeTargets attribute at "C:\Program Files (x86)\MSBuild\Microsoft\NuGet\Microsoft.NuGet.targets (186,61)" does not exist in the project, and will be ignored.
+Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_5f8da.vcxproj" on node 1 (default targets).
+PrepareForBuild:
+  Creating directory "cmTC_5f8da.dir\Debug\".
+  Creating directory "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\".
+  Creating directory "cmTC_5f8da.dir\Debug\cmTC_5f8da.tlog\".
+InitializeBuildStatus:
+  Creating "cmTC_5f8da.dir\Debug\cmTC_5f8da.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+ClCompile:
+  D:\Programs\Visual Studio\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _LARGEFILE_SOURCE /D _LARGE_FILES /D restrict= /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_5f8da.dir\Debug\\" /Fd"cmTC_5f8da.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.00.23506 for x86
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _LARGEFILE_SOURCE /D _LARGE_FILES /D restrict= /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_5f8da.dir\Debug\\" /Fd"cmTC_5f8da.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+  
+  CheckSymbolExists.c
+Link:
+  D:\Programs\Visual Studio\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\cmTC_5f8da.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_5f8da.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_5f8da.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_5f8da.dir\Debug\CheckSymbolExists.obj
+  cmTC_5f8da.vcxproj -> D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\cmTC_5f8da.exe
+  cmTC_5f8da.vcxproj -> D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_5f8da.pdb (Full PDB)
+FinalizeBuildStatus:
+  Deleting file "cmTC_5f8da.dir\Debug\cmTC_5f8da.tlog\unsuccessfulbuild".
+  Touching "cmTC_5f8da.dir\Debug\cmTC_5f8da.tlog\cmTC_5f8da.lastbuildstate".
+Done Building Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_5f8da.vcxproj" (default targets).
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:00.62
+
+File D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef isnan
+  return ((int*)(&isnan))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the include file windows.h exists passed with the following output:
+Change Dir: D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_e5fe6.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
+Microsoft (R) Build Engine version 14.0.24723.2
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Build started 1/19/2017 9:30:04 PM.
+The target "BeforeGenerateProjectPriFile" listed in a BeforeTargets attribute at "C:\Program Files (x86)\MSBuild\Microsoft\NuGet\Microsoft.NuGet.targets (186,61)" does not exist in the project, and will be ignored.
+Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_e5fe6.vcxproj" on node 1 (default targets).
+PrepareForBuild:
+  Creating directory "cmTC_e5fe6.dir\Debug\".
+  Creating directory "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\".
+  Creating directory "cmTC_e5fe6.dir\Debug\cmTC_e5fe6.tlog\".
+InitializeBuildStatus:
+  Creating "cmTC_e5fe6.dir\Debug\cmTC_e5fe6.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+ClCompile:
+  D:\Programs\Visual Studio\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _WIN32_WINNT=0x0502 /D _LARGEFILE_SOURCE /D _LARGE_FILES /D restrict= /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_e5fe6.dir\Debug\\" /Fd"cmTC_e5fe6.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.00.23506 for x86
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _WIN32_WINNT=0x0502 /D _LARGEFILE_SOURCE /D _LARGE_FILES /D restrict= /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_e5fe6.dir\Debug\\" /Fd"cmTC_e5fe6.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+  
+  CheckIncludeFile.c
+Link:
+  D:\Programs\Visual Studio\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\cmTC_e5fe6.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_e5fe6.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_e5fe6.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_e5fe6.dir\Debug\CheckIncludeFile.obj
+  cmTC_e5fe6.vcxproj -> D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\cmTC_e5fe6.exe
+  cmTC_e5fe6.vcxproj -> D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_e5fe6.pdb (Full PDB)
+FinalizeBuildStatus:
+  Deleting file "cmTC_e5fe6.dir\Debug\cmTC_e5fe6.tlog\unsuccessfulbuild".
+  Touching "cmTC_e5fe6.dir\Debug\cmTC_e5fe6.tlog\cmTC_e5fe6.lastbuildstate".
+Done Building Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_e5fe6.vcxproj" (default targets).
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:01.49
+
+
+Determining if the include file xmmintrin.h exists passed with the following output:
+Change Dir: D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_24b9c.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
+Microsoft (R) Build Engine version 14.0.24723.2
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Build started 1/19/2017 9:30:06 PM.
+The target "BeforeGenerateProjectPriFile" listed in a BeforeTargets attribute at "C:\Program Files (x86)\MSBuild\Microsoft\NuGet\Microsoft.NuGet.targets (186,61)" does not exist in the project, and will be ignored.
+Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_24b9c.vcxproj" on node 1 (default targets).
+PrepareForBuild:
+  Creating directory "cmTC_24b9c.dir\Debug\".
+  Creating directory "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\".
+  Creating directory "cmTC_24b9c.dir\Debug\cmTC_24b9c.tlog\".
+InitializeBuildStatus:
+  Creating "cmTC_24b9c.dir\Debug\cmTC_24b9c.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+ClCompile:
+  D:\Programs\Visual Studio\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _LARGEFILE_SOURCE /D _LARGE_FILES /D restrict= /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_24b9c.dir\Debug\\" /Fd"cmTC_24b9c.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.00.23506 for x86
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _LARGEFILE_SOURCE /D _LARGE_FILES /D restrict= /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_24b9c.dir\Debug\\" /Fd"cmTC_24b9c.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+  
+  CheckIncludeFile.c
+Link:
+  D:\Programs\Visual Studio\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\cmTC_24b9c.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_24b9c.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_24b9c.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_24b9c.dir\Debug\CheckIncludeFile.obj
+  cmTC_24b9c.vcxproj -> D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\cmTC_24b9c.exe
+  cmTC_24b9c.vcxproj -> D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_24b9c.pdb (Full PDB)
+FinalizeBuildStatus:
+  Deleting file "cmTC_24b9c.dir\Debug\cmTC_24b9c.tlog\unsuccessfulbuild".
+  Touching "cmTC_24b9c.dir\Debug\cmTC_24b9c.tlog\cmTC_24b9c.lastbuildstate".
+Done Building Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_24b9c.vcxproj" (default targets).
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:00.61
+
+
+Determining if the include file emmintrin.h exists passed with the following output:
+Change Dir: D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_61576.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
+Microsoft (R) Build Engine version 14.0.24723.2
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Build started 1/19/2017 9:30:07 PM.
+The target "BeforeGenerateProjectPriFile" listed in a BeforeTargets attribute at "C:\Program Files (x86)\MSBuild\Microsoft\NuGet\Microsoft.NuGet.targets (186,61)" does not exist in the project, and will be ignored.
+Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_61576.vcxproj" on node 1 (default targets).
+PrepareForBuild:
+  Creating directory "cmTC_61576.dir\Debug\".
+  Creating directory "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\".
+  Creating directory "cmTC_61576.dir\Debug\cmTC_61576.tlog\".
+InitializeBuildStatus:
+  Creating "cmTC_61576.dir\Debug\cmTC_61576.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+ClCompile:
+  D:\Programs\Visual Studio\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _LARGEFILE_SOURCE /D _LARGE_FILES /D restrict= /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_61576.dir\Debug\\" /Fd"cmTC_61576.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.00.23506 for x86
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _LARGEFILE_SOURCE /D _LARGE_FILES /D restrict= /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_61576.dir\Debug\\" /Fd"cmTC_61576.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+  
+  CheckIncludeFile.c
+Link:
+  D:\Programs\Visual Studio\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\cmTC_61576.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_61576.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_61576.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_61576.dir\Debug\CheckIncludeFile.obj
+  cmTC_61576.vcxproj -> D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\cmTC_61576.exe
+  cmTC_61576.vcxproj -> D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_61576.pdb (Full PDB)
+FinalizeBuildStatus:
+  Deleting file "cmTC_61576.dir\Debug\cmTC_61576.tlog\unsuccessfulbuild".
+  Touching "cmTC_61576.dir\Debug\cmTC_61576.tlog\cmTC_61576.lastbuildstate".
+Done Building Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_61576.vcxproj" (default targets).
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:00.74
+
+
+Determining if the include file pmmintrin.h exists passed with the following output:
+Change Dir: D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_9153b.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
+Microsoft (R) Build Engine version 14.0.24723.2
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Build started 1/19/2017 9:30:08 PM.
+The target "BeforeGenerateProjectPriFile" listed in a BeforeTargets attribute at "C:\Program Files (x86)\MSBuild\Microsoft\NuGet\Microsoft.NuGet.targets (186,61)" does not exist in the project, and will be ignored.
+Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_9153b.vcxproj" on node 1 (default targets).
+PrepareForBuild:
+  Creating directory "cmTC_9153b.dir\Debug\".
+  Creating directory "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\".
+  Creating directory "cmTC_9153b.dir\Debug\cmTC_9153b.tlog\".
+InitializeBuildStatus:
+  Creating "cmTC_9153b.dir\Debug\cmTC_9153b.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+ClCompile:
+  D:\Programs\Visual Studio\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _LARGEFILE_SOURCE /D _LARGE_FILES /D restrict= /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_9153b.dir\Debug\\" /Fd"cmTC_9153b.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.00.23506 for x86
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _LARGEFILE_SOURCE /D _LARGE_FILES /D restrict= /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_9153b.dir\Debug\\" /Fd"cmTC_9153b.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+  
+  CheckIncludeFile.c
+Link:
+  D:\Programs\Visual Studio\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\cmTC_9153b.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_9153b.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_9153b.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_9153b.dir\Debug\CheckIncludeFile.obj
+  cmTC_9153b.vcxproj -> D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\cmTC_9153b.exe
+  cmTC_9153b.vcxproj -> D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_9153b.pdb (Full PDB)
+FinalizeBuildStatus:
+  Deleting file "cmTC_9153b.dir\Debug\cmTC_9153b.tlog\unsuccessfulbuild".
+  Touching "cmTC_9153b.dir\Debug\cmTC_9153b.tlog\cmTC_9153b.lastbuildstate".
+Done Building Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_9153b.vcxproj" (default targets).
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:00.62
+
+
+Determining if the include file smmintrin.h exists passed with the following output:
+Change Dir: D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_1028e.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
+Microsoft (R) Build Engine version 14.0.24723.2
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Build started 1/19/2017 9:30:08 PM.
+The target "BeforeGenerateProjectPriFile" listed in a BeforeTargets attribute at "C:\Program Files (x86)\MSBuild\Microsoft\NuGet\Microsoft.NuGet.targets (186,61)" does not exist in the project, and will be ignored.
+Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_1028e.vcxproj" on node 1 (default targets).
+PrepareForBuild:
+  Creating directory "cmTC_1028e.dir\Debug\".
+  Creating directory "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\".
+  Creating directory "cmTC_1028e.dir\Debug\cmTC_1028e.tlog\".
+InitializeBuildStatus:
+  Creating "cmTC_1028e.dir\Debug\cmTC_1028e.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+ClCompile:
+  D:\Programs\Visual Studio\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _LARGEFILE_SOURCE /D _LARGE_FILES /D restrict= /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_1028e.dir\Debug\\" /Fd"cmTC_1028e.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.00.23506 for x86
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _LARGEFILE_SOURCE /D _LARGE_FILES /D restrict= /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_1028e.dir\Debug\\" /Fd"cmTC_1028e.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+  
+  CheckIncludeFile.c
+Link:
+  D:\Programs\Visual Studio\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\cmTC_1028e.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_1028e.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_1028e.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_1028e.dir\Debug\CheckIncludeFile.obj
+  cmTC_1028e.vcxproj -> D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\cmTC_1028e.exe
+  cmTC_1028e.vcxproj -> D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_1028e.pdb (Full PDB)
+FinalizeBuildStatus:
+  Deleting file "cmTC_1028e.dir\Debug\cmTC_1028e.tlog\unsuccessfulbuild".
+  Touching "cmTC_1028e.dir\Debug\cmTC_1028e.tlog\cmTC_1028e.lastbuildstate".
+Done Building Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_1028e.vcxproj" (default targets).
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:00.62
+
+
+Determining if files windows.h;mmsystem.h exist passed with the following output:
+Change Dir: D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_649f0.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
+Microsoft (R) Build Engine version 14.0.24723.2
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Build started 1/19/2017 9:30:10 PM.
+The target "BeforeGenerateProjectPriFile" listed in a BeforeTargets attribute at "C:\Program Files (x86)\MSBuild\Microsoft\NuGet\Microsoft.NuGet.targets (186,61)" does not exist in the project, and will be ignored.
+Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_649f0.vcxproj" on node 1 (default targets).
+PrepareForBuild:
+  Creating directory "cmTC_649f0.dir\Debug\".
+  Creating directory "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\".
+  Creating directory "cmTC_649f0.dir\Debug\cmTC_649f0.tlog\".
+InitializeBuildStatus:
+  Creating "cmTC_649f0.dir\Debug\cmTC_649f0.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+ClCompile:
+  D:\Programs\Visual Studio\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _LARGEFILE_SOURCE /D _LARGE_FILES /D restrict= /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_649f0.dir\Debug\\" /Fd"cmTC_649f0.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\CheckIncludeFiles.c
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.00.23506 for x86
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _LARGEFILE_SOURCE /D _LARGE_FILES /D restrict= /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_649f0.dir\Debug\\" /Fd"cmTC_649f0.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\CheckIncludeFiles.c
+  
+  CheckIncludeFiles.c
+Link:
+  D:\Programs\Visual Studio\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\cmTC_649f0.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_649f0.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_649f0.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_649f0.dir\Debug\CheckIncludeFiles.obj
+  cmTC_649f0.vcxproj -> D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\cmTC_649f0.exe
+  cmTC_649f0.vcxproj -> D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_649f0.pdb (Full PDB)
+FinalizeBuildStatus:
+  Deleting file "cmTC_649f0.dir\Debug\cmTC_649f0.tlog\unsuccessfulbuild".
+  Touching "cmTC_649f0.dir\Debug\cmTC_649f0.tlog\cmTC_649f0.lastbuildstate".
+Done Building Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_649f0.vcxproj" (default targets).
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:00.86
+
+
+Determining if the include file mmdeviceapi.h exists passed with the following output:
+Change Dir: D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_320b9.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
+Microsoft (R) Build Engine version 14.0.24723.2
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Build started 1/19/2017 9:30:12 PM.
+The target "BeforeGenerateProjectPriFile" listed in a BeforeTargets attribute at "C:\Program Files (x86)\MSBuild\Microsoft\NuGet\Microsoft.NuGet.targets (186,61)" does not exist in the project, and will be ignored.
+Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_320b9.vcxproj" on node 1 (default targets).
+PrepareForBuild:
+  Creating directory "cmTC_320b9.dir\Debug\".
+  Creating directory "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\".
+  Creating directory "cmTC_320b9.dir\Debug\cmTC_320b9.tlog\".
+InitializeBuildStatus:
+  Creating "cmTC_320b9.dir\Debug\cmTC_320b9.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+ClCompile:
+  D:\Programs\Visual Studio\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _LARGEFILE_SOURCE /D _LARGE_FILES /D restrict= /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_320b9.dir\Debug\\" /Fd"cmTC_320b9.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.00.23506 for x86
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _LARGEFILE_SOURCE /D _LARGE_FILES /D restrict= /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_320b9.dir\Debug\\" /Fd"cmTC_320b9.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+  
+  CheckIncludeFile.c
+Link:
+  D:\Programs\Visual Studio\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\cmTC_320b9.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_320b9.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_320b9.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_320b9.dir\Debug\CheckIncludeFile.obj
+  cmTC_320b9.vcxproj -> D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\Debug\cmTC_320b9.exe
+  cmTC_320b9.vcxproj -> D:/Workspace/Slumber/hub/ui/build/CMakeFiles/CMakeTmp/Debug/cmTC_320b9.pdb (Full PDB)
+FinalizeBuildStatus:
+  Deleting file "cmTC_320b9.dir\Debug\cmTC_320b9.tlog\unsuccessfulbuild".
+  Touching "cmTC_320b9.dir\Debug\cmTC_320b9.tlog\cmTC_320b9.lastbuildstate".
+Done Building Project "D:\Workspace\Slumber\hub\ui\build\CMakeFiles\CMakeTmp\cmTC_320b9.vcxproj" (default targets).
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:01.03
+
+

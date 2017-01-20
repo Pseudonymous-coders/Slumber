@@ -1,0 +1,247 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|Win32">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|Win32">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGUID>{F03EFF00-CF8C-3A40-A122-9FDF83FEA15D}</ProjectGUID>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>Win32</Platform>
+    <ProjectName>ALL_BUILD</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+    <PropertyGroup>
+      <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+      <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+      <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+      <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+      <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\Workspace\Slumber\hub\ui\MACE\glfw-3.0.4\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule D:/Workspace/Slumber/hub/ui/MACE/glfw-3.0.4/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+D:\Programs\CMake\bin\cmake.exe -HD:/Workspace/Slumber/hub/ui -BD:/Workspace/Slumber/hub/ui/build --check-stamp-file D:\Workspace\Slumber\hub\ui\build\MACE\glfw-3.0.4\CMakeFiles\generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:/Workspace/Slumber/hub/ui/MACE/glfw-3.0.4/CMakeLists.txt;D:\Workspace\Slumber\hub\ui\MACE\glfw-3.0.4\CMakeLists.txt;D:\Programs\CMake\share\cmake-3.6\Modules\FindOpenGL.cmake;D:\Programs\CMake\share\cmake-3.6\Modules\FindPackageHandleStandardArgs.cmake;D:\Programs\CMake\share\cmake-3.6\Modules\FindPackageMessage.cmake;D:\Programs\CMake\share\cmake-3.6\Modules\CMakeParseArguments.cmake;D:\Programs\CMake\share\cmake-3.6\Modules\FindThreads.cmake;D:\Programs\CMake\share\cmake-3.6\Modules\CheckLibraryExists.cmake;D:\Programs\CMake\share\cmake-3.6\Modules\CheckSymbolExists.cmake;D:\Programs\CMake\share\cmake-3.6\Modules\CheckIncludeFile.cmake;D:\Programs\CMake\share\cmake-3.6\Modules\FindPackageHandleStandardArgs.cmake;D:\Programs\CMake\share\cmake-3.6\Modules\FindPackageMessage.cmake;D:\Programs\CMake\share\cmake-3.6\Modules\CMakeParseArguments.cmake;D:\Programs\CMake\share\cmake-3.6\Modules\FindDoxygen.cmake;D:\Programs\CMake\share\cmake-3.6\Modules\FindPackageHandleStandardArgs.cmake;D:\Programs\CMake\share\cmake-3.6\Modules\FindPackageMessage.cmake;D:\Programs\CMake\share\cmake-3.6\Modules\CMakeParseArguments.cmake;D:\Workspace\Slumber\hub\ui\MACE\glfw-3.0.4\docs\Doxyfile.in;D:\Workspace\Slumber\hub\ui\MACE\glfw-3.0.4\src\glfw_config.h.in;D:\Workspace\Slumber\hub\ui\MACE\glfw-3.0.4\src\glfwConfig.cmake.in;D:\Workspace\Slumber\hub\ui\MACE\glfw-3.0.4\src\glfwConfigVersion.cmake.in;D:\Workspace\Slumber\hub\ui\MACE\glfw-3.0.4\cmake_uninstall.cmake.in;D:\Workspace\Slumber\hub\ui\MACE\glfw-3.0.4\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:\Workspace\Slumber\hub\ui\build\MACE\glfw-3.0.4\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule D:/Workspace/Slumber/hub/ui/MACE/glfw-3.0.4/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+D:\Programs\CMake\bin\cmake.exe -HD:/Workspace/Slumber/hub/ui -BD:/Workspace/Slumber/hub/ui/build --check-stamp-file D:\Workspace\Slumber\hub\ui\build\MACE\glfw-3.0.4\CMakeFiles\generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">D:/Workspace/Slumber/hub/ui/MACE/glfw-3.0.4/CMakeLists.txt;D:\Workspace\Slumber\hub\ui\MACE\glfw-3.0.4\CMakeLists.txt;D:\Programs\CMake\share\cmake-3.6\Modules\FindOpenGL.cmake;D:\Programs\CMake\share\cmake-3.6\Modules\FindPackageHandleStandardArgs.cmake;D:\Programs\CMake\share\cmake-3.6\Modules\FindPackageMessage.cmake;D:\Programs\CMake\share\cmake-3.6\Modules\CMakeParseArguments.cmake;D:\Programs\CMake\share\cmake-3.6\Modules\FindThreads.cmake;D:\Programs\CMake\share\cmake-3.6\Modules\CheckLibraryExists.cmake;D:\Programs\CMake\share\cmake-3.6\Modules\CheckSymbolExists.cmake;D:\Programs\CMake\share\cmake-3.6\Modules\CheckIncludeFile.cmake;D:\Programs\CMake\share\cmake-3.6\Modules\FindPackageHandleStandardArgs.cmake;D:\Programs\CMake\share\cmake-3.6\Modules\FindPackageMessage.cmake;D:\Programs\CMake\share\cmake-3.6\Modules\CMakeParseArguments.cmake;D:\Programs\CMake\share\cmake-3.6\Modules\FindDoxygen.cmake;D:\Programs\CMake\share\cmake-3.6\Modules\FindPackageHandleStandardArgs.cmake;D:\Programs\CMake\share\cmake-3.6\Modules\FindPackageMessage.cmake;D:\Programs\CMake\share\cmake-3.6\Modules\CMakeParseArguments.cmake;D:\Workspace\Slumber\hub\ui\MACE\glfw-3.0.4\docs\Doxyfile.in;D:\Workspace\Slumber\hub\ui\MACE\glfw-3.0.4\src\glfw_config.h.in;D:\Workspace\Slumber\hub\ui\MACE\glfw-3.0.4\src\glfwConfig.cmake.in;D:\Workspace\Slumber\hub\ui\MACE\glfw-3.0.4\src\glfwConfigVersion.cmake.in;D:\Workspace\Slumber\hub\ui\MACE\glfw-3.0.4\cmake_uninstall.cmake.in;D:\Workspace\Slumber\hub\ui\MACE\glfw-3.0.4\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">D:\Workspace\Slumber\hub\ui\build\MACE\glfw-3.0.4\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Building Custom Rule D:/Workspace/Slumber/hub/ui/MACE/glfw-3.0.4/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
+D:\Programs\CMake\bin\cmake.exe -HD:/Workspace/Slumber/hub/ui -BD:/Workspace/Slumber/hub/ui/build --check-stamp-file D:\Workspace\Slumber\hub\ui\build\MACE\glfw-3.0.4\CMakeFiles\generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">D:/Workspace/Slumber/hub/ui/MACE/glfw-3.0.4/CMakeLists.txt;D:\Workspace\Slumber\hub\ui\MACE\glfw-3.0.4\CMakeLists.txt;D:\Programs\CMake\share\cmake-3.6\Modules\FindOpenGL.cmake;D:\Programs\CMake\share\cmake-3.6\Modules\FindPackageHandleStandardArgs.cmake;D:\Programs\CMake\share\cmake-3.6\Modules\FindPackageMessage.cmake;D:\Programs\CMake\share\cmake-3.6\Modules\CMakeParseArguments.cmake;D:\Programs\CMake\share\cmake-3.6\Modules\FindThreads.cmake;D:\Programs\CMake\share\cmake-3.6\Modules\CheckLibraryExists.cmake;D:\Programs\CMake\share\cmake-3.6\Modules\CheckSymbolExists.cmake;D:\Programs\CMake\share\cmake-3.6\Modules\CheckIncludeFile.cmake;D:\Programs\CMake\share\cmake-3.6\Modules\FindPackageHandleStandardArgs.cmake;D:\Programs\CMake\share\cmake-3.6\Modules\FindPackageMessage.cmake;D:\Programs\CMake\share\cmake-3.6\Modules\CMakeParseArguments.cmake;D:\Programs\CMake\share\cmake-3.6\Modules\FindDoxygen.cmake;D:\Programs\CMake\share\cmake-3.6\Modules\FindPackageHandleStandardArgs.cmake;D:\Programs\CMake\share\cmake-3.6\Modules\FindPackageMessage.cmake;D:\Programs\CMake\share\cmake-3.6\Modules\CMakeParseArguments.cmake;D:\Workspace\Slumber\hub\ui\MACE\glfw-3.0.4\docs\Doxyfile.in;D:\Workspace\Slumber\hub\ui\MACE\glfw-3.0.4\src\glfw_config.h.in;D:\Workspace\Slumber\hub\ui\MACE\glfw-3.0.4\src\glfwConfig.cmake.in;D:\Workspace\Slumber\hub\ui\MACE\glfw-3.0.4\src\glfwConfigVersion.cmake.in;D:\Workspace\Slumber\hub\ui\MACE\glfw-3.0.4\cmake_uninstall.cmake.in;D:\Workspace\Slumber\hub\ui\MACE\glfw-3.0.4\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">D:\Workspace\Slumber\hub\ui\build\MACE\glfw-3.0.4\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Building Custom Rule D:/Workspace/Slumber/hub/ui/MACE/glfw-3.0.4/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
+D:\Programs\CMake\bin\cmake.exe -HD:/Workspace/Slumber/hub/ui -BD:/Workspace/Slumber/hub/ui/build --check-stamp-file D:\Workspace\Slumber\hub\ui\build\MACE\glfw-3.0.4\CMakeFiles\generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">D:/Workspace/Slumber/hub/ui/MACE/glfw-3.0.4/CMakeLists.txt;D:\Workspace\Slumber\hub\ui\MACE\glfw-3.0.4\CMakeLists.txt;D:\Programs\CMake\share\cmake-3.6\Modules\FindOpenGL.cmake;D:\Programs\CMake\share\cmake-3.6\Modules\FindPackageHandleStandardArgs.cmake;D:\Programs\CMake\share\cmake-3.6\Modules\FindPackageMessage.cmake;D:\Programs\CMake\share\cmake-3.6\Modules\CMakeParseArguments.cmake;D:\Programs\CMake\share\cmake-3.6\Modules\FindThreads.cmake;D:\Programs\CMake\share\cmake-3.6\Modules\CheckLibraryExists.cmake;D:\Programs\CMake\share\cmake-3.6\Modules\CheckSymbolExists.cmake;D:\Programs\CMake\share\cmake-3.6\Modules\CheckIncludeFile.cmake;D:\Programs\CMake\share\cmake-3.6\Modules\FindPackageHandleStandardArgs.cmake;D:\Programs\CMake\share\cmake-3.6\Modules\FindPackageMessage.cmake;D:\Programs\CMake\share\cmake-3.6\Modules\CMakeParseArguments.cmake;D:\Programs\CMake\share\cmake-3.6\Modules\FindDoxygen.cmake;D:\Programs\CMake\share\cmake-3.6\Modules\FindPackageHandleStandardArgs.cmake;D:\Programs\CMake\share\cmake-3.6\Modules\FindPackageMessage.cmake;D:\Programs\CMake\share\cmake-3.6\Modules\CMakeParseArguments.cmake;D:\Workspace\Slumber\hub\ui\MACE\glfw-3.0.4\docs\Doxyfile.in;D:\Workspace\Slumber\hub\ui\MACE\glfw-3.0.4\src\glfw_config.h.in;D:\Workspace\Slumber\hub\ui\MACE\glfw-3.0.4\src\glfwConfig.cmake.in;D:\Workspace\Slumber\hub\ui\MACE\glfw-3.0.4\src\glfwConfigVersion.cmake.in;D:\Workspace\Slumber\hub\ui\MACE\glfw-3.0.4\cmake_uninstall.cmake.in;D:\Workspace\Slumber\hub\ui\MACE\glfw-3.0.4\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">D:\Workspace\Slumber\hub\ui\build\MACE\glfw-3.0.4\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="D:/Workspace/Slumber/hub/ui/build/ZERO_CHECK.vcxproj">
+      <Project>4D5B5795-0B91-3420-85CE-63E8CDEA461F</Project>
+    </ProjectReference>
+    <ProjectReference Include="D:/Workspace/Slumber/hub/ui/build/MACE/glfw-3.0.4/tests/accuracy.vcxproj">
+      <Project>A3B8F3A5-967B-318A-9804-D9176BF9DEE3</Project>
+    </ProjectReference>
+    <ProjectReference Include="D:/Workspace/Slumber/hub/ui/build/MACE/glfw-3.0.4/examples/boing.vcxproj">
+      <Project>10FED475-077B-397D-AA5A-53D985CF61C9</Project>
+    </ProjectReference>
+    <ProjectReference Include="D:/Workspace/Slumber/hub/ui/build/MACE/glfw-3.0.4/tests/clipboard.vcxproj">
+      <Project>CB75632F-61F7-3EC1-9FD7-84E14C2A5913</Project>
+    </ProjectReference>
+    <ProjectReference Include="D:/Workspace/Slumber/hub/ui/build/MACE/glfw-3.0.4/tests/defaults.vcxproj">
+      <Project>DD46C853-251F-363C-AD81-D316C82E456E</Project>
+    </ProjectReference>
+    <ProjectReference Include="D:/Workspace/Slumber/hub/ui/build/MACE/glfw-3.0.4/docs/docs.vcxproj">
+      <Project>0CBD8309-D026-3875-8F91-15EF0EF9E56D</Project>
+    </ProjectReference>
+    <ProjectReference Include="D:/Workspace/Slumber/hub/ui/build/MACE/glfw-3.0.4/tests/events.vcxproj">
+      <Project>DC2C2DA7-64AC-3BD6-B279-876E669251FA</Project>
+    </ProjectReference>
+    <ProjectReference Include="D:/Workspace/Slumber/hub/ui/build/MACE/glfw-3.0.4/tests/fsaa.vcxproj">
+      <Project>0DAEC30B-7C18-3D3E-80FD-CDCA06A9BFEE</Project>
+    </ProjectReference>
+    <ProjectReference Include="D:/Workspace/Slumber/hub/ui/build/MACE/glfw-3.0.4/tests/gamma.vcxproj">
+      <Project>B30560C4-8237-3CAC-99F2-8FA54E358BC0</Project>
+    </ProjectReference>
+    <ProjectReference Include="D:/Workspace/Slumber/hub/ui/build/MACE/glfw-3.0.4/examples/gears.vcxproj">
+      <Project>D72F5C79-9AF2-3ED7-9677-6E1EA35FAA82</Project>
+    </ProjectReference>
+    <ProjectReference Include="D:/Workspace/Slumber/hub/ui/build/MACE/glfw-3.0.4/src/glfw.vcxproj">
+      <Project>4DF6E973-84B1-3DD1-A98D-BA7C0CE61ED9</Project>
+    </ProjectReference>
+    <ProjectReference Include="D:/Workspace/Slumber/hub/ui/build/MACE/glfw-3.0.4/tests/glfwinfo.vcxproj">
+      <Project>4884CE79-68F9-338A-ABD4-24507C5C53CC</Project>
+    </ProjectReference>
+    <ProjectReference Include="D:/Workspace/Slumber/hub/ui/build/MACE/glfw-3.0.4/examples/heightmap.vcxproj">
+      <Project>AADF1A76-A849-3593-8954-08A774E746EA</Project>
+    </ProjectReference>
+    <ProjectReference Include="D:/Workspace/Slumber/hub/ui/build/MACE/glfw-3.0.4/tests/iconify.vcxproj">
+      <Project>467BCA39-0481-3658-9407-5A8BE92F19C0</Project>
+    </ProjectReference>
+    <ProjectReference Include="D:/Workspace/Slumber/hub/ui/build/MACE/glfw-3.0.4/tests/joysticks.vcxproj">
+      <Project>FCC9472E-18F5-398A-A4A7-99A151D3565A</Project>
+    </ProjectReference>
+    <ProjectReference Include="D:/Workspace/Slumber/hub/ui/build/MACE/glfw-3.0.4/tests/modes.vcxproj">
+      <Project>D9D03069-BB5E-326A-B280-8802F8C65BAA</Project>
+    </ProjectReference>
+    <ProjectReference Include="D:/Workspace/Slumber/hub/ui/build/MACE/glfw-3.0.4/tests/peter.vcxproj">
+      <Project>6536B12D-FD43-348F-BBC5-79FE062425FE</Project>
+    </ProjectReference>
+    <ProjectReference Include="D:/Workspace/Slumber/hub/ui/build/MACE/glfw-3.0.4/tests/reopen.vcxproj">
+      <Project>E7896D5E-A71F-3587-8A7F-CEC4CD76804C</Project>
+    </ProjectReference>
+    <ProjectReference Include="D:/Workspace/Slumber/hub/ui/build/MACE/glfw-3.0.4/tests/sharing.vcxproj">
+      <Project>C67F2D64-E3D5-3C49-9C99-18F07E445899</Project>
+    </ProjectReference>
+    <ProjectReference Include="D:/Workspace/Slumber/hub/ui/build/MACE/glfw-3.0.4/examples/simple.vcxproj">
+      <Project>055FBCC1-2C9E-356B-9A0D-B3DA77A25CF1</Project>
+    </ProjectReference>
+    <ProjectReference Include="D:/Workspace/Slumber/hub/ui/build/MACE/glfw-3.0.4/examples/splitview.vcxproj">
+      <Project>52E94854-C5BD-3483-90CD-325F45E5052D</Project>
+    </ProjectReference>
+    <ProjectReference Include="D:/Workspace/Slumber/hub/ui/build/MACE/glfw-3.0.4/tests/tearing.vcxproj">
+      <Project>A8CB5B68-F4E1-39DA-A428-D411390B041C</Project>
+    </ProjectReference>
+    <ProjectReference Include="D:/Workspace/Slumber/hub/ui/build/MACE/glfw-3.0.4/tests/threads.vcxproj">
+      <Project>10E3E850-F69B-3762-8CBA-D54076EAEDAC</Project>
+    </ProjectReference>
+    <ProjectReference Include="D:/Workspace/Slumber/hub/ui/build/MACE/glfw-3.0.4/tests/title.vcxproj">
+      <Project>FE535DFB-C494-303E-A667-CA8257DA51D4</Project>
+    </ProjectReference>
+    <ProjectReference Include="D:/Workspace/Slumber/hub/ui/build/MACE/glfw-3.0.4/examples/wave.vcxproj">
+      <Project>64AFFF20-3494-3CB4-9E16-2BC99A7E87BA</Project>
+    </ProjectReference>
+    <ProjectReference Include="D:/Workspace/Slumber/hub/ui/build/MACE/glfw-3.0.4/tests/windows.vcxproj">
+      <Project>5B9C5146-754F-39A1-9C1B-DCD6F707AF7A</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

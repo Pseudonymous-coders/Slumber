@@ -1,0 +1,9 @@
+# CMake generation dependency list for this directory.
+D:/Workspace/Slumber/hub/ui/MACE/glew-2.0.0/build/cmake/CMakeLists.txt
+D:/Programs/CMake/share/cmake-3.6/Modules/GNUInstallDirs.cmake
+D:/Programs/CMake/share/cmake-3.6/Modules/FindOpenGL.cmake
+D:/Programs/CMake/share/cmake-3.6/Modules/FindPackageHandleStandardArgs.cmake
+D:/Programs/CMake/share/cmake-3.6/Modules/FindPackageMessage.cmake
+D:/Programs/CMake/share/cmake-3.6/Modules/CMakeParseArguments.cmake
+D:/Programs/CMake/share/cmake-3.6/Modules/FindX11.cmake
+D:/Workspace/Slumber/hub/ui/MACE/glew-2.0.0/build/cmake/../../glew.pc.in
