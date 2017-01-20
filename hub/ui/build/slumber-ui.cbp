@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+   <FileVersion major="1" minor="6" />
+   <Project>
+      <Option title="slumber-ui" />
+      <Option makefile_is_custom="1" />
+      <Option compiler="gcc" />
+      <Option virtualFolders="CMake Files\;CMake Files\MACE\;CMake Files\MACE\cmake-modules\;" />
+      <Build>
+      <Target title="all">
+         <Option working_dir="/home/liavt/Desktop/Slumber/hub/ui/build" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/liavt/Desktop/Slumber/hub/ui/build/Makefile&quot;  VERBOSE=1 all" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/liavt/Desktop/Slumber/hub/ui/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/liavt/Desktop/Slumber/hub/ui/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/liavt/Desktop/Slumber/hub/ui/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="rebuild_cache">
+         <Option working_dir="/home/liavt/Desktop/Slumber/hub/ui/build" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/liavt/Desktop/Slumber/hub/ui/build/Makefile&quot;  VERBOSE=1 rebuild_cache" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/liavt/Desktop/Slumber/hub/ui/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/liavt/Desktop/Slumber/hub/ui/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/liavt/Desktop/Slumber/hub/ui/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="slumber-ui">
+         <Option output="/home/liavt/Desktop/Slumber/hub/ui/build/slumber-ui" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/liavt/Desktop/Slumber/hub/ui/build" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add directory="/home/liavt/Desktop/Slumber/hub/ui/MACE/include" />
+            <Add directory="/home/liavt/Desktop/Slumber/hub/ui/include" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/AL" />
+            <Add directory="/usr/include/c++/4.8" />
+            <Add directory="/usr/include/c++/4.8/backward" />
+            <Add directory="/usr/include/freetype2" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/4.8" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/liavt/Desktop/Slumber/hub/ui/build/Makefile&quot;  VERBOSE=1 slumber-ui" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/liavt/Desktop/Slumber/hub/ui/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/liavt/Desktop/Slumber/hub/ui/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/liavt/Desktop/Slumber/hub/ui/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="slumber-ui/fast">
+         <Option output="/home/liavt/Desktop/Slumber/hub/ui/build/slumber-ui" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/liavt/Desktop/Slumber/hub/ui/build" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add directory="/home/liavt/Desktop/Slumber/hub/ui/MACE/include" />
+            <Add directory="/home/liavt/Desktop/Slumber/hub/ui/include" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/AL" />
+            <Add directory="/usr/include/c++/4.8" />
+            <Add directory="/usr/include/c++/4.8/backward" />
+            <Add directory="/usr/include/freetype2" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/4.8" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/liavt/Desktop/Slumber/hub/ui/build/Makefile&quot;  VERBOSE=1 slumber-ui/fast" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/liavt/Desktop/Slumber/hub/ui/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/liavt/Desktop/Slumber/hub/ui/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/liavt/Desktop/Slumber/hub/ui/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="MACE">
+         <Option output="/home/liavt/Desktop/Slumber/hub/ui/build/MACE/libMACE.a" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/liavt/Desktop/Slumber/hub/ui/build/MACE" />
+         <Option object_output="./" />
+         <Option type="2" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add directory="/home/liavt/Desktop/Slumber/hub/ui/MACE/include" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/AL" />
+            <Add directory="/usr/include/c++/4.8" />
+            <Add directory="/usr/include/c++/4.8/backward" />
+            <Add directory="/usr/include/freetype2" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/4.8" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/liavt/Desktop/Slumber/hub/ui/build/MACE/Makefile&quot;  VERBOSE=1 MACE" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/liavt/Desktop/Slumber/hub/ui/build/MACE/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/liavt/Desktop/Slumber/hub/ui/build/MACE/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/liavt/Desktop/Slumber/hub/ui/build/MACE/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="MACE/fast">
+         <Option output="/home/liavt/Desktop/Slumber/hub/ui/build/MACE/libMACE.a" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/liavt/Desktop/Slumber/hub/ui/build/MACE" />
+         <Option object_output="./" />
+         <Option type="2" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add directory="/home/liavt/Desktop/Slumber/hub/ui/MACE/include" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/AL" />
+            <Add directory="/usr/include/c++/4.8" />
+            <Add directory="/usr/include/c++/4.8/backward" />
+            <Add directory="/usr/include/freetype2" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/4.8" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/liavt/Desktop/Slumber/hub/ui/build/MACE/Makefile&quot;  VERBOSE=1 MACE/fast" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/liavt/Desktop/Slumber/hub/ui/build/MACE/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/liavt/Desktop/Slumber/hub/ui/build/MACE/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/liavt/Desktop/Slumber/hub/ui/build/MACE/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      </Build>
+      <Unit filename="/home/liavt/Desktop/Slumber/hub/ui/MACE/src/Core/Constants.cpp">
+      </Unit>
+      <Unit filename="/home/liavt/Desktop/Slumber/hub/ui/MACE/src/Core/Module.cpp">
+      </Unit>
+      <Unit filename="/home/liavt/Desktop/Slumber/hub/ui/MACE/src/Core/System.cpp">
+      </Unit>
+      <Unit filename="/home/liavt/Desktop/Slumber/hub/ui/MACE/src/Graphics/Components.cpp">
+      </Unit>
+      <Unit filename="/home/liavt/Desktop/Slumber/hub/ui/MACE/src/Graphics/Entity.cpp">
+      </Unit>
+      <Unit filename="/home/liavt/Desktop/Slumber/hub/ui/MACE/src/Graphics/Entity2D.cpp">
+      </Unit>
+      <Unit filename="/home/liavt/Desktop/Slumber/hub/ui/MACE/src/Graphics/OGL.cpp">
+      </Unit>
+      <Unit filename="/home/liavt/Desktop/Slumber/hub/ui/MACE/src/Graphics/Renderer.cpp">
+      </Unit>
+      <Unit filename="/home/liavt/Desktop/Slumber/hub/ui/MACE/src/Graphics/Window.cpp">
+      </Unit>
+      <Unit filename="/home/liavt/Desktop/Slumber/hub/ui/MACE/src/Utility/Audio.cpp">
+      </Unit>
+      <Unit filename="/home/liavt/Desktop/Slumber/hub/ui/MACE/src/Utility/BitField.cpp">
+      </Unit>
+      <Unit filename="/home/liavt/Desktop/Slumber/hub/ui/MACE/src/Utility/Color.cpp">
+      </Unit>
+      <Unit filename="/home/liavt/Desktop/Slumber/hub/ui/MACE/src/Utility/Math.cpp">
+      </Unit>
+      <Unit filename="/home/liavt/Desktop/Slumber/hub/ui/MACE/src/Utility/Preprocessor.cpp">
+      </Unit>
+      <Unit filename="/home/liavt/Desktop/Slumber/hub/ui/MACE/src/Utility/Transform.cpp">
+      </Unit>
+      <Unit filename="/home/liavt/Desktop/Slumber/hub/ui/src/Main.cpp">
+      </Unit>
+      <Unit filename="/home/liavt/Desktop/Slumber/hub/ui/MACE/include/MACE/Core/Constants.h">
+      </Unit>
+      <Unit filename="/home/liavt/Desktop/Slumber/hub/ui/MACE/include/MACE/Core/Core.h">
+      </Unit>
+      <Unit filename="/home/liavt/Desktop/Slumber/hub/ui/MACE/include/MACE/Core/Module.h">
+      </Unit>
+      <Unit filename="/home/liavt/Desktop/Slumber/hub/ui/MACE/include/MACE/Core/System.h">
+      </Unit>
+      <Unit filename="/home/liavt/Desktop/Slumber/hub/ui/MACE/include/MACE/Graphics/Components.h">
+      </Unit>
+      <Unit filename="/home/liavt/Desktop/Slumber/hub/ui/MACE/include/MACE/Graphics/Entity.h">
+      </Unit>
+      <Unit filename="/home/liavt/Desktop/Slumber/hub/ui/MACE/include/MACE/Graphics/Entity2D.h">
+      </Unit>
+      <Unit filename="/home/liavt/Desktop/Slumber/hub/ui/MACE/include/MACE/Graphics/Graphics.h">
+      </Unit>
+      <Unit filename="/home/liavt/Desktop/Slumber/hub/ui/MACE/include/MACE/Graphics/OGL.h">
+      </Unit>
+      <Unit filename="/home/liavt/Desktop/Slumber/hub/ui/MACE/include/MACE/Graphics/Renderer.h">
+      </Unit>
+      <Unit filename="/home/liavt/Desktop/Slumber/hub/ui/MACE/include/MACE/Graphics/Window.h">
+      </Unit>
+      <Unit filename="/home/liavt/Desktop/Slumber/hub/ui/MACE/include/MACE/MACE.h">
+      </Unit>
+      <Unit filename="/home/liavt/Desktop/Slumber/hub/ui/MACE/include/MACE/Utility/Audio.h">
+      </Unit>
+      <Unit filename="/home/liavt/Desktop/Slumber/hub/ui/MACE/include/MACE/Utility/BitField.h">
+      </Unit>
+      <Unit filename="/home/liavt/Desktop/Slumber/hub/ui/MACE/include/MACE/Utility/Color.h">
+      </Unit>
+      <Unit filename="/home/liavt/Desktop/Slumber/hub/ui/MACE/include/MACE/Utility/Math.h">
+      </Unit>
+      <Unit filename="/home/liavt/Desktop/Slumber/hub/ui/MACE/include/MACE/Utility/Matrix.h">
+      </Unit>
+      <Unit filename="/home/liavt/Desktop/Slumber/hub/ui/MACE/include/MACE/Utility/MatrixAliases.h">
+      </Unit>
+      <Unit filename="/home/liavt/Desktop/Slumber/hub/ui/MACE/include/MACE/Utility/Preprocessor.h">
+      </Unit>
+      <Unit filename="/home/liavt/Desktop/Slumber/hub/ui/MACE/include/MACE/Utility/Transform.h">
+      </Unit>
+      <Unit filename="/home/liavt/Desktop/Slumber/hub/ui/MACE/include/MACE/Utility/Utility.h">
+      </Unit>
+      <Unit filename="/home/liavt/Desktop/Slumber/hub/ui/MACE/include/MACE/Utility/Vector.h">
+      </Unit>
+      <Unit filename="/home/liavt/Desktop/Slumber/hub/ui/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\" />
+      </Unit>
+      <Unit filename="/home/liavt/Desktop/Slumber/hub/ui/MACE/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\MACE\" />
+      </Unit>
+      <Unit filename="/home/liavt/Desktop/Slumber/hub/ui/MACE/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\MACE\" />
+      </Unit>
+      <Unit filename="/home/liavt/Desktop/Slumber/hub/ui/MACE/cmake-modules/DownloadLibrary.cmake">
+          <Option virtualFolder="CMake Files\MACE\cmake-modules\" />
+      </Unit>
+      <Unit filename="/home/liavt/Desktop/Slumber/hub/ui/MACE/cmake-modules/FindGLFW.cmake">
+          <Option virtualFolder="CMake Files\MACE\cmake-modules\" />
+      </Unit>
+      <Unit filename="/home/liavt/Desktop/Slumber/hub/ui/MACE/cmake-modules/DownloadLibrary.cmake">
+          <Option virtualFolder="CMake Files\MACE\cmake-modules\" />
+      </Unit>
+      <Unit filename="/home/liavt/Desktop/Slumber/hub/ui/MACE/cmake-modules/FindGLFW.cmake">
+          <Option virtualFolder="CMake Files\MACE\cmake-modules\" />
+      </Unit>
+   </Project>
+</CodeBlocks_project_file>

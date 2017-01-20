@@ -1,0 +1,3 @@
+[submodule "hub/MACE"]
+	path = hub/MACE
+	url = https://github.com/liavt/MACE

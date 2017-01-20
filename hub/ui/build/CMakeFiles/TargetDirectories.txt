@@ -1,0 +1,2 @@
+/home/liavt/Desktop/Slumber/hub/ui/build/MACE/CMakeFiles/MACE.dir
+/home/liavt/Desktop/Slumber/hub/ui/build/CMakeFiles/slumber-ui.dir

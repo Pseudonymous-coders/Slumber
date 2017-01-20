@@ -1,0 +1,1 @@
+/usr/bin/c++       CMakeFiles/slumber-ui.dir/src/Main.cpp.o  -o slumber-ui -rdynamic MACE/libMACE.a -lGLU -lGL -lSM -lICE -lX11 -lXext -lglfw -lXrandr -lXxf86vm -lXcursor -lXinerama -lpthread -lrt -lXi -lGLEW -lfreetype -lopenal 
