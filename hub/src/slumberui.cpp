@@ -1,6 +1,11 @@
+#define DEBUG true
+
 #include <MACE/MACE.h>
-#include <SlumberUI.h>
-#define ASSETS_FOLDER "D:/Workspace/Slumber/hub/ui/assets/"
+#include <slumberui.h>
+#include <iostream>
+
+
+#define ASSETS_FOLDER "/home/smerkous/Slumber/hub/assets/"
 
 using namespace mc;
 
@@ -23,7 +28,7 @@ void slumber::setHumidity(const int humid) {
 }
 
 void slumber::setTemperature(const int temp) {
-	temperature.setText(std::to_wstring(temp) + L"°");
+	temperature.setText(std::to_wstring(temp) + L"\u00B0");
 }
 
 void slumber::setMovement(const int move) {
@@ -31,7 +36,10 @@ void slumber::setMovement(const int move) {
 }
 
 void create() {
+	std::cout << "\n\n\n\nCREATING UI\n\n\n\n\n" << std::endl;
 	gfx::Renderer::setRefreshColor(Colors::DARK_GRAY);
+
+	std::cout << ASSETS_FOLDER << "progressBar.png" << std::endl;
 
 	gfx::ColorAttachment selection(ASSETS_FOLDER + std::string("progressBar.png"));
 
@@ -105,8 +113,8 @@ void create() {
 void slumber::runUI() {
 	os::WindowModule window = os::WindowModule(720, 720, "Slumber Hub");
 	window.setFPS(30);
-	window.setFullscreen(true);
-	window.setCreationCallback(&create);
+	//window.setFullscreen(true);
+	window.setCreationCallback(&slumber::create);
 	MACE::addModule(window);
 
 	window.addChild(group);
@@ -124,13 +132,13 @@ void slumber::runUI() {
 		it wont affect the fps of rendering, as long as MACE::update() is called reasonably
 
 		also use these functions to change the ui. they must be called in between MACE::init() and MACE::destroy()
-
+		*/
 		slumber::setProgress(70);
 		slumber::setHumidity(50);
 		slumber::setStatus(L"Hi");
 		slumber::setTemperature(42);
 		slumber::setMovement(50);
-		*/
+		
 
 		std::this_thread::sleep_for(std::chrono::milliseconds(33));
 	}

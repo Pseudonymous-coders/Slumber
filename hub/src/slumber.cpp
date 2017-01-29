@@ -19,6 +19,9 @@
 //SLUMBER BLUETOOTH INCLUDES
 #include <sbluetooth/sbluetooth.hpp>
 
+//SLUMBER USER INTERFACE INCLUDES
+#include <slumberui.h>
+
 #define MAX_ACCOUNTS A_MAX //Maximum accounts is equal to the maximum adapters provided
 
 //Account global declarations
@@ -36,12 +39,17 @@ int main() {
 	tempaccount.startTokenizer();
 	//Already loaded in global space, this account is now accesible by the AutomaticGenerators
 	
-	AutomaticGeneration::automaticBands(MAX_ACCOUNTS,
+	/*boost::thread bandGenerator = boost::thread(
+		AutomaticGeneration::automaticBands,
+		MAX_ACCOUNTS,
 		Handler::onBluetoothResponse,
 		Handler::onBluetoothConnected,
 		Handler::onBluetoothDisconnected);
-	
-	while(1);
+	*/
+
+	std::cout << "\n\n\n\nFINISHED AUTOMATIC GENERATION!\n\n\n\n\n" << std::endl;
+	//Start the ui mainloop
+	slumber::runUI();
 	
 	return 0;
 	

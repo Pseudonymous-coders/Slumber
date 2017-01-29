@@ -2,6 +2,8 @@
 #ifndef SLUMBER_UI_H
 #define SLUMBER_UI_H
 #include <string>
+#include <cstring>
+#include <wchar.h>
 
 namespace slumber {
 	void setProgress(const unsigned int prog);
