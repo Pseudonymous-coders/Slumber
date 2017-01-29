@@ -5,73 +5,130 @@
 using namespace mc;
 
 gfx::ProgressBar bar;
-gfx::Text barProgress, statusMessage;
+gfx::Text barProgress, statusMessage, temperature, humidity, movement;
+gfx::Image droplet, thermometer, vibrations, power;
 gfx::Group group;
 
-gfx::ogl::Texture selection;
-gfx::ogl::Texture background;
-gfx::ogl::Texture foreground;
-
-void setProgress(const unsigned int prog) {
+void slumber::setProgress(const unsigned int prog) {
 	bar.easeTo(static_cast<float>(prog), 60.0f);
 	barProgress.setText(std::to_wstring(prog));
 }
 
-void setStatus(const std::wstring& message) {
+void slumber::setStatus(const std::wstring& message) {
 	statusMessage.setText(message);
 }
 
-void create(){
-    gfx::Renderer::setRefreshColor(Colors::DARK_GRAY);
+void slumber::setHumidity(const int humid) {
+	humidity.setText(std::to_wstring(humid) + L" RH");
+}
 
-    selection = gfx::ogl::Texture(ASSETS_FOLDER+std::string("progressBar.png"));
-    background = gfx::ogl::Texture(ASSETS_FOLDER + std::string("background.png"));
-    foreground = gfx::ogl::Texture(ASSETS_FOLDER + std::string("foreground.png"));
+void slumber::setTemperature(const int temp) {
+	temperature.setText(std::to_wstring(temp) + L"°");
+}
 
-    bar = gfx::ProgressBar(0, 100, 0);
-    bar.setHeight(0.25f);
-    bar.setWidth(0.5f);
-    bar.setSelectionTexture(selection);
-    bar.setBackgroundTexture(background);
-    bar.setForegroundTexture(foreground);
+void slumber::setMovement(const int move) {
+	movement.setText(std::to_wstring(move) + L"%");
+}
 
-    group.addChild(bar);
+void create() {
+	gfx::Renderer::setRefreshColor(Colors::DARK_GRAY);
+
+	gfx::ColorAttachment selection(ASSETS_FOLDER + std::string("progressBar.png"));
+
+	bar = gfx::ProgressBar(0, 100, 0);
+	bar.setHeight(0.25f);
+	bar.setWidth(0.5f);
+	bar.setX(-0.4f);
+	bar.setSelectionTexture(selection);
+	bar.setBackgroundTexture(ASSETS_FOLDER + std::string("background.png"));
+	bar.setForegroundTexture(gfx::ColorAttachment(selection, Colors::LIGHT_GREEN));
+
+	group.addChild(bar);
 
 	gfx::Font f = gfx::Font::loadFont(ASSETS_FOLDER + std::string("consola.ttf"));
 	f.setSize(86);
 
 	barProgress = gfx::Text("0", f);
-	barProgress.setY(0.3f);
+	barProgress.setTexture(Colors::LIGHT_GREEN);
+	bar.addChild(barProgress);
 
 	f.setSize(48);
 	statusMessage = gfx::Text("", f);
-	statusMessage.setY(0.75f);
+	statusMessage.setY(-0.75f);
+	statusMessage.setTexture(Colors::WHITE);
 
 	group.addChild(statusMessage);
 
-	group.addChild(barProgress);
+	droplet = gfx::Image(ASSETS_FOLDER + std::string("droplet.png"));
+	droplet.setWidth(0.15f);
+	droplet.setHeight(0.15f);
+	droplet.setY(0.5f);
+	droplet.setX(0.5f);
+	group.addChild(droplet);
 
-	setProgress(70);
-	setStatus(L"Hi");
+	humidity = gfx::Text("", f);
+	humidity.setTexture(Colors::WHITE);
+	humidity.setX(0.3f);
+	droplet.addChild(humidity);
+
+	thermometer = gfx::Image(ASSETS_FOLDER + std::string("thermometer.png"));
+	thermometer.setWidth(0.15f);
+	thermometer.setHeight(0.15f);
+	thermometer.setX(0.5f);
+	group.addChild(thermometer);
+
+	temperature = gfx::Text("", f);
+	temperature.setTexture(Colors::WHITE);
+	temperature.setX(0.3f);
+	thermometer.addChild(temperature);
+
+	vibrations = gfx::Image(ASSETS_FOLDER + std::string("vibrations.png"));
+	vibrations.setWidth(0.15f);
+	vibrations.setHeight(0.15f);
+	vibrations.setX(0.5f);
+	vibrations.setY(-0.5f);
+	group.addChild(vibrations);
+
+	movement = gfx::Text("", f);
+	movement.setTexture(Colors::WHITE);
+	movement.setX(0.3f);
+	vibrations.addChild(movement);
+
+	power = gfx::Image(ASSETS_FOLDER + std::string("power.png"));
+	power.setWidth(0.1f);
+	power.setHeight(0.1f);
+	power.setX(0.9f);
+	power.setY(0.9f);
+	group.addChild(power);
+
+	slumber::setProgress(70);
+	slumber::setHumidity(50);
+	slumber::setStatus(L"Hi");
+	slumber::setTemperature(42);
+	slumber::setMovement(50);
 }
 
-int main(int argc, char** argv){
-    os::WindowModule window = os::WindowModule(720,720,"Slumber Hub");
-    window.setFPS(30);
-    window.setFullscreen(false);
-    window.setCreationCallback(&create);
-    MACE::addModule(window);
+void slumber::startUI() {
 
-    window.addChild(group);
+}
 
-    MACE::init();
+int main(int argc, char** argv) {
+	os::WindowModule window = os::WindowModule(720, 720, "Slumber Hub");
+	window.setFPS(30);
+	window.setFullscreen(true);
+	window.setCreationCallback(&create);
+	MACE::addModule(window);
 
-    while(MACE::isRunning()){
-        MACE::update();
+	window.addChild(group);
 
-        std::this_thread::sleep_for(std::chrono::milliseconds(33));
-    }
-    MACE::destroy();
+	MACE::init();
 
-    return 0;
+	while( MACE::isRunning() ) {
+		MACE::update();
+
+		std::this_thread::sleep_for(std::chrono::milliseconds(33));
+	}
+	MACE::destroy();
+
+	return 0;
 }
