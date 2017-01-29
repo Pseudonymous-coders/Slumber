@@ -3,9 +3,18 @@
 #define SLUMBER_UI_H
 #include <string>
 
-void setProgress(const unsigned int prog);
+namespace slumber {
+	void setProgress(const unsigned int prog);
 
-void setStatus(const std::wstring& message);
-void setStatus(const std::string& message);
+	void setStatus(const std::wstring& message);
+
+	void setHumidity(const int humidity);
+
+	void setTemperature(const int temp);
+
+	void setMovement(const int move);
+
+	void startUI();
+}
 
 #endif//SLUMBER_UI_H
