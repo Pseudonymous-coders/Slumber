@@ -58,10 +58,11 @@ $(BLOC)boost_filesystem.so $(BLOC)cpprest.so $(BLOC)gatt.so
 
 CFLAGS = -I/usr/include/glib-2.0 \
 -I/usr/lib/$(HOSTBASE)/glib-2.0/include \
+-I/usr/local/include/pstreams \
 -D $(HOSTFLAG) -I$(INCLUDELOCATION) -Iinclude -lpthread -lglib-2.0 -lgatt
 
 # g++ flags to be placed after each src file
-CXXFLAGS = -std=c++11 $(CFLAGS)
+CXXFLAGS = -std=c++11 $(CFLAGS) # -ggdb
 
 # Static libs to add
 LDFLAGS = -lpthread $(LLIBS) -fpermissive

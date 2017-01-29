@@ -120,6 +120,10 @@ void Tokenizer::start() {
 	_Logger(SW("Attempted to start token mainloop!"));
 }
 
+std::string Tokenizer::getToken() {
+	return this->_token;
+}
+
 void Tokenizer::_loopTokens() {
 	_Logger(SW("Starting Tokenizer mainloop..."));
 	
@@ -129,6 +133,8 @@ void Tokenizer::_loopTokens() {
 		try {
 			_Logger(SW("Pulling new token from server! Try 1..."));
 			
+			bool passed = false;
+			
 			//Try pulling multiple times for safety
 			for(int i = 1; i <= SLUMBER_TOKEN_RETRY_AMOUNT; i++) {
 				pullToken().wait(); //Pull the new token and update vars
@@ -136,11 +142,18 @@ void Tokenizer::_loopTokens() {
 			
 				if(this->_validToken) {
 					_Logger(SW("Got token on try: ") + SW(i));
+					passed = true;
 					break;
 				}
 				boost::this_thread::sleep_for(
 					boost::chrono::seconds(SLUMBER_TOKEN_RETRY_SLEEP));
 				_Logger(SW("Failed on try: ") + SW(i));
+			}
+			
+			if(!passed) {
+				boost::this_thread::sleep_for(
+					boost::chrono::seconds(SLUMBER_TOKEN_FAIL_SLEEP));
+				continue; //Try pulling again
 			}
 			
 			//Calculate new pull token value based on defined fraction
@@ -239,8 +252,14 @@ pplx::task<void> Tokenizer::pullToken(const std::function< void() > &func) {
 			
 		} catch (http_exception const & err) {
 			_Logger(SW("http_request error: ") + err.what(), true);
+			if(strstr(err.what(), "invalid") != NULL) {
+				boost::this_thread::sleep_for(
+					boost::chrono::seconds(SLUMBER_TOKEN_FAIL_SLEEP));
+			}
+			
 			this->_validToken = false;						
 			throw Error::TokenError(err.error_code().value()); //Handle the error
+			
 		} catch (json_exception const & err) {
 			_Logger(SW("Failed parsing token response from server! ERROR: ") 
 									+ err.what(), true);
@@ -285,8 +304,7 @@ pplx::task<void> Tokenizer::pullCheckToken() {
 				throw json_exception("Can't calculate success of token");
 			}
 			
-			if(respjson.at(SLUMBER_TOKEN_JSON_CHECK).as_string()
-					.compare(SW("granted")) != 0) { //Check if the token success is true
+			if(!respjson.at(SLUMBER_TOKEN_JSON_CHECK).as_bool()) { //Check if the token success is true
 				std::stringstream ss;
 				ss << "Server message -> ";
 				ss << respjson.at("message").as_string();

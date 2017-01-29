@@ -50,6 +50,8 @@ public:
 
 	//Start the token thread loop
 	void start();
+	std::string getToken();
+	
 private:
 	std::string _user, _pass, _token;
 	

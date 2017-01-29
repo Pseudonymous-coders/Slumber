@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <functional>
+#include <algorithm>
 #include <vector>
 #include <map>
 
@@ -13,8 +14,7 @@
 #ifndef SLUMBER_BLE_H
 #define SLUMBER_BLE_H
 
-typedef std::vector<std::pair<std::string, std::string>> adapters_t;
-
+typedef std::vector<std::pair<int, std::string>> adapters_t;
 
 class SBluetooth {
 public:
@@ -33,18 +33,20 @@ public:
 	void stopScan(const bool over_ride_scan = false);
 	void connect(const std::string);
 	void onRecieve(callback_ptr_t);
-	
+	void reloadDrivers(const std::string);
 	static adapters_t getLocalAdapters();
-	
 	bool isConnected();
 	bool isConnecting();
+	
+	std::string macAddrSearch;
+	bool _connected;
 	
 private:
 	//Generic device setttings
 	int _dev_id; //Device HCI file descriptor
 	int _dev_desc; //Device BLE descriptor
 	int _adapter_id; //The current adapter state
-	bool _connected, _auto_scanning;
+	bool _auto_scanning;
 
 	const char *_local_adapter = NULL;
 	const std::string _sec_type = "low";
@@ -64,17 +66,46 @@ private:
 
 	bool _discovered(const std::string, const std::string);
 	void _connect_device(const std::string);
+	static void _connectHandle(int);
 	static void _disconnectHandle(int);
-	
-	void _reloadDrivers(const std::string);
 	
 	char *_parseName(uint8_t *, size_t);
 };
 
-class BluetoothBand {
+class BluetoothBand : public SBluetooth {
 public:
-	BluetoothBand();
+	BluetoothBand(int, const char *);
 	~BluetoothBand();
+	
+	void attachResponse(std::function< void(BluetoothBand*) >);
+	void attachConnected(std::function< void(BluetoothBand*) >);
+	void attachDisconnected(std::function< void(BluetoothBand*) >);
+	
+	void startLoop();
+	std::string getBody();
+
+	bool acceptedResponse;
+	bool overFlowDirection;
+	std::string compiledResponse, futureResponse;
+	std::function< void(BluetoothBand*) > __resp_func, __conn_func, __disconn_func;
+	
+	int uniqueId;
+	
+	static void __resp_handle(int, const char*);
+private:
+
+	template<typename T>
+	void _Logger(const T &, const bool err=false) const;
 };
+
+typedef std::function< void(BluetoothBand*) > b_handler_t;
+
+namespace AutomaticGeneration {
+
+	void automaticBands(int, b_handler_t, b_handler_t, b_handler_t);
+	void destructAutomaticBands();
+	
+	extern std::vector<BluetoothBand *> bands;
+}
 
 #endif //SLUMBER_BLE_H

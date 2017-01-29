@@ -1,6 +1,7 @@
 //STANDARD INCLUDES
 #include <iostream>
 #include <functional>
+#include <algorithm>
 #include <cstdlib>
 #include <fstream>
 #include <pstream.h>
@@ -11,12 +12,14 @@
 #include <boost/bind.hpp>
 #include <boost/chrono.hpp>
 #include <boost/thread.hpp>
+#include <boost/algorithm/string/predicate.hpp>
 
 //SLUMBER INCLUDES
 #include <util/log.hpp> //Slumber logging utilities
 #include <util/config.hpp> //Slumber common defintions and configurations
 #include <sbluetooth/sbluetooth.hpp> //Slumber bluetooth class connections
 #include <sbluetooth/sbluetooth.h> //Include C library
+#include <security/account.hpp> //Account information for BluetoothBand
 
 extern "C" {
 #include <pthread.h>
@@ -51,10 +54,19 @@ extern "C" {
 #define SLUMBER_BLE_BUFFER_SIZE			100 //Max recieve buffer size
 #define SLUMBER_BLE_MTU_SIZE			32 //Max ble send/recv limit
 #define SLUMBER_BLE_RETRY_AMOUNT		3 //Max reconnect retries
+#define SLUMBER_BLE_GET_ADAPTERS		"hcitool dev"
+#define SLUMBER_BLE_MAC_TIMEOUT			7300 //Amount of time to wait for an account mac search
+//LOW ENERGY BAND DEFINITIONS
+#define SLUMBER_BAND_LOGTAG				"LEBAND" //Low Energy log tag
+
+
+using namespace redi; //Pstream class
+
+static pstreams::pmode modeout = pstreams::pstdout|pstreams::pstderr; //Capture all output
 
 SBluetooth::SBluetooth(int adapter_id) {
-	_reloadDrivers(SW("hci0"));
-	_reloadDrivers(SW("hci0"));
+	reloadDrivers(SW("hci0"));
+	reloadDrivers(SW("hci0"));
 	this->_dev_id = hci_get_route(NULL);
 	this->_local_adapter = NULL;
 	
@@ -64,23 +76,36 @@ SBluetooth::SBluetooth(int adapter_id) {
 		_Logger(SW("Found Bluetooth module!"));
 		this->_init(adapter_id);
 	}
+	
+	this->_connected = false;
 }
 
 SBluetooth::SBluetooth(int adapter_id, const char *device) {
-	_reloadDrivers(SW(device));
-	_reloadDrivers(SW(device));
-	this->_dev_id = hci_devid(device);
-	this->_dev_id = 1;
-	this->_local_adapter = device;
+	if(device == NULL) {
+		reloadDrivers(SW("hci0"));
+		reloadDrivers(SW("hci0"));
+		this->_dev_id = hci_get_route(NULL);
+		this->_local_adapter = NULL;
+	} else {
+		reloadDrivers(SW(device));
+		reloadDrivers(SW(device));
+		this->_dev_id = hci_devid(device);
+		this->_dev_id = 1;
+		this->_local_adapter = device;
+	}
 	if(this->_dev_id < 0) {
 		_Logger(SW("Couldn't find HCI Bluetooth module!"), true);
 	} else {
-		_Logger(SW("Found Bluetooth module at: ") + device);
+		_Logger(SW("Found Bluetooth module at: ") + 
+			SW((device == NULL) ? "hci0" : ""));
 		this->_init(adapter_id);
 	}
+	
+	this->_connected = false;
 }
 
 SBluetooth::~SBluetooth() {
+	printf("shutting down bluetooth\n");
 	stopScan();
 	
 	this->_scanLoopThread->interrupt();
@@ -144,15 +169,41 @@ void SBluetooth::_init(int adapter_id) {
 			code + ": " + SW(errormessage), true); //Bind the C bluetooth program to the logger and error base
 	});
 	
+	ble_attach_connected(_adapter_id, SBluetooth::_connectHandle);
 	ble_attach_disconnected(_adapter_id, SBluetooth::_disconnectHandle);
 }
 
 void SBluetooth::_disconnectHandle(int adapter_id) {
 	Logger::Log(SLUMBER_BLE_LOGTAG, SW("The Device disconnected!"));
 	ble_set(adapter_id, STATE_DISCONNECTED); //Set the diconnected flag
+	
+	
+	if(adapter_id + 1 > AutomaticGeneration::bands.size()) return;
+	
+	BluetoothBand *band = AutomaticGeneration::bands.at(adapter_id);
+	
+	if(band != nullptr) {
+		band->_connected = false;
+		band->__disconn_func(band); //Call the disconnected function
+	}
 }
 
-void SBluetooth::_reloadDrivers(const std::string device) {
+void SBluetooth::_connectHandle(int adapter_id) {
+	ble_set(adapter_id, STATE_CONNECTED); //Set the diconnected flag
+	
+	
+	if(adapter_id + 1 > AutomaticGeneration::bands.size()) return;
+	
+	BluetoothBand *band = AutomaticGeneration::bands.at(adapter_id);
+	
+	if(band != nullptr) {
+		band->_connected = true;
+		band->__conn_func(band); //Call the disconnected function
+	}
+}
+
+
+void SBluetooth::reloadDrivers(const std::string device) {
 	ble_reset_drivers(device.c_str());
 }
 
@@ -295,12 +346,10 @@ void SBluetooth::_scanner(int timeout) {
 		std::string name = (name_raw == NULL) ? 
 			std::string("") : SW(name_raw);
 		
+		if(this->_connected) break;
+		
 		//Run discovered function
-		if(this->_discovered(SW(addr), name)) {
-			boost::this_thread::sleep_for(
-				boost::chrono::milliseconds(SLUMBER_BLE_SCAN_REFRESH + 500));
-			break;
-		}
+		if(this->_discovered(SW(addr), name)) break;
 
 		//Remove all dynamic allocations
 		if (name_raw) free(name_raw);
@@ -317,8 +366,8 @@ void SBluetooth::_scanner(int timeout) {
 	}
 
 	//Set the new socket options
-	setsockopt(this->_dev_desc, SOL_HCI, HCI_FILTER, 
-		&old_options, sizeof(old_options));
+	//setsockopt(this->_dev_desc, SOL_HCI, HCI_FILTER, 
+	//	&old_options, sizeof(old_options));
 }
 
 void SBluetooth::_connect_device(const std::string addr_s) {
@@ -347,7 +396,16 @@ bool SBluetooth::_discovered(const std::string addr, const std::string name) {
 	if(name.find(SW(SLUMBER_BLE_FOUND_TAG)) != std::string::npos) {
 		_Logger(SW("Testing a possible band device!"));
 		
+		for(int i = 0; i < SLUMBER_BLE_MAC_TIMEOUT; i += 50) {
+			if(this->macAddrSearch.find("N/A") == std::string::npos) break;
+			boost::this_thread::sleep_for(
+				boost::chrono::milliseconds(50)); 
+		}
+		
 		this->_connect_device(addr);
+		
+		boost::this_thread::sleep_for(
+			boost::chrono::milliseconds(SLUMBER_BLE_SCAN_REFRESH + 500)); 
 		return true;
 	}
 	return false;
@@ -363,6 +421,9 @@ void SBluetooth::scan(const bool over_ride_scan) {
 		_Logger(SW("Already connected!"));
 		return; //No need to scan if already connected to device
 	}
+	
+	if(this->_connected) return;
+	
 	_enableScan();
 	
 	int timeout = (this->_auto_scanning) ? 0 : SLUMBER_BLE_SCAN_TIMEOUT;
@@ -375,7 +436,7 @@ void SBluetooth::stopScan(const bool over_ride_scan) {
 }
 
 bool SBluetooth::isConnected() {
-	return ((char) ble_connected(_adapter_id) == (char) 1);
+	return ((char) ble_connected(_adapter_id) == (char) 1) || this->_connected;
 }
 
 bool SBluetooth::isConnecting() {
@@ -400,12 +461,43 @@ void SBluetooth::autoScan() {
 	this->_scanLoop();
 }
 
-adapters_t SBluetooth:getLocalAdapters() {
+adapters_t SBluetooth::getLocalAdapters() {
 	adapters_t adapters;
-	redi::ipstream in("ls -l");
-	std::stringstream ss;
-	ss << in.rdbuf();
-	std::string s = ss.str();
+	
+	std::vector<std::string> combined;
+	int exitcode = 32512;
+	try {
+		ipstream child(SLUMBER_BLE_GET_ADAPTERS, modeout);
+		std::string mess, errmess;
+		while(std::getline(child, mess) || std::getline(child, errmess)) {
+			if(mess.find("hci") == std::string::npos) continue; //Only get hci devices
+			
+			int adapter_num = 0;
+			char adapter_buff[25];
+			
+			int ret = sscanf(mess.c_str(), "	hci%d	%s",
+				&adapter_num, adapter_buff);
+			
+			if(ret < 2) {
+				Logger::LogError(SLUMBER_BLE_LOGTAG, 
+					SW("Failed getting adapter from: ") + mess);
+				continue;
+			}
+			
+			std::pair<int, std::string> adapterPair(adapter_num, SW(adapter_buff));
+			adapters.push_back(adapterPair);
+		}
+        child.close();
+		exitcode = child.rdbuf()->status();
+	} catch(...) {
+		Logger::LogError(SLUMBER_BLE_LOGTAG, SW("Failed get local adapters"));
+	}
+	
+	Logger::Log(SLUMBER_BLE_LOGTAG, SW("Got Local Adapters:"));
+	for(std::pair<int, std::string> data : adapters) {
+		Logger::Log(SLUMBER_BLE_LOGTAG, SW("    id: ") + SW(data.first) + " mac: " + data.second);
+	}
+	
 	return adapters;	
 }
 
@@ -416,13 +508,188 @@ void SBluetooth::_Logger(const T &toLog, const bool err) const {
 	Logger::Log<T>(SLUMBER_BLE_LOGTAG, toLog, err);
 }
 
-BluetoothBand::BluetoothBand(int adapter) {
-	this->_ble_interface = new SBluetooth(adapter);
+BluetoothBand::BluetoothBand(int adapter, const char *device) : SBluetooth(adapter) { //, device) {
+	//Add itself to the static bluetooth list
+	if(adapter + 1 < AutomaticGeneration::bands.size()) {
+		AutomaticGeneration::bands.insert(AutomaticGeneration::bands.begin() + adapter, this);
+	} else {
+		AutomaticGeneration::bands.push_back(this);
+	}
+	
+	this->acceptedResponse = true;
+	this->overFlowDirection = true;
+	
+	this->uniqueId = 0;
+	this->macAddrSearch = "N/A";
 }
 
 BluetoothBand::~BluetoothBand() {
-	delete this->_ble_interface;
+
 }
+
+void BluetoothBand::attachResponse(b_handler_t response) {
+	_Logger(SW("Attaching Band response to handler!"));
+	this->__resp_func = response;
+}
+
+void BluetoothBand::attachConnected(b_handler_t response) {
+	_Logger(SW("Attaching Band response to connected handler!"));
+	this->__conn_func = response;
+}
+
+void BluetoothBand::attachDisconnected(b_handler_t response) {
+	_Logger(SW("Attaching Band response to disconnected handler!"));
+	this->__disconn_func = response;
+}
+
+
+void BluetoothBand::startLoop() {
+	_Logger(SW("Starting auto scanning loop"));
+	this->onRecieve(BluetoothBand::__resp_handle);
+	this->autoScan();
+}
+
+void BluetoothBand::__resp_handle(int adapter, const char *message) {
+	if(AutomaticGeneration::bands.size() > adapter + 1) {
+		Logger::LogError(SLUMBER_BAND_LOGTAG, 
+			SW("Got an invalid adapter number from the BLE response!"));
+		return;
+	}
+
+	BluetoothBand *band = AutomaticGeneration::bands.at(adapter);
+	
+	std::string lookingFor = (band->acceptedResponse) ? 
+		SLUMBER_BLE_START_TAG : SLUMBER_BLE_END_TAG;
+	std::string currentMessage = SW(message);
+	
+	Logger::Log(SLUMBER_BAND_LOGTAG, SW("BAND RAW: ") + currentMessage);
+	
+	if(band->acceptedResponse) {
+		band->compiledResponse = currentMessage;
+		bool starts_w = boost::algorithm::starts_with(currentMessage, lookingFor);
+		bool ends_w = boost::algorithm::ends_with(currentMessage, SLUMBER_BLE_END_TAG);
+		
+		if(starts_w && ends_w) {
+			band->futureResponse = "";
+			band->__resp_func(band); //Run the callback function
+		} else {
+			band->acceptedResponse = false; //Set the flag to check for chunks
+			
+			if(starts_w) {
+				band->overFlowDirection = true;
+			} else if(ends_w) {
+				band->overFlowDirection = false;
+			} else {
+				Logger::Log(SLUMBER_BAND_LOGTAG, SW("Band corrupted buffer!"));
+				band->acceptedResponse = true;				
+			}
+			
+			if(band->overFlowDirection && !band->acceptedResponse) {
+				std::size_t end_pos = currentMessage.find(SLUMBER_BLE_END_TAG);
+				if(end_pos != std::string::npos) {
+					std::string currentFix = currentMessage.substr(0, end_pos);
+					
+					std::size_t new_pos = currentFix.find(SLUMBER_BLE_START_TAG);
+					if(new_pos != std::string::npos) {
+						band->futureResponse = currentMessage
+							.substr(end_pos + sizeof(SLUMBER_BLE_END_TAG));
+					}
+					band->__resp_func(band);
+				} 
+			} else {
+				band->futureResponse = "";
+			}
+			Logger::Log(SLUMBER_BAND_LOGTAG, SW("Band buffer overflow!"));
+		}
+	} else {
+		currentMessage = band->futureResponse + currentMessage;
+		if(currentMessage.find(lookingFor) != std::string::npos) {
+			Logger::Log(SLUMBER_BAND_LOGTAG, 
+				SW("Band buffer chunk completed!"));
+			band->compiledResponse += currentMessage;
+			band->acceptedResponse = true; //Set the flag to disable chunk checking
+			band->__resp_func(band); //Run the completed callback function
+		} else if(currentMessage.find(SLUMBER_BLE_START_TAG)
+						!= std::string::npos) {
+			Logger::Log(SLUMBER_BAND_LOGTAG, SW("Band buffer corrupted!"));
+			band->compiledResponse = ""; //Set the buffer to blank
+			band->acceptedResponse = true;
+		} else {
+			Logger::Log(SLUMBER_BAND_LOGTAG, SW("Band buffer addition"));
+			band->compiledResponse += currentMessage; //Add to non complete buffer
+			band->acceptedResponse = false;
+		}
+	}
+}
+
+std::string BluetoothBand::getBody() {
+	return this->compiledResponse;
+}
+
+template<typename T>
+void BluetoothBand::_Logger(const T &toLog, const bool err) const {
+	Logger::Log<T>(SLUMBER_BAND_LOGTAG, toLog, err);
+}
+
+
+namespace AutomaticGeneration {
+
+void automaticBands(int amount, b_handler_t response, b_handler_t conn, b_handler_t disconn) {
+	Logger::Log(SLUMBER_BAND_LOGTAG, SW("Automatically attaching to ") + 
+		SW(amount) + " bands!");
+	
+	//Enable all of the adapters
+	for(int ind = 0; ind < amount; ind++) {
+		std::stringstream ss;
+		ss << "hciconfig hci" << ind << " up";
+		system(ss.str().c_str());
+	}
+	
+	adapters_t adapter_list = SBluetooth::getLocalAdapters();
+
+	std::size_t account_size = security::AutomaticGeneration::Accounts::accounts.size();
+	
+	if(amount > A_MAX || amount > adapter_list.size() || amount > account_size) {
+		amount = std::min(A_MAX, 
+			std::min(boost::lexical_cast<int>(adapter_list.size()),
+			boost::lexical_cast<int>(account_size)));
+		Logger::Log(SLUMBER_BAND_LOGTAG, 
+			SW("Currently not enough adapters for bands, Adapter count: ") + 
+			SW(amount));
+	}
+	
+	//Loop through each band id
+	for(int i = 0; i < amount; i++) {
+		BluetoothBand *band = new BluetoothBand(i, NULL);
+			//SW(SW("hci") + 
+			//SW(adapter_list.at(i).first)).c_str()); //Attach new band device to a dynamic object
+		security::Account *account = security::AutomaticGeneration::Accounts::accounts.at(i);
+		
+		int uniqueId = i + 1;
+		
+		account->uniqueId = uniqueId;
+		account->setBand(band);
+		band->uniqueId = uniqueId;
+		band->attachResponse(response);
+		band->attachConnected(conn);
+		band->attachDisconnected(disconn);
+		band->macAddrSearch = account->macAddrSearch;
+		band->startLoop();
+		Logger::Log(SLUMBER_BAND_LOGTAG, SW("Started Bluetooth Adapter: ") + SW(i));
+	}
+}
+
+void destructAutomaticBands() {
+	Logger::Log(SLUMBER_BAND_LOGTAG, SW("Cleaning up adapters!"));
+	for(int i = 0; i < AutomaticGeneration::bands.size(); i++) {
+		delete AutomaticGeneration::bands.at(i); //Cleanup Band objects
+	}
+}
+
+std::vector<BluetoothBand *> bands;
+
+}
+
 
 
 

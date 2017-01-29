@@ -53,14 +53,19 @@
 #define SLUMBER_TOKEN_JSON_SUCCESS		"success" //Below are the JSON tags to pull from the server
 #define SLUMBER_TOKEN_JSON_EXPIRE		"expiresIn"
 #define SLUMBER_TOKEN_JSON_TOKEN		"token"
-#define SLUMBER_TOKEN_JSON_CHECK		"access"
+#define SLUMBER_TOKEN_JSON_CHECK		"isAuthenticated"
 #define SLUMBER_TOKEN_REMOVE_FRACTION	0.8 //The fraction of the expire time to pull the new token aka (60s * 0.8f) = 48s
 #define SLUMBER_TOKEN_RETRY_AMOUNT		3 //If the token failed try a couple of times more
 #define SLUMBER_TOKEN_RETRY_SLEEP		3 //Seconds to sleep between each retry
+#define SLUMBER_TOKEN_FAIL_SLEEP		10 //Amount of seconds to try pulling the new token if failed to pull
 
 //BLUETOOTH DEFINITIONS
-#define SLUMBER_BLE_START_TAG			"A"
-#define SLUMBER_BLE_END_TAG				";E"
-
+#define SLUMBER_BLE_START_TAG			"S" //The start char array for the bluetooth packet
+#define SLUMBER_BLE_END_TAG				";E" //The end sequence for the bluetooth packet
+#define SLUMBER_BLE_START_CHAR			'S' //Start character packet counter
+#define SLUMBER_BLE_END_CHAR			'E' //End character packet counter
+#define SLUMBER_BLE_SERVER_UPDATE_PATH	SLUMBER_SERVER_APIVERSION "/userData" //Push path for the user data
+#define SLUMBER_BLE_SERVER_HTTPS_VALID	false //Validate https requests
+#define SLUMBER_BLE_SERVER_SUCCESS_TAG	"posted" //The returned json reponse on a successful push
 
 #endif //SLUMBER_CONFIG_H

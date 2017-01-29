@@ -79,6 +79,7 @@ struct params {
 	errorback_ptr_t _errorback_func; //Callback functions when a error occurs
 	logback_ptr_t _logback_func; //Callback functions to log data on main logger
 	disconnected_ptr_t _disconnected_func; //Callback function when the BLE device disconnects
+	connected_ptr_t _connected_func; //Callback function when the BLE device connects
 };
 
 //Creeate the same structured list to easily access the managers (The index
@@ -302,6 +303,13 @@ char ble_attach_logback(int a_num, logback_ptr_t func) {
 char ble_attach_disconnected(int a_num, disconnected_ptr_t func) {
 	if(a_num > A_MAX) return SLUMBER_BLE_ADAPTER_ERROR;
 	PROPS[a_num]._disconnected_func = func;
+	
+	return SLUMBER_BLE_OK;
+}
+
+char ble_attach_connected(int a_num, connected_ptr_t func) {
+	if(a_num > A_MAX) return SLUMBER_BLE_ADAPTER_ERROR;
+	PROPS[a_num]._connected_func = func;
 	
 	return SLUMBER_BLE_OK;
 }
@@ -555,6 +563,12 @@ void __ble_write_char_callback(guint8 status, const guint8 *pdu, guint16 plen,
 	MUTEXLOCK(_param);
 	_param->conn_state = STATE_CONNECTED;
 	MUTEXUNLOCK(_param);
+	
+	if(_param->_connected_func != NULL) {
+		_param->_connected_func(_param->_a_num); //Call the callback function
+	} else {
+		LOGBACK(_param, "The BLE device connected!");
+	}
 }
 
 //Write a characteristic value

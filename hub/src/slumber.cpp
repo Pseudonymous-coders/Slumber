@@ -9,20 +9,41 @@
 
 //SLUMBER UTILITY INCLUDES
 #include <util/log.hpp>
+#include <responsehandler.hpp>
 
 
 //SLUMBER SECURITY INCLUDES
 #include <security/tokens.hpp>
+#include <security/account.hpp>
 
 //SLUMBER BLUETOOTH INCLUDES
 #include <sbluetooth/sbluetooth.hpp>
+
+#define MAX_ACCOUNTS A_MAX //Maximum accounts is equal to the maximum adapters provided
+
+//Account global declarations
+std::vector<security::Account *> security::AutomaticGeneration::Accounts::accounts;
+int security::AutomaticGeneration::Accounts::account_id = -1;
 
 int main() {
 	printf(SLUMBER_STARTUP_MESSAGE); //Print the startup message
 
 	Logger::Init(); //Start the logging interface
 	
-	SBluetooth::getLocalAdapters();
+	//TEMPORARY ACCOUNT INFORMATION
+	security::Account tempaccount("sam@sam.com", "password", 0);
+	tempaccount.setBandDevice("D0:41:31:31:40:BB"); //Set the preffered band device to look for
+	tempaccount.startTokenizer();
+	//Already loaded in global space, this account is now accesible by the AutomaticGenerators
+	
+	AutomaticGeneration::automaticBands(MAX_ACCOUNTS,
+		Handler::onBluetoothResponse,
+		Handler::onBluetoothConnected,
+		Handler::onBluetoothDisconnected);
+	
+	while(1);
+	
+	return 0;
 	
 	/*SBluetooth band(0);
 	

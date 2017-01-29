@@ -15,7 +15,7 @@ extern "C" {
 #include <sys/signalfd.h>
 #include <glib.h>
 
-#define A_MAX 2 //Maximum ammount of adapters allowed
+#define A_MAX 1 //Maximum ammount of adapters allowed
 
 #define SLUMBER_BLE_OK 0
 #define SLUMBER_BLE_ERROR -1
@@ -35,6 +35,7 @@ typedef void (*callback_ptr_t)(int, const char *);
 typedef void (*errorback_ptr_t)(int, const char *);
 typedef void (*logback_ptr_t)(const char *);
 typedef void (*disconnected_ptr_t)(int);
+typedef void (*connected_ptr_t)(int);
 
 //Create the new params struct to not confuse locals
 typedef struct params params_t;
@@ -66,6 +67,7 @@ char ble_attach_callback(int, callback_ptr_t);
 char ble_attach_errorback(int, errorback_ptr_t);
 char ble_attach_logback(int, logback_ptr_t);
 char ble_attach_disconnected(int, disconnected_ptr_t);
+char ble_attach_connected(int, connected_ptr_t);
 
 //PRIVATE FUNCTIONS
 void __ble_events_handler(const uint8_t *, uint16_t, gpointer);
