@@ -3,5 +3,7 @@
 *.swo
 appmea-server/target
 *node_modules*
-hub/ui/build/*
-hub/ui/build/
+hub/ui/[Bb]uild/*
+hub/ui/[Bb]uild/
+hub/[Bb]uild/*
+hub/[Bb]uild/

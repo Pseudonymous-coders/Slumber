@@ -14,7 +14,7 @@ namespace slumber {
 
 	void setMovement(const int move);
 
-	void startUI();
+	void runUI();
 }
 
 #endif//SLUMBER_UI_H

@@ -99,20 +99,10 @@ void create() {
 	power.setHeight(0.1f);
 	power.setX(0.9f);
 	power.setY(0.9f);
-	group.addChild(power);
-
-	slumber::setProgress(70);
-	slumber::setHumidity(50);
-	slumber::setStatus(L"Hi");
-	slumber::setTemperature(42);
-	slumber::setMovement(50);
+	//group.addChild(power);
 }
 
-void slumber::startUI() {
-
-}
-
-int main(int argc, char** argv) {
+void slumber::runUI() {
 	os::WindowModule window = os::WindowModule(720, 720, "Slumber Hub");
 	window.setFPS(30);
 	window.setFullscreen(true);
@@ -126,9 +116,23 @@ int main(int argc, char** argv) {
 	while( MACE::isRunning() ) {
 		MACE::update();
 
+		/*
+		yo copernicus - over here
+
+		put all the functions you want run in the main loop here
+		you can change the updates per second down there
+		it wont affect the fps of rendering, as long as MACE::update() is called reasonably
+
+		also use these functions to change the ui. they must be called in between MACE::init() and MACE::destroy()
+
+		slumber::setProgress(70);
+		slumber::setHumidity(50);
+		slumber::setStatus(L"Hi");
+		slumber::setTemperature(42);
+		slumber::setMovement(50);
+		*/
+
 		std::this_thread::sleep_for(std::chrono::milliseconds(33));
 	}
 	MACE::destroy();
-
-	return 0;
 }
