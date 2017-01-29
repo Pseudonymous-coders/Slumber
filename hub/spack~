@@ -4,6 +4,7 @@
 #https://github.com/glfw/glfw/archive/glfw-3.0.4.tar.gz
 #https://kent.dl.sourceforge.net/project/glew/glew/2.0.0/glew-2.0.0.tgz
 #http://download.savannah.gnu.org/releases/freetype/freetype-2.5.2.tar.gz
+#also you have to link OpenGL library
 
 # Preset flags
 HELP=0 # default don't show help menu
@@ -259,6 +260,26 @@ Getting essentials
 "
 
 sudo apt-get install build-essential automake cmake sshpass ssh openssh-client rsync $SLUMBERAPTPACKAGE 
+
+#MACE
+cd ui
+
+#mace dependencies
+sudo apt-get install xorg-dev libopenal-dev libfreetype6 libfreetype6-dev libglu1-mesa-dev libglew-dev libglfw2
+sudo apt-get update
+git clone https://github.com/glfw/glfw.git ./glfw
+cd ./glfw
+git checkout latest
+cmake . -DBUILD_SHARED_LIBS=ON
+make
+sudo make install
+sudo ldconfig
+cd ..
+mkdir build/
+cd build/
+cmake ..
+make
+cd ..
 
 echo "Exporting tools to PATH"
 ADDPATH=$(pwd)/$TOOLSLOCATION

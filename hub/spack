@@ -261,6 +261,26 @@ Getting essentials
 
 sudo apt-get install build-essential automake cmake sshpass ssh openssh-client rsync $SLUMBERAPTPACKAGE 
 
+#MACE
+cd ui
+
+#mace dependencies
+sudo apt-get install xorg-dev libopenal-dev libfreetype6 libfreetype6-dev libglu1-mesa-dev libglew-dev libglfw2
+sudo apt-get update
+git clone https://github.com/glfw/glfw.git ./glfw
+cd ./glfw
+git checkout latest
+cmake . -DBUILD_SHARED_LIBS=ON
+make
+sudo make install
+sudo ldconfig
+cd ..
+mkdir build/
+cd build/
+cmake -G"Unix Makefiles" ..
+make
+cd ..
+
 echo "Exporting tools to PATH"
 ADDPATH=$(pwd)/$TOOLSLOCATION
 echo "Adding $ADDPATH to PATH"

@@ -104,6 +104,7 @@ Adafruit_BluefruitLE_SPI ble(BLUEFRUIT_SPI_CS, BLUEFRUIT_SPI_IRQ, BLUEFRUIT_SPI_
 unsigned long currentTime = 0;
 unsigned long currentAccelTime = 0;
 unsigned long currentBattTime = 0;
+unsigned long currentMinTime = 0;
 volatile bool accelInterrupt = false;
 void accelDataReady() {
     accelInterrupt = true;
@@ -254,6 +255,7 @@ void setup()
     currentTime = millis();
     currentAccelTime = millis();
     currentBattTime = millis();
+    currentMinTime = millis();
     // Set module to DATA mode
     debugPrint(F("Switching to DATA mode!"));
     ble.setMode(BLUEFRUIT_MODE_DATA);
@@ -297,6 +299,10 @@ void loop()
     currentTime = millis();
   }
 
+  if(millis() >= currentMinTime + 60000){
+      currentMinTime = millis();
+      shouldSend = true;
+  }  
   if(accelReady) {//If the accelerometer exists - set true in setup
         fifoCount = accel.getFIFOCount();
         if(!accelInterrupt && fifoCount < packetSize) {
