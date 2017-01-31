@@ -80,7 +80,8 @@ public:
 	void attachResponse(std::function< void(BluetoothBand*) >);
 	void attachConnected(std::function< void(BluetoothBand*) >);
 	void attachDisconnected(std::function< void(BluetoothBand*) >);
-	
+	void setBandSearch(const std::string);
+
 	void startLoop();
 	std::string getBody();
 
@@ -93,6 +94,8 @@ public:
 	
 	static void __resp_handle(int, const char*);
 private:
+
+	boost::mutex band_lock;
 
 	template<typename T>
 	void _Logger(const T &, const bool err=false) const;

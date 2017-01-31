@@ -520,7 +520,16 @@ BluetoothBand::BluetoothBand(int adapter, const char *device) : SBluetooth(adapt
 	this->overFlowDirection = true;
 	
 	this->uniqueId = 0;
+
+	this->band_lock.lock();
 	this->macAddrSearch = "N/A";
+	this->band_lock.unlock();
+}
+
+void BluetoothBand::setBandSearch(const std::string toSearch) {
+	this->band_lock.lock();
+	this->macAddrSearch = toSearch;
+	this->band_lock.unlock();
 }
 
 BluetoothBand::~BluetoothBand() {
@@ -673,7 +682,7 @@ void automaticBands(int amount, b_handler_t response, b_handler_t conn, b_handle
 		band->attachResponse(response);
 		band->attachConnected(conn);
 		band->attachDisconnected(disconn);
-		band->macAddrSearch = account->macAddrSearch;
+		band->setBandSearch(account->getBandDevice());
 		band->startLoop();
 		Logger::Log(SLUMBER_BAND_LOGTAG, SW("Started Bluetooth Adapter: ") + SW(i));
 	}
