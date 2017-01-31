@@ -1,0 +1,117 @@
+[
+{
+  "directory": "/home/smerkous/Slumber/hub/build",
+  "command": "/usr/bin/c++    -I/home/smerkous/Slumber/hub/include -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/local/include/pstreams -I/usr/local/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/freetype2 -I/usr/include/AL -I/home/smerkous/Slumber/hub/MACE/include   -D HOSTMACHINE -std=c++11 -ggdb -fpermissive -static-libstdc++   -std=c++11 -o CMakeFiles/slumberhost.dir/src/sbluetooth/bluetooth.cpp.o -c /home/smerkous/Slumber/hub/src/sbluetooth/bluetooth.cpp",
+  "file": "/home/smerkous/Slumber/hub/src/sbluetooth/bluetooth.cpp"
+},
+{
+  "directory": "/home/smerkous/Slumber/hub/build",
+  "command": "/usr/bin/c++    -I/home/smerkous/Slumber/hub/include -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/local/include/pstreams -I/usr/local/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/freetype2 -I/usr/include/AL -I/home/smerkous/Slumber/hub/MACE/include   -D HOSTMACHINE -std=c++11 -ggdb -fpermissive -static-libstdc++   -std=c++11 -o CMakeFiles/slumberhost.dir/src/security/requests.cpp.o -c /home/smerkous/Slumber/hub/src/security/requests.cpp",
+  "file": "/home/smerkous/Slumber/hub/src/security/requests.cpp"
+},
+{
+  "directory": "/home/smerkous/Slumber/hub/build",
+  "command": "/usr/bin/c++    -I/home/smerkous/Slumber/hub/include -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/local/include/pstreams -I/usr/local/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/freetype2 -I/usr/include/AL -I/home/smerkous/Slumber/hub/MACE/include   -D HOSTMACHINE -std=c++11 -ggdb -fpermissive -static-libstdc++   -std=c++11 -o CMakeFiles/slumberhost.dir/src/security/tokens.cpp.o -c /home/smerkous/Slumber/hub/src/security/tokens.cpp",
+  "file": "/home/smerkous/Slumber/hub/src/security/tokens.cpp"
+},
+{
+  "directory": "/home/smerkous/Slumber/hub/build",
+  "command": "/usr/bin/c++    -I/home/smerkous/Slumber/hub/include -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/local/include/pstreams -I/usr/local/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/freetype2 -I/usr/include/AL -I/home/smerkous/Slumber/hub/MACE/include   -D HOSTMACHINE -std=c++11 -ggdb -fpermissive -static-libstdc++   -std=c++11 -o CMakeFiles/slumberhost.dir/src/util/log.cpp.o -c /home/smerkous/Slumber/hub/src/util/log.cpp",
+  "file": "/home/smerkous/Slumber/hub/src/util/log.cpp"
+},
+{
+  "directory": "/home/smerkous/Slumber/hub/build",
+  "command": "/usr/bin/c++    -I/home/smerkous/Slumber/hub/include -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/local/include/pstreams -I/usr/local/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/freetype2 -I/usr/include/AL -I/home/smerkous/Slumber/hub/MACE/include   -D HOSTMACHINE -std=c++11 -ggdb -fpermissive -static-libstdc++   -std=c++11 -o CMakeFiles/slumberhost.dir/src/slumberui.cpp.o -c /home/smerkous/Slumber/hub/src/slumberui.cpp",
+  "file": "/home/smerkous/Slumber/hub/src/slumberui.cpp"
+},
+{
+  "directory": "/home/smerkous/Slumber/hub/build",
+  "command": "/usr/bin/c++    -I/home/smerkous/Slumber/hub/include -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/local/include/pstreams -I/usr/local/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/freetype2 -I/usr/include/AL -I/home/smerkous/Slumber/hub/MACE/include   -D HOSTMACHINE -std=c++11 -ggdb -fpermissive -static-libstdc++   -std=c++11 -o CMakeFiles/slumberhost.dir/src/responsehandler.cpp.o -c /home/smerkous/Slumber/hub/src/responsehandler.cpp",
+  "file": "/home/smerkous/Slumber/hub/src/responsehandler.cpp"
+},
+{
+  "directory": "/home/smerkous/Slumber/hub/build",
+  "command": "/usr/bin/c++    -I/home/smerkous/Slumber/hub/include -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/local/include/pstreams -I/usr/local/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/freetype2 -I/usr/include/AL -I/home/smerkous/Slumber/hub/MACE/include   -D HOSTMACHINE -std=c++11 -ggdb -fpermissive -static-libstdc++   -std=c++11 -o CMakeFiles/slumberhost.dir/src/slumber.cpp.o -c /home/smerkous/Slumber/hub/src/slumber.cpp",
+  "file": "/home/smerkous/Slumber/hub/src/slumber.cpp"
+},
+{
+  "directory": "/home/smerkous/Slumber/hub/build",
+  "command": "/usr/bin/cc   -I/home/smerkous/Slumber/hub/include -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/local/include/pstreams -I/usr/local/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/freetype2 -I/usr/include/AL -I/home/smerkous/Slumber/hub/MACE/include   -D HOSTMACHINE -static-libgcc   -std=c++11 -o CMakeFiles/slumberhost.dir/csrc/sbluetooth.c.o   -c /home/smerkous/Slumber/hub/csrc/sbluetooth.c",
+  "file": "/home/smerkous/Slumber/hub/csrc/sbluetooth.c"
+},
+{
+  "directory": "/home/smerkous/Slumber/hub/build/MACE",
+  "command": "/usr/bin/c++    -I/usr/local/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/freetype2 -I/usr/include/AL -I/home/smerkous/Slumber/hub/MACE/include   -D HOSTMACHINE -std=c++11 -ggdb -fpermissive -static-libstdc++   -std=c++11 -o CMakeFiles/MACE.dir/src/Graphics/Renderer.cpp.o -c /home/smerkous/Slumber/hub/MACE/src/Graphics/Renderer.cpp",
+  "file": "/home/smerkous/Slumber/hub/MACE/src/Graphics/Renderer.cpp"
+},
+{
+  "directory": "/home/smerkous/Slumber/hub/build/MACE",
+  "command": "/usr/bin/c++    -I/usr/local/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/freetype2 -I/usr/include/AL -I/home/smerkous/Slumber/hub/MACE/include   -D HOSTMACHINE -std=c++11 -ggdb -fpermissive -static-libstdc++   -std=c++11 -o CMakeFiles/MACE.dir/src/Graphics/Window.cpp.o -c /home/smerkous/Slumber/hub/MACE/src/Graphics/Window.cpp",
+  "file": "/home/smerkous/Slumber/hub/MACE/src/Graphics/Window.cpp"
+},
+{
+  "directory": "/home/smerkous/Slumber/hub/build/MACE",
+  "command": "/usr/bin/c++    -I/usr/local/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/freetype2 -I/usr/include/AL -I/home/smerkous/Slumber/hub/MACE/include   -D HOSTMACHINE -std=c++11 -ggdb -fpermissive -static-libstdc++   -std=c++11 -o CMakeFiles/MACE.dir/src/Graphics/Entity2D.cpp.o -c /home/smerkous/Slumber/hub/MACE/src/Graphics/Entity2D.cpp",
+  "file": "/home/smerkous/Slumber/hub/MACE/src/Graphics/Entity2D.cpp"
+},
+{
+  "directory": "/home/smerkous/Slumber/hub/build/MACE",
+  "command": "/usr/bin/c++    -I/usr/local/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/freetype2 -I/usr/include/AL -I/home/smerkous/Slumber/hub/MACE/include   -D HOSTMACHINE -std=c++11 -ggdb -fpermissive -static-libstdc++   -std=c++11 -o CMakeFiles/MACE.dir/src/Graphics/OGL.cpp.o -c /home/smerkous/Slumber/hub/MACE/src/Graphics/OGL.cpp",
+  "file": "/home/smerkous/Slumber/hub/MACE/src/Graphics/OGL.cpp"
+},
+{
+  "directory": "/home/smerkous/Slumber/hub/build/MACE",
+  "command": "/usr/bin/c++    -I/usr/local/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/freetype2 -I/usr/include/AL -I/home/smerkous/Slumber/hub/MACE/include   -D HOSTMACHINE -std=c++11 -ggdb -fpermissive -static-libstdc++   -std=c++11 -o CMakeFiles/MACE.dir/src/Graphics/Components.cpp.o -c /home/smerkous/Slumber/hub/MACE/src/Graphics/Components.cpp",
+  "file": "/home/smerkous/Slumber/hub/MACE/src/Graphics/Components.cpp"
+},
+{
+  "directory": "/home/smerkous/Slumber/hub/build/MACE",
+  "command": "/usr/bin/c++    -I/usr/local/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/freetype2 -I/usr/include/AL -I/home/smerkous/Slumber/hub/MACE/include   -D HOSTMACHINE -std=c++11 -ggdb -fpermissive -static-libstdc++   -std=c++11 -o CMakeFiles/MACE.dir/src/Graphics/Entity.cpp.o -c /home/smerkous/Slumber/hub/MACE/src/Graphics/Entity.cpp",
+  "file": "/home/smerkous/Slumber/hub/MACE/src/Graphics/Entity.cpp"
+},
+{
+  "directory": "/home/smerkous/Slumber/hub/build/MACE",
+  "command": "/usr/bin/c++    -I/usr/local/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/freetype2 -I/usr/include/AL -I/home/smerkous/Slumber/hub/MACE/include   -D HOSTMACHINE -std=c++11 -ggdb -fpermissive -static-libstdc++   -std=c++11 -o CMakeFiles/MACE.dir/src/Utility/Math.cpp.o -c /home/smerkous/Slumber/hub/MACE/src/Utility/Math.cpp",
+  "file": "/home/smerkous/Slumber/hub/MACE/src/Utility/Math.cpp"
+},
+{
+  "directory": "/home/smerkous/Slumber/hub/build/MACE",
+  "command": "/usr/bin/c++    -I/usr/local/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/freetype2 -I/usr/include/AL -I/home/smerkous/Slumber/hub/MACE/include   -D HOSTMACHINE -std=c++11 -ggdb -fpermissive -static-libstdc++   -std=c++11 -o CMakeFiles/MACE.dir/src/Utility/Transform.cpp.o -c /home/smerkous/Slumber/hub/MACE/src/Utility/Transform.cpp",
+  "file": "/home/smerkous/Slumber/hub/MACE/src/Utility/Transform.cpp"
+},
+{
+  "directory": "/home/smerkous/Slumber/hub/build/MACE",
+  "command": "/usr/bin/c++    -I/usr/local/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/freetype2 -I/usr/include/AL -I/home/smerkous/Slumber/hub/MACE/include   -D HOSTMACHINE -std=c++11 -ggdb -fpermissive -static-libstdc++   -std=c++11 -o CMakeFiles/MACE.dir/src/Utility/Preprocessor.cpp.o -c /home/smerkous/Slumber/hub/MACE/src/Utility/Preprocessor.cpp",
+  "file": "/home/smerkous/Slumber/hub/MACE/src/Utility/Preprocessor.cpp"
+},
+{
+  "directory": "/home/smerkous/Slumber/hub/build/MACE",
+  "command": "/usr/bin/c++    -I/usr/local/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/freetype2 -I/usr/include/AL -I/home/smerkous/Slumber/hub/MACE/include   -D HOSTMACHINE -std=c++11 -ggdb -fpermissive -static-libstdc++   -std=c++11 -o CMakeFiles/MACE.dir/src/Utility/BitField.cpp.o -c /home/smerkous/Slumber/hub/MACE/src/Utility/BitField.cpp",
+  "file": "/home/smerkous/Slumber/hub/MACE/src/Utility/BitField.cpp"
+},
+{
+  "directory": "/home/smerkous/Slumber/hub/build/MACE",
+  "command": "/usr/bin/c++    -I/usr/local/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/freetype2 -I/usr/include/AL -I/home/smerkous/Slumber/hub/MACE/include   -D HOSTMACHINE -std=c++11 -ggdb -fpermissive -static-libstdc++   -std=c++11 -o CMakeFiles/MACE.dir/src/Utility/Audio.cpp.o -c /home/smerkous/Slumber/hub/MACE/src/Utility/Audio.cpp",
+  "file": "/home/smerkous/Slumber/hub/MACE/src/Utility/Audio.cpp"
+},
+{
+  "directory": "/home/smerkous/Slumber/hub/build/MACE",
+  "command": "/usr/bin/c++    -I/usr/local/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/freetype2 -I/usr/include/AL -I/home/smerkous/Slumber/hub/MACE/include   -D HOSTMACHINE -std=c++11 -ggdb -fpermissive -static-libstdc++   -std=c++11 -o CMakeFiles/MACE.dir/src/Utility/Color.cpp.o -c /home/smerkous/Slumber/hub/MACE/src/Utility/Color.cpp",
+  "file": "/home/smerkous/Slumber/hub/MACE/src/Utility/Color.cpp"
+},
+{
+  "directory": "/home/smerkous/Slumber/hub/build/MACE",
+  "command": "/usr/bin/c++    -I/usr/local/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/freetype2 -I/usr/include/AL -I/home/smerkous/Slumber/hub/MACE/include   -D HOSTMACHINE -std=c++11 -ggdb -fpermissive -static-libstdc++   -std=c++11 -o CMakeFiles/MACE.dir/src/Core/Module.cpp.o -c /home/smerkous/Slumber/hub/MACE/src/Core/Module.cpp",
+  "file": "/home/smerkous/Slumber/hub/MACE/src/Core/Module.cpp"
+},
+{
+  "directory": "/home/smerkous/Slumber/hub/build/MACE",
+  "command": "/usr/bin/c++    -I/usr/local/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/freetype2 -I/usr/include/AL -I/home/smerkous/Slumber/hub/MACE/include   -D HOSTMACHINE -std=c++11 -ggdb -fpermissive -static-libstdc++   -std=c++11 -o CMakeFiles/MACE.dir/src/Core/Constants.cpp.o -c /home/smerkous/Slumber/hub/MACE/src/Core/Constants.cpp",
+  "file": "/home/smerkous/Slumber/hub/MACE/src/Core/Constants.cpp"
+},
+{
+  "directory": "/home/smerkous/Slumber/hub/build/MACE",
+  "command": "/usr/bin/c++    -I/usr/local/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/freetype2 -I/usr/include/AL -I/home/smerkous/Slumber/hub/MACE/include   -D HOSTMACHINE -std=c++11 -ggdb -fpermissive -static-libstdc++   -std=c++11 -o CMakeFiles/MACE.dir/src/Core/System.cpp.o -c /home/smerkous/Slumber/hub/MACE/src/Core/System.cpp",
+  "file": "/home/smerkous/Slumber/hub/MACE/src/Core/System.cpp"
+}
+]

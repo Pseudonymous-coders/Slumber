@@ -39,18 +39,22 @@ int main() {
 	tempaccount.startTokenizer();
 	//Already loaded in global space, this account is now accesible by the AutomaticGenerators
 	
-	/*boost::thread bandGenerator = boost::thread(
-		AutomaticGeneration::automaticBands,
-		MAX_ACCOUNTS,
+	slumber::runUI();
+
+	AutomaticGeneration::automaticBands(MAX_ACCOUNTS,
 		Handler::onBluetoothResponse,
 		Handler::onBluetoothConnected,
 		Handler::onBluetoothDisconnected);
-	*/
-
-	std::cout << "\n\n\n\nFINISHED AUTOMATIC GENERATION!\n\n\n\n\n" << std::endl;
-	//Start the ui mainloop
-	slumber::runUI();
 	
+
+	//Start the ui mainloop
+	//slumber::setProgress(80);
+	//slumber::setHumidity(20);
+
+	while(1);
+
+	//slumber::setProgress(80);
+
 	return 0;
 	
 	/*SBluetooth band(0);

@@ -15,6 +15,7 @@
 //SLUMBER INCLUDES
 #include <sbluetooth/sbluetooth.hpp>
 #include <security/requests.hpp>
+#include <slumberui.h>
 
 //BOOST INCLUDES
 #include <boost/thread.hpp>
@@ -101,8 +102,11 @@ void bandResponseParseThread(const std::string body, security::Account *account)
 		accelerometer = (accelerometer * 100) / 13500;
 		
 		if(accelerometer > 100) accelerometer = 100;
-		else if(accelerometer < 0) accelerometer = 0;
-		
+		else if(accelerometer < 0) accelerometer = 0;	
+
+		slumber::setTemperature(temperature);
+		slumber::setHumidity(humidity);
+		slumber::setMovement(accelerometer);
 		account->accelerometer = accelerometer;
 		account->temperature = temperature;
 		account->humidity = humidity;

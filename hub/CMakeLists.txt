@@ -7,6 +7,15 @@ file(GLOB_RECURSE SOURCE_FILES "src/*.cpp" "csrc/*.c")
 
 set(CMAKE_C_COMPILER_ID GNU)
 set(CMAKE_CXX_COMPILER_ID GNU)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/bin )
+
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+if(EXISTS "${CMAKE_CURRENT_BINARY_DIR}/compile_commands.json" )
+	execute_process( COMMAND ${CMAKE_COMMAND} -E copy_if_different
+		${CMAKE_CURRENT_BINARY_DIR}/compile_commands.json
+		${CMAKE_CURRENT_SOURCE_DIR}/compile_commands.json
+	)
+endif()
 
 if(NOT ${CMAKE_SYSTEM_NAME} MATCHES "Linux")
 
@@ -16,7 +25,7 @@ endif()
 
 
 if(NOT SLUMBER)
-	set(HOSTBASE "x86_64-linux-gnu")
+set(HOSTBASE "x86_64-linux-gnu")
 	set(HOSTFLAG "HOSTMACHINE")
 	set(TARGETBIN slumberhost)
 	set(TYPELOCATION "/usr/local")
@@ -40,9 +49,9 @@ else()
 endif()
 
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -D ${HOSTFLAG} -static-libgcc")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -D ${HOSTFLAG} -std=c++11 -fpermissive -static-libstdc++")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -D ${HOSTFLAG} -std=c++11 -ggdb -fpermissive -static-libstdc++")
 
-message(STATUS "CMAKE_C_FLAGS: ${CMAKE_C_FLAGS}")
+# message(STATUS "CMAKE_C_FLAGS: ${CMAKE_C_FLAGS}")
 
 # Linking options and locations
 set(LIBRARY_PATH "${TYPELOCATION}/lib")

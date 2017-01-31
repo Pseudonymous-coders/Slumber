@@ -16,6 +16,7 @@ namespace slumber {
 
 	void setMovement(const int move);
 
+	void __loop_run();
 	void runUI();
 }
 

@@ -22,9 +22,11 @@
 #include <cpprest/rawptrstream.h> //Async streams backed by raw pointer to memory
 #include <cpprest/producerconsumerstream.h>  //Async streams for producer consumer scenarios
 
+//SLUMBER INCLUDES
 #include <util/log.hpp> //Slumbers logging and print handling
 #include <util/timestamps.hpp> //Time handling and common functions
 #include <slumbererror.hpp> //Custom errorcode handler
+#include <slumberui.h>
 
 using namespace utility; //Common utilities like string conversions
 using namespace web; //Common features like URIs.
@@ -96,6 +98,14 @@ pplx::task<void> updateBandData(security::Account *account) {
 			if(!respjson.has_field(SLUMBER_BLE_SERVER_SUCCESS_TAG)) {
 				throw json_exception("Can't calculate the success of the server push");
 			}
+
+			if(!respjson.has_field("smartScore")) {
+				throw json_exception("CAN'T GET SMART SCORE!");
+			}
+
+			std::cout << "\n\n\n\n\n\nGOT RESPONSE: " << respjson.at("smartScore").as_number().to_int32() << std::endl;
+
+			slumber::setProgress(respjson.at("smartScore").as_number().to_uint32());
 			
 			if(!respjson.at(SLUMBER_BLE_SERVER_SUCCESS_TAG).as_bool()) {
 				std::stringstream ss;

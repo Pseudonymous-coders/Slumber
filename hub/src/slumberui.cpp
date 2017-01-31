@@ -1,9 +1,20 @@
-#define DEBUG true
+#define MACE_DEBUG 1
 
+//MACE INCLUDES
 #include <MACE/MACE.h>
+
+//SLUMBER INCLUDES
 #include <slumberui.h>
+#include <util/log.hpp>
+
+//STANDARD INCLUDES
 #include <iostream>
 
+//BOOST INCLUDES
+#include <boost/lexical_cast.hpp>
+#include <boost/thread.hpp>
+#include <boost/bind.hpp>
+#include <boost/chrono.hpp>
 
 #define ASSETS_FOLDER "/home/smerkous/Slumber/hub/assets/"
 
@@ -13,6 +24,10 @@ gfx::ProgressBar bar;
 gfx::Text barProgress, statusMessage, temperature, humidity, movement;
 gfx::Image droplet, thermometer, vibrations, power;
 gfx::Group group;
+
+namespace slumber {
+		volatile bool isCreated = false;
+}
 
 void slumber::setProgress(const unsigned int prog) {
 	bar.easeTo(static_cast<float>(prog), 60.0f);
@@ -110,18 +125,18 @@ void create() {
 	//group.addChild(power);
 }
 
-void slumber::runUI() {
+void slumber::__loop_run() {
 	os::WindowModule window = os::WindowModule(720, 720, "Slumber Hub");
 	window.setFPS(30);
-	//window.setFullscreen(true);
-	window.setCreationCallback(&slumber::create);
+	window.setFullscreen(true);
+	window.setCreationCallback(&create);
 	MACE::addModule(window);
 
 	window.addChild(group);
 
 	MACE::init();
 
-	while( MACE::isRunning() ) {
+	while(MACE::isRunning()) {
 		MACE::update();
 
 		/*
@@ -132,15 +147,22 @@ void slumber::runUI() {
 		it wont affect the fps of rendering, as long as MACE::update() is called reasonably
 
 		also use these functions to change the ui. they must be called in between MACE::init() and MACE::destroy()
-		*/
+		
 		slumber::setProgress(70);
 		slumber::setHumidity(50);
 		slumber::setStatus(L"Hi");
 		slumber::setTemperature(42);
 		slumber::setMovement(50);
-		
+		*/
 
-		std::this_thread::sleep_for(std::chrono::milliseconds(33));
+		boost::this_thread::sleep_for(boost::chrono::milliseconds(33));
 	}
 	MACE::destroy();
+
+}
+
+void slumber::runUI() {
+	boost::thread ui_thread(boost::bind(slumber::__loop_run));
+	while(!MACE::isRunning());
+	Logger::Log("GUIINTE", SW("STARTED GUI INTERFACE")); 
 }
