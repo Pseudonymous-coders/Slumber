@@ -36,6 +36,7 @@ int main() {
 	//TEMPORARY ACCOUNT INFORMATION
 	security::Account tempaccount("sam@sam.com", "password", 0);
 	tempaccount.setBandDevice("D0:41:31:31:40:BB"); //Set the preffered band device to look for
+	tempaccount.setBandId("fkH4dtx6");
 	tempaccount.startTokenizer();
 	//Already loaded in global space, this account is now accesible by the AutomaticGenerators
 	

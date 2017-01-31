@@ -23,6 +23,11 @@
 #include <boost/bind.hpp>
 #include <boost/lexical_cast.hpp>
 
+//CPPREST INCLUDES
+#include <cpprest/json.h>
+
+using namespace web::json;
+
 #define SLUMBER_HANDLER_LOGTAG "RESPNS"
 
 namespace Handler {
@@ -122,6 +127,7 @@ void bandResponseParseThread(const std::string body, security::Account *account)
 		} catch(const std::exception &err) {
 			_Logger(SW("Failed pushing band response to the server! ERROR: ") + err.what(), true); 
 		}
+
 	}
 }
 
@@ -135,7 +141,16 @@ void onBluetoothResponse(BluetoothBand *band) {
 }
 
 void onBluetoothConnected(BluetoothBand *band) {
-	std::cout << "CONNECTED!" << std::endl;
+	_Logger(SW("Device connected!"));
+	security::Account *account = security::Account::getAccountByBand(band);
+
+	try {
+			web::json::value to_send;
+
+		Requests::setBandDetails(account, to_send);
+	} catch(const std::exception &err) {
+		_Logger(SW("Failed pushing band details to server! ERROR: ") + err.what(), true);
+	}
 }
 
 void onBluetoothDisconnected(BluetoothBand *band) {

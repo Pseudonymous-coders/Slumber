@@ -99,6 +99,14 @@ public:
 		
 		return this->_tokenizer->getToken();
 	}
+
+	void setBandId(const std::string &newId) {
+		this->bandId = newId;
+	}
+
+	std::string getBandId() {
+		return this->bandId;
+	}
 	
 	static Account *getAccountByBand(BluetoothBand *band) {
 		for(Account *account : AutomaticGeneration::Accounts::accounts) {
@@ -111,7 +119,7 @@ public:
 	}
 	
 	int uniqueId;
-	std::string macAddrSearch;
+	std::string macAddrSearch, bandId;
 	
 	int accelerometer;
 	int temperature;

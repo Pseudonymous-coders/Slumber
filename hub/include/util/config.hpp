@@ -7,7 +7,12 @@
 //Flag when spack detects it's the host machine
 #ifdef HOSTMACHINE
 
+#ifndef SLUMBER_DEF_USER
+
 #define SLUMBER_DEF_USER 				"smerkous"
+
+#endif
+
 #define SLUMBER_HOME_BASE 				"/home/" SLUMBER_DEF_USER
 
 #else
@@ -53,7 +58,8 @@
 #define SLUMBER_TOKEN_JSON_SUCCESS		"success" //Below are the JSON tags to pull from the server
 #define SLUMBER_TOKEN_JSON_EXPIRE		"expiresIn"
 #define SLUMBER_TOKEN_JSON_TOKEN		"token"
-#define SLUMBER_TOKEN_JSON_CHECK		"isAuthenticated"
+#define SLUMBER_TOKEN_JSON_CHECK		"success"
+#define SLUMBER_TOKEN_JSON_ERROR		"error"
 #define SLUMBER_TOKEN_REMOVE_FRACTION	0.8 //The fraction of the expire time to pull the new token aka (60s * 0.8f) = 48s
 #define SLUMBER_TOKEN_RETRY_AMOUNT		3 //If the token failed try a couple of times more
 #define SLUMBER_TOKEN_RETRY_SLEEP		3 //Seconds to sleep between each retry

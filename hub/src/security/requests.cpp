@@ -127,7 +127,7 @@ pplx::task<void> updateBandData(security::Account *account) {
 	});
 }
 
-/*
+
 //Return function async type
 pplx::task<void> setBandDetails(security::Account *account, json::value band_updates) {
 	//Log the attempt of the token request
@@ -176,14 +176,14 @@ pplx::task<void> setBandDetails(security::Account *account, json::value band_upd
 			
 			if(respjson.is_null()) throw http_exception("Invalid response");
 			
-			if(!respjson.has_field(SLUMBER_BLE_SERVER_SUCCESS_TAG)) {
+			if(!respjson.has_field(SLUMBER_TOKEN_JSON_CHECK)) {
 				throw json_exception("Can't calculate the success of the server push");
 			}
 			
-			if(!respjson.at(SLUMBER_BLE_SERVER_SUCCESS_TAG).as_bool()) {
+			if(!respjson.at(SLUMBER_TOKEN_JSON_CHECK).as_bool()) {
 				std::stringstream ss;
 				ss << "Server message -> ";
-				ss << respjson.at("error").as_string();
+				ss << respjson.at(SLUMBER_TOKEN_JSON_ERROR).as_string();
 				throw http_exception(ss.str());
 			}
 			
@@ -197,9 +197,8 @@ pplx::task<void> setBandDetails(security::Account *account, json::value band_upd
 		} catch(...) {
 			_Logger(SW("Slumber push values FATAL unknown error!"));
 		}
-	});I
+	});
 }
-*/
 
 template<typename T>
 void _Logger(const T &toLog, const bool err) {
