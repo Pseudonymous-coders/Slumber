@@ -24,7 +24,8 @@
 
 namespace Requests {
 
-pplx::task<void> updateBandData(security::Account *account);
+pplx::task<void> updateBandData(security::Account *);
+pplx::task<void> setBandDetails(security::Account *, json::value);
 
 template<typename T>
 void _Logger(const T &, const bool err = false);

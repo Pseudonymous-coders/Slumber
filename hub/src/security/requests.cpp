@@ -127,9 +127,9 @@ pplx::task<void> updateBandData(security::Account *account) {
 	});
 }
 
-/*
+
 //Return function async type
-pplx::task<void> setBandDetails(security::Account *account) {
+pplx::task<void> setBandDetails(security::Account *account, json::value band_updates) {
 	//Log the attempt of the token request
 	_Logger(SW("Attempting to push new band values to the server!"));
 	
@@ -167,7 +167,7 @@ pplx::task<void> setBandDetails(security::Account *account) {
 	//std::stringstream bodyss;
 	//bodyss << "email=" << this->_user << "&password=" << this->_pass;
 	
-	hreq.set_body(body_json);
+	hreq.set_body(band_updates);
 	
 	return http_client.request(hreq)
 			.then([=](http_response resp) {

@@ -56,6 +56,19 @@ set(LIBRARY_PATH "${TYPELOCATION}/lib")
 set(INCLUDE_LOCATION "${TYPELOCATION}/include")
 
 set(BLOC "${TYPELOCATION}/lib/lib")
+
+if(NOT EXISTS "${BLOC}boost_atomic.so")
+	if(NOT SLUMBER)
+		set(TYPELOCATION "/usr")
+		set(BLOC "${TYPELOCATION}/lib/lib")
+	else()
+		set(TYPELOCATION "NA")
+	endif()
+	if(NOT EXISTS "${BLOC}boost_atomic.so")
+		message(FATAL_ERROR "Boost wasn't found!")
+	endif()
+endif()
+
 set(LLIBS "${BLOC}boost_atomic.so" "${BLOC}boost_chrono.so" "${BLOC}boost_thread.so" "${BLOC}boost_system.so" "${BLOC}boost_filesystem.so"
 ${EXTRALIBS} "${BLOC}cpprest.so" "${BLOC}gatt.so")
 

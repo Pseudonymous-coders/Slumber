@@ -65,6 +65,7 @@
 #define SLUMBER_BLE_START_CHAR			'S' //Start character packet counter
 #define SLUMBER_BLE_END_CHAR			'E' //End character packet counter
 #define SLUMBER_BLE_SERVER_UPDATE_PATH	SLUMBER_SERVER_APIVERSION "/userData" //Push path for the user data
+#define SLUMBER_BLE_SERVER_DETAILS_PATH SLUMBER_SERVER_APIVERSION "/bandData" //Push new band details for the id
 #define SLUMBER_BLE_SERVER_HTTPS_VALID	false //Validate https requests
 #define SLUMBER_BLE_SERVER_SUCCESS_TAG	"posted" //The returned json reponse on a successful push
 
