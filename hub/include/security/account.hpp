@@ -80,10 +80,10 @@ public:
 		this->_band = band;
 	}
 	
-	void setBandDevice(const std::string mac) {
+	void setBandDevice(const std::string &mac) {
 		this->macAddrSearch = mac;
 		if(this->_band == nullptr) return;
-		this->_band->macAddrSearch = mac;
+		this->_band->macAddrSearch = this->macAddrSearch;
 	}
 	
 	void startTokenizer() {

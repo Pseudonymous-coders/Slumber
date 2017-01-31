@@ -156,7 +156,18 @@ void onBluetoothConnected(BluetoothBand *band) {
 }
 
 void onBluetoothDisconnected(BluetoothBand *band) {
-	std::cout << "DISCONNECTED!" << std::endl;
+	security::Account *account = security::Account::getAccountByBand(band);
+
+	_Logger(SW("Band device disconnected! ID: ") + account->getBandId());
+
+	try {
+		web::json::value to_send;
+		to_send["id"] = web::json::value(account->getBandId());
+		to_send["status"] = web::json::value(false); //Set that the band is disconnected
+		Requests::setBandDetails(account, to_send);
+	} catch(const std::exception &err) {
+		_Logger(SW("Failed pushing band details to server! ERROR: ") + err.what(), true);
+	}
 }
 
 template<typename T>

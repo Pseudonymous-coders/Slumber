@@ -165,7 +165,13 @@ pplx::task<void> setBandDetails(security::Account *account, json::value band_upd
 	
 		if(status_code == status_codes::OK) {
 			_Logger(SW("Server succesfully responded! 200"));
-			return resp.extract_json(); //Async json parsing
+			try {
+				return resp.extract_json(); //Async json parsing
+			} catch (http_exception const & err) {
+				_Logger(SW("Failed getting json!"), true);
+			}
+
+			return pplx::task_from_result(json::value());
 		} else {
 			_Logger(SW("Server ERRORED status code: ") + SW(status_code), true);
 			return pplx::task_from_result(json::value()); //Send empty json
