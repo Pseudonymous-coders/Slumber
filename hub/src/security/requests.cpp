@@ -127,7 +127,7 @@ pplx::task<void> updateBandData(security::Account *account) {
 	});
 }
 
-
+/*
 //Return function async type
 pplx::task<void> setBandDetails(security::Account *account, json::value band_updates) {
 	//Log the attempt of the token request
@@ -145,11 +145,11 @@ pplx::task<void> setBandDetails(security::Account *account, json::value band_upd
 	web::http::client::http_client http_client(SLUMBER_SERVER_DOMAIN, http_config);
 	
 	//Create the base builder for the authentication
-	web::uri_builder h_builder = uri_builder(SLUMBER_BLE_SERVER_UPDATE_PATH);
+	web::uri_builder h_builder = uri_builder(SLUMBER_BLE_SERVER_DETAILS_PATH);
 	h_builder.append_query("token", account->getServerToken());
 	
 	_Logger(SW("Built the request path: ") 
-		+ SLUMBER_BLE_SERVER_UPDATE_PATH);
+		+ SLUMBER_BLE_SERVER_DETAILS_PATH);
 	
 	
 	//Create the new request
@@ -157,16 +157,6 @@ pplx::task<void> setBandDetails(security::Account *account, json::value band_upd
 	
 	//Set the request uri
 	hreq.set_request_uri(h_builder.to_string());
-	
-	json::value body_json;
-	body_json["accel"] = json::value::number(account->accelerometer);
-	body_json["temp"] = json::value::number(account->temperature);
-	body_json["hum"] = json::value::number(account->humidity);
-	body_json["vbatt"] = json::value::number(account->voltage);
-	
-	//std::stringstream bodyss;
-	//bodyss << "email=" << this->_user << "&password=" << this->_pass;
-	
 	hreq.set_body(band_updates);
 	
 	return http_client.request(hreq)
