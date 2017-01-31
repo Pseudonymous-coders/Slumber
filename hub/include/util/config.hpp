@@ -13,7 +13,11 @@
 
 #endif
 
+#ifndef SLUMBER_HOME_BASE
+
 #define SLUMBER_HOME_BASE 				"/home/" SLUMBER_DEF_USER
+
+#endif
 
 #else
 

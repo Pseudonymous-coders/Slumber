@@ -76,7 +76,15 @@ add_executable(${TARGETBIN} ${SOURCE_FILES})
 
 add_subdirectory(MACE)
 
-target_compile_definitions(${TARGETBIN} PUBLIC ASSETS_FOLDER="${PROJECT_SOURCE_DIR}/assets/" SLUMBER_DEF_USER="$ENV{USER}")
+set(CURRENT_USER "$ENV{USER}")
+
+if(${CURRENT_USER} STREQUAL "root")
+	set(HOME_BASE "/root")
+else()
+	set(HOME_BASE "/home/${CURRENT_USER}")
+endif()
+
+target_compile_definitions(${TARGETBIN} PUBLIC ASSETS_FOLDER="${PROJECT_SOURCE_DIR}/assets/" SLUMBER_DEF_USER="${CURRENT_USER}" SLUMBER_HOME_BASE="${HOME_BASE}")
 
 target_include_directories(${TARGETBIN} PUBLIC "${PROJECT_SOURCE_DIR}/include/" ${MACE_INCLUDES} ${EXTRAINCLUDES})
 target_link_libraries(${TARGETBIN} LINK_PUBLIC MACE ${LLIBS})

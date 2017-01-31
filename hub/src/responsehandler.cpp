@@ -141,12 +141,14 @@ void onBluetoothResponse(BluetoothBand *band) {
 }
 
 void onBluetoothConnected(BluetoothBand *band) {
-	_Logger(SW("Device connected!"));
 	security::Account *account = security::Account::getAccountByBand(band);
 
-	try {
-			web::json::value to_send;
+	_Logger(SW("Band device connected! ID: ") + account->getBandId());
 
+	try {
+		web::json::value to_send;
+		to_send["id"] = web::json::value(account->getBandId());
+		to_send["status"] = web::json::value(true); //Set that the band is connected
 		Requests::setBandDetails(account, to_send);
 	} catch(const std::exception &err) {
 		_Logger(SW("Failed pushing band details to server! ERROR: ") + err.what(), true);
