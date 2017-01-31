@@ -521,15 +521,15 @@ BluetoothBand::BluetoothBand(int adapter, const char *device) : SBluetooth(adapt
 	
 	this->uniqueId = 0;
 
-	this->band_lock.lock();
+	//this->band_lock.lock();
 	this->macAddrSearch = "N/A";
-	this->band_lock.unlock();
+	//this->band_lock.unlock();
 }
 
 void BluetoothBand::setBandSearch(const std::string toSearch) {
-	this->band_lock.lock();
+	//this->band_lock.lock();
 	this->macAddrSearch = toSearch;
-	this->band_lock.unlock();
+	//this->band_lock.unlock();
 }
 
 BluetoothBand::~BluetoothBand() {
@@ -669,6 +669,7 @@ void automaticBands(int amount, b_handler_t response, b_handler_t conn, b_handle
 	
 	//Loop through each band id
 	for(int i = 0; i < amount; i++) {
+		//@TODO MAKE SURE YOU CHANGE THE NULL ADAPTER FROM THE AVAILABLE PULLED ADAPTERS
 		BluetoothBand *band = new BluetoothBand(i, NULL);
 			//SW(SW("hci") + 
 			//SW(adapter_list.at(i).first)).c_str()); //Attach new band device to a dynamic object

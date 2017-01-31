@@ -81,17 +81,17 @@ public:
 	}
 	
 	void setBandDevice(const std::string mac) {
-		this->account_lock.lock();
+		//this->account_lock.lock();
 		this->macAddrSearch = mac;
-		this->account_lock.unlock();
+		//this->account_lock.unlock();
 		if(this->_band == nullptr) return;
 		this->_band->setBandSearch(mac);
 	}
 
 	std::string getBandDevice() {
-		this->account_lock.lock();
+		//this->account_lock.lock();
 		std::string getMac = this->macAddrSearch;
-		this->account_lock.unlock();
+		//this->account_lock.unlock();
 
 		return getMac;
 	}
@@ -140,7 +140,7 @@ private:
 	std::string _username;
 	std::string _password;
 	
-	boost::mutex account_lock;
+	//boost::mutex account_lock;
 
 	BluetoothBand *_band;
 	Tokenizer *_tokenizer;
