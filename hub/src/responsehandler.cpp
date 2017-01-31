@@ -148,7 +148,8 @@ void onBluetoothConnected(BluetoothBand *band) {
 	try {
 		web::json::value to_send;
 		to_send["id"] = web::json::value(account->getBandId());
-		to_send["status"] = web::json::value(true); //Set that the band is connected
+		to_send["status"] = web::json::value("1"); //Set that the band is connected
+
 		Requests::setBandDetails(account, to_send);
 	} catch(const std::exception &err) {
 		_Logger(SW("Failed pushing band details to server! ERROR: ") + err.what(), true);
@@ -163,7 +164,8 @@ void onBluetoothDisconnected(BluetoothBand *band) {
 	try {
 		web::json::value to_send;
 		to_send["id"] = web::json::value(account->getBandId());
-		to_send["status"] = web::json::value(false); //Set that the band is disconnected
+		to_send["status"] = web::json::value("0"); //Set that the band is disconnected
+
 		Requests::setBandDetails(account, to_send);
 	} catch(const std::exception &err) {
 		_Logger(SW("Failed pushing band details to server! ERROR: ") + err.what(), true);

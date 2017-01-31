@@ -179,7 +179,9 @@ pplx::task<void> setBandDetails(security::Account *account, json::value band_upd
 	}).then([=](pplx::task<json::value> jsonParsed) {
 		try {
 			json::value respjson = jsonParsed.get();
-			
+		
+			std::cout << "RESPONSE: " << respjson.serialize() << std::endl;
+
 			if(respjson.is_null()) throw http_exception("Invalid response");
 			
 			if(!respjson.has_field(SLUMBER_TOKEN_JSON_CHECK)) {
