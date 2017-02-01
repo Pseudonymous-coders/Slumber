@@ -3,8 +3,11 @@
 *.swo
 appmea-server/target
 *node_modules*
+hub/ui/[Bb]in/*
+hub/ui/[Bb]in/
 hub/ui/[Bb]uild/*
 hub/ui/[Bb]uild/
 hub/[Bb]uild/*
 hub/[Bb]uild/
 hub/[Bb]uild[Ss]lumber/
+
