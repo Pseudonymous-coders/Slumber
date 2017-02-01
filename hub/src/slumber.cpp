@@ -40,7 +40,7 @@ int main() {
 	tempaccount.startTokenizer();
 	//Already loaded in global space, this account is now accesible by the AutomaticGenerators
 	
-	slumber::runUI();
+	//slumber::runUI();
 
 	AutomaticGeneration::automaticBands(MAX_ACCOUNTS,
 		Handler::onBluetoothResponse,
