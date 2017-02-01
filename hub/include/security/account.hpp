@@ -85,7 +85,9 @@ public:
 		this->macAddrSearch = mac;
 		//this->account_lock.unlock();
 		if(this->_band == nullptr) return;
-		this->_band->setBandSearch(mac);
+		try {
+			this->_band->setBandSearch(mac);
+		} catch(const std::exception &err) {}
 	}
 
 	std::string getBandDevice() {

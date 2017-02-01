@@ -7,6 +7,7 @@
 
 //BOOST INCLUDES
 #include <boost/thread.hpp>
+#include <boost/thread/mutex.hpp>
 #include <boost/chrono.hpp>
 
 #include <sbluetooth/sbluetooth.h>
@@ -95,7 +96,7 @@ public:
 	static void __resp_handle(int, const char*);
 private:
 
-	//boost::mutex band_lock;
+	boost::mutex *band_lock;
 
 	template<typename T>
 	void _Logger(const T &, const bool err=false) const;

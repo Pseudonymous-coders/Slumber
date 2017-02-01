@@ -12,6 +12,8 @@
 #include <boost/bind.hpp>
 #include <boost/chrono.hpp>
 #include <boost/thread.hpp>
+#include <boost/thread/mutex.hpp>
+#include <boost/thread/recursive_mutex.hpp>
 #include <boost/algorithm/string/predicate.hpp>
 
 //SLUMBER INCLUDES
@@ -521,19 +523,21 @@ BluetoothBand::BluetoothBand(int adapter, const char *device) : SBluetooth(adapt
 	
 	this->uniqueId = 0;
 
-	//this->band_lock.lock();
-	this->macAddrSearch = "N/A";
-	//this->band_lock.unlock();
+	this->band_lock = new boost::mutex();
+
+	{
+		boost::mutex::scoped_lock locks(*this->band_lock);
+		this->macAddrSearch = "N/A";
+	}
 }
 
 void BluetoothBand::setBandSearch(const std::string toSearch) {
-	//this->band_lock.lock();
+	boost::mutex::scoped_lock locks(*this->band_lock);
 	this->macAddrSearch = toSearch;
-	//this->band_lock.unlock();
 }
 
 BluetoothBand::~BluetoothBand() {
-
+	delete this->band_lock;
 }
 
 void BluetoothBand::attachResponse(b_handler_t response) {
