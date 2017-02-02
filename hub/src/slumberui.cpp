@@ -66,7 +66,7 @@ void create() {
 
 	group.addChild(bar);
 
-	gfx::Font f = gfx::Font::loadFont(ASSETS_FOLDER + std::string("consola.ttf"));
+	gfx::Font f = gfx::Font::loadFont(ASSETS_FOLDER + std::string("courier.otf"));
 	f.setSize(86);
 
 	barProgress = gfx::Text("0", f);
@@ -122,7 +122,11 @@ void create() {
 	power.setY(0.9f);
 	//group.addChild(power);
 
-	slumber::setProgress(50);
+	slumber::setProgress(0);
+	slumber::setMovement(0);
+	slumber::setHumidity(0);
+	slumber::setTemperature(0);
+	slumber::setStatus(L"Connecting...");
 }
 
 void slumber::__loop_run() {

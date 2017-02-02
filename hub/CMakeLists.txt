@@ -69,8 +69,8 @@ if(NOT EXISTS "${BLOC}boost_atomic.so")
 	endif()
 endif()
 
-set(LLIBS "${BLOC}boost_atomic.so" "${BLOC}boost_chrono.so" "${BLOC}boost_thread.so" "${BLOC}boost_system.so" "${BLOC}boost_filesystem.so"
-${EXTRALIBS} "${BLOC}cpprest.so" "${BLOC}gatt.so")
+set(LLIBS "${BLOC}boost_atomic.so" "${BLOC}boost_chrono.so" "${BLOC}boost_thread.so" "${BLOC}boost_system.so" 
+"${BLOC}boost_filesystem.so" "${BLOC}boost_random.so" ${EXTRALIBS} "${BLOC}cpprest.so" "${BLOC}gatt.so")
 
 add_executable(${TARGETBIN} ${SOURCE_FILES})
 

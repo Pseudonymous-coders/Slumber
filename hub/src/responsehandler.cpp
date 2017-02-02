@@ -72,6 +72,11 @@ std::vector<std::string> checkBluetoothResponse(const std::string &body) {
 	return responses;
 }
 
+template<typename T>
+T limitFix(T input, T lower_limit, T upper_limit) {
+	return (input < lower_limit) ? lower_limit : (input > upper_limit) ? upper_limit : input;
+}
+
 void bandResponseParseThread(const std::string body, security::Account *account) {
 	std::vector<std::string> responses = checkBluetoothResponse(body);
 	
@@ -104,14 +109,24 @@ void bandResponseParseThread(const std::string body, security::Account *account)
 		
 		//@TODO CHANGE THIS TO ACTUALLY CALIBRATED VALUE
 		accelerometer = (accelerometer < 2800) ? 0 : accelerometer;
-		accelerometer = (accelerometer * 100) / 13500;
+		accelerometer = limitFix((limitFix(accelerometer, 0, 13500) * 100) / 13500, 0, 100);
 		
-		if(accelerometer > 100) accelerometer = 100;
-		else if(accelerometer < 0) accelerometer = 0;	
+		humidity = limitFix(humidity, 0, 100);
+		temperature = limitFix(temperature, 0, 100);
 
+		int battery_level = static_cast<int>(
+				static_cast<float>(limitFix(voltage, 
+						SLUMBER_BLE_MIN_VOLTAGE, 
+						SLUMBER_BLE_MAX_VOLTAGE) - 
+						static_cast<float>(SLUMBER_BLE_MIN_VOLTAGE)) * 
+						SLUMBER_BLE_VOLTAGE_CONST);
+
+		//Update the UI components
 		slumber::setTemperature(temperature);
 		slumber::setHumidity(humidity);
 		slumber::setMovement(accelerometer);
+
+		//Update the account information
 		account->accelerometer = accelerometer;
 		account->temperature = temperature;
 		account->humidity = humidity;
@@ -136,8 +151,6 @@ void onBluetoothResponse(BluetoothBand *band) {
 	std::string body = stringparse::trim(band->getBody()); //Fix trimming on both sides
 	security::Account *account = security::Account::getAccountByBand(band);
 	
-	//std::cout << "GOT ACCOUNT: " << account->getUsername() << std::endl;
-	
 	boost::thread parserThread(bandResponseParseThread, body, account);
 }
 
@@ -145,6 +158,9 @@ void onBluetoothConnected(BluetoothBand *band) {
 	security::Account *account = security::Account::getAccountByBand(band);
 
 	_Logger(SW("Band device connected! ID: ") + account->getBandId());
+
+	//Update UI
+	slumber::setStatus(L"Band connected!");
 
 	try {
 		web::json::value to_send;
@@ -161,6 +177,9 @@ void onBluetoothDisconnected(BluetoothBand *band) {
 	security::Account *account = security::Account::getAccountByBand(band);
 
 	_Logger(SW("Band device disconnected! ID: ") + account->getBandId());
+
+	//Update UI
+	slumber::setStatus(L"Band disconnected!");
 
 	try {
 		web::json::value to_send;

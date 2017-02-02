@@ -6,6 +6,10 @@
 #http://download.savannah.gnu.org/releases/freetype/freetype-2.5.2.tar.gz
 #also you have to link OpenGL library
 
+#websocketpp
+#https://github.com/zaphoyd/websocketpp
+#libgatt: add here
+
 # Preset flags
 HELP=0 # default don't show help menu
 PRODUCT=2 # set to unkown product

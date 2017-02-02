@@ -49,7 +49,7 @@
 
 //SERVER AND DOMAIN DEFINITIONS
 #define SLUMBER_SERVER_DOMAIN			"https://eli-server.ddns.net"
-#define SLUMBER_SERVER_APIVERSION		"/api1"
+#define SLUMBER_SERVER_APIVERSION		"/api"
 #define SLUMBER_SERVER_APIPATH			SLUMBER_SERVER_DOMAIN SLUMBER_SERVER_APIVERSION
 
 //TOKENS DEFINITIONS
@@ -79,9 +79,14 @@
 #define SLUMBER_BLE_DATA_FAIL_MAX		2 //Maximum fails allowed for the pushing of userData before it stops sending
 #define SLUMBER_BLE_SERVER_DETAILS_PATH SLUMBER_SERVER_APIVERSION "/deviceData" //Push new band details for the id
 #define SLUMBER_BLE_SERVER_HTTPS_VALID	false //Validate https requests
-
+#define SLUMBER_BLE_MIN_VOLTAGE			330 //The minimum voltage value to set the calculation value
+#define SLUMBER_BLE_MAX_VOLTAGE			450 //The maximum voltage that's allowed for the
+#define SLUMBER_BLE_VOLTAGE_CONST		0.90909091f //The battery voltage constant to turn the min and max to be a percentage of 0 to 100
 //SMARTSCORE
-#define SLUMBER_SMARTSCORE_PATH 		SLUMBER_SERVER_APIVERSION "/smartScore" //Get the machine learned calculated smartscore from the server
-#define SLUMBER_SMARTSCORE_TAG			"smartscore"
+#define SLUMBER_SMARTSCORE_PATH 		SLUMBER_SERVER_APIVERSION "/sleepScore" //Get the machine learned calculated smartscore from the server
+#define SLUMBER_SMARTSCORE_TAG			"sleepScore"
+#define SLUMBER_SMARTSCORE_PULL_LOOP	10 //The second count before pulling the new smartscore
+#define SLUMBER_SMARTSCORE_START_DELAY	5 //The second count before attempting to pull a new smartscore
+#define SLUMBER_SMARTSCORE_FAIL_DELAY	5 //The second count to retry the smartscore loop if it fails
 
 #endif //SLUMBER_CONFIG_H

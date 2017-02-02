@@ -309,6 +309,9 @@ pplx::task<void> getSmartScore(security::Account *account) {
 			unsigned int smart_score = respjson.at(SLUMBER_SMARTSCORE_TAG).as_number().to_uint32();
 			std::cout << "GOT NEW SMARTSCORE: " << smart_score << std::endl;
 			
+			//Update the ui
+			slumber::setProgress(smart_score);
+
 		} catch (http_exception const & err) {
 			_Logger(SW("http_request error: ") + err.what(), true);					
 			throw Error::TokenError(err.error_code().value()); //Handle the error
