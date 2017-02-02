@@ -4,7 +4,7 @@
 
 #include <SPI.h>
 
-//IMPORTANT: THE BELOW DEFINE TELLS IF ANY PRINTLNs WOULD APPEAR! TO LOWER MEMORY CONSUMPTION!
+//IMPORTANT: THE BELOW DEFINE TELLS IF ANY PRINTLNs WOULD APPEAR (TO LOWER MEMORY CONSUMPTION)!
 #define DEBUG false
 
 #if I2CDEV_IMPLEMENTATION == I2CDEV_ARDUINO_WIRE
@@ -192,7 +192,9 @@ void setup()
     ble.echo(false); //Disable command echo
 
     debugPrint(F("Getting ble info"));
-
+    if (! ble.sendCommandCheckOK(F("AT+GAPDEVNAME=SlumberBand")) ) {
+      error(F("Could not set device name?"));
+    }
 //    Disabled because I want it to run without being connected to a bluetooth device, purely for debug
 //    ble.info();
 
@@ -252,6 +254,7 @@ void setup()
         debugPrint(F("Bluetooth LED activity mode: " MODE_LED_BEHAVIOUR));
         ble.sendCommandCheckOK("AT+HWModeLED=" MODE_LED_BEHAVIOUR);
     }
+
     currentTime = millis();
     currentAccelTime = millis();
     currentBattTime = millis();
