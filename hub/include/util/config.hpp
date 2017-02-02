@@ -49,7 +49,7 @@
 
 //SERVER AND DOMAIN DEFINITIONS
 #define SLUMBER_SERVER_DOMAIN			"https://eli-server.ddns.net"
-#define SLUMBER_SERVER_APIVERSION		"/api"
+#define SLUMBER_SERVER_APIVERSION		"/api1"
 #define SLUMBER_SERVER_APIPATH			SLUMBER_SERVER_DOMAIN SLUMBER_SERVER_APIVERSION
 
 //TOKENS DEFINITIONS
@@ -75,8 +75,13 @@
 #define SLUMBER_BLE_START_CHAR			'S' //Start character packet counter
 #define SLUMBER_BLE_END_CHAR			'E' //End character packet counter
 #define SLUMBER_BLE_SERVER_UPDATE_PATH	SLUMBER_SERVER_APIVERSION "/userData" //Push path for the user data
-#define SLUMBER_BLE_SERVER_DETAILS_PATH SLUMBER_SERVER_APIVERSION "/bandData" //Push new band details for the id
+#define SLUMBER_BLE_DATA_FAIL_SLEEP		3 //Seconds to wait if the userData failed to push to the server
+#define SLUMBER_BLE_DATA_FAIL_MAX		2 //Maximum fails allowed for the pushing of userData before it stops sending
+#define SLUMBER_BLE_SERVER_DETAILS_PATH SLUMBER_SERVER_APIVERSION "/deviceData" //Push new band details for the id
 #define SLUMBER_BLE_SERVER_HTTPS_VALID	false //Validate https requests
-#define SLUMBER_BLE_SERVER_SUCCESS_TAG	"posted" //The returned json reponse on a successful push
+
+//SMARTSCORE
+#define SLUMBER_SMARTSCORE_PATH 		SLUMBER_SERVER_APIVERSION "/smartScore" //Get the machine learned calculated smartscore from the server
+#define SLUMBER_SMARTSCORE_TAG			"smartscore"
 
 #endif //SLUMBER_CONFIG_H

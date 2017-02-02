@@ -202,6 +202,12 @@ pplx::task<void> Tokenizer::pullToken(const std::function< void() > &func) {
 			return resp.extract_json(); //Async json parsing
 		} else {
 			_Logger(SW("Server ERRORED status code: ") + SW(status_code), true);
+			
+			//Wait a predefined amount of time if the code responded with an invalid response (Add more time since the server doesn't contain the page)
+			if(status_code > 400 && status_code < 410) {
+				boost::this_thread::sleep_for(boost::chrono::seconds(SLUMBER_TOKEN_FAIL_SLEEP + 10));
+			}
+
 			return pplx::task_from_result(json::value()); //Send empty json
 		}
 	}).then([=](pplx::task<json::value> jsonParsed) {
@@ -252,7 +258,8 @@ pplx::task<void> Tokenizer::pullToken(const std::function< void() > &func) {
 			
 		} catch (http_exception const & err) {
 			_Logger(SW("http_request error: ") + err.what(), true);
-			if(strstr(err.what(), "invalid") != NULL) {
+			if(strstr(err.what(), "invalid") != NULL || strstr(err.what(), "endpoint") != NULL || 
+							strstr(err.what(), "resolving") != NULL) {
 				boost::this_thread::sleep_for(
 					boost::chrono::seconds(SLUMBER_TOKEN_FAIL_SLEEP));
 			}

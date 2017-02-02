@@ -46,10 +46,10 @@ extern "C" {
 #define SLUMBER_BLE_EVENT_TYPE			0x05 //BLE response type
 #define SLUMBER_BLE_SCAN_RESPONSE		0x04 //Response hex for scan completion
 #define SLUMBER_BLE_SCAN_TIMEOUT		4 //Seconds for the scan to timeout
-#define SLUMBER_BLE_FOUND_TAG			"Adafruit" //Name of device to find
+#define SLUMBER_BLE_FOUND_TAG			"SlumberBand" //Name of device to find
 #define SLUMBER_BLE_DRIVER_DELAY		300 //Millis to wait for driver reload
 #define SLUMBER_BLE_SCAN_REFRESH		2000 //Millis to wait for scan event
-#define SLUMBER_BLE_SERVICE_UUID		"6e400001-b5a3-f393-e0a9-e50e24dcca9e" //The default Adafruit UART service id
+#define SLUMBER_BLE_SERVICE_UUID		"6e400001-b5a3-f393-e0a9-e50e24dcca9e" //The default UART service id
 #define SLUMBER_BLE_SERVICE_STR_UUID	"6e400001" //BLE UART short service uuid
 #define SLUMBER_BLE_SERVICE_TX_ID		"6e400002" //BLE UART transmit characteristic
 #define SLUMBER_BLE_SERVICE_RX_ID		"6e400003" //BLE UART recieve characteristic
