@@ -128,7 +128,7 @@ void create() {
 void slumber::__loop_run() {
 	os::WindowModule window = os::WindowModule(720, 720, "Slumber Hub");
 	window.setFPS(30);
-	window.setFullscreen(true);
+	//window.setFullscreen(true);
 	window.setCreationCallback(&create);
 	MACE::addModule(window);
 
@@ -159,4 +159,10 @@ void slumber::__loop_run() {
 	}
 	MACE::destroy();
 
+}
+
+void slumber::runUI() {
+	boost::thread ui_thread(boost::bind(slumber::__loop_run));
+	while(!MACE::isRunning());
+	Logger::Log("GUIINTE", SW("STARTED GUI INTERFACE")); 
 }

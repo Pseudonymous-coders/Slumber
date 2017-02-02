@@ -125,6 +125,7 @@ void bandResponseParseThread(const std::string body, security::Account *account)
 		try {
 			Requests::updateBandData(account).wait();
 		} catch(const std::exception &err) {
+			if(strstr(err.what(), "wait()") != NULL) return;
 			_Logger(SW("Failed pushing band response to the server! ERROR: ") + err.what(), true); 
 		}
 
@@ -150,7 +151,7 @@ void onBluetoothConnected(BluetoothBand *band) {
 		to_send["id"] = web::json::value(account->getBandId());
 		to_send["status"] = web::json::value("1"); //Set that the band is connected
 
-		Requests::setBandDetails(account, to_send);
+		Requests::setBandDetails(account, to_send).wait();
 	} catch(const std::exception &err) {
 		_Logger(SW("Failed pushing band details to server! ERROR: ") + err.what(), true);
 	}
@@ -166,7 +167,7 @@ void onBluetoothDisconnected(BluetoothBand *band) {
 		to_send["id"] = web::json::value(account->getBandId());
 		to_send["status"] = web::json::value("0"); //Set that the band is disconnected
 
-		Requests::setBandDetails(account, to_send);
+		Requests::setBandDetails(account, to_send).wait();
 	} catch(const std::exception &err) {
 		_Logger(SW("Failed pushing band details to server! ERROR: ") + err.what(), true);
 	}
