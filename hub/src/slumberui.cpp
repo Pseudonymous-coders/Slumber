@@ -16,8 +16,6 @@
 #include <boost/bind.hpp>
 #include <boost/chrono.hpp>
 
-#define ASSETS_FOLDER "/home/smerkous/Slumber/hub/assets/"
-
 using namespace mc;
 
 gfx::ProgressBar bar;
@@ -123,6 +121,8 @@ void create() {
 	power.setX(0.9f);
 	power.setY(0.9f);
 	//group.addChild(power);
+
+	slumber::setProgress(50);
 }
 
 void slumber::__loop_run() {
@@ -159,10 +159,4 @@ void slumber::__loop_run() {
 	}
 	MACE::destroy();
 
-}
-
-void slumber::runUI() {
-	boost::thread ui_thread(boost::bind(slumber::__loop_run));
-	while(!MACE::isRunning());
-	Logger::Log("GUIINTE", SW("STARTED GUI INTERFACE")); 
 }
