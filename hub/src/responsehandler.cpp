@@ -192,6 +192,18 @@ void onBluetoothDisconnected(BluetoothBand *band) {
 	}
 }
 
+void onServerStreamConnect(slumber::server::ServerStream *) {
+	
+}
+
+void onServerStreamMessage(slumber::server::ServerStream *, std::string message) {
+	
+}
+
+void onServerStreamDisconnect(slumber::server::ServerStream *) {
+
+}
+
 template<typename T>
 void _Logger(const T &toLog, const bool err) {
 	Logger::Log<T>(SLUMBER_HANDLER_LOGTAG, toLog, err);

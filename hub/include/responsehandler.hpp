@@ -8,6 +8,9 @@
 //SLUMBER SECURITY INCLUDES
 #include <security/account.hpp>
 
+//SLUMBER SERVER STREAMS INCLUDES
+#include <serverstream.hpp>
+
 struct bandUpdate {
 	int accelerometer;
 	int temperature;
@@ -27,6 +30,9 @@ void onBluetoothConnected(BluetoothBand *);
 void onBluetoothDisconnected(BluetoothBand *);
 void onBluetoothResponse(BluetoothBand *);
 
+void onServerStreamConnect(slumber::server::ServerStream *);
+void onServerStreamMessage(slumber::server::ServerStream *, std::string);
+void onServerStreamDisconnect(slumber::server::ServerStream *);
 
 
 template<typename T>

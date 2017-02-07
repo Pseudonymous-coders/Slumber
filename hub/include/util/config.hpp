@@ -48,8 +48,11 @@
 
 
 //SERVER AND DOMAIN DEFINITIONS
-#define SLUMBER_SERVER_DOMAIN			"https://eli-server.ddns.net"
-#define SLUMBER_SERVER_APIVERSION		"/api"
+#define SLUMBER_SERVER_BASE 			"slumber.ddns.net" //The base URI for the slumber server connection
+#define SLUMBER_SERVER_DOMAIN			"https://" SLUMBER_SERVER_BASE //The secure REST api base for slumber
+#define SLUMBER_SERVER_STREAM			"wss://" SLUMBER_SERVER_BASE //The secure websocket api base for slumber streams
+#define SLUMBER_SERVER_STREAM_PORT		443 //The websocket secure server port
+#define SLUMBER_SERVER_APIVERSION		"/api" //The current api version of slumber
 #define SLUMBER_SERVER_APIPATH			SLUMBER_SERVER_DOMAIN SLUMBER_SERVER_APIVERSION
 
 //TOKENS DEFINITIONS
@@ -82,11 +85,31 @@
 #define SLUMBER_BLE_MIN_VOLTAGE			330 //The minimum voltage value to set the calculation value
 #define SLUMBER_BLE_MAX_VOLTAGE			450 //The maximum voltage that's allowed for the
 #define SLUMBER_BLE_VOLTAGE_CONST		0.90909091f //The battery voltage constant to turn the min and max to be a percentage of 0 to 100
+
 //SMARTSCORE
 #define SLUMBER_SMARTSCORE_PATH 		SLUMBER_SERVER_APIVERSION "/sleepScore" //Get the machine learned calculated smartscore from the server
 #define SLUMBER_SMARTSCORE_TAG			"sleepScore"
 #define SLUMBER_SMARTSCORE_PULL_LOOP	10 //The second count before pulling the new smartscore
 #define SLUMBER_SMARTSCORE_START_DELAY	5 //The second count before attempting to pull a new smartscore
 #define SLUMBER_SMARTSCORE_FAIL_DELAY	5 //The second count to retry the smartscore loop if it fails
+
+//BOOST MUTEX DEFINITIONS
+#define SLUMBER_GLOBAL_MUTEX_LOCKING	true //Enable this to make sure all secure locks are used on accounts and similar programs
+
+#if SLUMBER_GLOBAL_MUTEX_LOCKING == true
+
+#include <boost/thread.hpp>
+#include <boost/thread/mutex.hpp>
+
+#endif
+
+extern boost::mutex global_lock; //This is the global interpreter lock to prevent objects accessing deconstructed global objects
+
+//GLOBAL MUTEX DEFINITIONS FOR LOCKING
+#define MUTEX_GLOBAL_OBJ global_lock
+#define MUTEX_GLOBAL_LOCK global_lock.lock()
+#define MUTEX_GLOBAL_TLOCK global_lock.try_lock()
+#define MUTEX_GLOBAL_UNLOCK global_lock.unlock()
+#define MUTEX_GLOBAL_SLOCK boost::mutex::scoped_lock locks(global_lock)
 
 #endif //SLUMBER_CONFIG_H

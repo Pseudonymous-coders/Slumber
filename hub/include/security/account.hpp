@@ -2,14 +2,20 @@
 #include <iostream>
 #include <string>
 
+//BOOST INCLUDES
+#include <boost/lexical_cast.hpp>
+
 //SLUMBER INCLUDES
 #include <sbluetooth/sbluetooth.hpp>
 #include <security/tokens.hpp>
 #include <util/log.hpp>
+#include <util/config.hpp>
 
 
 #ifndef SLUMBER_ACCOUNT_H
 #define SLUMBER_ACCOUNT_H
+
+#define SLUMBER_ACCOUNT_LOGTAG "ACCNTS"
 
 namespace security {
 
@@ -32,16 +38,26 @@ public:
 			int uId = 0) {
 		this->_username = user;
 		this->_password = pass;
+		this->_tokenizer_init = false;
+		this->_band_init = false;
 		this->uniqueId = uId;
 
+		bool locked = MUTEX_GLOBAL_TLOCK; //Lock onto the main thread before continuing
 		AutomaticGeneration::Accounts::account_id += 1;
 		AutomaticGeneration::Accounts::accounts.push_back(this); //Create the account
+		if(locked) {
+			MUTEX_GLOBAL_UNLOCK;
+		}
 	}
 
 	~Account() {
+		bool locked = MUTEX_GLOBAL_TLOCK; //Lock onto the main thread before continuing
 		AutomaticGeneration::Accounts::accounts.erase(
 			AutomaticGeneration::Accounts::accounts.begin() + 
 			AutomaticGeneration::Accounts::account_id); //Destroy the account
+		if(locked) {
+			MUTEX_GLOBAL_UNLOCK;
+		}
 	}
 
 	/*
@@ -77,38 +93,48 @@ public:
 	}
 	
 	void setBand(BluetoothBand *band) {
+		this->_band_init = true;
 		this->_band = band;
 	}
 	
 	void setBandDevice(const std::string mac) {
-		//this->account_lock.lock();
 		this->macAddrSearch = mac;
-		//this->account_lock.unlock();
-		if(this->_band == nullptr) return;
+		if(!this->_band_init) return;
 		try {
 			this->_band->setBandSearch(mac);
-		} catch(const std::exception &err) {}
+		} catch(...) {}
 	}
 
 	std::string getBandDevice() {
-		//this->account_lock.lock();
-		std::string getMac = this->macAddrSearch;
-		//this->account_lock.unlock();
-
-		return getMac;
+		return this->macAddrSearch;
 	}
 	
 	void startTokenizer() {
-		this->_tokenizer = 
-			new Tokenizer(this->getUsername(), this->getPassword());
-		this->_tokenizer->start();
+		try {
+			this->_tokenizer = 
+				new Tokenizer(this->getUsername(), this->getPassword());
+		
+			this->_tokenizer_init = true;
+
+			this->_tokenizer->start();
+		} catch(...) {
+			Logger::Log(SLUMBER_ACCOUNT_LOGTAG, SW("Failed to start tokenizer on account ") + this->getUsername(), true);
+		}
+	}
+
+	bool isServerTokenValid() {
+		if(!this->_tokenizer_init) {
+			return false;
+		}
+		
+		return this->_tokenizer->isValid();
 	}
 	
 	std::string getServerToken() {
-		if(this->_tokenizer == nullptr) {
+		if(!this->_tokenizer_init) {
 			return std::string();
 		}
-		
+
 		return this->_tokenizer->getToken();
 	}
 
@@ -121,12 +147,14 @@ public:
 	}
 	
 	static Account *getAccountByBand(BluetoothBand *band) {
+		bool locked = MUTEX_GLOBAL_TLOCK; //Lock onto main thread before attempting to pull the new account
 		for(Account *account : AutomaticGeneration::Accounts::accounts) {
 			if(band->uniqueId == account->uniqueId) {
+				if(locked) MUTEX_GLOBAL_UNLOCK;
 				return account;
 			}
 		}
-		
+		if(locked) MUTEX_GLOBAL_UNLOCK;
 		return nullptr;
 	}
 	
@@ -141,7 +169,10 @@ public:
 private:
 	std::string _username;
 	std::string _password;
-	
+
+	bool _tokenizer_init;
+	bool _band_init;
+
 	//boost::mutex account_lock;
 
 	BluetoothBand *_band;

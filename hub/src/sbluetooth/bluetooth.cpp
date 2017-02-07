@@ -5,6 +5,7 @@
 #include <cstdlib>
 #include <fstream>
 #include <pstream.h>
+#include <memory>
 
 //BOOST INCLUDES
 #include <boost/lexical_cast.hpp>
@@ -15,6 +16,7 @@
 #include <boost/thread/mutex.hpp>
 #include <boost/thread/recursive_mutex.hpp>
 #include <boost/algorithm/string/predicate.hpp>
+#include <boost/scoped_ptr.hpp>
 
 //SLUMBER INCLUDES
 #include <util/log.hpp> //Slumber logging utilities
@@ -179,14 +181,23 @@ void SBluetooth::_disconnectHandle(int adapter_id) {
 	Logger::Log(SLUMBER_BLE_LOGTAG, SW("The Device disconnected!"));
 	ble_set(adapter_id, STATE_DISCONNECTED); //Set the diconnected flag
 	
+	{	
+		MUTEX_GLOBAL_SLOCK; //Lock onto the automatic band generation unit to start the disconnected function
+		if(AutomaticGeneration::bands.at(adapter_id) != nullptr) {
+			if(adapter_id + 1 > AutomaticGeneration::bands.size()) return;
 	
-	if(adapter_id + 1 > AutomaticGeneration::bands.size()) return;
+			BluetoothBand *band = AutomaticGeneration::bands.at(adapter_id);
 	
-	BluetoothBand *band = AutomaticGeneration::bands.at(adapter_id);
-	
-	if(band != nullptr) {
-		band->_connected = false;
-		band->__disconn_func(band); //Call the disconnected function
+			if(band != nullptr) {
+				band->_connected = false;
+
+				//Check if there is a disconnected function
+				if(band->__disconn_func != nullptr) {
+						//Create a new disconnected thread
+						boost::thread(band->__disconn_func, band); //Call the disconnected function
+				}
+			}
+		}
 	}
 }
 
@@ -194,13 +205,20 @@ void SBluetooth::_connectHandle(int adapter_id) {
 	ble_set(adapter_id, STATE_CONNECTED); //Set the diconnected flag
 	
 	
-	if(adapter_id + 1 > AutomaticGeneration::bands.size()) return;
+	{
+		MUTEX_GLOBAL_SLOCK; //Lock onto the automatic band generation unit to start the connected function
+		if(adapter_id + 1 > AutomaticGeneration::bands.size()) return;
 	
-	BluetoothBand *band = AutomaticGeneration::bands.at(adapter_id);
+		BluetoothBand *band = AutomaticGeneration::bands.at(adapter_id);
 	
-	if(band != nullptr) {
-		band->_connected = true;
-		band->__conn_func(band); //Call the disconnected function
+		if(band != nullptr) {
+			band->_connected = true;
+
+			if(band->__conn_func != nullptr) {
+					//Create a new connected thread
+					boost::thread(band->__conn_func, band); //Call the disconnected function
+			}
+		}
 	}
 }
 
@@ -388,7 +406,7 @@ void SBluetooth::connect(const std::string addr) {
 		return;
 	}
 	
-	_connect_device(addr);
+	this->_connect_device(addr);
 }
 
 bool SBluetooth::_discovered(const std::string addr, const std::string name) {
@@ -426,15 +444,15 @@ void SBluetooth::scan(const bool over_ride_scan) {
 	
 	if(this->_connected) return;
 	
-	_enableScan();
+	this->_enableScan();
 	
 	int timeout = (this->_auto_scanning) ? 0 : SLUMBER_BLE_SCAN_TIMEOUT;
-	_scanner(timeout);
+	this->_scanner(timeout);
 }
 
 void SBluetooth::stopScan(const bool over_ride_scan) {
 	_Logger(SW("Stopping the BLE scanner"));
-	_disableScan();
+	this->_disableScan();
 }
 
 bool SBluetooth::isConnected() {
@@ -511,11 +529,16 @@ void SBluetooth::_Logger(const T &toLog, const bool err) const {
 }
 
 BluetoothBand::BluetoothBand(int adapter, const char *device) : SBluetooth(adapter) { //, device) {
-	//Add itself to the static bluetooth list
-	if(adapter + 1 < AutomaticGeneration::bands.size()) {
-		AutomaticGeneration::bands.insert(AutomaticGeneration::bands.begin() + adapter, this);
-	} else {
-		AutomaticGeneration::bands.push_back(this);
+	
+	{
+		MUTEX_GLOBAL_SLOCK; //Lock onto the global generators for the band
+
+		//Add itself to the static bluetooth list
+		if(adapter + 1 < AutomaticGeneration::bands.size()) {
+			AutomaticGeneration::bands.insert(AutomaticGeneration::bands.begin() + adapter, this);
+		} else {
+			AutomaticGeneration::bands.push_back(this);
+		}
 	}
 	
 	this->acceptedResponse = true;
@@ -524,14 +547,17 @@ BluetoothBand::BluetoothBand(int adapter, const char *device) : SBluetooth(adapt
 	this->uniqueId = 0;
 
 	this->band_lock = new boost::mutex();
+	this->_mutex_init = false;
 
 	{
 		boost::mutex::scoped_lock locks(*this->band_lock);
+		this->_mutex_init = true;
 		this->macAddrSearch = "N/A";
 	}
 }
 
 void BluetoothBand::setBandSearch(const std::string toSearch) {
+	if(!this->_mutex_init) return;
 	boost::mutex::scoped_lock locks(*this->band_lock);
 	this->macAddrSearch = toSearch;
 }
@@ -563,6 +589,7 @@ void BluetoothBand::startLoop() {
 }
 
 void BluetoothBand::__resp_handle(int adapter, const char *message) {
+	MUTEX_GLOBAL_LOCK; //Lock onto the automatic generation of the bands
 	if(AutomaticGeneration::bands.size() > adapter + 1) {
 		Logger::LogError(SLUMBER_BAND_LOGTAG, 
 			SW("Got an invalid adapter number from the BLE response!"));
@@ -571,67 +598,80 @@ void BluetoothBand::__resp_handle(int adapter, const char *message) {
 
 	BluetoothBand *band = AutomaticGeneration::bands.at(adapter);
 	
+	MUTEX_GLOBAL_UNLOCK; //Unlock from the main thread
+
 	std::string lookingFor = (band->acceptedResponse) ? 
 		SLUMBER_BLE_START_TAG : SLUMBER_BLE_END_TAG;
 	std::string currentMessage = SW(message);
-	
+
 	Logger::Log(SLUMBER_BAND_LOGTAG, SW("BAND RAW: ") + currentMessage);
-	
-	if(band->acceptedResponse) {
-		band->compiledResponse = currentMessage;
-		bool starts_w = boost::algorithm::starts_with(currentMessage, lookingFor);
-		bool ends_w = boost::algorithm::ends_with(currentMessage, SLUMBER_BLE_END_TAG);
+
+	bool acceptedResponse = band->acceptedResponse;
+	std::string compiledResponse = band->compiledResponse;
+
+	try {
+		if(band->acceptedResponse) {
+			band->compiledResponse = currentMessage;
+			bool starts_w = boost::algorithm::starts_with(currentMessage, lookingFor);
+			bool ends_w = boost::algorithm::ends_with(currentMessage, SLUMBER_BLE_END_TAG);
 		
-		if(starts_w && ends_w) {
-			band->futureResponse = "";
-			band->__resp_func(band); //Run the callback function
-		} else {
-			band->acceptedResponse = false; //Set the flag to check for chunks
-			
-			if(starts_w) {
-				band->overFlowDirection = true;
-			} else if(ends_w) {
-				band->overFlowDirection = false;
-			} else {
-				Logger::Log(SLUMBER_BAND_LOGTAG, SW("Band corrupted buffer!"));
-				band->acceptedResponse = true;				
-			}
-			
-			if(band->overFlowDirection && !band->acceptedResponse) {
-				std::size_t end_pos = currentMessage.find(SLUMBER_BLE_END_TAG);
-				if(end_pos != std::string::npos) {
-					std::string currentFix = currentMessage.substr(0, end_pos);
-					
-					std::size_t new_pos = currentFix.find(SLUMBER_BLE_START_TAG);
-					if(new_pos != std::string::npos) {
-						band->futureResponse = currentMessage
-							.substr(end_pos + sizeof(SLUMBER_BLE_END_TAG));
-					}
-					band->__resp_func(band);
-				} 
-			} else {
+			if(starts_w && ends_w) {
 				band->futureResponse = "";
+				band->__resp_func(band); //Run the callback function
+			} else {
+				band->acceptedResponse = false; //Set the flag to check for chunks
+			
+				if(starts_w) {
+					band->overFlowDirection = true;
+				} else if(ends_w) {
+					band->overFlowDirection = false;
+				} else {
+					Logger::Log(SLUMBER_BAND_LOGTAG, SW("Band corrupted buffer!"));
+					band->acceptedResponse = true;				
+				}
+			
+				if(band->overFlowDirection && !band->acceptedResponse) {
+					std::size_t end_pos = currentMessage.find(SLUMBER_BLE_END_TAG);
+					if(end_pos != std::string::npos) {
+						std::string currentFix = currentMessage.substr(0, end_pos);
+					
+						std::size_t new_pos = currentFix.find(SLUMBER_BLE_START_TAG);
+						if(new_pos != std::string::npos) {
+							band->futureResponse = currentMessage
+								.substr(end_pos + sizeof(SLUMBER_BLE_END_TAG));
+						}
+
+						MUTEX_GLOBAL_SLOCK; //Lock onto main thread before continuing
+						boost::thread(band->__resp_func, band); //Run the chunked and completed callback function
+					} 
+				} else {
+					band->futureResponse = "";
+				}
+				Logger::Log(SLUMBER_BAND_LOGTAG, SW("Band buffer overflow!"));
 			}
-			Logger::Log(SLUMBER_BAND_LOGTAG, SW("Band buffer overflow!"));
-		}
-	} else {
-		currentMessage = band->futureResponse + currentMessage;
-		if(currentMessage.find(lookingFor) != std::string::npos) {
-			Logger::Log(SLUMBER_BAND_LOGTAG, 
-				SW("Band buffer chunk completed!"));
-			band->compiledResponse += currentMessage;
-			band->acceptedResponse = true; //Set the flag to disable chunk checking
-			band->__resp_func(band); //Run the completed callback function
-		} else if(currentMessage.find(SLUMBER_BLE_START_TAG)
-						!= std::string::npos) {
-			Logger::Log(SLUMBER_BAND_LOGTAG, SW("Band buffer corrupted!"));
-			band->compiledResponse = ""; //Set the buffer to blank
-			band->acceptedResponse = true;
 		} else {
-			Logger::Log(SLUMBER_BAND_LOGTAG, SW("Band buffer addition"));
-			band->compiledResponse += currentMessage; //Add to non complete buffer
-			band->acceptedResponse = false;
+			currentMessage = band->futureResponse + currentMessage;
+			if(currentMessage.find(lookingFor) != std::string::npos) {
+				Logger::Log(SLUMBER_BAND_LOGTAG, 
+					SW("Band buffer chunk completed!"));
+				band->compiledResponse += currentMessage;
+				band->acceptedResponse = true; //Set the flag to disable chunk checking
+				
+				MUTEX_GLOBAL_SLOCK; //Lock onto the main thread before continuing
+				boost::thread(band->__resp_func, band); //Run the completed callback function
+			} else if(currentMessage.find(SLUMBER_BLE_START_TAG)
+					!= std::string::npos) {
+				Logger::Log(SLUMBER_BAND_LOGTAG, SW("Band buffer corrupted!"));
+				band->compiledResponse = ""; //Set the buffer to blank
+				band->acceptedResponse = true;
+			} else {
+				Logger::Log(SLUMBER_BAND_LOGTAG, SW("Band buffer addition"));
+				band->compiledResponse += currentMessage; //Add to non complete buffer
+				band->acceptedResponse = false;
+			}
 		}
+	} catch(...) {
+		Logger::Log(SLUMBER_BAND_LOGTAG, SW("Failed to parse response from bluetooth band!"), true);
 	}
 }
 
@@ -660,6 +700,7 @@ void automaticBands(int amount, b_handler_t response, b_handler_t conn, b_handle
 	
 	adapters_t adapter_list = SBluetooth::getLocalAdapters();
 
+	MUTEX_GLOBAL_LOCK; //Lock onto the main thread before getting a generator
 	std::size_t account_size = security::AutomaticGeneration::Accounts::accounts.size();
 	
 	if(amount > A_MAX || amount > adapter_list.size() || amount > account_size) {
@@ -671,30 +712,41 @@ void automaticBands(int amount, b_handler_t response, b_handler_t conn, b_handle
 			SW(amount));
 	}
 	
+	MUTEX_GLOBAL_UNLOCK; //Unlock from the global main thread
+
 	//Loop through each band id
 	for(int i = 0; i < amount; i++) {
-		//@TODO MAKE SURE YOU CHANGE THE NULL ADAPTER FROM THE AVAILABLE PULLED ADAPTERS
-		BluetoothBand *band = new BluetoothBand(i, NULL);
+		try {
+			//@TODO MAKE SURE YOU CHANGE THE NULL ADAPTER FROM THE AVAILABLE PULLED ADAPTERS
+			BluetoothBand *band = new BluetoothBand(i, NULL);
 			//SW(SW("hci") + 
 			//SW(adapter_list.at(i).first)).c_str()); //Attach new band device to a dynamic object
-		security::Account *account = security::AutomaticGeneration::Accounts::accounts.at(i);
+			MUTEX_GLOBAL_LOCK; //Lock onto the main thread
+			security::Account *account = security::AutomaticGeneration::Accounts::accounts.at(i);
+			MUTEX_GLOBAL_UNLOCK; //Unlock from the main thread
+			
+			int uniqueId = i + 1;
 		
-		int uniqueId = i + 1;
-		
-		account->uniqueId = uniqueId;
-		account->setBand(band);
-		band->uniqueId = uniqueId;
-		band->attachResponse(response);
-		band->attachConnected(conn);
-		band->attachDisconnected(disconn);
-		band->setBandSearch(account->getBandDevice());
-		band->startLoop();
-		Logger::Log(SLUMBER_BAND_LOGTAG, SW("Started Bluetooth Adapter: ") + SW(i));
+			account->uniqueId = uniqueId;
+			account->setBand(band);
+			band->uniqueId = uniqueId;
+			band->attachResponse(response);
+			band->attachConnected(conn);
+			band->attachDisconnected(disconn);
+			band->setBandSearch(account->getBandDevice());
+
+			band->startLoop();
+			Logger::Log(SLUMBER_BAND_LOGTAG, SW("Started Bluetooth Adapter: ") + SW(i));
+		} catch(...) {
+			Logger::Log(SLUMBER_BAND_LOGTAG, SW("Failed to automatically generate an account on a band!"), true);
+		}
 	}
 }
 
 void destructAutomaticBands() {
 	Logger::Log(SLUMBER_BAND_LOGTAG, SW("Cleaning up adapters!"));
+
+	MUTEX_GLOBAL_SLOCK; //Lock onto the global scope of the adapters before disconnecting
 	for(int i = 0; i < AutomaticGeneration::bands.size(); i++) {
 		delete AutomaticGeneration::bands.at(i); //Cleanup Band objects
 	}

@@ -124,6 +124,10 @@ std::string Tokenizer::getToken() {
 	return this->_token;
 }
 
+bool Tokenizer::isValid() {
+	return this->_validToken;
+}
+
 void Tokenizer::_loopTokens() {
 	_Logger(SW("Starting Tokenizer mainloop..."));
 	

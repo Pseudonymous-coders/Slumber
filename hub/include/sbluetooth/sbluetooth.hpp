@@ -97,6 +97,7 @@ public:
 private:
 
 	boost::mutex *band_lock;
+	bool _mutex_init;
 
 	template<typename T>
 	void _Logger(const T &, const bool err=false) const;
