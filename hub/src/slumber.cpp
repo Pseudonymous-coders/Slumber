@@ -88,15 +88,13 @@ int main() {
 	MUTEX_GLOBAL_UNLOCK;
 	//server.startLoop();
 
-	AutomaticGeneration::automaticStreams(MAX_ACCOUNTS,
+	boost::thread(AutomaticGeneration::automaticStreams, MAX_ACCOUNTS,
 			Handler::onServerStreamConnect,
 			Handler::onServerStreamMessage,
 			Handler::onServerStreamDisconnect);
 
-	while(1);
-
 	//Start the user interface (Creates a thread)
-	slumber::runUI();
+	//slumber::runUI();
 
 	//Start the smartscore pull loop
 	//Start when new token should be retrieved (Creates a sub timed thread)
@@ -111,7 +109,7 @@ int main() {
 		_Logger(SW("Ended the smartscore loop delay thread"));
 	});
 
-	MUTEX_GLOBAL_UNLOCK; //Unlock the global initialization
+	//MUTEX_GLOBAL_UNLOCK; //Unlock the global initialization
 
 	//Generators should be safe from the global lock
 	AutomaticGeneration::automaticBands(MAX_ACCOUNTS,

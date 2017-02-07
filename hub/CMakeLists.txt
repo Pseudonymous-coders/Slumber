@@ -23,7 +23,12 @@ endif()
 
 
 if(NOT SLUMBER)
-set(HOSTBASE "x86_64-linux-gnu")
+	if(NOT ONSLUMBER)
+		set(HOSTBASE "x86_64-linux-gnu")
+	else()
+		set(HOSTBASE "arm-linux-gnueabihf")
+	endif()
+
 	set(HOSTFLAG "HOSTMACHINE")
 	set(TARGETBIN slumberhost)
 	set(TYPELOCATION "/usr/local")
@@ -82,6 +87,10 @@ if(${CURRENT_USER} STREQUAL "root")
 	set(HOME_BASE "/root")
 else()
 	set(HOME_BASE "/home/${CURRENT_USER}")
+endif()
+
+if(ONSLUMBER)
+	target_include_directories(${TARGETBIN} PUBLIC "/usr/lib/${HOSTBASE}") 
 endif()
 
 target_compile_definitions(${TARGETBIN} PUBLIC ASSETS_FOLDER="${PROJECT_SOURCE_DIR}/assets/" SLUMBER_DEF_USER="${CURRENT_USER}" SLUMBER_HOME_BASE="${HOME_BASE}")

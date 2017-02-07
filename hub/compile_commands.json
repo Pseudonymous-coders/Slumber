@@ -1,117 +1,627 @@
 [
 {
-  "directory": "/home/smerkous/Slumber/hub/build",
-  "command": "/usr/bin/c++   -DASSETS_FOLDER=\\\"/home/smerkous/Slumber/hub/assets/\\\" -DSLUMBER_DEF_USER=\\\"smerkous\\\" -DSLUMBER_HOME_BASE=\\\"/home/smerkous\\\" -I/home/smerkous/Slumber/hub/include -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/local/include/pstreams -I/usr/local/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/freetype2 -I/usr/include/AL -I/home/smerkous/Slumber/hub/MACE/include   -D HOSTMACHINE -std=c++11 -ggdb -fpermissive -static-libstdc++   -std=c++11 -o CMakeFiles/slumberhost.dir/src/sbluetooth/bluetooth.cpp.o -c /home/smerkous/Slumber/hub/src/sbluetooth/bluetooth.cpp",
-  "file": "/home/smerkous/Slumber/hub/src/sbluetooth/bluetooth.cpp"
+  "directory": "/home/udooer/Slumber/hub/build",
+  "command": "/usr/bin/c++   -DASSETS_FOLDER=\\\"/home/udooer/Slumber/hub/assets/\\\" -DSLUMBER_DEF_USER=\\\"udooer\\\" -DSLUMBER_HOME_BASE=\\\"/home/udooer\\\"  -D HOSTMACHINE -std=c++11 -ggdb -fpermissive -static-libstdc++ -I/usr/lib/arm-linux-gnueabihf -I/home/udooer/Slumber/hub/include -I/usr/include/glib-2.0 -I/usr/lib/arm-linux-gnueabihf/glib-2.0/include -I/usr/local/include/pstreams -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/include -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/include -I/usr/include/AL -I/home/udooer/Slumber/hub/MACE/include    -std=c++11 -o CMakeFiles/slumberhost.dir/src/responsehandler.cpp.o -c /home/udooer/Slumber/hub/src/responsehandler.cpp",
+  "file": "/home/udooer/Slumber/hub/src/responsehandler.cpp"
 },
 {
-  "directory": "/home/smerkous/Slumber/hub/build",
-  "command": "/usr/bin/c++   -DASSETS_FOLDER=\\\"/home/smerkous/Slumber/hub/assets/\\\" -DSLUMBER_DEF_USER=\\\"smerkous\\\" -DSLUMBER_HOME_BASE=\\\"/home/smerkous\\\" -I/home/smerkous/Slumber/hub/include -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/local/include/pstreams -I/usr/local/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/freetype2 -I/usr/include/AL -I/home/smerkous/Slumber/hub/MACE/include   -D HOSTMACHINE -std=c++11 -ggdb -fpermissive -static-libstdc++   -std=c++11 -o CMakeFiles/slumberhost.dir/src/security/requests.cpp.o -c /home/smerkous/Slumber/hub/src/security/requests.cpp",
-  "file": "/home/smerkous/Slumber/hub/src/security/requests.cpp"
+  "directory": "/home/udooer/Slumber/hub/build",
+  "command": "/usr/bin/c++   -DASSETS_FOLDER=\\\"/home/udooer/Slumber/hub/assets/\\\" -DSLUMBER_DEF_USER=\\\"udooer\\\" -DSLUMBER_HOME_BASE=\\\"/home/udooer\\\"  -D HOSTMACHINE -std=c++11 -ggdb -fpermissive -static-libstdc++ -I/usr/lib/arm-linux-gnueabihf -I/home/udooer/Slumber/hub/include -I/usr/include/glib-2.0 -I/usr/lib/arm-linux-gnueabihf/glib-2.0/include -I/usr/local/include/pstreams -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/include -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/include -I/usr/include/AL -I/home/udooer/Slumber/hub/MACE/include    -std=c++11 -o CMakeFiles/slumberhost.dir/src/slumberui.cpp.o -c /home/udooer/Slumber/hub/src/slumberui.cpp",
+  "file": "/home/udooer/Slumber/hub/src/slumberui.cpp"
 },
 {
-  "directory": "/home/smerkous/Slumber/hub/build",
-  "command": "/usr/bin/c++   -DASSETS_FOLDER=\\\"/home/smerkous/Slumber/hub/assets/\\\" -DSLUMBER_DEF_USER=\\\"smerkous\\\" -DSLUMBER_HOME_BASE=\\\"/home/smerkous\\\" -I/home/smerkous/Slumber/hub/include -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/local/include/pstreams -I/usr/local/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/freetype2 -I/usr/include/AL -I/home/smerkous/Slumber/hub/MACE/include   -D HOSTMACHINE -std=c++11 -ggdb -fpermissive -static-libstdc++   -std=c++11 -o CMakeFiles/slumberhost.dir/src/security/tokens.cpp.o -c /home/smerkous/Slumber/hub/src/security/tokens.cpp",
-  "file": "/home/smerkous/Slumber/hub/src/security/tokens.cpp"
+  "directory": "/home/udooer/Slumber/hub/build",
+  "command": "/usr/bin/c++   -DASSETS_FOLDER=\\\"/home/udooer/Slumber/hub/assets/\\\" -DSLUMBER_DEF_USER=\\\"udooer\\\" -DSLUMBER_HOME_BASE=\\\"/home/udooer\\\"  -D HOSTMACHINE -std=c++11 -ggdb -fpermissive -static-libstdc++ -I/usr/lib/arm-linux-gnueabihf -I/home/udooer/Slumber/hub/include -I/usr/include/glib-2.0 -I/usr/lib/arm-linux-gnueabihf/glib-2.0/include -I/usr/local/include/pstreams -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/include -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/include -I/usr/include/AL -I/home/udooer/Slumber/hub/MACE/include    -std=c++11 -o CMakeFiles/slumberhost.dir/src/slumber.cpp.o -c /home/udooer/Slumber/hub/src/slumber.cpp",
+  "file": "/home/udooer/Slumber/hub/src/slumber.cpp"
 },
 {
-  "directory": "/home/smerkous/Slumber/hub/build",
-  "command": "/usr/bin/c++   -DASSETS_FOLDER=\\\"/home/smerkous/Slumber/hub/assets/\\\" -DSLUMBER_DEF_USER=\\\"smerkous\\\" -DSLUMBER_HOME_BASE=\\\"/home/smerkous\\\" -I/home/smerkous/Slumber/hub/include -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/local/include/pstreams -I/usr/local/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/freetype2 -I/usr/include/AL -I/home/smerkous/Slumber/hub/MACE/include   -D HOSTMACHINE -std=c++11 -ggdb -fpermissive -static-libstdc++   -std=c++11 -o CMakeFiles/slumberhost.dir/src/util/log.cpp.o -c /home/smerkous/Slumber/hub/src/util/log.cpp",
-  "file": "/home/smerkous/Slumber/hub/src/util/log.cpp"
+  "directory": "/home/udooer/Slumber/hub/build",
+  "command": "/usr/bin/c++   -DASSETS_FOLDER=\\\"/home/udooer/Slumber/hub/assets/\\\" -DSLUMBER_DEF_USER=\\\"udooer\\\" -DSLUMBER_HOME_BASE=\\\"/home/udooer\\\"  -D HOSTMACHINE -std=c++11 -ggdb -fpermissive -static-libstdc++ -I/usr/lib/arm-linux-gnueabihf -I/home/udooer/Slumber/hub/include -I/usr/include/glib-2.0 -I/usr/lib/arm-linux-gnueabihf/glib-2.0/include -I/usr/local/include/pstreams -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/include -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/include -I/usr/include/AL -I/home/udooer/Slumber/hub/MACE/include    -std=c++11 -o CMakeFiles/slumberhost.dir/src/sbluetooth/bluetooth.cpp.o -c /home/udooer/Slumber/hub/src/sbluetooth/bluetooth.cpp",
+  "file": "/home/udooer/Slumber/hub/src/sbluetooth/bluetooth.cpp"
 },
 {
-  "directory": "/home/smerkous/Slumber/hub/build",
-  "command": "/usr/bin/c++   -DASSETS_FOLDER=\\\"/home/smerkous/Slumber/hub/assets/\\\" -DSLUMBER_DEF_USER=\\\"smerkous\\\" -DSLUMBER_HOME_BASE=\\\"/home/smerkous\\\" -I/home/smerkous/Slumber/hub/include -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/local/include/pstreams -I/usr/local/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/freetype2 -I/usr/include/AL -I/home/smerkous/Slumber/hub/MACE/include   -D HOSTMACHINE -std=c++11 -ggdb -fpermissive -static-libstdc++   -std=c++11 -o CMakeFiles/slumberhost.dir/src/slumberui.cpp.o -c /home/smerkous/Slumber/hub/src/slumberui.cpp",
-  "file": "/home/smerkous/Slumber/hub/src/slumberui.cpp"
+  "directory": "/home/udooer/Slumber/hub/build",
+  "command": "/usr/bin/c++   -DASSETS_FOLDER=\\\"/home/udooer/Slumber/hub/assets/\\\" -DSLUMBER_DEF_USER=\\\"udooer\\\" -DSLUMBER_HOME_BASE=\\\"/home/udooer\\\"  -D HOSTMACHINE -std=c++11 -ggdb -fpermissive -static-libstdc++ -I/usr/lib/arm-linux-gnueabihf -I/home/udooer/Slumber/hub/include -I/usr/include/glib-2.0 -I/usr/lib/arm-linux-gnueabihf/glib-2.0/include -I/usr/local/include/pstreams -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/include -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/include -I/usr/include/AL -I/home/udooer/Slumber/hub/MACE/include    -std=c++11 -o CMakeFiles/slumberhost.dir/src/util/log.cpp.o -c /home/udooer/Slumber/hub/src/util/log.cpp",
+  "file": "/home/udooer/Slumber/hub/src/util/log.cpp"
 },
 {
-  "directory": "/home/smerkous/Slumber/hub/build",
-  "command": "/usr/bin/c++   -DASSETS_FOLDER=\\\"/home/smerkous/Slumber/hub/assets/\\\" -DSLUMBER_DEF_USER=\\\"smerkous\\\" -DSLUMBER_HOME_BASE=\\\"/home/smerkous\\\" -I/home/smerkous/Slumber/hub/include -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/local/include/pstreams -I/usr/local/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/freetype2 -I/usr/include/AL -I/home/smerkous/Slumber/hub/MACE/include   -D HOSTMACHINE -std=c++11 -ggdb -fpermissive -static-libstdc++   -std=c++11 -o CMakeFiles/slumberhost.dir/src/responsehandler.cpp.o -c /home/smerkous/Slumber/hub/src/responsehandler.cpp",
-  "file": "/home/smerkous/Slumber/hub/src/responsehandler.cpp"
+  "directory": "/home/udooer/Slumber/hub/build",
+  "command": "/usr/bin/c++   -DASSETS_FOLDER=\\\"/home/udooer/Slumber/hub/assets/\\\" -DSLUMBER_DEF_USER=\\\"udooer\\\" -DSLUMBER_HOME_BASE=\\\"/home/udooer\\\"  -D HOSTMACHINE -std=c++11 -ggdb -fpermissive -static-libstdc++ -I/usr/lib/arm-linux-gnueabihf -I/home/udooer/Slumber/hub/include -I/usr/include/glib-2.0 -I/usr/lib/arm-linux-gnueabihf/glib-2.0/include -I/usr/local/include/pstreams -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/include -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/include -I/usr/include/AL -I/home/udooer/Slumber/hub/MACE/include    -std=c++11 -o CMakeFiles/slumberhost.dir/src/serverstream.cpp.o -c /home/udooer/Slumber/hub/src/serverstream.cpp",
+  "file": "/home/udooer/Slumber/hub/src/serverstream.cpp"
 },
 {
-  "directory": "/home/smerkous/Slumber/hub/build",
-  "command": "/usr/bin/c++   -DASSETS_FOLDER=\\\"/home/smerkous/Slumber/hub/assets/\\\" -DSLUMBER_DEF_USER=\\\"smerkous\\\" -DSLUMBER_HOME_BASE=\\\"/home/smerkous\\\" -I/home/smerkous/Slumber/hub/include -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/local/include/pstreams -I/usr/local/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/freetype2 -I/usr/include/AL -I/home/smerkous/Slumber/hub/MACE/include   -D HOSTMACHINE -std=c++11 -ggdb -fpermissive -static-libstdc++   -std=c++11 -o CMakeFiles/slumberhost.dir/src/slumber.cpp.o -c /home/smerkous/Slumber/hub/src/slumber.cpp",
-  "file": "/home/smerkous/Slumber/hub/src/slumber.cpp"
+  "directory": "/home/udooer/Slumber/hub/build",
+  "command": "/usr/bin/c++   -DASSETS_FOLDER=\\\"/home/udooer/Slumber/hub/assets/\\\" -DSLUMBER_DEF_USER=\\\"udooer\\\" -DSLUMBER_HOME_BASE=\\\"/home/udooer\\\"  -D HOSTMACHINE -std=c++11 -ggdb -fpermissive -static-libstdc++ -I/usr/lib/arm-linux-gnueabihf -I/home/udooer/Slumber/hub/include -I/usr/include/glib-2.0 -I/usr/lib/arm-linux-gnueabihf/glib-2.0/include -I/usr/local/include/pstreams -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/include -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/include -I/usr/include/AL -I/home/udooer/Slumber/hub/MACE/include    -std=c++11 -o CMakeFiles/slumberhost.dir/src/security/tokens.cpp.o -c /home/udooer/Slumber/hub/src/security/tokens.cpp",
+  "file": "/home/udooer/Slumber/hub/src/security/tokens.cpp"
 },
 {
-  "directory": "/home/smerkous/Slumber/hub/build",
-  "command": "/usr/bin/cc  -DASSETS_FOLDER=\\\"/home/smerkous/Slumber/hub/assets/\\\" -DSLUMBER_DEF_USER=\\\"smerkous\\\" -DSLUMBER_HOME_BASE=\\\"/home/smerkous\\\" -I/home/smerkous/Slumber/hub/include -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/local/include/pstreams -I/usr/local/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/freetype2 -I/usr/include/AL -I/home/smerkous/Slumber/hub/MACE/include   -D HOSTMACHINE -static-libgcc   -std=c++11 -o CMakeFiles/slumberhost.dir/csrc/sbluetooth.c.o   -c /home/smerkous/Slumber/hub/csrc/sbluetooth.c",
-  "file": "/home/smerkous/Slumber/hub/csrc/sbluetooth.c"
+  "directory": "/home/udooer/Slumber/hub/build",
+  "command": "/usr/bin/c++   -DASSETS_FOLDER=\\\"/home/udooer/Slumber/hub/assets/\\\" -DSLUMBER_DEF_USER=\\\"udooer\\\" -DSLUMBER_HOME_BASE=\\\"/home/udooer\\\"  -D HOSTMACHINE -std=c++11 -ggdb -fpermissive -static-libstdc++ -I/usr/lib/arm-linux-gnueabihf -I/home/udooer/Slumber/hub/include -I/usr/include/glib-2.0 -I/usr/lib/arm-linux-gnueabihf/glib-2.0/include -I/usr/local/include/pstreams -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/include -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/include -I/usr/include/AL -I/home/udooer/Slumber/hub/MACE/include    -std=c++11 -o CMakeFiles/slumberhost.dir/src/security/requests.cpp.o -c /home/udooer/Slumber/hub/src/security/requests.cpp",
+  "file": "/home/udooer/Slumber/hub/src/security/requests.cpp"
 },
 {
-  "directory": "/home/smerkous/Slumber/hub/build/MACE",
-  "command": "/usr/bin/c++    -I/usr/local/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/freetype2 -I/usr/include/AL -I/home/smerkous/Slumber/hub/MACE/include   -D HOSTMACHINE -std=c++11 -ggdb -fpermissive -static-libstdc++   -std=c++11 -o CMakeFiles/MACE.dir/src/Graphics/Renderer.cpp.o -c /home/smerkous/Slumber/hub/MACE/src/Graphics/Renderer.cpp",
-  "file": "/home/smerkous/Slumber/hub/MACE/src/Graphics/Renderer.cpp"
+  "directory": "/home/udooer/Slumber/hub/build",
+  "command": "/usr/bin/cc  -DASSETS_FOLDER=\\\"/home/udooer/Slumber/hub/assets/\\\" -DSLUMBER_DEF_USER=\\\"udooer\\\" -DSLUMBER_HOME_BASE=\\\"/home/udooer\\\"  -D HOSTMACHINE -static-libgcc -I/usr/lib/arm-linux-gnueabihf -I/home/udooer/Slumber/hub/include -I/usr/include/glib-2.0 -I/usr/lib/arm-linux-gnueabihf/glib-2.0/include -I/usr/local/include/pstreams -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/include -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/include -I/usr/include/AL -I/home/udooer/Slumber/hub/MACE/include    -std=c++11 -o CMakeFiles/slumberhost.dir/csrc/sbluetooth.c.o   -c /home/udooer/Slumber/hub/csrc/sbluetooth.c",
+  "file": "/home/udooer/Slumber/hub/csrc/sbluetooth.c"
 },
 {
-  "directory": "/home/smerkous/Slumber/hub/build/MACE",
-  "command": "/usr/bin/c++    -I/usr/local/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/freetype2 -I/usr/include/AL -I/home/smerkous/Slumber/hub/MACE/include   -D HOSTMACHINE -std=c++11 -ggdb -fpermissive -static-libstdc++   -std=c++11 -o CMakeFiles/MACE.dir/src/Graphics/Window.cpp.o -c /home/smerkous/Slumber/hub/MACE/src/Graphics/Window.cpp",
-  "file": "/home/smerkous/Slumber/hub/MACE/src/Graphics/Window.cpp"
+  "directory": "/home/udooer/Slumber/hub/build/MACE",
+  "command": "/usr/bin/c++     -D HOSTMACHINE -std=c++11 -ggdb -fpermissive -static-libstdc++ -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/include -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/include -I/usr/include/AL -I/home/udooer/Slumber/hub/MACE/include    -std=c++11 -o CMakeFiles/MACE.dir/src/Core/System.cpp.o -c /home/udooer/Slumber/hub/MACE/src/Core/System.cpp",
+  "file": "/home/udooer/Slumber/hub/MACE/src/Core/System.cpp"
 },
 {
-  "directory": "/home/smerkous/Slumber/hub/build/MACE",
-  "command": "/usr/bin/c++    -I/usr/local/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/freetype2 -I/usr/include/AL -I/home/smerkous/Slumber/hub/MACE/include   -D HOSTMACHINE -std=c++11 -ggdb -fpermissive -static-libstdc++   -std=c++11 -o CMakeFiles/MACE.dir/src/Graphics/Entity2D.cpp.o -c /home/smerkous/Slumber/hub/MACE/src/Graphics/Entity2D.cpp",
-  "file": "/home/smerkous/Slumber/hub/MACE/src/Graphics/Entity2D.cpp"
+  "directory": "/home/udooer/Slumber/hub/build/MACE",
+  "command": "/usr/bin/c++     -D HOSTMACHINE -std=c++11 -ggdb -fpermissive -static-libstdc++ -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/include -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/include -I/usr/include/AL -I/home/udooer/Slumber/hub/MACE/include    -std=c++11 -o CMakeFiles/MACE.dir/src/Core/Module.cpp.o -c /home/udooer/Slumber/hub/MACE/src/Core/Module.cpp",
+  "file": "/home/udooer/Slumber/hub/MACE/src/Core/Module.cpp"
 },
 {
-  "directory": "/home/smerkous/Slumber/hub/build/MACE",
-  "command": "/usr/bin/c++    -I/usr/local/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/freetype2 -I/usr/include/AL -I/home/smerkous/Slumber/hub/MACE/include   -D HOSTMACHINE -std=c++11 -ggdb -fpermissive -static-libstdc++   -std=c++11 -o CMakeFiles/MACE.dir/src/Graphics/OGL.cpp.o -c /home/smerkous/Slumber/hub/MACE/src/Graphics/OGL.cpp",
-  "file": "/home/smerkous/Slumber/hub/MACE/src/Graphics/OGL.cpp"
+  "directory": "/home/udooer/Slumber/hub/build/MACE",
+  "command": "/usr/bin/c++     -D HOSTMACHINE -std=c++11 -ggdb -fpermissive -static-libstdc++ -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/include -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/include -I/usr/include/AL -I/home/udooer/Slumber/hub/MACE/include    -std=c++11 -o CMakeFiles/MACE.dir/src/Core/Constants.cpp.o -c /home/udooer/Slumber/hub/MACE/src/Core/Constants.cpp",
+  "file": "/home/udooer/Slumber/hub/MACE/src/Core/Constants.cpp"
 },
 {
-  "directory": "/home/smerkous/Slumber/hub/build/MACE",
-  "command": "/usr/bin/c++    -I/usr/local/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/freetype2 -I/usr/include/AL -I/home/smerkous/Slumber/hub/MACE/include   -D HOSTMACHINE -std=c++11 -ggdb -fpermissive -static-libstdc++   -std=c++11 -o CMakeFiles/MACE.dir/src/Graphics/Components.cpp.o -c /home/smerkous/Slumber/hub/MACE/src/Graphics/Components.cpp",
-  "file": "/home/smerkous/Slumber/hub/MACE/src/Graphics/Components.cpp"
+  "directory": "/home/udooer/Slumber/hub/build/MACE",
+  "command": "/usr/bin/c++     -D HOSTMACHINE -std=c++11 -ggdb -fpermissive -static-libstdc++ -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/include -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/include -I/usr/include/AL -I/home/udooer/Slumber/hub/MACE/include    -std=c++11 -o CMakeFiles/MACE.dir/src/Utility/Color.cpp.o -c /home/udooer/Slumber/hub/MACE/src/Utility/Color.cpp",
+  "file": "/home/udooer/Slumber/hub/MACE/src/Utility/Color.cpp"
 },
 {
-  "directory": "/home/smerkous/Slumber/hub/build/MACE",
-  "command": "/usr/bin/c++    -I/usr/local/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/freetype2 -I/usr/include/AL -I/home/smerkous/Slumber/hub/MACE/include   -D HOSTMACHINE -std=c++11 -ggdb -fpermissive -static-libstdc++   -std=c++11 -o CMakeFiles/MACE.dir/src/Graphics/Entity.cpp.o -c /home/smerkous/Slumber/hub/MACE/src/Graphics/Entity.cpp",
-  "file": "/home/smerkous/Slumber/hub/MACE/src/Graphics/Entity.cpp"
+  "directory": "/home/udooer/Slumber/hub/build/MACE",
+  "command": "/usr/bin/c++     -D HOSTMACHINE -std=c++11 -ggdb -fpermissive -static-libstdc++ -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/include -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/include -I/usr/include/AL -I/home/udooer/Slumber/hub/MACE/include    -std=c++11 -o CMakeFiles/MACE.dir/src/Utility/Math.cpp.o -c /home/udooer/Slumber/hub/MACE/src/Utility/Math.cpp",
+  "file": "/home/udooer/Slumber/hub/MACE/src/Utility/Math.cpp"
 },
 {
-  "directory": "/home/smerkous/Slumber/hub/build/MACE",
-  "command": "/usr/bin/c++    -I/usr/local/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/freetype2 -I/usr/include/AL -I/home/smerkous/Slumber/hub/MACE/include   -D HOSTMACHINE -std=c++11 -ggdb -fpermissive -static-libstdc++   -std=c++11 -o CMakeFiles/MACE.dir/src/Utility/Math.cpp.o -c /home/smerkous/Slumber/hub/MACE/src/Utility/Math.cpp",
-  "file": "/home/smerkous/Slumber/hub/MACE/src/Utility/Math.cpp"
+  "directory": "/home/udooer/Slumber/hub/build/MACE",
+  "command": "/usr/bin/c++     -D HOSTMACHINE -std=c++11 -ggdb -fpermissive -static-libstdc++ -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/include -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/include -I/usr/include/AL -I/home/udooer/Slumber/hub/MACE/include    -std=c++11 -o CMakeFiles/MACE.dir/src/Utility/Transform.cpp.o -c /home/udooer/Slumber/hub/MACE/src/Utility/Transform.cpp",
+  "file": "/home/udooer/Slumber/hub/MACE/src/Utility/Transform.cpp"
 },
 {
-  "directory": "/home/smerkous/Slumber/hub/build/MACE",
-  "command": "/usr/bin/c++    -I/usr/local/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/freetype2 -I/usr/include/AL -I/home/smerkous/Slumber/hub/MACE/include   -D HOSTMACHINE -std=c++11 -ggdb -fpermissive -static-libstdc++   -std=c++11 -o CMakeFiles/MACE.dir/src/Utility/Transform.cpp.o -c /home/smerkous/Slumber/hub/MACE/src/Utility/Transform.cpp",
-  "file": "/home/smerkous/Slumber/hub/MACE/src/Utility/Transform.cpp"
+  "directory": "/home/udooer/Slumber/hub/build/MACE",
+  "command": "/usr/bin/c++     -D HOSTMACHINE -std=c++11 -ggdb -fpermissive -static-libstdc++ -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/include -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/include -I/usr/include/AL -I/home/udooer/Slumber/hub/MACE/include    -std=c++11 -o CMakeFiles/MACE.dir/src/Utility/BitField.cpp.o -c /home/udooer/Slumber/hub/MACE/src/Utility/BitField.cpp",
+  "file": "/home/udooer/Slumber/hub/MACE/src/Utility/BitField.cpp"
 },
 {
-  "directory": "/home/smerkous/Slumber/hub/build/MACE",
-  "command": "/usr/bin/c++    -I/usr/local/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/freetype2 -I/usr/include/AL -I/home/smerkous/Slumber/hub/MACE/include   -D HOSTMACHINE -std=c++11 -ggdb -fpermissive -static-libstdc++   -std=c++11 -o CMakeFiles/MACE.dir/src/Utility/Preprocessor.cpp.o -c /home/smerkous/Slumber/hub/MACE/src/Utility/Preprocessor.cpp",
-  "file": "/home/smerkous/Slumber/hub/MACE/src/Utility/Preprocessor.cpp"
+  "directory": "/home/udooer/Slumber/hub/build/MACE",
+  "command": "/usr/bin/c++     -D HOSTMACHINE -std=c++11 -ggdb -fpermissive -static-libstdc++ -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/include -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/include -I/usr/include/AL -I/home/udooer/Slumber/hub/MACE/include    -std=c++11 -o CMakeFiles/MACE.dir/src/Utility/Preprocessor.cpp.o -c /home/udooer/Slumber/hub/MACE/src/Utility/Preprocessor.cpp",
+  "file": "/home/udooer/Slumber/hub/MACE/src/Utility/Preprocessor.cpp"
 },
 {
-  "directory": "/home/smerkous/Slumber/hub/build/MACE",
-  "command": "/usr/bin/c++    -I/usr/local/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/freetype2 -I/usr/include/AL -I/home/smerkous/Slumber/hub/MACE/include   -D HOSTMACHINE -std=c++11 -ggdb -fpermissive -static-libstdc++   -std=c++11 -o CMakeFiles/MACE.dir/src/Utility/BitField.cpp.o -c /home/smerkous/Slumber/hub/MACE/src/Utility/BitField.cpp",
-  "file": "/home/smerkous/Slumber/hub/MACE/src/Utility/BitField.cpp"
+  "directory": "/home/udooer/Slumber/hub/build/MACE",
+  "command": "/usr/bin/c++     -D HOSTMACHINE -std=c++11 -ggdb -fpermissive -static-libstdc++ -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/include -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/include -I/usr/include/AL -I/home/udooer/Slumber/hub/MACE/include    -std=c++11 -o CMakeFiles/MACE.dir/src/Utility/Audio.cpp.o -c /home/udooer/Slumber/hub/MACE/src/Utility/Audio.cpp",
+  "file": "/home/udooer/Slumber/hub/MACE/src/Utility/Audio.cpp"
 },
 {
-  "directory": "/home/smerkous/Slumber/hub/build/MACE",
-  "command": "/usr/bin/c++    -I/usr/local/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/freetype2 -I/usr/include/AL -I/home/smerkous/Slumber/hub/MACE/include   -D HOSTMACHINE -std=c++11 -ggdb -fpermissive -static-libstdc++   -std=c++11 -o CMakeFiles/MACE.dir/src/Utility/Audio.cpp.o -c /home/smerkous/Slumber/hub/MACE/src/Utility/Audio.cpp",
-  "file": "/home/smerkous/Slumber/hub/MACE/src/Utility/Audio.cpp"
+  "directory": "/home/udooer/Slumber/hub/build/MACE",
+  "command": "/usr/bin/c++     -D HOSTMACHINE -std=c++11 -ggdb -fpermissive -static-libstdc++ -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/include -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/include -I/usr/include/AL -I/home/udooer/Slumber/hub/MACE/include    -std=c++11 -o CMakeFiles/MACE.dir/src/Graphics/Entity.cpp.o -c /home/udooer/Slumber/hub/MACE/src/Graphics/Entity.cpp",
+  "file": "/home/udooer/Slumber/hub/MACE/src/Graphics/Entity.cpp"
 },
 {
-  "directory": "/home/smerkous/Slumber/hub/build/MACE",
-  "command": "/usr/bin/c++    -I/usr/local/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/freetype2 -I/usr/include/AL -I/home/smerkous/Slumber/hub/MACE/include   -D HOSTMACHINE -std=c++11 -ggdb -fpermissive -static-libstdc++   -std=c++11 -o CMakeFiles/MACE.dir/src/Utility/Color.cpp.o -c /home/smerkous/Slumber/hub/MACE/src/Utility/Color.cpp",
-  "file": "/home/smerkous/Slumber/hub/MACE/src/Utility/Color.cpp"
+  "directory": "/home/udooer/Slumber/hub/build/MACE",
+  "command": "/usr/bin/c++     -D HOSTMACHINE -std=c++11 -ggdb -fpermissive -static-libstdc++ -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/include -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/include -I/usr/include/AL -I/home/udooer/Slumber/hub/MACE/include    -std=c++11 -o CMakeFiles/MACE.dir/src/Graphics/Window.cpp.o -c /home/udooer/Slumber/hub/MACE/src/Graphics/Window.cpp",
+  "file": "/home/udooer/Slumber/hub/MACE/src/Graphics/Window.cpp"
 },
 {
-  "directory": "/home/smerkous/Slumber/hub/build/MACE",
-  "command": "/usr/bin/c++    -I/usr/local/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/freetype2 -I/usr/include/AL -I/home/smerkous/Slumber/hub/MACE/include   -D HOSTMACHINE -std=c++11 -ggdb -fpermissive -static-libstdc++   -std=c++11 -o CMakeFiles/MACE.dir/src/Core/Module.cpp.o -c /home/smerkous/Slumber/hub/MACE/src/Core/Module.cpp",
-  "file": "/home/smerkous/Slumber/hub/MACE/src/Core/Module.cpp"
+  "directory": "/home/udooer/Slumber/hub/build/MACE",
+  "command": "/usr/bin/c++     -D HOSTMACHINE -std=c++11 -ggdb -fpermissive -static-libstdc++ -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/include -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/include -I/usr/include/AL -I/home/udooer/Slumber/hub/MACE/include    -std=c++11 -o CMakeFiles/MACE.dir/src/Graphics/Entity2D.cpp.o -c /home/udooer/Slumber/hub/MACE/src/Graphics/Entity2D.cpp",
+  "file": "/home/udooer/Slumber/hub/MACE/src/Graphics/Entity2D.cpp"
 },
 {
-  "directory": "/home/smerkous/Slumber/hub/build/MACE",
-  "command": "/usr/bin/c++    -I/usr/local/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/freetype2 -I/usr/include/AL -I/home/smerkous/Slumber/hub/MACE/include   -D HOSTMACHINE -std=c++11 -ggdb -fpermissive -static-libstdc++   -std=c++11 -o CMakeFiles/MACE.dir/src/Core/Constants.cpp.o -c /home/smerkous/Slumber/hub/MACE/src/Core/Constants.cpp",
-  "file": "/home/smerkous/Slumber/hub/MACE/src/Core/Constants.cpp"
+  "directory": "/home/udooer/Slumber/hub/build/MACE",
+  "command": "/usr/bin/c++     -D HOSTMACHINE -std=c++11 -ggdb -fpermissive -static-libstdc++ -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/include -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/include -I/usr/include/AL -I/home/udooer/Slumber/hub/MACE/include    -std=c++11 -o CMakeFiles/MACE.dir/src/Graphics/Components.cpp.o -c /home/udooer/Slumber/hub/MACE/src/Graphics/Components.cpp",
+  "file": "/home/udooer/Slumber/hub/MACE/src/Graphics/Components.cpp"
 },
 {
-  "directory": "/home/smerkous/Slumber/hub/build/MACE",
-  "command": "/usr/bin/c++    -I/usr/local/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/freetype2 -I/usr/include/AL -I/home/smerkous/Slumber/hub/MACE/include   -D HOSTMACHINE -std=c++11 -ggdb -fpermissive -static-libstdc++   -std=c++11 -o CMakeFiles/MACE.dir/src/Core/System.cpp.o -c /home/smerkous/Slumber/hub/MACE/src/Core/System.cpp",
-  "file": "/home/smerkous/Slumber/hub/MACE/src/Core/System.cpp"
+  "directory": "/home/udooer/Slumber/hub/build/MACE",
+  "command": "/usr/bin/c++     -D HOSTMACHINE -std=c++11 -ggdb -fpermissive -static-libstdc++ -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/include -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/include -I/usr/include/AL -I/home/udooer/Slumber/hub/MACE/include    -std=c++11 -o CMakeFiles/MACE.dir/src/Graphics/Renderer.cpp.o -c /home/udooer/Slumber/hub/MACE/src/Graphics/Renderer.cpp",
+  "file": "/home/udooer/Slumber/hub/MACE/src/Graphics/Renderer.cpp"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE",
+  "command": "/usr/bin/c++     -D HOSTMACHINE -std=c++11 -ggdb -fpermissive -static-libstdc++ -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/include -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/include -I/usr/include/AL -I/home/udooer/Slumber/hub/MACE/include    -std=c++11 -o CMakeFiles/MACE.dir/src/Graphics/OGL.cpp.o -c /home/udooer/Slumber/hub/MACE/src/Graphics/OGL.cpp",
+  "file": "/home/udooer/Slumber/hub/MACE/src/Graphics/OGL.cpp"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/glfw-3.0.4/src",
+  "command": "/usr/bin/cc  -D_GLFW_USE_CONFIG_H  -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/src -I/home/udooer/Slumber/hub/build/MACE/glfw-3.0.4/src    -Wall -o CMakeFiles/glfw.dir/clipboard.c.o   -c /home/udooer/Slumber/hub/MACE/glfw-3.0.4/src/clipboard.c",
+  "file": "/home/udooer/Slumber/hub/MACE/glfw-3.0.4/src/clipboard.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/glfw-3.0.4/src",
+  "command": "/usr/bin/cc  -D_GLFW_USE_CONFIG_H  -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/src -I/home/udooer/Slumber/hub/build/MACE/glfw-3.0.4/src    -Wall -o CMakeFiles/glfw.dir/context.c.o   -c /home/udooer/Slumber/hub/MACE/glfw-3.0.4/src/context.c",
+  "file": "/home/udooer/Slumber/hub/MACE/glfw-3.0.4/src/context.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/glfw-3.0.4/src",
+  "command": "/usr/bin/cc  -D_GLFW_USE_CONFIG_H  -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/src -I/home/udooer/Slumber/hub/build/MACE/glfw-3.0.4/src    -Wall -o CMakeFiles/glfw.dir/gamma.c.o   -c /home/udooer/Slumber/hub/MACE/glfw-3.0.4/src/gamma.c",
+  "file": "/home/udooer/Slumber/hub/MACE/glfw-3.0.4/src/gamma.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/glfw-3.0.4/src",
+  "command": "/usr/bin/cc  -D_GLFW_USE_CONFIG_H  -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/src -I/home/udooer/Slumber/hub/build/MACE/glfw-3.0.4/src    -Wall -o CMakeFiles/glfw.dir/init.c.o   -c /home/udooer/Slumber/hub/MACE/glfw-3.0.4/src/init.c",
+  "file": "/home/udooer/Slumber/hub/MACE/glfw-3.0.4/src/init.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/glfw-3.0.4/src",
+  "command": "/usr/bin/cc  -D_GLFW_USE_CONFIG_H  -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/src -I/home/udooer/Slumber/hub/build/MACE/glfw-3.0.4/src    -Wall -o CMakeFiles/glfw.dir/input.c.o   -c /home/udooer/Slumber/hub/MACE/glfw-3.0.4/src/input.c",
+  "file": "/home/udooer/Slumber/hub/MACE/glfw-3.0.4/src/input.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/glfw-3.0.4/src",
+  "command": "/usr/bin/cc  -D_GLFW_USE_CONFIG_H  -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/src -I/home/udooer/Slumber/hub/build/MACE/glfw-3.0.4/src    -Wall -o CMakeFiles/glfw.dir/joystick.c.o   -c /home/udooer/Slumber/hub/MACE/glfw-3.0.4/src/joystick.c",
+  "file": "/home/udooer/Slumber/hub/MACE/glfw-3.0.4/src/joystick.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/glfw-3.0.4/src",
+  "command": "/usr/bin/cc  -D_GLFW_USE_CONFIG_H  -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/src -I/home/udooer/Slumber/hub/build/MACE/glfw-3.0.4/src    -Wall -o CMakeFiles/glfw.dir/monitor.c.o   -c /home/udooer/Slumber/hub/MACE/glfw-3.0.4/src/monitor.c",
+  "file": "/home/udooer/Slumber/hub/MACE/glfw-3.0.4/src/monitor.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/glfw-3.0.4/src",
+  "command": "/usr/bin/cc  -D_GLFW_USE_CONFIG_H  -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/src -I/home/udooer/Slumber/hub/build/MACE/glfw-3.0.4/src    -Wall -o CMakeFiles/glfw.dir/time.c.o   -c /home/udooer/Slumber/hub/MACE/glfw-3.0.4/src/time.c",
+  "file": "/home/udooer/Slumber/hub/MACE/glfw-3.0.4/src/time.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/glfw-3.0.4/src",
+  "command": "/usr/bin/cc  -D_GLFW_USE_CONFIG_H  -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/src -I/home/udooer/Slumber/hub/build/MACE/glfw-3.0.4/src    -Wall -o CMakeFiles/glfw.dir/window.c.o   -c /home/udooer/Slumber/hub/MACE/glfw-3.0.4/src/window.c",
+  "file": "/home/udooer/Slumber/hub/MACE/glfw-3.0.4/src/window.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/glfw-3.0.4/src",
+  "command": "/usr/bin/cc  -D_GLFW_USE_CONFIG_H  -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/src -I/home/udooer/Slumber/hub/build/MACE/glfw-3.0.4/src    -Wall -o CMakeFiles/glfw.dir/x11_clipboard.c.o   -c /home/udooer/Slumber/hub/MACE/glfw-3.0.4/src/x11_clipboard.c",
+  "file": "/home/udooer/Slumber/hub/MACE/glfw-3.0.4/src/x11_clipboard.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/glfw-3.0.4/src",
+  "command": "/usr/bin/cc  -D_GLFW_USE_CONFIG_H  -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/src -I/home/udooer/Slumber/hub/build/MACE/glfw-3.0.4/src    -Wall -o CMakeFiles/glfw.dir/x11_gamma.c.o   -c /home/udooer/Slumber/hub/MACE/glfw-3.0.4/src/x11_gamma.c",
+  "file": "/home/udooer/Slumber/hub/MACE/glfw-3.0.4/src/x11_gamma.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/glfw-3.0.4/src",
+  "command": "/usr/bin/cc  -D_GLFW_USE_CONFIG_H  -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/src -I/home/udooer/Slumber/hub/build/MACE/glfw-3.0.4/src    -Wall -o CMakeFiles/glfw.dir/x11_init.c.o   -c /home/udooer/Slumber/hub/MACE/glfw-3.0.4/src/x11_init.c",
+  "file": "/home/udooer/Slumber/hub/MACE/glfw-3.0.4/src/x11_init.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/glfw-3.0.4/src",
+  "command": "/usr/bin/cc  -D_GLFW_USE_CONFIG_H  -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/src -I/home/udooer/Slumber/hub/build/MACE/glfw-3.0.4/src    -Wall -o CMakeFiles/glfw.dir/x11_joystick.c.o   -c /home/udooer/Slumber/hub/MACE/glfw-3.0.4/src/x11_joystick.c",
+  "file": "/home/udooer/Slumber/hub/MACE/glfw-3.0.4/src/x11_joystick.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/glfw-3.0.4/src",
+  "command": "/usr/bin/cc  -D_GLFW_USE_CONFIG_H  -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/src -I/home/udooer/Slumber/hub/build/MACE/glfw-3.0.4/src    -Wall -o CMakeFiles/glfw.dir/x11_monitor.c.o   -c /home/udooer/Slumber/hub/MACE/glfw-3.0.4/src/x11_monitor.c",
+  "file": "/home/udooer/Slumber/hub/MACE/glfw-3.0.4/src/x11_monitor.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/glfw-3.0.4/src",
+  "command": "/usr/bin/cc  -D_GLFW_USE_CONFIG_H  -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/src -I/home/udooer/Slumber/hub/build/MACE/glfw-3.0.4/src    -Wall -o CMakeFiles/glfw.dir/x11_time.c.o   -c /home/udooer/Slumber/hub/MACE/glfw-3.0.4/src/x11_time.c",
+  "file": "/home/udooer/Slumber/hub/MACE/glfw-3.0.4/src/x11_time.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/glfw-3.0.4/src",
+  "command": "/usr/bin/cc  -D_GLFW_USE_CONFIG_H  -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/src -I/home/udooer/Slumber/hub/build/MACE/glfw-3.0.4/src    -Wall -o CMakeFiles/glfw.dir/x11_window.c.o   -c /home/udooer/Slumber/hub/MACE/glfw-3.0.4/src/x11_window.c",
+  "file": "/home/udooer/Slumber/hub/MACE/glfw-3.0.4/src/x11_window.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/glfw-3.0.4/src",
+  "command": "/usr/bin/cc  -D_GLFW_USE_CONFIG_H  -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/src -I/home/udooer/Slumber/hub/build/MACE/glfw-3.0.4/src    -Wall -o CMakeFiles/glfw.dir/x11_unicode.c.o   -c /home/udooer/Slumber/hub/MACE/glfw-3.0.4/src/x11_unicode.c",
+  "file": "/home/udooer/Slumber/hub/MACE/glfw-3.0.4/src/x11_unicode.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/glfw-3.0.4/src",
+  "command": "/usr/bin/cc  -D_GLFW_USE_CONFIG_H  -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/src -I/home/udooer/Slumber/hub/build/MACE/glfw-3.0.4/src    -Wall -o CMakeFiles/glfw.dir/glx_context.c.o   -c /home/udooer/Slumber/hub/MACE/glfw-3.0.4/src/glx_context.c",
+  "file": "/home/udooer/Slumber/hub/MACE/glfw-3.0.4/src/glx_context.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/glfw-3.0.4/examples",
+  "command": "/usr/bin/cc    -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/include -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/deps    -Wall -o CMakeFiles/boing.dir/boing.c.o   -c /home/udooer/Slumber/hub/MACE/glfw-3.0.4/examples/boing.c",
+  "file": "/home/udooer/Slumber/hub/MACE/glfw-3.0.4/examples/boing.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/glfw-3.0.4/examples",
+  "command": "/usr/bin/cc    -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/include -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/deps    -Wall -o CMakeFiles/gears.dir/gears.c.o   -c /home/udooer/Slumber/hub/MACE/glfw-3.0.4/examples/gears.c",
+  "file": "/home/udooer/Slumber/hub/MACE/glfw-3.0.4/examples/gears.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/glfw-3.0.4/examples",
+  "command": "/usr/bin/cc    -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/include -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/deps    -Wall -o CMakeFiles/heightmap.dir/heightmap.c.o   -c /home/udooer/Slumber/hub/MACE/glfw-3.0.4/examples/heightmap.c",
+  "file": "/home/udooer/Slumber/hub/MACE/glfw-3.0.4/examples/heightmap.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/glfw-3.0.4/examples",
+  "command": "/usr/bin/cc    -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/include -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/deps    -Wall -o CMakeFiles/heightmap.dir/__/deps/getopt.c.o   -c /home/udooer/Slumber/hub/MACE/glfw-3.0.4/deps/getopt.c",
+  "file": "/home/udooer/Slumber/hub/MACE/glfw-3.0.4/deps/getopt.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/glfw-3.0.4/examples",
+  "command": "/usr/bin/cc    -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/include -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/deps    -Wall -o CMakeFiles/simple.dir/simple.c.o   -c /home/udooer/Slumber/hub/MACE/glfw-3.0.4/examples/simple.c",
+  "file": "/home/udooer/Slumber/hub/MACE/glfw-3.0.4/examples/simple.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/glfw-3.0.4/examples",
+  "command": "/usr/bin/cc    -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/include -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/deps    -Wall -o CMakeFiles/splitview.dir/splitview.c.o   -c /home/udooer/Slumber/hub/MACE/glfw-3.0.4/examples/splitview.c",
+  "file": "/home/udooer/Slumber/hub/MACE/glfw-3.0.4/examples/splitview.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/glfw-3.0.4/examples",
+  "command": "/usr/bin/cc    -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/include -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/deps    -Wall -o CMakeFiles/wave.dir/wave.c.o   -c /home/udooer/Slumber/hub/MACE/glfw-3.0.4/examples/wave.c",
+  "file": "/home/udooer/Slumber/hub/MACE/glfw-3.0.4/examples/wave.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/glfw-3.0.4/tests",
+  "command": "/usr/bin/cc    -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/include -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/deps    -Wall -o CMakeFiles/accuracy.dir/accuracy.c.o   -c /home/udooer/Slumber/hub/MACE/glfw-3.0.4/tests/accuracy.c",
+  "file": "/home/udooer/Slumber/hub/MACE/glfw-3.0.4/tests/accuracy.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/glfw-3.0.4/tests",
+  "command": "/usr/bin/cc    -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/include -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/deps    -Wall -o CMakeFiles/clipboard.dir/clipboard.c.o   -c /home/udooer/Slumber/hub/MACE/glfw-3.0.4/tests/clipboard.c",
+  "file": "/home/udooer/Slumber/hub/MACE/glfw-3.0.4/tests/clipboard.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/glfw-3.0.4/tests",
+  "command": "/usr/bin/cc    -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/include -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/deps    -Wall -o CMakeFiles/clipboard.dir/__/deps/getopt.c.o   -c /home/udooer/Slumber/hub/MACE/glfw-3.0.4/deps/getopt.c",
+  "file": "/home/udooer/Slumber/hub/MACE/glfw-3.0.4/deps/getopt.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/glfw-3.0.4/tests",
+  "command": "/usr/bin/cc    -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/include -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/deps    -Wall -o CMakeFiles/defaults.dir/defaults.c.o   -c /home/udooer/Slumber/hub/MACE/glfw-3.0.4/tests/defaults.c",
+  "file": "/home/udooer/Slumber/hub/MACE/glfw-3.0.4/tests/defaults.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/glfw-3.0.4/tests",
+  "command": "/usr/bin/cc    -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/include -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/deps    -Wall -o CMakeFiles/events.dir/events.c.o   -c /home/udooer/Slumber/hub/MACE/glfw-3.0.4/tests/events.c",
+  "file": "/home/udooer/Slumber/hub/MACE/glfw-3.0.4/tests/events.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/glfw-3.0.4/tests",
+  "command": "/usr/bin/cc    -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/include -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/deps    -Wall -o CMakeFiles/events.dir/__/deps/getopt.c.o   -c /home/udooer/Slumber/hub/MACE/glfw-3.0.4/deps/getopt.c",
+  "file": "/home/udooer/Slumber/hub/MACE/glfw-3.0.4/deps/getopt.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/glfw-3.0.4/tests",
+  "command": "/usr/bin/cc    -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/include -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/deps    -Wall -o CMakeFiles/fsaa.dir/fsaa.c.o   -c /home/udooer/Slumber/hub/MACE/glfw-3.0.4/tests/fsaa.c",
+  "file": "/home/udooer/Slumber/hub/MACE/glfw-3.0.4/tests/fsaa.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/glfw-3.0.4/tests",
+  "command": "/usr/bin/cc    -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/include -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/deps    -Wall -o CMakeFiles/fsaa.dir/__/deps/getopt.c.o   -c /home/udooer/Slumber/hub/MACE/glfw-3.0.4/deps/getopt.c",
+  "file": "/home/udooer/Slumber/hub/MACE/glfw-3.0.4/deps/getopt.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/glfw-3.0.4/tests",
+  "command": "/usr/bin/cc    -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/include -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/deps    -Wall -o CMakeFiles/gamma.dir/gamma.c.o   -c /home/udooer/Slumber/hub/MACE/glfw-3.0.4/tests/gamma.c",
+  "file": "/home/udooer/Slumber/hub/MACE/glfw-3.0.4/tests/gamma.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/glfw-3.0.4/tests",
+  "command": "/usr/bin/cc    -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/include -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/deps    -Wall -o CMakeFiles/gamma.dir/__/deps/getopt.c.o   -c /home/udooer/Slumber/hub/MACE/glfw-3.0.4/deps/getopt.c",
+  "file": "/home/udooer/Slumber/hub/MACE/glfw-3.0.4/deps/getopt.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/glfw-3.0.4/tests",
+  "command": "/usr/bin/cc    -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/include -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/deps    -Wall -o CMakeFiles/glfwinfo.dir/glfwinfo.c.o   -c /home/udooer/Slumber/hub/MACE/glfw-3.0.4/tests/glfwinfo.c",
+  "file": "/home/udooer/Slumber/hub/MACE/glfw-3.0.4/tests/glfwinfo.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/glfw-3.0.4/tests",
+  "command": "/usr/bin/cc    -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/include -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/deps    -Wall -o CMakeFiles/glfwinfo.dir/__/deps/getopt.c.o   -c /home/udooer/Slumber/hub/MACE/glfw-3.0.4/deps/getopt.c",
+  "file": "/home/udooer/Slumber/hub/MACE/glfw-3.0.4/deps/getopt.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/glfw-3.0.4/tests",
+  "command": "/usr/bin/cc    -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/include -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/deps    -Wall -o CMakeFiles/iconify.dir/iconify.c.o   -c /home/udooer/Slumber/hub/MACE/glfw-3.0.4/tests/iconify.c",
+  "file": "/home/udooer/Slumber/hub/MACE/glfw-3.0.4/tests/iconify.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/glfw-3.0.4/tests",
+  "command": "/usr/bin/cc    -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/include -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/deps    -Wall -o CMakeFiles/iconify.dir/__/deps/getopt.c.o   -c /home/udooer/Slumber/hub/MACE/glfw-3.0.4/deps/getopt.c",
+  "file": "/home/udooer/Slumber/hub/MACE/glfw-3.0.4/deps/getopt.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/glfw-3.0.4/tests",
+  "command": "/usr/bin/cc    -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/include -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/deps    -Wall -o CMakeFiles/joysticks.dir/joysticks.c.o   -c /home/udooer/Slumber/hub/MACE/glfw-3.0.4/tests/joysticks.c",
+  "file": "/home/udooer/Slumber/hub/MACE/glfw-3.0.4/tests/joysticks.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/glfw-3.0.4/tests",
+  "command": "/usr/bin/cc    -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/include -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/deps    -Wall -o CMakeFiles/modes.dir/modes.c.o   -c /home/udooer/Slumber/hub/MACE/glfw-3.0.4/tests/modes.c",
+  "file": "/home/udooer/Slumber/hub/MACE/glfw-3.0.4/tests/modes.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/glfw-3.0.4/tests",
+  "command": "/usr/bin/cc    -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/include -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/deps    -Wall -o CMakeFiles/modes.dir/__/deps/getopt.c.o   -c /home/udooer/Slumber/hub/MACE/glfw-3.0.4/deps/getopt.c",
+  "file": "/home/udooer/Slumber/hub/MACE/glfw-3.0.4/deps/getopt.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/glfw-3.0.4/tests",
+  "command": "/usr/bin/cc    -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/include -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/deps    -Wall -o CMakeFiles/peter.dir/peter.c.o   -c /home/udooer/Slumber/hub/MACE/glfw-3.0.4/tests/peter.c",
+  "file": "/home/udooer/Slumber/hub/MACE/glfw-3.0.4/tests/peter.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/glfw-3.0.4/tests",
+  "command": "/usr/bin/cc    -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/include -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/deps    -Wall -o CMakeFiles/reopen.dir/reopen.c.o   -c /home/udooer/Slumber/hub/MACE/glfw-3.0.4/tests/reopen.c",
+  "file": "/home/udooer/Slumber/hub/MACE/glfw-3.0.4/tests/reopen.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/glfw-3.0.4/tests",
+  "command": "/usr/bin/cc    -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/include -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/deps    -Wall -o CMakeFiles/sharing.dir/sharing.c.o   -c /home/udooer/Slumber/hub/MACE/glfw-3.0.4/tests/sharing.c",
+  "file": "/home/udooer/Slumber/hub/MACE/glfw-3.0.4/tests/sharing.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/glfw-3.0.4/tests",
+  "command": "/usr/bin/cc    -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/include -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/deps    -Wall -o CMakeFiles/tearing.dir/tearing.c.o   -c /home/udooer/Slumber/hub/MACE/glfw-3.0.4/tests/tearing.c",
+  "file": "/home/udooer/Slumber/hub/MACE/glfw-3.0.4/tests/tearing.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/glfw-3.0.4/tests",
+  "command": "/usr/bin/cc    -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/include -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/deps    -Wall -o CMakeFiles/threads.dir/threads.c.o   -c /home/udooer/Slumber/hub/MACE/glfw-3.0.4/tests/threads.c",
+  "file": "/home/udooer/Slumber/hub/MACE/glfw-3.0.4/tests/threads.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/glfw-3.0.4/tests",
+  "command": "/usr/bin/cc    -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/include -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/deps    -Wall -o CMakeFiles/threads.dir/__/deps/tinycthread.c.o   -c /home/udooer/Slumber/hub/MACE/glfw-3.0.4/deps/tinycthread.c",
+  "file": "/home/udooer/Slumber/hub/MACE/glfw-3.0.4/deps/tinycthread.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/glfw-3.0.4/tests",
+  "command": "/usr/bin/cc    -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/include -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/deps    -Wall -o CMakeFiles/title.dir/title.c.o   -c /home/udooer/Slumber/hub/MACE/glfw-3.0.4/tests/title.c",
+  "file": "/home/udooer/Slumber/hub/MACE/glfw-3.0.4/tests/title.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/glfw-3.0.4/tests",
+  "command": "/usr/bin/cc    -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/include -I/home/udooer/Slumber/hub/MACE/glfw-3.0.4/deps    -Wall -o CMakeFiles/windows.dir/windows.c.o   -c /home/udooer/Slumber/hub/MACE/glfw-3.0.4/tests/windows.c",
+  "file": "/home/udooer/Slumber/hub/MACE/glfw-3.0.4/tests/windows.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2",
+  "command": "/usr/bin/cc  -DFT2_BUILD_LIBRARY  -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/truetype -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/sfnt -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/autofit -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/smooth -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/raster -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psaux -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psnames    -o CMakeFiles/freetype.dir/src/autofit/autofit.c.o   -c /home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/autofit/autofit.c",
+  "file": "/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/autofit/autofit.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2",
+  "command": "/usr/bin/cc  -DFT2_BUILD_LIBRARY  -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/truetype -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/sfnt -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/autofit -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/smooth -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/raster -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psaux -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psnames    -o CMakeFiles/freetype.dir/src/base/ftadvanc.c.o   -c /home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/base/ftadvanc.c",
+  "file": "/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/base/ftadvanc.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2",
+  "command": "/usr/bin/cc  -DFT2_BUILD_LIBRARY  -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/truetype -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/sfnt -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/autofit -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/smooth -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/raster -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psaux -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psnames    -o CMakeFiles/freetype.dir/src/base/ftbbox.c.o   -c /home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/base/ftbbox.c",
+  "file": "/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/base/ftbbox.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2",
+  "command": "/usr/bin/cc  -DFT2_BUILD_LIBRARY  -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/truetype -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/sfnt -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/autofit -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/smooth -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/raster -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psaux -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psnames    -o CMakeFiles/freetype.dir/src/base/ftbitmap.c.o   -c /home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/base/ftbitmap.c",
+  "file": "/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/base/ftbitmap.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2",
+  "command": "/usr/bin/cc  -DFT2_BUILD_LIBRARY  -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/truetype -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/sfnt -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/autofit -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/smooth -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/raster -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psaux -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psnames    -o CMakeFiles/freetype.dir/src/base/ftcalc.c.o   -c /home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/base/ftcalc.c",
+  "file": "/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/base/ftcalc.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2",
+  "command": "/usr/bin/cc  -DFT2_BUILD_LIBRARY  -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/truetype -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/sfnt -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/autofit -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/smooth -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/raster -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psaux -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psnames    -o CMakeFiles/freetype.dir/src/base/ftcid.c.o   -c /home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/base/ftcid.c",
+  "file": "/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/base/ftcid.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2",
+  "command": "/usr/bin/cc  -DFT2_BUILD_LIBRARY  -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/truetype -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/sfnt -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/autofit -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/smooth -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/raster -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psaux -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psnames    -o CMakeFiles/freetype.dir/src/base/ftdbgmem.c.o   -c /home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/base/ftdbgmem.c",
+  "file": "/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/base/ftdbgmem.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2",
+  "command": "/usr/bin/cc  -DFT2_BUILD_LIBRARY  -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/truetype -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/sfnt -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/autofit -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/smooth -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/raster -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psaux -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psnames    -o CMakeFiles/freetype.dir/src/base/ftdebug.c.o   -c /home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/base/ftdebug.c",
+  "file": "/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/base/ftdebug.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2",
+  "command": "/usr/bin/cc  -DFT2_BUILD_LIBRARY  -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/truetype -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/sfnt -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/autofit -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/smooth -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/raster -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psaux -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psnames    -o CMakeFiles/freetype.dir/src/base/ftfstype.c.o   -c /home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/base/ftfstype.c",
+  "file": "/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/base/ftfstype.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2",
+  "command": "/usr/bin/cc  -DFT2_BUILD_LIBRARY  -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/truetype -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/sfnt -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/autofit -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/smooth -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/raster -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psaux -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psnames    -o CMakeFiles/freetype.dir/src/base/ftgasp.c.o   -c /home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/base/ftgasp.c",
+  "file": "/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/base/ftgasp.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2",
+  "command": "/usr/bin/cc  -DFT2_BUILD_LIBRARY  -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/truetype -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/sfnt -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/autofit -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/smooth -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/raster -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psaux -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psnames    -o CMakeFiles/freetype.dir/src/base/ftgloadr.c.o   -c /home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/base/ftgloadr.c",
+  "file": "/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/base/ftgloadr.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2",
+  "command": "/usr/bin/cc  -DFT2_BUILD_LIBRARY  -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/truetype -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/sfnt -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/autofit -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/smooth -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/raster -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psaux -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psnames    -o CMakeFiles/freetype.dir/src/base/ftglyph.c.o   -c /home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/base/ftglyph.c",
+  "file": "/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/base/ftglyph.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2",
+  "command": "/usr/bin/cc  -DFT2_BUILD_LIBRARY  -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/truetype -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/sfnt -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/autofit -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/smooth -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/raster -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psaux -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psnames    -o CMakeFiles/freetype.dir/src/base/ftgxval.c.o   -c /home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/base/ftgxval.c",
+  "file": "/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/base/ftgxval.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2",
+  "command": "/usr/bin/cc  -DFT2_BUILD_LIBRARY  -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/truetype -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/sfnt -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/autofit -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/smooth -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/raster -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psaux -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psnames    -o CMakeFiles/freetype.dir/src/base/ftinit.c.o   -c /home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/base/ftinit.c",
+  "file": "/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/base/ftinit.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2",
+  "command": "/usr/bin/cc  -DFT2_BUILD_LIBRARY  -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/truetype -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/sfnt -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/autofit -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/smooth -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/raster -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psaux -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psnames    -o CMakeFiles/freetype.dir/src/base/ftlcdfil.c.o   -c /home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/base/ftlcdfil.c",
+  "file": "/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/base/ftlcdfil.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2",
+  "command": "/usr/bin/cc  -DFT2_BUILD_LIBRARY  -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/truetype -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/sfnt -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/autofit -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/smooth -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/raster -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psaux -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psnames    -o CMakeFiles/freetype.dir/src/base/ftmm.c.o   -c /home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/base/ftmm.c",
+  "file": "/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/base/ftmm.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2",
+  "command": "/usr/bin/cc  -DFT2_BUILD_LIBRARY  -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/truetype -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/sfnt -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/autofit -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/smooth -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/raster -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psaux -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psnames    -o CMakeFiles/freetype.dir/src/base/ftobjs.c.o   -c /home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/base/ftobjs.c",
+  "file": "/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/base/ftobjs.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2",
+  "command": "/usr/bin/cc  -DFT2_BUILD_LIBRARY  -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/truetype -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/sfnt -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/autofit -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/smooth -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/raster -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psaux -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psnames    -o CMakeFiles/freetype.dir/src/base/ftotval.c.o   -c /home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/base/ftotval.c",
+  "file": "/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/base/ftotval.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2",
+  "command": "/usr/bin/cc  -DFT2_BUILD_LIBRARY  -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/truetype -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/sfnt -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/autofit -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/smooth -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/raster -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psaux -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psnames    -o CMakeFiles/freetype.dir/src/base/ftoutln.c.o   -c /home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/base/ftoutln.c",
+  "file": "/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/base/ftoutln.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2",
+  "command": "/usr/bin/cc  -DFT2_BUILD_LIBRARY  -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/truetype -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/sfnt -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/autofit -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/smooth -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/raster -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psaux -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psnames    -o CMakeFiles/freetype.dir/src/base/ftpatent.c.o   -c /home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/base/ftpatent.c",
+  "file": "/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/base/ftpatent.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2",
+  "command": "/usr/bin/cc  -DFT2_BUILD_LIBRARY  -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/truetype -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/sfnt -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/autofit -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/smooth -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/raster -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psaux -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psnames    -o CMakeFiles/freetype.dir/src/base/ftpfr.c.o   -c /home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/base/ftpfr.c",
+  "file": "/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/base/ftpfr.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2",
+  "command": "/usr/bin/cc  -DFT2_BUILD_LIBRARY  -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/truetype -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/sfnt -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/autofit -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/smooth -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/raster -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psaux -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psnames    -o CMakeFiles/freetype.dir/src/base/ftrfork.c.o   -c /home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/base/ftrfork.c",
+  "file": "/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/base/ftrfork.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2",
+  "command": "/usr/bin/cc  -DFT2_BUILD_LIBRARY  -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/truetype -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/sfnt -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/autofit -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/smooth -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/raster -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psaux -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psnames    -o CMakeFiles/freetype.dir/src/base/ftsnames.c.o   -c /home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/base/ftsnames.c",
+  "file": "/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/base/ftsnames.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2",
+  "command": "/usr/bin/cc  -DFT2_BUILD_LIBRARY  -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/truetype -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/sfnt -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/autofit -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/smooth -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/raster -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psaux -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psnames    -o CMakeFiles/freetype.dir/src/base/ftstream.c.o   -c /home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/base/ftstream.c",
+  "file": "/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/base/ftstream.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2",
+  "command": "/usr/bin/cc  -DFT2_BUILD_LIBRARY  -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/truetype -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/sfnt -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/autofit -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/smooth -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/raster -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psaux -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psnames    -o CMakeFiles/freetype.dir/src/base/ftstroke.c.o   -c /home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/base/ftstroke.c",
+  "file": "/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/base/ftstroke.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2",
+  "command": "/usr/bin/cc  -DFT2_BUILD_LIBRARY  -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/truetype -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/sfnt -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/autofit -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/smooth -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/raster -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psaux -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psnames    -o CMakeFiles/freetype.dir/src/base/ftsynth.c.o   -c /home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/base/ftsynth.c",
+  "file": "/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/base/ftsynth.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2",
+  "command": "/usr/bin/cc  -DFT2_BUILD_LIBRARY  -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/truetype -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/sfnt -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/autofit -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/smooth -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/raster -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psaux -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psnames    -o CMakeFiles/freetype.dir/src/base/ftsystem.c.o   -c /home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/base/ftsystem.c",
+  "file": "/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/base/ftsystem.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2",
+  "command": "/usr/bin/cc  -DFT2_BUILD_LIBRARY  -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/truetype -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/sfnt -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/autofit -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/smooth -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/raster -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psaux -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psnames    -o CMakeFiles/freetype.dir/src/base/fttrigon.c.o   -c /home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/base/fttrigon.c",
+  "file": "/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/base/fttrigon.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2",
+  "command": "/usr/bin/cc  -DFT2_BUILD_LIBRARY  -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/truetype -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/sfnt -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/autofit -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/smooth -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/raster -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psaux -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psnames    -o CMakeFiles/freetype.dir/src/base/fttype1.c.o   -c /home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/base/fttype1.c",
+  "file": "/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/base/fttype1.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2",
+  "command": "/usr/bin/cc  -DFT2_BUILD_LIBRARY  -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/truetype -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/sfnt -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/autofit -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/smooth -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/raster -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psaux -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psnames    -o CMakeFiles/freetype.dir/src/base/ftutil.c.o   -c /home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/base/ftutil.c",
+  "file": "/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/base/ftutil.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2",
+  "command": "/usr/bin/cc  -DFT2_BUILD_LIBRARY  -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/truetype -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/sfnt -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/autofit -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/smooth -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/raster -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psaux -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psnames    -o CMakeFiles/freetype.dir/src/base/ftwinfnt.c.o   -c /home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/base/ftwinfnt.c",
+  "file": "/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/base/ftwinfnt.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2",
+  "command": "/usr/bin/cc  -DFT2_BUILD_LIBRARY  -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/truetype -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/sfnt -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/autofit -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/smooth -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/raster -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psaux -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psnames    -o CMakeFiles/freetype.dir/src/base/ftxf86.c.o   -c /home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/base/ftxf86.c",
+  "file": "/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/base/ftxf86.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2",
+  "command": "/usr/bin/cc  -DFT2_BUILD_LIBRARY  -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/truetype -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/sfnt -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/autofit -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/smooth -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/raster -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psaux -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psnames    -o CMakeFiles/freetype.dir/src/bdf/bdf.c.o   -c /home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/bdf/bdf.c",
+  "file": "/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/bdf/bdf.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2",
+  "command": "/usr/bin/cc  -DFT2_BUILD_LIBRARY  -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/truetype -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/sfnt -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/autofit -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/smooth -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/raster -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psaux -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psnames    -o CMakeFiles/freetype.dir/src/bzip2/ftbzip2.c.o   -c /home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/bzip2/ftbzip2.c",
+  "file": "/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/bzip2/ftbzip2.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2",
+  "command": "/usr/bin/cc  -DFT2_BUILD_LIBRARY  -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/truetype -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/sfnt -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/autofit -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/smooth -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/raster -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psaux -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psnames    -o CMakeFiles/freetype.dir/src/cache/ftcache.c.o   -c /home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/cache/ftcache.c",
+  "file": "/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/cache/ftcache.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2",
+  "command": "/usr/bin/cc  -DFT2_BUILD_LIBRARY  -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/truetype -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/sfnt -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/autofit -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/smooth -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/raster -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psaux -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psnames    -o CMakeFiles/freetype.dir/src/cff/cff.c.o   -c /home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/cff/cff.c",
+  "file": "/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/cff/cff.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2",
+  "command": "/usr/bin/cc  -DFT2_BUILD_LIBRARY  -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/truetype -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/sfnt -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/autofit -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/smooth -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/raster -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psaux -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psnames    -o CMakeFiles/freetype.dir/src/cid/type1cid.c.o   -c /home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/cid/type1cid.c",
+  "file": "/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/cid/type1cid.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2",
+  "command": "/usr/bin/cc  -DFT2_BUILD_LIBRARY  -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/truetype -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/sfnt -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/autofit -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/smooth -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/raster -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psaux -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psnames    -o CMakeFiles/freetype.dir/src/gzip/ftgzip.c.o   -c /home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/gzip/ftgzip.c",
+  "file": "/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/gzip/ftgzip.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2",
+  "command": "/usr/bin/cc  -DFT2_BUILD_LIBRARY  -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/truetype -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/sfnt -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/autofit -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/smooth -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/raster -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psaux -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psnames    -o CMakeFiles/freetype.dir/src/lzw/ftlzw.c.o   -c /home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/lzw/ftlzw.c",
+  "file": "/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/lzw/ftlzw.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2",
+  "command": "/usr/bin/cc  -DFT2_BUILD_LIBRARY  -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/truetype -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/sfnt -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/autofit -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/smooth -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/raster -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psaux -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psnames    -o CMakeFiles/freetype.dir/src/pcf/pcf.c.o   -c /home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/pcf/pcf.c",
+  "file": "/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/pcf/pcf.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2",
+  "command": "/usr/bin/cc  -DFT2_BUILD_LIBRARY  -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/truetype -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/sfnt -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/autofit -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/smooth -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/raster -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psaux -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psnames    -o CMakeFiles/freetype.dir/src/pfr/pfr.c.o   -c /home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/pfr/pfr.c",
+  "file": "/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/pfr/pfr.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2",
+  "command": "/usr/bin/cc  -DFT2_BUILD_LIBRARY  -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/truetype -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/sfnt -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/autofit -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/smooth -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/raster -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psaux -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psnames    -o CMakeFiles/freetype.dir/src/psaux/psaux.c.o   -c /home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psaux/psaux.c",
+  "file": "/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psaux/psaux.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2",
+  "command": "/usr/bin/cc  -DFT2_BUILD_LIBRARY  -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/truetype -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/sfnt -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/autofit -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/smooth -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/raster -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psaux -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psnames    -o CMakeFiles/freetype.dir/src/pshinter/pshinter.c.o   -c /home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/pshinter/pshinter.c",
+  "file": "/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/pshinter/pshinter.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2",
+  "command": "/usr/bin/cc  -DFT2_BUILD_LIBRARY  -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/truetype -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/sfnt -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/autofit -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/smooth -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/raster -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psaux -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psnames    -o CMakeFiles/freetype.dir/src/psnames/psmodule.c.o   -c /home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psnames/psmodule.c",
+  "file": "/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psnames/psmodule.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2",
+  "command": "/usr/bin/cc  -DFT2_BUILD_LIBRARY  -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/truetype -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/sfnt -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/autofit -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/smooth -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/raster -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psaux -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psnames    -o CMakeFiles/freetype.dir/src/raster/raster.c.o   -c /home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/raster/raster.c",
+  "file": "/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/raster/raster.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2",
+  "command": "/usr/bin/cc  -DFT2_BUILD_LIBRARY  -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/truetype -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/sfnt -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/autofit -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/smooth -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/raster -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psaux -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psnames    -o CMakeFiles/freetype.dir/src/sfnt/sfnt.c.o   -c /home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/sfnt/sfnt.c",
+  "file": "/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/sfnt/sfnt.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2",
+  "command": "/usr/bin/cc  -DFT2_BUILD_LIBRARY  -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/truetype -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/sfnt -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/autofit -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/smooth -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/raster -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psaux -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psnames    -o CMakeFiles/freetype.dir/src/smooth/smooth.c.o   -c /home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/smooth/smooth.c",
+  "file": "/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/smooth/smooth.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2",
+  "command": "/usr/bin/cc  -DFT2_BUILD_LIBRARY  -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/truetype -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/sfnt -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/autofit -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/smooth -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/raster -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psaux -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psnames    -o CMakeFiles/freetype.dir/src/truetype/truetype.c.o   -c /home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/truetype/truetype.c",
+  "file": "/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/truetype/truetype.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2",
+  "command": "/usr/bin/cc  -DFT2_BUILD_LIBRARY  -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/truetype -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/sfnt -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/autofit -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/smooth -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/raster -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psaux -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psnames    -o CMakeFiles/freetype.dir/src/type1/type1.c.o   -c /home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/type1/type1.c",
+  "file": "/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/type1/type1.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2",
+  "command": "/usr/bin/cc  -DFT2_BUILD_LIBRARY  -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/truetype -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/sfnt -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/autofit -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/smooth -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/raster -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psaux -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psnames    -o CMakeFiles/freetype.dir/src/type42/type42.c.o   -c /home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/type42/type42.c",
+  "file": "/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/type42/type42.c"
+},
+{
+  "directory": "/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2",
+  "command": "/usr/bin/cc  -DFT2_BUILD_LIBRARY  -D HOSTMACHINE -static-libgcc -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/build/MACE/freetype-2.5.2/include -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/truetype -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/sfnt -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/autofit -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/smooth -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/raster -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psaux -I/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/psnames    -o CMakeFiles/freetype.dir/src/winfonts/winfnt.c.o   -c /home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/winfonts/winfnt.c",
+  "file": "/home/udooer/Slumber/hub/MACE/freetype-2.5.2/src/winfonts/winfnt.c"
 }
 ]
